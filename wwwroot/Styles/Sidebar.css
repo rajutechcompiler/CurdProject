@@ -1,0 +1,235 @@
+﻿.sidebar-right {
+    padding: 6px 6px 6px 6px;
+    overflow: hidden;
+    position: fixed;
+    display: block;
+    width: 240px;
+    bottom: 0px;
+    top: 60px;
+    right: 0px;
+ }
+ 
+ .sidebar-left {
+    padding: 6px 6px 6px 6px;
+    overflow: hidden;
+    position: fixed;
+    display: block;
+    width: 240px;
+    bottom: 0px;
+    top: 60px;
+    left: 0px;
+ }
+ 
+ .sidebarContainer {
+    position: relative;
+    height: 100%;
+    background: #FFF;
+ }
+ 
+ .sidebarContentDiv-left {
+    padding-bottom: 15px;
+    padding-top: 15px;
+    padding-left: 25%;
+    float: left;
+    height: 100%;
+    width: 190px;
+ }
+ 
+ .sidebarContentDiv-right {
+    padding-bottom: 15px;
+    float: right;
+    height: 100%;
+    width: 190px;
+ }
+ 
+ .sidebarCollapseBtnDiv-left {
+    float: left;
+    text-align: center;
+    height: 100%;
+    width: 34px;
+ }
+ 
+ .sidebarCollapseBtnDiv-right {
+    float: right;
+    text-align: center;
+    height: 100%;
+    width: 34px;
+ }
+ 
+ #sidebarCollapseBtn-left {
+    height: 100%;
+    width: 100%;
+    background-color: #e0dede;
+    border-radius: 0px;
+    visibility: hidden;
+ }
+ 
+ #sidebarCollapseBtn-right {
+    height: 100%;
+    width: 100%;
+    border-radius: 0px;
+    visibility: hidden;
+ }
+ 
+ @media screen and (max-width: 1024px) {
+    .sidebar-left {
+       transition: all 0.15s ease-out;
+       left: -202px;
+    }
+ 
+       .sidebar-left.activeSidebar {
+          left: 0;
+          z-index: 1000;
+       }
+ 
+    .sidebar-right {
+       transition: all 0.15s ease-out;
+       right: -202px;
+    }
+ 
+       .sidebar-right.activeSidebar {
+          right: 0;
+          z-index: 1000;
+       }
+ 
+    #sidebarCollapseBtn-left {
+       visibility: visible;
+    }
+ 
+       #sidebarCollapseBtn-left.collapseIcon {
+         -ms-transform: rotate(180deg);
+         -webkit-transform: rotate(180deg);
+         transform: rotate(180deg);
+       }
+ 
+    #sidebarCollapseBtn-right {
+       visibility: visible;
+    }
+ 
+       #sidebarCollapseBtn-right.collapseIcon {
+         -ms-transform: rotate(180deg);
+         -webkit-transform: rotate(180deg);
+         transform: rotate(180deg);
+       }
+ }
+ 
+ 
+ #sidebarCollapseBtn-left .fa, #sidebarCollapseBtn-right .fa {
+     font-size: 25px;
+     margin-left: -6px;
+ }
+ 
+ .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:active.focus, .btn.active.focus {outline: none;}
+
+ .attachment-cart{
+    /* border-bottom: 1px solid #ccc; */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 14px;
+    text-align: center;
+    /* border-radius: 4px 4px 0 0; */
+    color: #002949;
+    /* background: #f2f2f2; */
+    margin: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+ }
+ .attachment-action {
+    padding: 15px;
+    /* background: #f2f2f2; */
+    border-bottom: 1px solid #dbdbdb;
+    width: 100%;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+ #wrapper.toggled .sidebar-wrapper .attachment-action,#wrapper.toggled .sidebar-wrapper .attachment-cart{
+   margin-left: -250px
+ }
+
+ .attachment-list{
+    height: calc(100vh - 227px);
+    list-style: none;
+    padding: 0 0;
+    overflow: auto;
+ }
+ .attachment-list li {
+  padding: 9px 15px;
+  border-bottom: 1px dashed #bdbdbd;
+}
+.document-main {
+    margin-top: 15px;
+    width: 100%;
+
+}
+ .left {
+  padding: 6px 6px 6px 6px;
+  overflow: hidden;
+  display: block;
+  bottom: 0px;
+  top: 60px;
+  left: 0px;
+}
+.btn-toolbar .btn{
+	padding:6px 11px;
+}
+
+.ContentDiv-left {
+  padding-bottom: 15px;
+  /*padding-top: 15px;*/
+  /*padding-left: 15px;*/
+  height: 100%;
+}
+.attachment-container{
+	float: left;
+    min-width: 250px;
+}
+.document-workarea{
+    float:left;
+    /*display:none;*/
+}
+.document-area{
+	float: left;
+    height: calc(100vh - 205px);
+    /*overflow: auto;*/
+    width: 100%;
+}
+
+.f-s-20{
+  font-size: 20px;
+}
+
+.sidebar-menu{
+  margin-left: 15px; 
+  width: 100%;
+}
+
+.sidebar-padding{
+  padding: 5.5px 6px !important;
+}
+
+.p-r-5{
+  padding-right: 5px;
+}
+
+.m-t-5{
+  margin-top: -6px !important;
+}
+.tab_btn img {
+  width: 22px;
+  height: auto;
+}
+.sidebar-tab-conent{
+  padding: 0px 24px 0px 6px;
+  overflow: auto;
+  text-align: center;
+  height: calc(100vh - 240px);
+}
+.attachment-block {
+  border: 1px solid #d8d8d8;
+  margin-bottom: 10px;
+  background: #efefef;
+}

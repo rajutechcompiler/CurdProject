@@ -1,0 +1,166 @@
+﻿@using TabFusionRMS.Resource
+@model RetentionInfo
+
+<style type="text/css">
+    .gridHeader {
+        Font-Size: 14px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 600;
+        background-color: #e7e7e7;
+        color: #000;
+        padding-left: 5px;
+    }
+
+    .gridData {
+        Font-Size: 14px;
+        font-family: 'Open Sans', sans-serif;
+        color: #000;
+        padding-left: 5px;
+    }
+</style>
+<br />
+<div class="modal-body">
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-sm-12">
+                <label class="control-label col-sm-3">@Languages.get_Translation("lblRetentionInfoRetCode") </label>
+                <div class="col-sm-9">
+
+                    @if(Model.DDLDrop = false){
+                        <select id="ddlRetentionCode" Class="form-control" disabled="disabled">
+                            <option></option>
+                            @foreach (var item in Model.DropdownRetentionCode){
+                                if(item.selected) {
+                                    <option selected value="@item.value">@item.text</option>
+                                }
+                            }
+                            </select>
+                    }
+                            else {
+                            <select id="ddlRetentionCode" Class="form-control">
+                                <option></option>
+                                @foreach (var item in Model.DropdownRetentionCode) {
+                                    if (item.selected) {
+                                        <option selected value="@item.value">@item.text</option>
+                                    }
+                                 else {
+                                        <option value="@item.value">@item.text</option>
+                                    }
+                                }
+                            </select>
+                        }
+
+                </div>
+            </div>
+        </div>
+        <div Class="form-group">
+            <div Class="col-sm-12">
+                <Label Class="control-label col-sm-3">@Languages.get_Translation("lblRetentionInfoDescription")</Label>
+                <div Class="col-sm-9 m-t-5">
+                    @if(Model.RetentionDescription != String.Empty){
+                        <Label id="RetinCodeDesc">@Model.RetentionDescription</Label>
+                    }
+                    else{
+                        <Label id="RetinCodeDesc">N/A</Label>
+                    }
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div Class="form-group">
+            <div Class="col-sm-12">
+                <Label Class="control-label col-sm-3">@Languages.get_Translation("lblRetentionInfoRetItem")</Label>
+                <div Class="col-sm-9 m-t-5">
+                    <Label ID="RetinItemName" Text="Label">@Model.RetentionItem</Label>
+                </div>
+            </div>
+        </div>
+        <div Class="form-group">
+            <div Class="col-sm-12">
+                <Label Class="control-label col-sm-3">@Languages.get_Translation("lblRetentionInfoRetStatus")</Label>
+                <div Class="col-sm-9 m-t-5">
+                    @if (Model.RetentionStatus.color.Text() == "red") {
+                        <label id="RetinStatus" style="color:red" Text="Label">@Model.RetentionStatus.text</label>
+                    }
+                    else{
+                        <label id="RetinStatus" Text="Label">@Model.RetentionStatus.text</label>
+                    }
+                </div>
+            </div>
+        </div>
+        <div Class="form-group">
+            <div Class="col-sm-12">
+                <Label Class="control-label col-sm-3">@Languages.get_Translation("lblRetentionInfoInactivityDate")</Label>
+                <div Class="col-sm-9 m-t-5">
+                    @if (Model.RetentionInfoInactivityDate.color.Text() == "red") {
+                        <label id="RetinInactiveDate" style="color:red">@Model.RetentionInfoInactivityDate.text</label>
+                    }
+                       else if( Model.RetentionInfoInactivityDate.color.Text() == "black") {
+                        <label id="RetinInactiveDate" style="color:black">@Model.RetentionInfoInactivityDate.text</label>
+                        }
+                </div>
+            </div>
+        </div>
+        <div Class="form-group">
+            <div Class="col-sm-12">
+                <Label id="lblRetinArchive" Class="control-label col-sm-3">@Model.lblRetentionArchive</Label>
+                <div Class="col-sm-9 m-t-5">
+                    @if (Model.RetentionArchive.color.Text() == "red") {
+                        <label id="RetinArchive" style="color:red">@Model.RetentionArchive.text</label>
+                    }
+                    else if(Model.RetentionArchive.color.Text() == "black") {
+                        <label id="RetinArchive" style="color:black">@Model.RetentionArchive.text</label>
+                    }
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div Class="form-group">
+            <div Class="col-sm-12">
+                <div id="handsOnTableRetinfo" style="display:none;">
+
+                </div>
+            </div>
+        </div>
+        <div Class="form-group">
+            <div Class="col-sm-12">
+
+                @if( Model.Disposed && Model.DispositionType != 0){
+                    <Button id="btnAddRetin" disabled="disabled" Class="btn btn-success">@Languages.get_Translation("Add")</Button>
+                }
+                    else{
+                    <Button id="btnAddRetin" Class="btn btn-success">@Languages.get_Translation("Add")</Button>
+                    }
+                @if( Model.ListOfRows.Count > 0) {
+                    <Button id="btnEditRetin" Class="btn btn-success">@Languages.get_Translation("Edit")</Button>
+                }
+                 else{
+                    <Button id="btnEditRetin" disabled="disabled" Class="btn btn-success">@Languages.get_Translation("Edit")</Button>
+                    }
+                   
+                @if (Model.ListOfRows.Count > 0) {
+                    <Button id="btnRemoveRetin" Class="btn btn-danger pull-right">@Languages.get_Translation("Remove")</Button>
+                }
+                else{
+                    <Button id="btnRemoveRetin" disabled="disabled" Class="btn btn-danger pull-right">@Languages.get_Translation("Remove")</Button>
+               }
+            </div>
+        </div>
+    </div>
+    <div Class="modal-footer">
+        @*<div Class="col-xs-12">*@
+        <div Class="row">
+            <Button id="btnCancelRetin" Class="btn btn-default" style="float:right;">@Languages.get_Translation("Cancel")</Button>
+            @if (Model.Disposed && Model.DispositionType != 0){
+                <Button disabled="disabled" id="btnOkRetin" Class="btn btn-success" style="float:right;margin-right:5px;">@Languages.get_Translation("Save")</Button>
+            }
+                else{
+                <Button id="btnOkRetin" Class="btn btn-success" style="float:right;margin-right:5px;">@Languages.get_Translation("Save")</Button>
+                }
+        </div>
+    </div>
+</div>
+
+<Script>
+      var retinfodata = @Html.Raw(Json.Serialize(Model));
+</Script>

@@ -1,0 +1,3256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>Leadtools.ColorConversion</name>
+  </assembly>
+  <members>
+    <member name="T:Leadtools.ColorConversion.ConversionParameters">
+      <summary>Provides information about the conversion options.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.ConversionParameters.#ctor">
+      <summary>Initializes a new instance of the ConversionParameters class.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.ConversionParameters.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.ConversionParameters.ActiveMethod">
+      <summary>Gets or sets the active conversion method.</summary>
+      <value>The active conversion method. Possible values should be one and only one type of the ConversionMethodFlags enum types:</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.ConversionParameters.CmykParameters">
+      <summary>Gets or sets the CMYK conversion properties.</summary>
+      <value>A ConversionCmykParameters structure that contains the CIELab conversion properties.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.ConversionParameters.DestinationInputTable">
+      <summary>Gets or sets a character string that contains the destination image name for emulation, used with the ConversionMethodFlags.UseCustomEmulationTables active conversion method.</summary>
+      <value>Character string that contains the destination image name for emulation used with the ConversionMethodFlags.ConversionMethodFlags.UseCustomEmulationTables active conversion method (ActiveMethod property).</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.ConversionParameters.DisableWhitePointAdjustment">
+      <summary>Enables or disables automatic white point adjustment.</summary>
+      <value>true to disable the automatic white point adjustment</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.ConversionParameters.InputProfile">
+      <summary>Gets or sets a character string that contains the input profile name, used with the ConversionMethodFlags.UseCustomIcc active conversion method.</summary>
+      <value>Character string that contains the input file name used with the ConversionMethodFlags.ConversionMethodFlags.UseCustomIcc active conversion method (ActiveMethod property).</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.ConversionParameters.InputProfileData">
+      <summary>Gets or sets a byte array that contains information about the input memory profile to be used as the input profile.</summary>
+      <value>A byte array that contains information about the input memory profile to be used as the input profile.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.ConversionParameters.LabParameters">
+      <summary>Gets or sets the CIELab conversion properties.</summary>
+      <value>A ConversionLabParameters structure that contains the CIELab conversion properties.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.ConversionParameters.Method">
+      <summary>Gets or sets a value indicating the conversion method or the property to be changed.</summary>
+      <value>This property works in one of two ways:</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.ConversionParameters.OutputProfile">
+      <summary>Gets or sets a string that contains the output profile name, used with the ConversionMethodFlags.ConversionMethodFlags.UseCustomIcc active conversion method.</summary>
+      <value>String that contains the output file name used with the ConversionMethodFlags.ConversionMethodFlags.UseCustomIcc active conversion method (ActiveMethod property).</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.ConversionParameters.OutputProfileData">
+      <summary>Gets or sets a byte array that contains information about the output memory profile to be used as the output profile.</summary>
+      <value>A byte array that contains information about the output memory profile to be used as the output profile.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.ConversionParameters.Quantization">
+      <summary>Gets or sets the Quantization level.</summary>
+      <value>Quantization Level, must be 8.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.ConversionParameters.WhitePoint">
+      <summary>Gets or sets the white point properties.</summary>
+      <value>The white point properties.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.ConversionParameters.YuvParameters">
+      <summary>Gets or sets the YUV conversion properties.</summary>
+      <value>A ConversionYuvParameters structure that contains the CIELab conversion properties.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccChromaticityTagType">
+      <summary>Contains the chromaticityType tag type data.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccChromaticityTagType.#ctor">
+      <summary>Initializes a new IccChromaticityTagType with default parameters.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccChromaticityTagType.#ctor(Leadtools.ColorConversion.IccChromaticity)">
+      <summary>Initializes a new IccChromaticityTagType with explicit parameters.</summary>
+      <param name="chromaticity">IccChromaticity structure that contains the tag data.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccChromaticityTagType.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccChromaticityTagType.Chromaticity">
+      <summary>Gets or sets the IccChromaticity structure.</summary>
+      <value>IccChromaticity structure that contains the tag data.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccColorantOrderTagType">
+      <summary>Contains the colorantOrderType tag type data.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccColorantOrderTagType.#ctor">
+      <summary>Initializes a new IccColorantOrderTagType with default parameters.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccColorantOrderTagType.#ctor(System.Byte[])">
+      <summary>Initializes a new IccColorantOrderTagType with explicit parameters.</summary>
+      <param name="colorantsData">Array that contains the tag's data.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccColorantOrderTagType.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>Character String that contains the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccColorantOrderTagType.ColorantsData">
+      <summary>Gets or sets the chromaticity colorant data.</summary>
+      <value>Array that contains the tag's data.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccColorantTableTagType">
+      <summary>Contains the colorantTableType tag type data.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccColorantTableTagType.#ctor">
+      <summary>Initializes a new IccColorantTableTagType with default parameters.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccColorantTableTagType.#ctor(Leadtools.ColorConversion.IccColorantTableData[])">
+      <summary>Initializes a new IccColorantTableTagType with explicit parameters.</summary>
+      <param name="colorantsData">IccColorantTableData structure that contains the tag's data.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccColorantTableTagType.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccColorantTableTagType.ColorantsData">
+      <summary>Gets or sets the IccColorantTableData structure.</summary>
+      <value>IccColorantTableData structure that contains the tag's data.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccColorLookupTable16Bit">
+      <summary>Contains the color lookup table data (CLUT) encoding for the lutAtoBType or lutBToAType tag types.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccColorLookupTable16Bit.#ctor">
+      <summary>Initializes a new IccColorLookupTable16Bit with default parameters.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccColorLookupTable16Bit.#ctor(System.Byte[],System.Byte,System.UInt16[])">
+      <summary>Initializes a new IccColorLookupTable16Bit with explicit parameters.</summary>
+      <param name="numberOfGridPoints">Array that contains the number of grid points in each dimension.</param>
+      <param name="precision">Precision of data elements in bytes. Must be 02h.</param>
+      <param name="data">Buffer of color lookup table data points. The size of each element is 2 byte. (Hence the "16Bit" in the class name).</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccColorLookupTable16Bit.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccColorLookupTable16Bit.Data">
+      <summary>Gets or sets color lookup table data points.</summary>
+      <value>Buffer of color lookup table data points. The size of each element is 2 byte. (Hence the "16Bit" in the class name).</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccColorLookupTable8Bit">
+      <summary>Contains the color lookup table data (CLUT) encoding for the lutAtoBType or lutBToAType tag types.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccColorLookupTable8Bit.#ctor">
+      <summary>Initializes a new IccColorLookupTable8Bit with default parameters.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccColorLookupTable8Bit.#ctor(System.Byte[],System.Byte,System.Byte[])">
+      <summary>Initializes a new IccColorLookupTable8Bit with explicit parameters.</summary>
+      <param name="numberOfGridPoints">Array that contains the number of grid points in each dimension.</param>
+      <param name="precision">Precision of data elements, in bytes. Must be 01h.</param>
+      <param name="data">Buffer of color lookup table data points. The size of each element is 1 byte.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccColorLookupTable8Bit.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccColorLookupTable8Bit.Data">
+      <summary>Gets or sets color lookup table data points.</summary>
+      <value>Buffer of color lookup table data points. The size of each element is 1 byte. (Hence the "8Bit" in the class name).</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccColorLookupTableBase">
+      <summary>Contains basic data required for both IccColorLookupTable8Bit and IccColorLookupTable16Bit classes.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccColorLookupTableBase.#ctor">
+      <summary>Initializes a new instance of the IccColorLookupTableBase class.</summary>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccColorLookupTableBase.NumberOfGridPoints">
+      <summary>Gets or sets the array of number of grid points in each dimension.</summary>
+      <value>Array of number of grid points in each dimension.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccColorLookupTableBase.Pad">
+      <summary>Gets the bytes used for padding.</summary>
+      <value>Array of 3 bytes reserved for padding.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccColorLookupTableBase.Precision">
+      <summary>Gets or sets the precision of data.</summary>
+      <value>Precision of data elements in bytes. Must be 01h.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccCurveTagType">
+      <summary>Contains the curveType tag type data.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccCurveTagType.#ctor">
+      <summary>Initializes a new IccCurveTagType with default parameters.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccCurveTagType.#ctor(Leadtools.ColorConversion.IccCurve)">
+      <summary>Initializes a new IccCurveTagType with explicit parameters.</summary>
+      <param name="curve">IccCurve structure that contains the tag's data.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccCurveTagType.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccCurveTagType.Curve">
+      <summary>Gets or sets the IccCurve structure.</summary>
+      <value>IccCurve structure that contains the tag's data.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccDataTagType">
+      <summary>Contains the dataType tag type data.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccDataTagType.#ctor">
+      <summary>Initializes a new IccDataTagType with default parameters.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccDataTagType.#ctor(Leadtools.ColorConversion.IccData)">
+      <summary>Initializes a new IccDataTagType with explicit parameters.</summary>
+      <param name="data">IccData structure that contains the tag's data.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccDataTagType.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccDataTagType.Data">
+      <summary>Gets or sets the IccData structure.</summary>
+      <value>IccData structure that contains the tag's data.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccDateTimeTagType">
+      <summary>Contains the dateTimeType tag type data.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccDateTimeTagType.#ctor">
+      <summary>Initializes a new IccDateTimeTagType with default parameters.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccDateTimeTagType.#ctor(Leadtools.ColorConversion.IccDateTime)">
+      <summary>Initializes a new IccDateTimeTagType with explicit parameters.</summary>
+      <param name="dateTime">IccDateTime structure that contains the tag's data.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccDateTimeTagType.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccDateTimeTagType.DateTime">
+      <summary>Gets or sets the IccDateTime structure.</summary>
+      <value>IccDateTime structure that contains the tag's data.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccLookupTable16TagType">
+      <summary>Contains the lut16Type tag type data.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccLookupTable16TagType.#ctor">
+      <summary>Initializes a new IccLookupTable16TagType with default parameters.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccLookupTable16TagType.#ctor(Leadtools.ColorConversion.IccLookupTable16)">
+      <summary>Initializes a new IccLookupTable16TagType with explicit parameters.</summary>
+      <param name="lookupTable16">IccLookupTable16 structure that contains the tag's data.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccLookupTable16TagType.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTable16TagType.LookupTable16">
+      <summary>Gets or sets the IccLookupTable16 structure.</summary>
+      <value>IccLookupTable16 structure that contains the tag's data.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccLookupTable8TagType">
+      <summary>Contains the lut8Type tag type data.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccLookupTable8TagType.#ctor">
+      <summary>Initializes a new IccLookupTable8TagType with default parameters.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccLookupTable8TagType.#ctor(Leadtools.ColorConversion.IccLookupTable8)">
+      <summary>Initializes a new IccLookupTable8TagType with explicit parameters.</summary>
+      <param name="lookupTable8">IccLookupTable8 structure that contains the tag's data.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccLookupTable8TagType.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTable8TagType.LookupTable8">
+      <summary>Gets or sets the IccLookupTable8 structure.</summary>
+      <value>IccLookupTable8 structure that contains the tag's data.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccLookupTableAToBTagType">
+      <summary>Contains the lutAToBType tag type data.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccLookupTableAToBTagType.#ctor">
+      <summary>Initializes a new IccLookupTableAToBTagType with default parameters.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccLookupTableAToBTagType.#ctor(System.Int32,System.Int32,Leadtools.ColorConversion.IccTagTypeBase[],Leadtools.ColorConversion.IccTagTypeBase[],Leadtools.ColorConversion.IccTagTypeBase[],Leadtools.ColorConversion.IccColorLookupTableBase,Leadtools.ColorConversion.IccMatrix)">
+      <summary>Initializes a new IccLookupTableAToBTagType with explicit parameters.</summary>
+      <param name="inputChannels">Number of input channels.</param>
+      <param name="outputChannels">Number of output channels.</param>
+      <param name="curveB">Array that contains the B curves data of type IccCurveTagType or IccParametricCurveTagType.</param>
+      <param name="curveM">Array that contains the M curves data of type IccCurveTagType or IccParametricCurveTagType.</param>
+      <param name="curveA">Array that contains the A curves data of type IccCurveTagType or IccParametricCurveTagType.</param>
+      <param name="colorLookupTable">Array that contains the CLUT data of type IccColorLookupTable8Bit or IccColorLookupTable16Bit.</param>
+      <param name="matrix">IccMatrix class that contains the Matrix data.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccLookupTableAToBTagType.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTableAToBTagType.ColorLookupTable">
+      <summary>Gets or sets the CLUT data.</summary>
+      <value>Array that contains the CLUT data of type IccColorLookupTable8Bit or IccColorLookupTable16Bit.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTableAToBTagType.CurveA">
+      <summary>Gets or sets the A curves data.</summary>
+      <value>Array that contains the A curves data of type IccCurveTagType or IccParametricCurveTagType.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTableAToBTagType.CurveB">
+      <summary>Gets or sets the B curves data.</summary>
+      <value>Array that contains the B curves data of type IccCurveTagType or IccParametricCurveTagType.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTableAToBTagType.CurveM">
+      <summary>Gets or sets the M curves data.</summary>
+      <value>Array that contains the M curves data of type IccCurveTagType or IccParametricCurveTagType.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTableAToBTagType.Data">
+      <summary>Gets the tag's data.</summary>
+      <value>Array that contains tag's data.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTableAToBTagType.InputChannels">
+      <summary>Gets or sets the number of input channels.</summary>
+      <value>Number of input channels.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTableAToBTagType.Matrix">
+      <summary>Gets or sets the IccMatrix class.</summary>
+      <value>IccMatrix class that contains the Matrix data.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTableAToBTagType.OffsetToColorLookupTable">
+      <summary>Gets the offset to the first CLUT.</summary>
+      <value>Offset to first CLUT.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTableAToBTagType.OffsetToCurveA">
+      <summary>Gets the offset to the first "A" curve.</summary>
+      <value>Offset to first "A" curve.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTableAToBTagType.OffsetToCurveB">
+      <summary>Gets the offset to the first "B" curve.</summary>
+      <value>Offset to first "B" curve.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTableAToBTagType.OffsetToCurveM">
+      <summary>Gets the offset to the first "M" curve.</summary>
+      <value>Offset to first "M" curve.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTableAToBTagType.OffsetToMatrix">
+      <summary>Gets the offset to the first matrix.</summary>
+      <value>Offset to first matrix.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTableAToBTagType.OutputChannels">
+      <summary>Gets or sets the number of output channels.</summary>
+      <value>Number of output channels.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTableAToBTagType.Pad">
+      <summary>Gets the reserved bytes.</summary>
+      <value>Reserved bytes for padding, must be set to zero.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccLookupTableBToATagType">
+      <summary>Contains the lutBToAType tag type data.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccLookupTableBToATagType.#ctor">
+      <summary>Initializes a new IccLookupTableBToATagType with default parameters.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccLookupTableBToATagType.#ctor(System.Int32,System.Int32,Leadtools.ColorConversion.IccTagTypeBase[],Leadtools.ColorConversion.IccTagTypeBase[],Leadtools.ColorConversion.IccTagTypeBase[],Leadtools.ColorConversion.IccColorLookupTableBase,Leadtools.ColorConversion.IccMatrix)">
+      <summary>Initializes a new IccLookupTableBToATagType with explicit parameters.</summary>
+      <param name="inputChannels">Number of input channels.</param>
+      <param name="outputChannels">Number of output channels.</param>
+      <param name="curveB">Array that contains the B curves data of type IccCurveTagType or IccParametricCurveTagType.</param>
+      <param name="curveM">Array that contains the M curves data of type IccCurveTagType or IccParametricCurveTagType.</param>
+      <param name="curveA">Array that contains the A curves data of type IccCurveTagType or IccParametricCurveTagType.</param>
+      <param name="colorLookupTable">Array that contains the CLUT data of type IccColorLookupTable8Bit or IccColorLookupTable16Bit.</param>
+      <param name="matrix">IccMatrix class that contains the Matrix data.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccLookupTableBToATagType.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTableBToATagType.ColorLookupTable">
+      <summary>Gets or sets the CLUT data.</summary>
+      <value>Array that contains the CLUT data of type IccColorLookupTable8Bit or IccColorLookupTable16Bit.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTableBToATagType.CurveA">
+      <summary>Gets or sets the A curves data.</summary>
+      <value>Array that contains the A curves data of type IccCurveTagType or IccParametricCurveTagType.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTableBToATagType.CurveB">
+      <summary>Gets or sets the B curves data.</summary>
+      <value>Array that contains the B curves data of type IccCurveTagType or IccParametricCurveTagType.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTableBToATagType.CurveM">
+      <summary>Gets or sets the M curves data.</summary>
+      <value>Array that contains the M curves data of type IccCurveTagType or IccParametricCurveTagType.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTableBToATagType.Data">
+      <summary>Gets the tag's data.</summary>
+      <value>Array that contains tag's data.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTableBToATagType.InputChannels">
+      <summary>Gets or sets the number of input channels.</summary>
+      <value>Number of input channels.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTableBToATagType.Matrix">
+      <summary>Gets or sets the IccMatrix class.</summary>
+      <value>IccMatrix class that contains the Matrix data.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTableBToATagType.OffsetToColorLookupTable">
+      <summary>Gets the offset to the first CLUT.</summary>
+      <value>Offset to first CLUT.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTableBToATagType.OffsetToCurveA">
+      <summary>Gets the offset to the first "A" curve.</summary>
+      <value>Offset to first "A" curve.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTableBToATagType.OffsetToCurveB">
+      <summary>Gets the offset to the first "B" curve.</summary>
+      <value>Offset to first "B" curve.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTableBToATagType.OffsetToCurveM">
+      <summary>Gets the offset to the first "M" curve.</summary>
+      <value>Offset to first "M" curve.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTableBToATagType.OffsetToMatrix">
+      <summary>Gets the offset to the first matrix.</summary>
+      <value>Offset to first matrix.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTableBToATagType.OutputChannels">
+      <summary>Gets or sets the number of output channels.</summary>
+      <value>Number of output channels.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTableBToATagType.Pad">
+      <summary>Gets the reserved bytes.</summary>
+      <value>Reserved bytes for padding, must be set to zero.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccMeasurementTagType">
+      <summary>Contains the measurementType tag type data.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccMeasurementTagType.#ctor">
+      <summary>Initializes a new IccMeasurementTagType with default parameters.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccMeasurementTagType.#ctor(Leadtools.ColorConversion.IccMeasurement)">
+      <summary>Initializes a new IccMeasurementTagType with explicit parameters.</summary>
+      <param name="measurement">IccMeasurement structure that contains the tag's data.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccMeasurementTagType.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccMeasurementTagType.Measurement">
+      <summary>Gets or sets the IccMeasurement structure.</summary>
+      <value>IccMeasurement structure that contains the tag's data.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccMultiLocalizedUnicodeTagType">
+      <summary>Contains the multiLocalizedUnicodeType tag type data.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccMultiLocalizedUnicodeTagType.#ctor">
+      <summary>Initializes a new IccMultiLocalizedUnicodeTagType with default parameters.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccMultiLocalizedUnicodeTagType.#ctor(Leadtools.ColorConversion.IccMultiLocalizedUnicode)">
+      <summary>Initializes a new IccMultiLocalizedUnicodeTagType with explicit parameters.</summary>
+      <param name="multiLocalizedUnicode">IccMultiLocalizedUnicode structure that contains the tag's data.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccMultiLocalizedUnicodeTagType.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccMultiLocalizedUnicodeTagType.MultiLocalizedUnicode">
+      <summary>Gets or sets the IccMultiLocalizedUnicode structure.</summary>
+      <value>**IccMultiLocalizedUnicode** structure that contains the tag's data.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccNamedColor2TagType">
+      <summary>Contains the namedColor2Type tag type data.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccNamedColor2TagType.#ctor">
+      <summary>Initializes a new IccNamedColor2TagType with default parameters.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccNamedColor2TagType.#ctor(Leadtools.ColorConversion.IccNamedColor2)">
+      <summary>Initializes a new IccNamedColor2TagType with explicit parameters.</summary>
+      <param name="namedColor">IccNamedColor2 structure that contains the tag's data.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccNamedColor2TagType.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccNamedColor2TagType.NamedColor">
+      <summary>Gets or sets the IccNamedColor2 structure.</summary>
+      <value>IccNamedColor2 structure that contains the tag's data.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccParametricCurveTagType">
+      <summary>Contains the parametricCurveType tag type data.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccParametricCurveTagType.#ctor">
+      <summary>Initializes a new IccParametricCurveTagType with default parameters.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccParametricCurveTagType.#ctor(Leadtools.ColorConversion.IccParametricCurve)">
+      <summary>Initializes a new IccParametricCurveTagType with explicit parameters.</summary>
+      <param name="parametricCurve">IccParametricCurve structure that contains the tag's data.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccParametricCurveTagType.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccParametricCurveTagType.ParametricCurve">
+      <summary>Gets or sets the IccParametricCurve structure.</summary>
+      <value>IccParametricCurve structure that contains the tag's data.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccProfileExtended">
+      <summary>Contains all of the data for a complete ICC profile.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccProfileExtended.#ctor">
+      <summary>Initializes a new IccProfileExtended with default parameters.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccProfileExtended.#ctor(System.Byte[])">
+      <summary>Initializes a new IccProfileExtended with explicit parameters.</summary>
+      <param name="data">Array that contains all the ICC Profile's data.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccProfileExtended.#ctor(Leadtools.ColorConversion.IccHeader,Leadtools.ColorConversion.IccTagList,System.Byte[],System.Byte[])">
+      <summary>Initializes a new IccProfileExtended with explicit parameters.</summary>
+      <param name="header">IccHeader class that has all the ICC header's data.</param>
+      <param name="tagList">IccTagList class that contains information and data about all the tags in the ICC profile.</param>
+      <param name="tagData">Array that contains all the tags data.</param>
+      <param name="data">Array that contains all the ICC profile's data.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccProfileExtended.#ctor(System.String)">
+      <summary>Initializes a new IccProfileExtended with explicit parameters.</summary>
+      <param name="fileName">File name of ICC file to be loaded into the new object.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccProfileExtended.AddTag(Leadtools.ColorConversion.IccTagTypeBase,System.Int32,System.Int32)">
+      <summary>Adds a new tag to the ICC profile.</summary>
+      <param name="tagTypeObject">Icc class object that contains the tag data.</param>
+      <param name="tagSignature">Tag signature. For possible values refer to IccTag.</param>
+      <param name="tagTypeSignature">Tag type signature. For possible values refer to IccTagTypeBase</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccProfileExtended.DeleteTag(System.Int32)">
+      <summary>Deletes an existing tag from the ICC profile and returns it to the user.</summary>
+      <param name="tagSignature">tag signature for the tag to be deleted and returned.</param>
+      <returns>Object that contains the deleted tag, casted to the proper ICC tag class.</returns>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccProfileExtended.GenerateIccFile(System.String)">
+      <summary>Generates an ICC profile.</summary>
+      <param name="fileName">File name of the generated ICC profile.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccProfileExtended.GenerateProfileId">
+      <summary>Generates the profile ID. Call this function right before calling GenerateIccFile.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccProfileExtended.GetTag(System.Int32)">
+      <summary>Gets an existing tag from the ICC profile.</summary>
+      <param name="tagSignature">Tag signature for the tag to be returned.</param>
+      <returns>Object that contains the requested tag, casted to the proper ICC tag class.</returns>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccProfileExtended.GetTagTypeSignature(System.Int32)">
+      <summary>Gets the tag type signature of the tag with the given tag signature.</summary>
+      <param name="tagSignature">Tag signature whose tag type to be returned. For possible values, refer to IccTag.</param>
+      <returns>Tag type of the tag with the given tag signature.</returns>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccProfileExtended.ImageHasIccProfile(System.IO.Stream,System.Int32)">
+      <summary>Determines whether a stream has an embedded ICC profile.</summary>
+      <param name="stream">The stream containing the ICC profile.</param>
+      <param name="pageNumber">1-based index of the page within the file that contains the ICC profile.</param>
+      <returns>true if this stream has an embedded ICC Profile; **false**, if it does not.</returns>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccProfileExtended.ImageHasIccProfile(System.String,System.Int32)">
+      <summary>Determines whether a file has an embedded ICC profile.</summary>
+      <param name="fileName">Character string containing the name of the file that contains the embedded ICC profile.</param>
+      <param name="pageNumber">1-based index of the page within the file that contains the ICC profile.</param>
+      <returns>true if this file has an ICC Profile; **false**, otherwise.</returns>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccProfileExtended.ReadFromImage(System.IO.Stream,System.Int32)">
+      <summary>Loads an embedded ICC profile from a stream.</summary>
+      <param name="stream">The stream containing the ICC profile.</param>
+      <param name="pageNumber">1-based index of the page within the file that contains the ICC profile.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccProfileExtended.ReadFromImage(System.String,System.Int32)">
+      <summary>Loads an embedded ICC profile from a file.</summary>
+      <param name="fileName">Character string containing the name of the file that contains the embedded ICC profile.</param>
+      <param name="pageNumber">1-based index of the page within the file that contains the ICC profile.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccProfileExtended.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccProfileExtended.UpdateDataArray">
+      <summary>Updates the Data array to reflect the latest changes.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccProfileExtended.WriteToImage(System.IO.Stream,System.Int32)">
+      <summary>Embeds an ICC profile into a stream.</summary>
+      <param name="stream">The stream containing the ICC profile.</param>
+      <param name="pageNumber">1-based index of the page within the file that contains the ICC profile.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccProfileExtended.WriteToImage(System.String,System.Int32)">
+      <summary>Embeds an ICC profile to a file.</summary>
+      <param name="fileName">Character string containing the name of the file that contains the embedded ICC profile.</param>
+      <param name="pageNumber">1-based index of the page within the file that contains the ICC profile.</param>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccProfileExtended.Data">
+      <summary>Gets or sets the complete ICC profile block of data.</summary>
+      <value>Array that contains all the ICC profile's data.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccProfileExtended.Header">
+      <summary>Gets or sets the ICC profile header.</summary>
+      <value>IccHeader structure that has all the ICC header's data.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccProfileExtended.TagData">
+      <summary>Gets or sets the tag's data.</summary>
+      <value>Array that contains all the tag's data.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccProfileExtended.TagList">
+      <summary>Gets or sets the ICC profile tag list.</summary>
+      <value>IccTagList structure that contains information and data about all the tags in the ICC profile.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccProfileSequenceDescriptionTagType">
+      <summary>Contains the profileSequenceDescriptionType tag type data.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccProfileSequenceDescriptionTagType.#ctor">
+      <summary>Initializes a new IccProfileSequenceDescriptionTagType with default parameters.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccProfileSequenceDescriptionTagType.#ctor(Leadtools.ColorConversion.IccProfileSequenceDescription)">
+      <summary>Initializes a new IccProfileSequenceDescriptionTagType with explicit parameters.</summary>
+      <param name="description">IccProfileSequenceDescription structure that contains the tag's data.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccProfileSequenceDescriptionTagType.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccProfileSequenceDescriptionTagType.Description">
+      <summary>Gets or sets the IccProfileSequenceDescription structure.</summary>
+      <value>IccProfileSequenceDescription structure that contains the tag's data.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccResponseCurveSet16TagType">
+      <summary>Contains the responseCurveSet1Type tag type data.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccResponseCurveSet16TagType.#ctor">
+      <summary>Initializes a new IccResponseCurveSet16TagType with default parameters.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccResponseCurveSet16TagType.#ctor(Leadtools.ColorConversion.IccResponseCurve)">
+      <summary>Initializes a new IccResponseCurveSet16TagType with explicit parameters.</summary>
+      <param name="responseCurve">IccResponseCurve structure that contains the tag's data.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccResponseCurveSet16TagType.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccResponseCurveSet16TagType.ResponseCurve">
+      <summary>Gets or sets the IccResponseCurve structure.</summary>
+      <value>IccResponseCurve structure that contains the tag's data.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccS15Fixed16ArrayTagType">
+      <summary>Contains the s15Fixed16ArrayType tag type data.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccS15Fixed16ArrayTagType.#ctor">
+      <summary>Initializes a new IccS15Fixed16ArrayTagType with default parameters.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccS15Fixed16ArrayTagType.#ctor(System.Int32[])">
+      <summary>Initializes a new IccS15Fixed16ArrayTagType with explicit parameters.</summary>
+      <param name="data">Array that contains the tag's data.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccS15Fixed16ArrayTagType.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccS15Fixed16ArrayTagType.Data">
+      <summary>Gets or sets the tag type array of data.</summary>
+      <value>Array that contains the tag's data.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccSignatureTagType">
+      <summary>Contians the signatureType tag type data.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccSignatureTagType.#ctor">
+      <summary>Initializes a new IccSignatureTagType with default parameters.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccSignatureTagType.#ctor(System.Int32)">
+      <summary>Initializes a new IccSignatureTagType with explicit parameters.</summary>
+      <param name="signature">A value that represents a four-byte sequence signature. For a list of possible values, refer to IccTechnologySignature.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccSignatureTagType.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccSignatureTagType.Signature">
+      <summary>Gets or sets the signature.</summary>
+      <value>A value that represents a four-byte sequence signature. For a list of possible values, refer to IccTechnologySignature.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccTagTypeBase">
+      <summary>Contains basic data needed for each tag.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccTagTypeBase.#ctor">
+      <summary>Initializes a new instance of the IccTagTypeBase class.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccTagTypeBase.#ctor(System.Int32)">
+      <summary>Initializes a new instance of the IccTagTypeBase class with the specified signature.</summary>
+      <param name="signature">Signature to use.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccTagTypeBase.CreateObject(System.Int32)">
+      <summary>Creates an Icc Tag Type class object.</summary>
+      <param name="tagTypeSignature">Tag type signature for which the object will be created.</param>
+      <returns>A new object of the class. This value must be casted into the intended class type.</returns>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccTagTypeBase.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String that contains the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccTagTypeBase.BaseReserved">
+      <summary>Gets the 4 reserved bytes. Currently they are set to 0.</summary>
+      <value>An array of byte that contains the 4 resreved bytes.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccTagTypeBase.TagTypeSignature">
+      <summary>Gets the tag type signature.</summary>
+      <value>the tag type signature.</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTagTypeBase.ChromaticityTypeSignature">
+      <summary>chromaticityType signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTagTypeBase.ColorantOrderTypeSignature">
+      <summary>colorantOrderType signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTagTypeBase.ColorantTableTypeSignature">
+      <summary>colorantTableType signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTagTypeBase.CurveTypeSignature">
+      <summary>curveType signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTagTypeBase.DataTypeSignature">
+      <summary>dataType signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTagTypeBase.DateTimeTypeSignature">
+      <summary>Date/Time type signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTagTypeBase.Lut16TypeSignature">
+      <summary>lut16Type signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTagTypeBase.Lut8TypeSignature">
+      <summary>lut8Type signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTagTypeBase.LutAtoBTypeSignature">
+      <summary>lutAtoBType signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTagTypeBase.LutBtoATypeSignature">
+      <summary>lutBtoAType signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTagTypeBase.MeasurementTypeSignature">
+      <summary>measurementType signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTagTypeBase.MultiLocalizedUnicodeTypeSignature">
+      <summary>multiLocalizedUnicodeType signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTagTypeBase.NamedColor2TypeSignature">
+      <summary>namedColor2Type signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTagTypeBase.ParametricCurveTypeSignature">
+      <summary>parametricCurveType signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTagTypeBase.ProfileSequenceDescTypeSignature">
+      <summary>profileSequenceDescType signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTagTypeBase.ResponseCurveSet16TypeSignature">
+      <summary>responseCurveSet16Type signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTagTypeBase.S15Fixed16ArrayTypeSignature">
+      <summary>s15Fixed16ArrayType signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTagTypeBase.SignatureTypeSignature">
+      <summary>signatureType signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTagTypeBase.TextTypeSignature">
+      <summary>textType signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTagTypeBase.U16Fixed16ArrayTypeSignature">
+      <summary>u16Fixed16ArrayType signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTagTypeBase.UInt16ArrayTypeSignature">
+      <summary>uInt16ArrayType signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTagTypeBase.UInt32ArrayTypeSignature">
+      <summary>uInt32ArrayType signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTagTypeBase.UInt64ArrayTypeSignature">
+      <summary>uInt64ArrayType signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTagTypeBase.UInt8ArrayTypeSignature">
+      <summary>uInt8ArrayType signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTagTypeBase.ViewingConditionsTypeSignature">
+      <summary>viewingConditionsType signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTagTypeBase.XyzTypeSignature">
+      <summary>xyzType signature.</summary>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccTextTagType">
+      <summary>Contains the textType tag type data.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccTextTagType.#ctor">
+      <summary>Initializes a new IccTextTagType with default parameters.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccTextTagType.#ctor(System.Byte[])">
+      <summary>Initializes a new IccTextTagType with explicit parameters.</summary>
+      <param name="data">Array that contains a string of 7-bit ASCII characters.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccTextTagType.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccTextTagType.Text">
+      <summary>Gets or sets the text data of type String.</summary>
+      <value>String of 7-bits ASCII characters. Note that the string should have only ASCII characters.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccTextTagType.TextData">
+      <summary>Gets or sets the text data.</summary>
+      <value>Array that contains a string of 7-bit ASCII characters.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccTools">
+      <summary>Contains tools to be used with ICC classes and structures.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccTools.#ctor">
+      <summary>Initializes a new instance of the IccTools class.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccTools.CreateTagType(Leadtools.ColorConversion.IccTagTypeBase,System.Int32)">
+      <summary>Creates an ICC tag type data.</summary>
+      <param name="sourceTagData">Icc class object that contains the tag data.</param>
+      <param name="tagTypeSignature">Tag type signature of the tag type that needs to be created.</param>
+      <returns>Icc class object that contains the resulted tag.</returns>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccTools.From2bFixed2bNumberToDouble(System.Int32)">
+      <summary>Converts any value consistent with any of the ICC specification formats: u16FixedU16Number or u1Fixed15Number into a fractional value.</summary>
+      <param name="number">A value that is consistent with any of the ICC specification formats: u16FixedU16Number or u1Fixed15Number.</param>
+      <returns>A double fractions value that represents the \number\ passed.</returns>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccTools.FromDoubleTo2bFixed2bNumber(System.Double)">
+      <summary>Converts a fractional number into a value that is consistent with any of the ICC specification formats: u16FixedU16Number or u1Fixed15Number.</summary>
+      <param name="number">A fractional value.</param>
+      <returns>A value that is consistent with any of the ICC specification formats: u16FixedU16Number or u1Fixed15Number.</returns>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccTools.FromDoubleToU8Fixed8Number(System.Double)">
+      <summary>Converts a fractional number into a value that is consistent with the ICC specification format: u8Fixed8Number.</summary>
+      <param name="number">A fractional value.</param>
+      <returns>A value that is consistent with the ICC specification format u8Fixed8Number.</returns>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccTools.FromU8Fixed8NumberToDouble(System.UInt16)">
+      <summary>Converts any value consistent with the ICC specification format: u8FixedU8Number into a fractional value.</summary>
+      <param name="number">A value that is consistent with the ICC specification format: u8FixedU8Number.</param>
+      <returns>A double fractions value that represents the \number\ passed.</returns>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccU16Fixed16ArrayTagType">
+      <summary>Contains the u16Fixed16ArrayType tag type data.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccU16Fixed16ArrayTagType.#ctor">
+      <summary>Initializes a new IccU16Fixed16ArrayTagType with default parameters.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccU16Fixed16ArrayTagType.#ctor(System.Int32[])">
+      <summary>Initializes a new IccU16Fixed16ArrayTagType with explicit parameters.</summary>
+      <param name="data">Array that contains the tag's data.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccU16Fixed16ArrayTagType.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccU16Fixed16ArrayTagType.Data">
+      <summary>Gets or sets the tag's data.</summary>
+      <value>Array that contains the tag's data.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccUint16ArrayTagType">
+      <summary>Contains the uInt16ArrayType tag type data.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccUint16ArrayTagType.#ctor">
+      <summary>Initializes a new IccUint16ArrayTagType with default parameters.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccUint16ArrayTagType.#ctor(System.UInt16[])">
+      <summary>Initializes a new IccUint16ArrayTagType with explicit parameters.</summary>
+      <param name="data">Array that contains the tag's data.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccUint16ArrayTagType.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccUint16ArrayTagType.Data">
+      <summary>Gets or sets the tag's data.</summary>
+      <value>Array that contains the tag's data.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccUint32ArrayTagType">
+      <summary>Contains the uInt32ArrayType tag type data.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccUint32ArrayTagType.#ctor">
+      <summary>Initializes a new IccUint32ArrayTagType with default parameters.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccUint32ArrayTagType.#ctor(System.Int32[])">
+      <summary>Initializes a new IccUint32ArrayTagType with explicit parameters.</summary>
+      <param name="data">Array that contains the tag's data.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccUint32ArrayTagType.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccUint32ArrayTagType.Data">
+      <summary>Gets or sets the tag's data.</summary>
+      <value>Array that contains the tag's data.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccUint64ArrayTagType">
+      <summary>Contains the uInt64ArrayType tag type data.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccUint64ArrayTagType.#ctor">
+      <summary>Initializes a new IccUint64ArrayTagType with default parameters.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccUint64ArrayTagType.#ctor(System.Int64[])">
+      <summary>Initializes a new IccUint64ArrayTagType with explicit parameters.</summary>
+      <param name="data">Array that contains the tag's data.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccUint64ArrayTagType.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccUint64ArrayTagType.Data">
+      <summary>Gets or sets the tag's data.</summary>
+      <value>Array that contains the tag's data.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccUint8ArrayTagType">
+      <summary>Contains the uInt8ArrayType tag type data.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccUint8ArrayTagType.#ctor">
+      <summary>Initializes a new IccUint8ArrayTagType with default parameters.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccUint8ArrayTagType.#ctor(System.Byte[])">
+      <summary>Initializes a new IccUint8ArrayTagType with explicit parameters.</summary>
+      <param name="data">Array that contains the tag's data.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccUint8ArrayTagType.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccUint8ArrayTagType.Data">
+      <summary>Gets or sets the tag's data.</summary>
+      <value>Array that contains the tag's data.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccUnknownTagType">
+      <summary>Contains a private tag type data.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccUnknownTagType.#ctor">
+      <summary>Initializes a new IccUnknownTagType with default parameters.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccUnknownTagType.#ctor(System.Int32,System.Byte[])">
+      <summary>Initializes a new IccUnknownTagType with explicit parameters.</summary>
+      <param name="signature">Value that represents the tag's type signature.</param>
+      <param name="data">Array that contains the tag's data.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccUnknownTagType.ChangeSignature(System.Int32)">
+      <summary>Changes the tag type signature.</summary>
+      <param name="signature">The new signature.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccUnknownTagType.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccUnknownTagType.Data">
+      <summary>Gets or sets the tag's data.</summary>
+      <value>Array that contains the tag's data.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccViewingConditionsTagType">
+      <summary>Contains the viewingConditionsType tag type data.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccViewingConditionsTagType.#ctor">
+      <summary>Initializes a new IccViewingConditionsTagType with default parameters.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccViewingConditionsTagType.#ctor(Leadtools.ColorConversion.IccViewCondition)">
+      <summary>Initializes a new IccViewingConditionsTagType with explicit parameters.</summary>
+      <param name="viewCondition">IccViewCondition structure that contains the tag's data.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccViewingConditionsTagType.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccViewingConditionsTagType.ViewCondition">
+      <summary>Gets or sets the IccViewCondition structure.</summary>
+      <value>IccViewCondition structure that contains the tag's data.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccXyzTagType">
+      <summary>Contains the xyzType tag type data.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccXyzTagType.#ctor">
+      <summary>Initializes a new IccXyzTagType with default parameters.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccXyzTagType.#ctor(Leadtools.ColorConversion.IccXyzNumber[])">
+      <summary>Initializes a new IccXyzTagType with explicit parameters.</summary>
+      <param name="xyzNumberData">IccXyzNumber structure that contains the tag's data.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccXyzTagType.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccXyzTagType.Data">
+      <summary>Gets or sets the IccXyzNumber structure.</summary>
+      <value>IccXyzNumber structure that contains the tag's data.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.RasterColorConverterEngine">
+      <summary>Provides methods to convert between different color spaces using different methods and options.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.RasterColorConverterEngine.#ctor">
+      <summary>Initializes a new instance of the RasterColorConverterEngine class.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.RasterColorConverterEngine.Convert(System.Byte[],System.Int32,System.Byte[],System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+      <summary>Converts image data in a buffer from one color conversion model to another.</summary>
+      <param name="srcBuffer">A byte array containing the input buffer.</param>
+      <param name="srcBufferOffset">Offset to the first byte of the \srcBuffer\ data buffer.</param>
+      <param name="destBuffer">A byte array that will hold the converted data.</param>
+      <param name="destBufferOffset">Offset to the first byte of the \destBuffer\ data buffer.</param>
+      <param name="width">Width of pixels to be processed.</param>
+      <param name="height">Height of pixels to be processed.</param>
+      <param name="inAlign">Each scanline in the input buffer is a multiple of inAlign bytes.</param>
+      <param name="outAlign">Each scan line in the output buffer is a multiple of outAlign bytes.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.RasterColorConverterEngine.Convert(System.IntPtr,System.Int64,System.IntPtr,System.Int64,System.Int32,System.Int32,System.Int32,System.Int32)">
+      <summary>Converts image data in a buffer from one color conversion model to another.</summary>
+      <param name="srcBuffer">A pointer to a buffer containing the input data.</param>
+      <param name="srcBufferOffset">Offset to the first byte of the \srcBuffer\ data buffer.</param>
+      <param name="destBuffer">A pointer to a buffer that will hold the converted data.</param>
+      <param name="destBufferOffset">Offset to the first byte of the \destBuffer\ data buffer.</param>
+      <param name="width">Width of pixels to be processed.</param>
+      <param name="height">Height of pixels to be processed.</param>
+      <param name="inAlign">Each scanline in the input buffer is a multiple of inAlign bytes.</param>
+      <param name="outAlign">Each scan line in the output buffer is a multiple of outAlign bytes.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.RasterColorConverterEngine.ConvertDirect(Leadtools.ColorConversion.ConversionColorFormat,Leadtools.ColorConversion.ConversionColorFormat,System.Byte[],System.Int32,System.Byte[],System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+      <summary>Converts image data in a managed buffer from one color conversion model directly to another, using built-in algorithms.</summary>
+      <param name="srcFormat">Format of the input data.</param>
+      <param name="destFormat">Format of the output data.</param>
+      <param name="srcBuffer">A pointer to the buffer containing the input data.</param>
+      <param name="srcBufferOffset">Offset to the first byte of the srcBuffer data buffer.</param>
+      <param name="destBuffer">A pointer to the buffer containing the output data.</param>
+      <param name="destBufferOffset">Offset to the first byte of the destBuffer data buffer.</param>
+      <param name="width">Width of pixels to be processed.</param>
+      <param name="height">Height of pixels to be processed.</param>
+      <param name="inAlign">Each scanline in the input buffer is a multiple of inAlign bytes.</param>
+      <param name="outAlign">Each scanline in the output buffer is a multiple of outAlign bytes.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.RasterColorConverterEngine.ConvertDirect(Leadtools.ColorConversion.ConversionColorFormat,Leadtools.ColorConversion.ConversionColorFormat,System.IntPtr,System.Int64,System.IntPtr,System.Int64,System.Int32,System.Int32,System.Int32,System.Int32)">
+      <summary>Converts image data in a buffer from one color conversion model to another directly using built in algorithms.</summary>
+      <param name="srcFormat">Format of the input data.</param>
+      <param name="destFormat">Format of the output data.</param>
+      <param name="srcBuffer">A pointer to the input buffer.</param>
+      <param name="srcBufferOffset">Offset to the first byte of the \srcBuffer\ data buffer.</param>
+      <param name="destBuffer">A pointer to the buffer that will hold the converted data.</param>
+      <param name="destBufferOffset">Offset to the first byte of the \destBuffer\ data buffer.</param>
+      <param name="width">Width of pixels to be processed.</param>
+      <param name="height">Height of pixels to be processed.</param>
+      <param name="inAlign">Each scanline in the input buffer is a multiple of inAlign bytes.</param>
+      <param name="outAlign">Each scan line in the output buffer is a multiple of outAlign bytes.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.RasterColorConverterEngine.ConvertDirectToImage(Leadtools.ColorConversion.ConversionColorFormat,Leadtools.ColorConversion.ConversionColorFormat,System.Byte[],System.Int32,Leadtools.RasterImage,System.Int32,System.Int32,System.Int32,System.Int32)">
+      <summary>Converts image data in a managed buffer from one color conversion model directly to RGB\\BGR using built-in algorithms, and sets the output as a RasterImage.</summary>
+      <param name="srcFormat">Format of the input data.</param>
+      <param name="destFormat">Format of the output data.</param>
+      <param name="srcBuffer">A pointer to the buffer containing the input data.</param>
+      <param name="srcBufferOffset">Offset to the first byte of the srcBuffer data buffer.</param>
+      <param name="image">A RasterImage object that will hold the converted data.</param>
+      <param name="width">Width of pixels to be processed.</param>
+      <param name="height">Height of pixels to be processed.</param>
+      <param name="inAlign">Each scanline in the input buffer is a multiple of inAlign bytes.</param>
+      <param name="outAlign">Each scanline in the output buffer is a multiple of outAlign bytes.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.RasterColorConverterEngine.ConvertDirectToImage(Leadtools.ColorConversion.ConversionColorFormat,Leadtools.ColorConversion.ConversionColorFormat,System.IntPtr,System.Int64,Leadtools.RasterImage,System.Int32,System.Int32,System.Int32,System.Int32)">
+      <summary>Converts image data in a buffer from one color conversion model to RGB\\BGR directly using built in algorithms, and sets the output as RasterImage.</summary>
+      <param name="srcFormat">Format of the input data.</param>
+      <param name="destFormat">Format of the output data.</param>
+      <param name="srcBuffer">A pointer to the buffer containing the input data.</param>
+      <param name="srcBufferOffset">Offset to the first byte of the \srcBuffer\ data buffer.</param>
+      <param name="image">An RasterImage object that will hold the converted data.</param>
+      <param name="width">Width of pixels to be processed.</param>
+      <param name="height">Height of pixels to be processed.</param>
+      <param name="inAlign">Each scanline in the input buffer is a multiple of inAlign bytes.</param>
+      <param name="outAlign">Each scan line in the output buffer is a multiple of outAlign bytes.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.RasterColorConverterEngine.ConvertToImage(System.Byte[],System.Int32,Leadtools.RasterImage,System.Int32,System.Int32,System.Int32,System.Int32)">
+      <summary>Converts image data in a buffer from one color conversion model to RGB\\BGR, and sets the output as RasterImage.</summary>
+      <param name="srcBuffer">A byte array containing the input buffer.</param>
+      <param name="srcBufferOffset">Offset to the first byte of the \srcBuffer\ data buffer.</param>
+      <param name="image">An RasterImage object that will hold the converted data.</param>
+      <param name="width">Width of pixels to be processed.</param>
+      <param name="height">Height of pixels to be processed.</param>
+      <param name="inAlign">Each scanline in the input buffer is a multiple of inAlign bytes.</param>
+      <param name="outAlign">Each scan line in the output buffer is a multiple of outAlign bytes.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.RasterColorConverterEngine.ConvertToImage(System.IntPtr,System.Int64,Leadtools.RasterImage,System.Int32,System.Int32,System.Int32,System.Int32)">
+      <summary>Converts image data in a buffer from one color conversion model to RGB\\BGR, and sets the output as RasterImage.</summary>
+      <param name="srcBuffer">A pointer to a buffer containing the input data.</param>
+      <param name="srcBufferOffset">Offset to the first byte of the \srcBuffer\ data buffer.</param>
+      <param name="image">An RasterImage object that will hold the converted data.</param>
+      <param name="width">Width of pixels to be processed.</param>
+      <param name="height">Height of pixels to be processed.</param>
+      <param name="inAlign">Each scanline in the input buffer is a multiple of inAlign bytes.</param>
+      <param name="outAlign">Each scan line in the output buffer is a multiple of outAlign bytes.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.RasterColorConverterEngine.SetParameters(Leadtools.ColorConversion.ConversionParameters)">
+      <summary>Sets new conversion parameters.</summary>
+      <param name="parameters">A ConversionParameters object that describes the conversion properties to be set.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.RasterColorConverterEngine.Shutdown">
+      <summary>Releases all the data used to start the Color Conversion toolkit.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.RasterColorConverterEngine.Start(Leadtools.ColorConversion.ConversionColorFormat,Leadtools.ColorConversion.ConversionColorFormat,Leadtools.ColorConversion.ConversionParameters)">
+      <summary>Initializes the color conversion engine.</summary>
+      <param name="srcFormat">Format of the source data.</param>
+      <param name="destFormat">Format of the output data.</param>
+      <param name="parameters">A ConversionParameters object which contains the conversion properties used in the initialization.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.RasterColorConverterEngine.Startup">
+      <summary>Initializes the required data to start the color conversion toolkit.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.RasterColorConverterEngine.Stop">
+      <summary>Releases any color conversion engine resources used.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.RasterColorConverterEngine.Dispose">
+      <summary>Releases all resources used by the RasterColorConverterEngine class.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.RasterColorConverterEngine.Dispose(System.Boolean)">
+      <summary>Releases all resources used by the RasterColorConverterEngine class.</summary>
+      <param name="disposing">true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.RasterColorConverterEngine.Finalize">
+      <summary>Destructor of the RasterColorConverterEngine class.</summary>
+    </member>
+    <member name="T:Leadtools.ColorConversion.ConversionCmykMask">
+      <summary>Indicates the CMYK conversion masking value.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionCmykMask.Gcr">
+      <summary>Change the ConversionCmykParameters.GcrLevel property value.</summary>
+      <platforms>NET</platforms>
+      <value>1</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.ConversionColorFormat">
+      <summary>Indicates the Format of the source data.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionColorFormat.Rgb">
+      <summary>Color space is RGB.</summary>
+      <platforms>NET</platforms>
+      <value>0</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionColorFormat.Yuv">
+      <summary>Color space is YUV.</summary>
+      <platforms>NET</platforms>
+      <value>1</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionColorFormat.Cmyk">
+      <summary>Color space is CMYK.</summary>
+      <platforms>NET</platforms>
+      <value>2</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionColorFormat.Hsv">
+      <summary>Color space is HSV.</summary>
+      <platforms>NET</platforms>
+      <value>3</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionColorFormat.Hls">
+      <summary>Color space is HLS.</summary>
+      <platforms>NET</platforms>
+      <value>4</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionColorFormat.Yiq">
+      <summary>Color space is YIQ.</summary>
+      <platforms>NET</platforms>
+      <value>5</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionColorFormat.Cmy">
+      <summary>Color space is CMY.</summary>
+      <platforms>NET</platforms>
+      <value>6</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionColorFormat.Lab">
+      <summary>Color space is LAB.</summary>
+      <platforms>NET</platforms>
+      <value>7</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionColorFormat.Xyz">
+      <summary>Color space is Xyz.</summary>
+      <platforms>NET</platforms>
+      <value>8</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionColorFormat.Yuy2">
+      <summary>Color space is YUY2.</summary>
+      <platforms>NET</platforms>
+      <value>9</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionColorFormat.Yvu9">
+      <summary>Color space is YVU9.</summary>
+      <platforms>NET</platforms>
+      <value>10</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionColorFormat.Ycck">
+      <summary>Color space is YCCK.</summary>
+      <platforms>NET</platforms>
+      <value>11</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionColorFormat.Bgr">
+      <summary>Color space is BGR.</summary>
+      <platforms>NET</platforms>
+      <value>12</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionColorFormat.Y41p">
+      <summary>Color space is Y41P.</summary>
+      <platforms>NET</platforms>
+      <value>13</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionColorFormat.Uyvy">
+      <summary>Color space is UYVY.</summary>
+      <platforms>NET</platforms>
+      <value>14</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionColorFormat.Ycc">
+      <summary>Color space is YCC.</summary>
+      <platforms>NET</platforms>
+      <value>15</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionColorFormat.Ihs">
+      <summary>Color space is IHS.</summary>
+      <platforms>NET</platforms>
+      <value>128</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionColorFormat.Argb4">
+      <summary>Color space is ARGB4.</summary>
+      <platforms>NET</platforms>
+      <value>144</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.ConversionLabMaskFlags">
+      <summary>Indicates the CIELab conversion masking value.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionLabMaskFlags.None">
+      <summary>Do Nothing.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000000</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionLabMaskFlags.LOffset">
+      <summary>Change the ConversionLabParameters.LOffset property value.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000001</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionLabMaskFlags.LRange">
+      <summary>Change the ConversionLabParameters.LRange property value.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000002</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionLabMaskFlags.AOffset">
+      <summary>Change the ConversionLabParameters.AOffset property value.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000004</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionLabMaskFlags.ARange">
+      <summary>Change the ConversionLabParameters.ARange property value.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000008</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionLabMaskFlags.BOffset">
+      <summary>Change the ConversionLabParameters.BOffset property value.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000010</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionLabMaskFlags.BRange">
+      <summary>Change the ConversionLabParameters.BRange property value.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000020</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.ConversionMethodFlags">
+      <summary>Indicated the conversion method, or the conversion parameter to be change.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionMethodFlags.None">
+      <summary>Do Nothing.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000000</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionMethodFlags.ChangeActiveMethod">
+      <summary>Change the active method.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000001</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionMethodFlags.UseBuiltIn">
+      <summary>For equations.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000001</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionMethodFlags.ChangeCustomProfiles">
+      <summary>Change profiles.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000002</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionMethodFlags.UseIcc">
+      <summary>For profiles.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000002</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionMethodFlags.ChangeWhitePoint">
+      <summary>Change white point.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000004</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionMethodFlags.UseCustomIcc">
+      <summary>For custom profiles.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000004</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionMethodFlags.ChangeEmulationTables">
+      <summary>Change emulation tables.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000008</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionMethodFlags.UseEmulationTables">
+      <summary>For emulation tables. This option is valid for CMYK to RGB, RGB to CIELab, and CIELab to RGB conversions only.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000008</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionMethodFlags.ChangeCmyk">
+      <summary>Change CMYK parameters.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000010</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionMethodFlags.UseCustomEmulationTables">
+      <summary>For custom emulation tables. This option is valid for CMYK to RGB, RGB to CIELab, and CIELab to RGB conversions only.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000010</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionMethodFlags.ChangeYuv">
+      <summary>Change YUV parameters.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000020</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionMethodFlags.UseAuto">
+      <summary>For best conversion.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000020</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionMethodFlags.UseAll">
+      <summary>For all of the above.</summary>
+      <platforms>NET</platforms>
+      <value>0x0000003F</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionMethodFlags.ChangeLab">
+      <summary>Change Lab parameters.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000040</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionMethodFlags.ChangeAll">
+      <summary>All the changes above (ActiveMethod, Profiles, WhitePoint, EmulationTables, Cmyk, Yuv, and Lab).</summary>
+      <platforms>NET</platforms>
+      <value>0x0000007F</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.ConversionWhitePointType">
+      <summary>Indicates the spectrum of the white color.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionWhitePointType.Custom">
+      <summary>Use the values of the ConversionWhitePoint.XWhite and ConversionWhitePoint.YWhite properties.</summary>
+      <platforms>NET</platforms>
+      <value>0</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionWhitePointType.D50">
+      <summary>D50 white point.</summary>
+      <platforms>NET</platforms>
+      <value>50</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionWhitePointType.Default">
+      <summary>Default (D55) white point.</summary>
+      <platforms>NET</platforms>
+      <value>50</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionWhitePointType.D55">
+      <summary>D55 white point.</summary>
+      <platforms>NET</platforms>
+      <value>55</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionWhitePointType.D65">
+      <summary>D65 white point.</summary>
+      <platforms>NET</platforms>
+      <value>65</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionWhitePointType.D75">
+      <summary>D75 white point.</summary>
+      <platforms>NET</platforms>
+      <value>75</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionWhitePointType.D93">
+      <summary>D93 white point.</summary>
+      <platforms>NET</platforms>
+      <value>93</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.ConversionYuvMaskFlags">
+      <summary>Indicates the YUV conversion masking value.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionYuvMaskFlags.None">
+      <summary>Do Nothing.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000000</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionYuvMaskFlags.Uh">
+      <summary>Change the ConversionYuvParameters.UH property value.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000001</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionYuvMaskFlags.Uv">
+      <summary>Change the ConversionYuvParameters.UV property value.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000002</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionYuvMaskFlags.Vh">
+      <summary>Change the ConversionYuvParameters.VH property value.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000004</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionYuvMaskFlags.Vv">
+      <summary>Change the ConversionYuvParameters.VV property value.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000008</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionYuvMaskFlags.Offsets">
+      <summary>Change the ConversionYuvParameters.Offsets property value.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000010</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionYuvMaskFlags.MacroPixel">
+      <summary>Change the ConversionYuvParameters.MacroPixel property value.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000020</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionYuvMaskFlags.Range">
+      <summary>Change the ConversionYuvParameters.Range property value.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000040</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.ConversionYuvRange">
+      <summary>indicates the range of values in the input buffer.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionYuvRange.UseFull">
+      <summary>Full range (the range is 000 - 255).</summary>
+      <platforms>NET</platforms>
+      <value>0</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionYuvRange.Use16_240">
+      <summary>Partial range (the range is 016 - 240).</summary>
+      <platforms>NET</platforms>
+      <value>1</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccColorantsType">
+      <summary>Flags that indicate which colorant and phosphor encoding to be used.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccColorantsType.UnknownColorant">
+      <summary>Unknown colorant.</summary>
+      <platforms>NET</platforms>
+      <value>0</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccColorantsType.ITU_R_BT709">
+      <summary>ITU-R BT.709 colorant.</summary>
+      <platforms>NET</platforms>
+      <value>1</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccColorantsType.SMPTE_RP145_1994">
+      <summary>SMPTE RP145-1994 colorant.</summary>
+      <platforms>NET</platforms>
+      <value>2</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccColorantsType.EBU_TECH3213_E">
+      <summary>EBU Tech.3213-E colorant.</summary>
+      <platforms>NET</platforms>
+      <value>3</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccColorantsType.P22">
+      <summary>P22 colorant.</summary>
+      <platforms>NET</platforms>
+      <value>4</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccColorspaceType">
+      <summary>Flags that indicate which rendering intent should be used.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccColorspaceType.None">
+      <summary>No change.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000000</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccColorspaceType.ColorData2">
+      <summary>2 color data colorspace.</summary>
+      <platforms>NET</platforms>
+      <value>0x32434C52</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccColorspaceType.ColorData3">
+      <summary>3 color data colorspace.</summary>
+      <platforms>NET</platforms>
+      <value>0x33434C52</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccColorspaceType.ColorData4">
+      <summary>4 color data colorspace.</summary>
+      <platforms>NET</platforms>
+      <value>0x34434C52</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccColorspaceType.ColorData5">
+      <summary>5 color data colorspace.</summary>
+      <platforms>NET</platforms>
+      <value>0x35434C52</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccColorspaceType.ColorData6">
+      <summary>6 color data colorspace.</summary>
+      <platforms>NET</platforms>
+      <value>0x36434C52</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccColorspaceType.ColorData7">
+      <summary>7 color data colorspace.</summary>
+      <platforms>NET</platforms>
+      <value>0x37434C52</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccColorspaceType.ColorData8">
+      <summary>8 color data colorspace.</summary>
+      <platforms>NET</platforms>
+      <value>0x38434C52</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccColorspaceType.ColorData9">
+      <summary>9 color data colorspace.</summary>
+      <platforms>NET</platforms>
+      <value>0x39434C52</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccColorspaceType.ColorData10">
+      <summary>10 color data colorspace.</summary>
+      <platforms>NET</platforms>
+      <value>0x41434C52</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccColorspaceType.ColorData11">
+      <summary>11 color data colorspace.</summary>
+      <platforms>NET</platforms>
+      <value>0x42434C52</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccColorspaceType.ColorData12">
+      <summary>12 color data colorspace.</summary>
+      <platforms>NET</platforms>
+      <value>0x43434C52</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccColorspaceType.CmyData">
+      <summary>Cmy colorspace.</summary>
+      <platforms>NET</platforms>
+      <value>0x434D5920</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccColorspaceType.CmykData">
+      <summary>Cmyk colorspace.</summary>
+      <platforms>NET</platforms>
+      <value>0x434D594B</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccColorspaceType.ColorData13">
+      <summary>13 color data colorspace.</summary>
+      <platforms>NET</platforms>
+      <value>0x44434C52</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccColorspaceType.ColorData14">
+      <summary>14 color data colorspace.</summary>
+      <platforms>NET</platforms>
+      <value>0x45434C52</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccColorspaceType.ColorData15">
+      <summary>15 color data colorspace.</summary>
+      <platforms>NET</platforms>
+      <value>0x46434C52</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccColorspaceType.GrayData">
+      <summary>Gray colorspace.</summary>
+      <platforms>NET</platforms>
+      <value>0x47524159</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccColorspaceType.HlsData">
+      <summary>Hls colorspace.</summary>
+      <platforms>NET</platforms>
+      <value>0x484C5320</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccColorspaceType.HsvData">
+      <summary>Hsv colorspace.</summary>
+      <platforms>NET</platforms>
+      <value>0x48535620</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccColorspaceType.LabData">
+      <summary>Lab colorspace.</summary>
+      <platforms>NET</platforms>
+      <value>0x4C616220</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccColorspaceType.LuvData">
+      <summary>Luv colorspace.</summary>
+      <platforms>NET</platforms>
+      <value>0x4C757620</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccColorspaceType.RgbData">
+      <summary>Rgb colorspace.</summary>
+      <platforms>NET</platforms>
+      <value>0x52474220</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccColorspaceType.XyzData">
+      <summary>XYZ colorspace.</summary>
+      <platforms>NET</platforms>
+      <value>0x58595A20</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccColorspaceType.YCbCrData">
+      <summary>YCbCr colorspace.</summary>
+      <platforms>NET</platforms>
+      <value>0x59436272</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccColorspaceType.YxyData">
+      <summary>Yxy colorspace.</summary>
+      <platforms>NET</platforms>
+      <value>0x59787920</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccDataType">
+      <summary>Flags that indicate the data type used.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccDataType.Ascii">
+      <summary>Ascii data type.</summary>
+      <platforms>NET</platforms>
+      <value>0</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccDataType.Binary">
+      <summary>Binary data type.</summary>
+      <platforms>NET</platforms>
+      <value>1</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccFunctionsType">
+      <summary>Flags that indicate which function type to be used in the parametricCurveType tag type.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccFunctionsType.Function4Bytes">
+      <summary>Y = X^(gamma)</summary>
+      <platforms>NET</platforms>
+      <value>0</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccFunctionsType.Function12Bytes">
+      <summary>Y = (aX + b)^(gamma) , (X &gt;= -b/a) Y = 0 , (X &lt; -b/a)</summary>
+      <platforms>NET</platforms>
+      <value>1</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccFunctionsType.Function16Bytes">
+      <summary>Y = (aX + b)^(gamma) + c , (X &gt;= -b/a) Y = c , (X &lt; -b/a)</summary>
+      <platforms>NET</platforms>
+      <value>2</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccFunctionsType.Function20Bytes">
+      <summary>Y = (aX + b)^(gamma) , (X &gt;= -b/a) Y = cX , (X &lt; -b/a)</summary>
+      <platforms>NET</platforms>
+      <value>3</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccFunctionsType.Function28Bytes">
+      <summary>Y = (aX + b)^(gamma) + e , (X &gt;= -b/a) Y = (cX + f) , (X &lt; -b/a)</summary>
+      <platforms>NET</platforms>
+      <value>4</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccMeasurementFlareType">
+      <summary>Flags that indicate the encoded value for measurement flare.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccMeasurementFlareType.Flare0">
+      <summary>0 (0 percent).</summary>
+      <platforms>NET</platforms>
+      <value>0</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccMeasurementFlareType.Flare100">
+      <summary>1.0 (or 100 percent).</summary>
+      <platforms>NET</platforms>
+      <value>65536</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccMeasurementGeometryType">
+      <summary>Flags that indicate the encoded value for measurement geometry.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccMeasurementGeometryType.GeometryUnknown">
+      <summary>Unknown measurement geometry.</summary>
+      <platforms>NET</platforms>
+      <value>0</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccMeasurementGeometryType.Geometry045or450">
+      <summary>0/45 or 45/0.</summary>
+      <platforms>NET</platforms>
+      <value>1</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccMeasurementGeometryType.Geometry0dord0">
+      <summary>0/d or d/0.</summary>
+      <platforms>NET</platforms>
+      <value>2</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccMeasurementSignatureType">
+      <summary>Flags that indicate the measurement unit type.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccMeasurementSignatureType.None">
+      <summary>No change.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000000</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccMeasurementSignatureType.DN">
+      <summary>DIN E: DIN 16536-2 densitometer response, with no polarising filter.</summary>
+      <platforms>NET</platforms>
+      <value>0x434E2020</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccMeasurementSignatureType.DN_P">
+      <summary>DIN E: DIN 16536-2 densitometer response with polarising filter.</summary>
+      <platforms>NET</platforms>
+      <value>0x434E2050</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccMeasurementSignatureType.DNN">
+      <summary>DIN I: DIN 16536-2 narrow band densitometer response, with no polarising filter.</summary>
+      <platforms>NET</platforms>
+      <value>0x434E4E20</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccMeasurementSignatureType.DNNP">
+      <summary>DIN I: DIN 16536-2 narrow band densitometer response, with polarising filter.</summary>
+      <platforms>NET</platforms>
+      <value>0x434E4E50</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccMeasurementSignatureType.StaA">
+      <summary>Status A: ISO 5-3 densitometer response.This is the accepted standard for reflection densitometers for measuring photographic color prints.</summary>
+      <platforms>NET</platforms>
+      <value>0x53746141</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccMeasurementSignatureType.StaE">
+      <summary>Status E: ISO 5-3 densitometer response which is the accepted standard in Europe for color reflection densitometers.</summary>
+      <platforms>NET</platforms>
+      <value>0x53746145</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccMeasurementSignatureType.StaI">
+      <summary>Status I: ISO 5-3 densitometer response commonly referred to as narrow band or interference-type response.</summary>
+      <platforms>NET</platforms>
+      <value>0x53746149</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccMeasurementSignatureType.StaM">
+      <summary>Status M: ISO 5-3 densitometer response for measuring color negatives..</summary>
+      <platforms>NET</platforms>
+      <value>0x5374614D</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccMeasurementSignatureType.StaT">
+      <summary>Status T: ISO 5-3 wide band color reflection densitometer response which is the accepted standard in the United States for color reflection densitometers.</summary>
+      <platforms>NET</platforms>
+      <value>0x53746154</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccPlatformSignatureType">
+      <summary>Flags that indicate which platform/operating system framework for which the profile was made.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccPlatformSignatureType.NoPlatformSignature">
+      <summary>No primary platform.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000000</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccPlatformSignatureType.MacintoshSignature">
+      <summary>Apple Computer, Inc. platform.</summary>
+      <platforms>NET</platforms>
+      <value>0x4150504C</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccPlatformSignatureType.MicrosoftSignature">
+      <summary>Microsoft Corporation platform.</summary>
+      <platforms>NET</platforms>
+      <value>0x4D534654</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccPlatformSignatureType.SGISignature">
+      <summary>Silicon Graphics, Inc. platform.</summary>
+      <platforms>NET</platforms>
+      <value>0x53474920</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccPlatformSignatureType.SolarisSignature">
+      <summary>Sun Microsystems, Inc. platform.</summary>
+      <platforms>NET</platforms>
+      <value>0x53554E57</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccProfileClassType">
+      <summary>Flags that indicate the type of the profile/device class.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccProfileClassType.None">
+      <summary>No change.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000000</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccProfileClassType.AbstractClass">
+      <summary>Colorspace conversion profile.</summary>
+      <platforms>NET</platforms>
+      <value>0x61627374</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccProfileClassType.DeviceLinkClass">
+      <summary>Device link profile.</summary>
+      <platforms>NET</platforms>
+      <value>0x6C696E6B</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccProfileClassType.DisplayClass">
+      <summary>Display device profile.</summary>
+      <platforms>NET</platforms>
+      <value>0x6D6E7472</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccProfileClassType.NamedColorClass">
+      <summary>Named color profile.</summary>
+      <platforms>NET</platforms>
+      <value>0x6E6D636C</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccProfileClassType.OutputClass">
+      <summary>Output device profile.</summary>
+      <platforms>NET</platforms>
+      <value>0x70727472</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccProfileClassType.InputClass">
+      <summary>Input device profile.</summary>
+      <platforms>NET</platforms>
+      <value>0x73636E72</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccProfileClassType.ColorSpaceClass">
+      <summary>Abstract profile.</summary>
+      <platforms>NET</platforms>
+      <value>0x73706163</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccProfileFlags">
+      <summary>Flags that indicate if the ICC profile is embedded or not, and if the ICC profile can be used independently from the embedded color data or not.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccProfileFlags.None">
+      <summary>ICC profile is not embedded and ICC profile can be used independently from color data.</summary>
+      <value>0x00000000</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccProfileFlags.NotEmbeddedIccProfile">
+      <summary>ICC profile is not embedded.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000000</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccProfileFlags.UseProfileAnyWhere">
+      <summary>ICC profile can be used independently from color data.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000000</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccProfileFlags.EmbeddedIccProfile">
+      <summary>ICC profile is embedded.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000001</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccProfileFlags.UseProfileWithEmbeddedDataOnly">
+      <summary>ICC profile cannot be used independently from color data.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000002</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccProfileMediaFlags">
+      <summary>Flags that identify attributes unique to a particular device.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccProfileMediaFlags.ColorMedia">
+      <summary>Colored media.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000000</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccProfileMediaFlags.Glossy">
+      <summary>Glossy media.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000000</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccProfileMediaFlags.None">
+      <summary>Reflective, Glossy, Positive media polarity and Colored media.</summary>
+      <value>0x00000000</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccProfileMediaFlags.PositiveMediaPolarity">
+      <summary>Positive media polarity.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000000</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccProfileMediaFlags.Reflective">
+      <summary>Reflective media.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000000</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccProfileMediaFlags.Transparent">
+      <summary>Transparent media.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000001</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccProfileMediaFlags.Matte">
+      <summary>Matte media.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000002</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccProfileMediaFlags.NegativeMediaPolarity">
+      <summary>Negative media polarity.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000004</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccProfileMediaFlags.BlackAndWhiteMedia">
+      <summary>Black and white media.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000008</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccRenderingIntentType">
+      <summary>Flags that indicate which rendering intent should be used.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccRenderingIntentType.Perceptual">
+      <summary>Perceptual rendering intent.</summary>
+      <platforms>NET</platforms>
+      <value>0</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccRenderingIntentType.RelativeColorimetric">
+      <summary>Media-relative colorimetric rendering intent.</summary>
+      <platforms>NET</platforms>
+      <value>1</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccRenderingIntentType.Saturation">
+      <summary>Saturation rendering intent.</summary>
+      <platforms>NET</platforms>
+      <value>2</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccRenderingIntentType.AbsoluteColorimetric">
+      <summary>Icc-absolute colorimetric intent.</summary>
+      <platforms>NET</platforms>
+      <value>3</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccStandardIlluminantType">
+      <summary>Flags that indicate the encoded value for standard illuminant.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccStandardIlluminantType.IccIlluminantUnknown">
+      <summary>Unknown illuminant.</summary>
+      <platforms>NET</platforms>
+      <value>0</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccStandardIlluminantType.IccIlluminantD50">
+      <summary>D50 illuminant.</summary>
+      <platforms>NET</platforms>
+      <value>1</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccStandardIlluminantType.IccIlluminantD65">
+      <summary>D65 illuminant.</summary>
+      <platforms>NET</platforms>
+      <value>2</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccStandardIlluminantType.IccIlluminantD93">
+      <summary>D93 illuminant.</summary>
+      <platforms>NET</platforms>
+      <value>3</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccStandardIlluminantType.IccIlluminantF2">
+      <summary>F2 illuminant.</summary>
+      <platforms>NET</platforms>
+      <value>4</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccStandardIlluminantType.IccIlluminantD55">
+      <summary>D55 illuminant.</summary>
+      <platforms>NET</platforms>
+      <value>5</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccStandardIlluminantType.IccIlluminantA">
+      <summary>A illuminant.</summary>
+      <platforms>NET</platforms>
+      <value>6</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccStandardIlluminantType.IccIlluminantEquiPowerE">
+      <summary>Equi-power (E) illuminant.</summary>
+      <platforms>NET</platforms>
+      <value>7</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccStandardIlluminantType.IccIlluminantF8">
+      <summary>F8 illuminant.</summary>
+      <platforms>NET</platforms>
+      <value>8</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccStandardObserverType">
+      <summary>Flags that indicate the encoded value for standard observer.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccStandardObserverType.StdandardObserverUnknown">
+      <summary>Unknown standard observer.</summary>
+      <platforms>NET</platforms>
+      <value>0</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccStandardObserverType.StdandardObserver1931TwoDegrees">
+      <summary>CIE 1931 standard colorimetric observer.</summary>
+      <platforms>NET</platforms>
+      <value>1</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccStandardObserverType.StdandardObserver1964TenDegrees">
+      <summary>CIE 1964 standard colorimetric observer.</summary>
+      <platforms>NET</platforms>
+      <value>2</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccTechnologySignatureType">
+      <summary>Flags that indicate the device technology signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTechnologySignatureType.None">
+      <summary>No change.</summary>
+      <platforms>NET</platforms>
+      <value>0x00000000</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTechnologySignatureType.AMDisplay">
+      <summary>Active matrix display.</summary>
+      <platforms>NET</platforms>
+      <value>0x414D4420</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTechnologySignatureType.CRTDisplay">
+      <summary>Cathode ray tube display.</summary>
+      <platforms>NET</platforms>
+      <value>0x43525420</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTechnologySignatureType.PhotoCD">
+      <summary>Photo CD.</summary>
+      <platforms>NET</platforms>
+      <value>0x4B504344</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTechnologySignatureType.PMDisplay">
+      <summary>Passive matrix display.</summary>
+      <platforms>NET</platforms>
+      <value>0x504D4420</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTechnologySignatureType.DigitalCamera">
+      <summary>Digital camera.</summary>
+      <platforms>NET</platforms>
+      <value>0x6463616D</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTechnologySignatureType.DyeSublimationPrinter">
+      <summary>Dye sublimation printer.</summary>
+      <platforms>NET</platforms>
+      <value>0x64737562</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTechnologySignatureType.ElectrophotographicPrinter">
+      <summary>Electrophotographic printer.</summary>
+      <platforms>NET</platforms>
+      <value>0x6570686F</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTechnologySignatureType.ElectrostaticPrinter">
+      <summary>Electrostatic printer.</summary>
+      <platforms>NET</platforms>
+      <value>0x65737461</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTechnologySignatureType.Flexography">
+      <summary>Flexography.</summary>
+      <platforms>NET</platforms>
+      <value>0x666C6578</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTechnologySignatureType.FilmWriter">
+      <summary>Film writer.</summary>
+      <platforms>NET</platforms>
+      <value>0x6670726E</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTechnologySignatureType.FilmScanner">
+      <summary>Film scanner.</summary>
+      <platforms>NET</platforms>
+      <value>0x6673636E</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTechnologySignatureType.Gravure">
+      <summary>Gravure.</summary>
+      <platforms>NET</platforms>
+      <value>0x67726176</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTechnologySignatureType.InkJetPrinter">
+      <summary>Ink jet printer.</summary>
+      <platforms>NET</platforms>
+      <value>0x696A6574</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTechnologySignatureType.PhotoImageSetter">
+      <summary>Photo image setter.</summary>
+      <platforms>NET</platforms>
+      <value>0x696D6773</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTechnologySignatureType.OffsetLithography">
+      <summary>Offset lithography.</summary>
+      <platforms>NET</platforms>
+      <value>0x6F666673</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTechnologySignatureType.ProjectionTelevision">
+      <summary>Projection television.</summary>
+      <platforms>NET</platforms>
+      <value>0x706A7476</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTechnologySignatureType.PhotographicPaperPrinter">
+      <summary>Photographic paper printer.</summary>
+      <platforms>NET</platforms>
+      <value>0x7270686F</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTechnologySignatureType.ReflectiveScanner">
+      <summary>Reflective scanner.</summary>
+      <platforms>NET</platforms>
+      <value>0x7273636E</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTechnologySignatureType.Silkscreen">
+      <summary>Silkscreen.</summary>
+      <platforms>NET</platforms>
+      <value>0x73696C6B</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTechnologySignatureType.ThermalWaxPrinter">
+      <summary>Thermal wax printer.</summary>
+      <platforms>NET</platforms>
+      <value>0x74776178</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTechnologySignatureType.VideoCamera">
+      <summary>Video camera.</summary>
+      <platforms>NET</platforms>
+      <value>0x76696463</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTechnologySignatureType.VideoMonitor">
+      <summary>Video monitor.</summary>
+      <platforms>NET</platforms>
+      <value>0x7669646D</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.ConversionCmykParameters">
+      <summary>Provides information about CMYK conversion properties.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.ConversionCmykParameters.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.ConversionCmykParameters.Empty">
+      <summary>Gets an new empty structure.</summary>
+      <value>Empty structure.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.ConversionCmykParameters.GcrLevel">
+      <summary>Gets or sets the GCR (Gray Component Replacement) value.</summary>
+      <value>The GCR value. Possible values are between 0 and 1000.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.ConversionCmykParameters.Mask">
+      <summary>Gets or sets the CMYK conversion masking value.</summary>
+      <value>The CMYK conversion masking value.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.ConversionLabParameters">
+      <summary>Provides information about CIELab conversion properties.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.ConversionLabParameters.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.ConversionLabParameters.AOffset">
+      <summary>Gets or sets the A component offset.</summary>
+      <value>The A component offset.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.ConversionLabParameters.ARange">
+      <summary>Gets or sets the A component range.</summary>
+      <value>The A component range.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.ConversionLabParameters.BOffset">
+      <summary>Gets or sets the B component offset.</summary>
+      <value>The B component offset.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.ConversionLabParameters.BRange">
+      <summary>Gets or sets the B component range.</summary>
+      <value>The B component range.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.ConversionLabParameters.Empty">
+      <summary>Gets an new empty structure.</summary>
+      <value>Empty structure.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.ConversionLabParameters.LOffset">
+      <summary>Gets or sets the L component offset.</summary>
+      <value>The L component offset.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.ConversionLabParameters.LRange">
+      <summary>Gets or sets the L component range.</summary>
+      <value>The L component range.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.ConversionLabParameters.Mask">
+      <summary>Gets or sets the CIELab conversion masking value.</summary>
+      <value>The CIELab conversion masking value.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.ConversionWhitePoint">
+      <summary>Specifies the spectrum of the white color.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.ConversionWhitePoint.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.ConversionWhitePoint.Empty">
+      <summary>Gets an new empty structure.</summary>
+      <value>Empty structure.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.ConversionWhitePoint.WhitePoint">
+      <summary>Gets or sets the common white point type used in setting the XWhite and YWhite properties.</summary>
+      <value>The common white point type.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.ConversionWhitePoint.XWhite">
+      <summary>Gets or sets the x value.</summary>
+      <value>The x value, between 0.0 and 1.0</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.ConversionWhitePoint.YWhite">
+      <summary>Gets or sets the y value.</summary>
+      <value>The y value, between 0.0 and 1.0</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.ConversionYuvParameters">
+      <summary>Provides information about YUV conversion properties.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.ConversionYuvParameters.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.ConversionYuvParameters.Empty">
+      <summary>Gets an new empty structure.</summary>
+      <value>An empty structure.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.ConversionYuvParameters.MacroPixel">
+      <summary>Gets or sets the Macropixel size, which is the number of pixels in the unit pixels group.</summary>
+      <value>The Macropixel size, which is the number of pixels in the unit pixels group.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.ConversionYuvParameters.Mask">
+      <summary>Gets or sets the YUV conversion masking value.</summary>
+      <value>The YUV conversion masking value. This can be any combination of the ConversionYuvMaskFlags members.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.ConversionYuvParameters.Offsets">
+      <summary>Gets or sets the offsets of the byte ordering for the proposed YUV format.</summary>
+      <value>Integer array that represents the offsets of the byte ordering for the proposed YUV format. When Planar 1, the only useful data is Offsets\[0\] which will indicate the arrangement of the YUV buffer.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.ConversionYuvParameters.Planar">
+      <summary>Gets or sets a value indicating whether the buffer consists of the Y plane, V plane and U plane.</summary>
+      <value>Value indicating whether the buffer consists of the Y plane, V plane and U plane. Possible values are: true: the buffer consists of the Y, U, and V planes. false: the buffer does not consist of the Y, U, and V planes.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.ConversionYuvParameters.Range">
+      <summary>Gets or sets a value indicating the range of values in the input buffer.</summary>
+      <value>The range of values in the input buffer.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.ConversionYuvParameters.UH">
+      <summary>Gets or sets the horizontal subsampling period of U.</summary>
+      <value>The horizontal subsampling period of U</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.ConversionYuvParameters.UV">
+      <summary>Gets or sets the vertical subsampling period of U.</summary>
+      <value>The vertical subsampling period of U.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.ConversionYuvParameters.VH">
+      <summary>Gets or sets the horizontal subsampling period of V.</summary>
+      <value>The horizontal subsampling period of V.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.ConversionYuvParameters.VV">
+      <summary>Gets or sets the vertical subsampling period of V.</summary>
+      <value>The vertical subsampling period of V.</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionYuvParameters.PlanarUvy">
+      <summary>Planes order, U, V, Y.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionYuvParameters.PlanarUyv">
+      <summary>Planes order, U, Y, V.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionYuvParameters.PlanarVuy">
+      <summary>Planes order, V, U, Y.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionYuvParameters.PlanarVyu">
+      <summary>Planes order, V, Y, U.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionYuvParameters.PlanarYuv">
+      <summary>Planes order, Y, U, V.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.ConversionYuvParameters.PlanarYvu">
+      <summary>Planes order, Y, V, U.</summary>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccChannelCoordinates">
+      <summary>Contains CIE xy coordinate values of device channels to be used in the IccChromaticity structure.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccChannelCoordinates.#ctor(System.Int32[])">
+      <summary>Initializes a new IccChannelCoordinates with explicit parameters.</summary>
+      <param name="coordinates">Array that contains the xy coordinate value.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccChannelCoordinates.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccChannelCoordinates.Coordinates">
+      <summary>Gets or sets the array of the xy coordinate values.</summary>
+      <value>Array that contains the xy coordinate value.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccChannelCoordinates.Empty">
+      <summary>Gets an new empty structure.</summary>
+      <value>Empty structure.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccChromaticity">
+      <summary>Contains CIE xy coordinate values of device channels to be used in the chromaticityType tag type.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccChromaticity.#ctor(Leadtools.ColorConversion.IccColorantsType,Leadtools.ColorConversion.IccChannelCoordinates[])">
+      <summary>Initializes a new IccChromaticity with explicit parameters.</summary>
+      <param name="colorantType">Encoded value of phosphor or colorant type. For a list of possible value, refer to IccColorantsType.</param>
+      <param name="channels">IccChannelCoordinates structure that contains the CIE xy coordinate values of channels.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccChromaticity.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccChromaticity.Channels">
+      <summary>Gets or sets the IccChannelCoordinates structure.</summary>
+      <value>IccChannelCoordinates structure that contains the CIE xy coordinate values of channels.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccChromaticity.ColorantType">
+      <summary>Gets or sets the colorant type.</summary>
+      <value>Encoded value of phosphor or colorant type. For a list of possible value, refer to IccColorantsType.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccChromaticity.Empty">
+      <summary>Gets an new empty structure.</summary>
+      <value>Empty structure.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccColorantTableData">
+      <summary>Contains CIE xy coordinate values of device channels to be used in the colorantTableDataType tag type.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccColorantTableData.#ctor(System.Byte[],System.UInt16[])">
+      <summary>Initializes a new IccColorantTableData with explicit parameters.</summary>
+      <param name="colorantName">Array of 32 bytes, that contains the colorant name (null terminated).</param>
+      <param name="pcsValue">An array of 3 values that contains PCS values of the colorant in the color space of the profile.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccColorantTableData.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccColorantTableData.ColorantName">
+      <summary>Gets or sets the colorant name.</summary>
+      <value>Array of 32 bytes, that contains the colorant name (null terminated).</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccColorantTableData.Empty">
+      <summary>Gets an new empty structure.</summary>
+      <value>Empty structure.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccColorantTableData.PcsValue">
+      <summary>Gets or sets the PCS values.</summary>
+      <value>An array of 3 values that contains PCS values of the colorant in the color space of the profile.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccCurve">
+      <summary>Contains the curve data.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccCurve.#ctor(System.UInt16[])">
+      <summary>Initializes a new IccCurve with explicit parameters.</summary>
+      <param name="curveData">Actual curve values. If there was only one value, then it should be in the format u8Fixed8Number.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccCurve.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccCurve.Data">
+      <summary>Gets or sets the curve data values.</summary>
+      <value>Actual curve values. If there was only one value, then it should be in the format u8Fixed8Number.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccCurve.Empty">
+      <summary>Gets an new empty structure.</summary>
+      <value>Empty structure.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccCurveStructure">
+      <summary>Contains data of a curve structure that is used in the responseCurveSet16Type tag type.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccCurveStructure.#ctor(Leadtools.ColorConversion.IccMeasurementSignatureType,System.Int32[],Leadtools.ColorConversion.IccXyzNumber[],Leadtools.ColorConversion.IccResponseArrays[])">
+      <summary>Initializes a new IccCurveStructure with explicit parameters.</summary>
+      <param name="measurementSignature">A value that indicates the measurement unit signature. For a list of possible value, refer to IccMeasurementSignatureType.</param>
+      <param name="measurementCount">Array with one entry for each channel that contains the number of measurements for each channel.</param>
+      <param name="measurementOfPatch">IccXyzNumber structure with number-of-channels measurements of patch with the maximum colorant value. PCS values shall be relative colorimetric.</param>
+      <param name="respArrays">IccResponseArrays structure with number-of-channels response arrays. Each array contains number-of-measurements reponse16Numbers appropriate to the channel.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccCurveStructure.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccCurveStructure.Empty">
+      <summary>Gets an new empty structure.</summary>
+      <value>Empty structure.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccCurveStructure.MeasurementCount">
+      <summary>Gets or sets the number of measurements for each channel.</summary>
+      <value>Array with one entry for each channel that contains the number of measurements for each channel.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccCurveStructure.MeasurementOfPatch">
+      <summary>Gets or sets the measurements of patch with maximum colorant value.</summary>
+      <value>IccXyzNumber structure with number-of-channels measurements of patch with the maximum colorant value. PCS values shall be relative colorimetric.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccCurveStructure.MeasurementSignature">
+      <summary>Gets or sets the measurement unit signature.</summary>
+      <value>A value that indicates the measurement unit signature. For a list of possible value, refer to IccMeasurementSignatureType.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccCurveStructure.RespArrays">
+      <summary>Gets or sets the response arrays.</summary>
+      <value>IccResponseArrays structure with number-of-channels response arrays. Each array contains number-of-measurements reponse16Numbers appropriate to the channel.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccData">
+      <summary>Contains either 7-bit ascii or binary data for the dataType tag type.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccData.#ctor(System.Byte[],Leadtools.ColorConversion.IccDataType)">
+      <summary>Initializes a new IccData with explicit parameters.</summary>
+      <param name="data">Array that contains the tag data.</param>
+      <param name="type">A value that indicates the method type. For a list of possible values, refer to ICCDATATYPEFLAGS.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccData.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccData.Data">
+      <summary>Gets or sets the data values.</summary>
+      <value>Array that contains the tag data.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccData.Empty">
+      <summary>Gets an new empty structure.</summary>
+      <value>Empty structure.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccData.Type">
+      <summary>Gets or sets the data type.</summary>
+      <value>A value that indicates the method type. For a list of possible values, refer to ICCDATATYPEFLAGS.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccDateTime">
+      <summary>Contains date/time information to be used in the calibrationDateTime tag.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccDateTime.#ctor(System.UInt16,System.UInt16,System.UInt16,System.UInt16,System.UInt16,System.UInt16)">
+      <summary>Initializes a new IccDateTime with explicit parameters.</summary>
+      <param name="year">Number of the year (actual year, e.g. 1994).</param>
+      <param name="month">Number of the month (1-12).</param>
+      <param name="day">Number of the day of the month (1-31).</param>
+      <param name="hours">Number of hours (0-23).</param>
+      <param name="minutes">Number of minutes (0-59).</param>
+      <param name="seconds">Number of seconds (0-59).</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccDateTime.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccDateTime.Day">
+      <summary>Gets or sets the number of the day of the month.</summary>
+      <value>Number of the day of the month (1-31).</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccDateTime.Empty">
+      <summary>Gets an new empty structure.</summary>
+      <value>Empty structure.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccDateTime.Hours">
+      <summary>Gets or sets the number of hours.</summary>
+      <value>Number of hours (0-23).</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccDateTime.Minutes">
+      <summary>Gets or sets the number of minutes.</summary>
+      <value>Number of minutes (0-59).</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccDateTime.Month">
+      <summary>Gets or sets the number of months.</summary>
+      <value>Number of the month (1-12).</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccDateTime.Seconds">
+      <summary>Gets or sets the number of seconds.</summary>
+      <value>Number of seconds (0-59).</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccDateTime.Year">
+      <summary>Gets or sets the number of years.</summary>
+      <value>Number of the year (actual year, e.g. 1994).</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccHeader">
+      <summary>Contains all the information and data about an ICC profile header.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccHeader.#ctor(System.Int32,System.Int32,System.Int32,Leadtools.ColorConversion.IccProfileClassType,Leadtools.ColorConversion.IccColorspaceType,Leadtools.ColorConversion.IccColorspaceType,Leadtools.ColorConversion.IccDateTime,System.Int32,Leadtools.ColorConversion.IccPlatformSignatureType,Leadtools.ColorConversion.IccProfileFlags,System.Int32,System.Int32,Leadtools.ColorConversion.IccProfileMediaFlags,Leadtools.ColorConversion.IccRenderingIntentType,Leadtools.ColorConversion.IccXyzNumber,System.Int32,System.Byte[],System.Byte[])">
+      <summary>Initializes a new IccHeader with explicit parameters.</summary>
+      <param name="Size">A value that indicates the size of the ICC profile in bytes.</param>
+      <param name="CmmID">A value that indicates the Color Management Module for the profile.</param>
+      <param name="Version">A value that indicates the version of the ICC profile.</param>
+      <param name="DeviceClass">A value that indicates the device class profile of the ICC profile. For a list of possible values, refer to IccProfileClassType.</param>
+      <param name="ColorSpace">A value that indicates the color space used for the ICC profile. For a list of possible values, refer to IccColorspaceType.</param>
+      <param name="Pcs">A value that indicates the color space used for the Profile Connection Space. For a list of possible values, refer to IccColorspaceType.</param>
+      <param name="DateTime">IccDateTime structure that contains the date and time of creation of the ICC profile.</param>
+      <param name="ProfileSignature">The ProfileSignature contains the fixed value of 0x61637379h.</param>
+      <param name="Platform">A value that indicates the primary platform for which the ICC profile was created. For a list of possible values, refer to IccPlatformSignatureType.</param>
+      <param name="Flags">Enumeration that indicates if the ICC profile is embedded or not, and if the ICC profile can be used independently from the embedded color data or not. For a list of possible values, refer to IccProfileFlags.</param>
+      <param name="Manufacturer">A value that indicates the device manufacturer for the device for which the ICC profile was created.</param>
+      <param name="Model">A value that indicates the device model for the device for which the ICC profile was created.</param>
+      <param name="Attributes">Enumeration that identifies attributes unique to a particular device. For a list of possible values, refer to IccProfileMediaFlags.</param>
+      <param name="RenderingIntent">A value that indicates the rendering intent. For a list of possible values, refer to IccRenderingIntentType.</param>
+      <param name="Illuminant">IccXyzNumber structure that indicates the CIEXYZ values of the illuminant used for the profile connection space.</param>
+      <param name="Creator">A value that identifies the creator of the ICC profile.</param>
+      <param name="ProfileID">An array that contains a value that indicates a checksum value for the ICC profile.</param>
+      <param name="Reserved">An array of reserved bytes for the ICC organization.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccHeader.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccHeader.Attributes">
+      <summary>Gets or sets the media attribute.</summary>
+      <value>Enumeration that identifies attributes unique to a particular device. For a list of possible values, refer to IccProfileMediaFlags.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccHeader.CmmID">
+      <summary>Gets or sets the CMM for the profile.</summary>
+      <value>A value that indicates the Color Management Module for the profile.The CmmID value shall match a CMM type signature registered in the ICC registry. If no preferred CMM is identified, this member shall be set to zero (00000000h). The registration authority for this data is the ICC Technical Secretary. See the ICC web site (&lt;https://www.color.org/index.xalter&gt;) for contact information.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccHeader.ColorSpace">
+      <summary>Gets or sets the colorspace used for the ICC profile.</summary>
+      <value>A value that indicates the color space used for the ICC profile. For a list of possible values, refer to IccColorspaceType.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccHeader.Creator">
+      <summary>Gets or sets the creator of the ICC profile.</summary>
+      <value>A value that identifies the creator of the ICC profile.The Creator value shall match the signature contained in the device manufacturer section of the ICC signature registry found at (&lt;https://www.color.org/index.xalter&gt;). If not used, this member shall be set to zero (00000000h).</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccHeader.DateTime">
+      <summary>Gets or sets the date and time of creation of the ICC profile.</summary>
+      <value>IccDateTime structure that contains the date and time of creation of the ICC profile.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccHeader.DeviceClass">
+      <summary>Gets or sets the device class of the ICC profile.</summary>
+      <value>A value that indicates the device class profile of the ICC profile. For a list of possible values, refer to IccProfileClassType.For all profile classes, other than a device link profile, the profile connection space member Pcs shall be either XyzData or LabData. When the device class is a device link profile, the value of the profile connection space shall be the appropriate color space from the list in IccColorspaceType.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccHeader.Empty">
+      <summary>Gets an new empty structure.</summary>
+      <value>Empty structure.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccHeader.Flags">
+      <summary>Gets or sets the ICC profile flags.</summary>
+      <value>Enumeration that indicates if the ICC profile is embedded or not, and if the ICC profile can be used independently from the embedded color data or not. For a list of possible values, refer to IccProfileFlags.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccHeader.Illuminant">
+      <summary>Gets or sets the illuminant used for the PCS.</summary>
+      <value>IccXyzNumber structure that indicates the CIEXYZ values of the illuminant used for the profile connection space.For the Illuminant member, the only illuminant permitted for the profile connection space is D50 (where X=0.9642; Y=1.0 and z=0.8249).</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccHeader.Manufacturer">
+      <summary>Gets or sets the device manufacturer.</summary>
+      <value>A value that indicates the device manufacturer for the device for which the ICC profile was created.The Manufacturer and Model values shall match the signature contained in the appropriate section of the ICC signature registry found at (&lt;https://www.color.org/index.xalter&gt;). If not used, this member shall be set to zero (00000000h).</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccHeader.Model">
+      <summary>Gets or sets the device model.</summary>
+      <value>A value that indicates the device model for the device for which the ICC profile was created.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccHeader.Pcs">
+      <summary>Gets or sets the PCS colorspace.</summary>
+      <value>A value that indicates the color space used for the Profile Connection Space. For a list of possible values, refer to IccColorspaceType.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccHeader.Platform">
+      <summary>Gets or sets the primary platform for which the ICC profile was created.</summary>
+      <value>A value that indicates the primary platform for which the ICC profile was created. For a list of possible values, refer to IccPlatformSignatureType.If there is no primary platform identified, the Platform shall be set to NoPlatformSignature. For a list of possible values, refer to IccPlatformSignatureType.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccHeader.ProfileId">
+      <summary>Gets or sets the profile id.</summary>
+      <value>An array that contains a value that indicates a checksum value for the ICC profile.The ProfileId value is generated using the MD5 fingerprinting method as defined in the Internet RFC 1321. If it has not been calculated, the value of the ProfileId shall be set to zero (00000000h).</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccHeader.ProfileSignature">
+      <summary>Gets or sets the profile signature.</summary>
+      <value>A value that indicates the profile signature.The ProfileSignature contains the fixed value of 0x61637379h.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccHeader.RenderingIntent">
+      <summary>Gets or sets the rendering intent.</summary>
+      <value>A value that indicates the rendering intent. For a list of possible values, refer to IccRenderingIntentType.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccHeader.Reserved">
+      <summary>Gets or sets the reserved bytes.</summary>
+      <value>An array of reserved bytes for the ICC organization.The Reserved value reserved for future ICC definition and shall be set to zero (00000000h).</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccHeader.Size">
+      <summary>Gets or sets the size of the ICC Profile.</summary>
+      <value>A value that indicates the size of the ICC profile in bytes.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccHeader.Version">
+      <summary>Gets or sets the version of the ICC profile.</summary>
+      <value>A value that indicates the version of the ICC profile.The Version shall contain the value 0x04200000h for ICC version 4.2.0.0 over which this ICC profile structure and all the methods associated with it was built.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccLookupTable16">
+      <summary>Contains data to be used in the lut16Type tag type.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccLookupTable16.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.UInt16[],System.UInt16[],System.UInt16[])">
+      <summary>Initializes a new IccLookupTable16 with explicit parameters.</summary>
+      <param name="inputChannels">Number of input channels.</param>
+      <param name="outputChannels">Number of output channels.</param>
+      <param name="colorLookupTablePoints">Number of CLUT grid points (identical for each side).</param>
+      <param name="e00">Encoded e00 parameter.</param>
+      <param name="e01">Encoded e01 parameter.</param>
+      <param name="e02">Encoded e02 parameter.</param>
+      <param name="e10">Encoded e10 parameter.</param>
+      <param name="e11">Encoded e11 parameter.</param>
+      <param name="e12">Encoded e12 parameter.</param>
+      <param name="e20">Encoded e20 parameter.</param>
+      <param name="e21">Encoded e21 parameter.</param>
+      <param name="e22">Encoded e22 parameter.</param>
+      <param name="inputTables">Array that contains input tables.</param>
+      <param name="colorLookupTableTables">Array that contains CLUT values.</param>
+      <param name="outputTables">Array that contains output tables.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccLookupTable16.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTable16.ColorLookupTablePoints">
+      <summary>Gets or sets the number of CLUT grid points.</summary>
+      <value>Number of CLUT grid points (identical for each side).</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTable16.ColorLookupTableTables">
+      <summary>Gets or sets the CLUT tables.</summary>
+      <value>Array that contains CLUT values.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTable16.E00">
+      <summary>Gets or sets the e00 parameter value.</summary>
+      <value>Encoded e00 parameter.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTable16.E01">
+      <summary>Gets or sets the e01 parameter value.</summary>
+      <value>Encoded e01 parameter.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTable16.E02">
+      <summary>Gets or sets the e02 parameter value.</summary>
+      <value>Encoded e02 parameter.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTable16.E10">
+      <summary>Gets or sets the e10 parameter value.</summary>
+      <value>Encoded e10 parameter.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTable16.E11">
+      <summary>Gets or sets the e11 parameter value.</summary>
+      <value>Encoded e11 parameter.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTable16.E12">
+      <summary>Gets or sets the e12 parameter value.</summary>
+      <value>Encoded e12 parameter.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTable16.E20">
+      <summary>Gets or sets the e20 parameter value.</summary>
+      <value>Encoded e20 parameter.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTable16.E21">
+      <summary>Gets or sets the e21 parameter value.</summary>
+      <value>Encoded e21 parameter.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTable16.E22">
+      <summary>Gets or sets the e22 parameter value.</summary>
+      <value>Encoded e22 parameter.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTable16.Empty">
+      <summary>Gets an new empty structure.</summary>
+      <value>Empty structure.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTable16.InputChannels">
+      <summary>Gets or sets the number of input channels.</summary>
+      <value>Number of input channels.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTable16.InputTables">
+      <summary>Gets or sets the input tables.</summary>
+      <value>Array that contains input tables.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTable16.OutputChannels">
+      <summary>Gets or sets the number of output channels.</summary>
+      <value>Number of output channels.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTable16.OutputTables">
+      <summary>Gets or sets the output tables.</summary>
+      <value>Array that contains output tables.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTable16.Pad">
+      <summary>Gets the padding value.</summary>
+      <value>Reserved for padding (required to be 00h).</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccLookupTable8">
+      <summary>Contains data to be used in the lut8Type tag type.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccLookupTable8.#ctor(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Byte[],System.Byte[],System.Byte[])">
+      <summary>Initializes a new IccLookupTable8 with explicit parameters.</summary>
+      <param name="inputChannels">Number of input channels.</param>
+      <param name="outputChannels">Number of output channels.</param>
+      <param name="colorLookupTablePoints">Number of CLUT grid points (identical for each side).</param>
+      <param name="e00">Encoded e00 parameter.</param>
+      <param name="e01">Encoded e01 parameter.</param>
+      <param name="e02">Encoded e02 parameter.</param>
+      <param name="e10">Encoded e10 parameter.</param>
+      <param name="e11">Encoded e11 parameter.</param>
+      <param name="e12">Encoded e12 parameter.</param>
+      <param name="e20">Encoded e20 parameter.</param>
+      <param name="e21">Encoded e21 parameter.</param>
+      <param name="e22">Encoded e22 parameter.</param>
+      <param name="inputTables">Array that contains input tables.</param>
+      <param name="colorLookupTableTables">Array that contains CLUT values.</param>
+      <param name="outputTables">Array that contains output tables.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccLookupTable8.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTable8.ColorLookupTablePoints">
+      <summary>Gets or sets the number of CLUT grid points.</summary>
+      <value>Number of CLUT grid points (identical for each side).</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTable8.ColorLookupTableTables">
+      <summary>Gets or sets the CLUT tables.</summary>
+      <value>Array that contains CLUT values.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTable8.E00">
+      <summary>Gets or sets the e00 parameter value.</summary>
+      <value>Encoded e00 parameter.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTable8.E01">
+      <summary>Gets or sets the e01 parameter value.</summary>
+      <value>Encoded e01 parameter.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTable8.E02">
+      <summary>Gets or sets the e02 parameter value.</summary>
+      <value>Encoded e02 parameter.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTable8.E10">
+      <summary>Gets or sets the e10 parameter value.</summary>
+      <value>Encoded e10 parameter.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTable8.E11">
+      <summary>Gets or sets the e11 parameter value.</summary>
+      <value>Encoded e11 parameter.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTable8.E12">
+      <summary>Gets or sets the e12 parameter value.</summary>
+      <value>Encoded e12 parameter.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTable8.E20">
+      <summary>Gets or sets the e20 parameter value.</summary>
+      <value>Encoded e20 parameter.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTable8.E21">
+      <summary>Gets or sets the e21 parameter value.</summary>
+      <value>Encoded e21 parameter.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTable8.E22">
+      <summary>Gets or sets the e22 parameter value.</summary>
+      <value>Encoded e22 parameter.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTable8.Empty">
+      <summary>Gets an new empty structure.</summary>
+      <value>Empty structure.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTable8.InputChannels">
+      <summary>Gets or sets the number of input channels.</summary>
+      <value>Number of input channels.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTable8.InputTables">
+      <summary>Gets or sets the input tables.</summary>
+      <value>Array that contains input tables.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTable8.OutputChannels">
+      <summary>Gets or sets the number of output channels.</summary>
+      <value>Number of output channels.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTable8.OutputTables">
+      <summary>Gets or sets the output tables.</summary>
+      <value>Array that contains output tables.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccLookupTable8.Pad">
+      <summary>Gets the padding value.</summary>
+      <value>Reserved for padding, must be set to zero.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccMatrix">
+      <summary>Contains matrix elements to be used in the lutAToBType and lutBToAType tag types.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccMatrix.#ctor(System.Int32[])">
+      <summary>Initializes a new IccMatrix with explicit parameters.</summary>
+      <param name="element">Array that contains matrix data.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccMatrix.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccMatrix.Element">
+      <summary>Gets or sets the matrix element values.</summary>
+      <value>Array that contains matrix data.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccMatrix.Empty">
+      <summary>Gets an new empty structure.</summary>
+      <value>Empty structure.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccMeasurement">
+      <summary>Contains data to be used in the measurementType tag type.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccMeasurement.#ctor(Leadtools.ColorConversion.IccStandardObserverType,Leadtools.ColorConversion.IccXyzNumber,Leadtools.ColorConversion.IccMeasurementGeometryType,Leadtools.ColorConversion.IccMeasurementFlareType,Leadtools.ColorConversion.IccStandardIlluminantType)">
+      <summary>Initializes a new IccMeasurement with explicit parameters.</summary>
+      <param name="standardObserver">A value that represents the standard observer. For a list of possible values, refer to IccStandardObserverType.</param>
+      <param name="backing">A value that represents XYZ tristimulus values for measurement backing.</param>
+      <param name="geometry">A value that represents the measurement geometry. For a list of possible values, refer to IccMeasurementGeometryType.</param>
+      <param name="flare">A value that represents the measurement flare. For a list of possible values, refer to IccMeasurementFlareType.</param>
+      <param name="illuminant">A value that represents the standard illuminant. For a list of possible values, refer to IccStandardIlluminantType.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccMeasurement.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccMeasurement.Backing">
+      <summary>Gets or sets the XYZ tristimulus values for measurement backing.</summary>
+      <value>A value that represents XYZ tristimulus values for measurement backing.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccMeasurement.Empty">
+      <summary>Gets an new empty structure.</summary>
+      <value>Empty structure.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccMeasurement.Flare">
+      <summary>Gets or sets the measurement flare value.</summary>
+      <value>A value that represents the measurement flare. For a list of possible values, refer to IccMeasurementFlareType.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccMeasurement.Geometry">
+      <summary>Gets or sets the measurement geometry value.</summary>
+      <value>A value that represents the measurement geometry. For a list of possible values, refer to IccMeasurementGeometryType.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccMeasurement.Illuminant">
+      <summary>Gets or sets the standard illuminant value.</summary>
+      <value>A value that represents the standard illuminant. For a list of possible values, refer to IccStandardIlluminantType.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccMeasurement.StandardObserver">
+      <summary>Gets or sets the standard observer value.</summary>
+      <value>A value that represents the standard observer. For a list of possible values, refer to IccStandardObserverType.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccMultiLocalizedUnicode">
+      <summary>Contains the name record data used in the multiLocalizedUnicodeType tag type.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccMultiLocalizedUnicode.#ctor(System.Int32,Leadtools.ColorConversion.IccNameRecord[],System.UInt16[])">
+      <summary>Initializes a new IccMultiLocalizedUnicode with explicit parameters.</summary>
+      <param name="nameRecordSize">A value that represents the length, in bytes, of each name record in the buffer pointed to by NameRecordsData.</param>
+      <param name="nameRecordsData">IccNameRecord structure that contains name record data.</param>
+      <param name="unicodeCharacters">Array storage of unicode characters.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccMultiLocalizedUnicode.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccMultiLocalizedUnicode.Empty">
+      <summary>Gets an new empty structure.</summary>
+      <value>Empty structure.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccMultiLocalizedUnicode.NameRecordsData">
+      <summary>Gets or sets the IccNameRecord structure array.</summary>
+      <value>**IccNameRecord** structure array that contains the name records data.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccMultiLocalizedUnicode.NameRecordSize">
+      <summary>Gets the name record size.</summary>
+      <value>A value that represents the length, in bytes, of each name record in the buffer pointed to by NameRecordsData.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccMultiLocalizedUnicode.UnicodeCharacters">
+      <summary>Gets or sets the unicode characters.</summary>
+      <value>Array storage of unicode characters.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccNamedColor2">
+      <summary>Provides color coordinates for 7-bit ascii color names. Contains data to be used in the namedColor2Type tag type.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccNamedColor2.#ctor(System.Int32,System.Byte[],System.Byte[],Leadtools.ColorConversion.IccNamedColor2Data[])">
+      <summary>Initializes a new IccNamedColor2 with explicit parameters.</summary>
+      <param name="vendorFlag">A value that indicates vendor specific flag.</param>
+      <param name="prefix">Array that contains the prefix for each color name (32-byte field that includes null termination).</param>
+      <param name="suffix">Array that contains the suffix for each color name (32-byte field that includes null termination).</param>
+      <param name="namedColors">IccNamedColor2Data structure that contains the named color's data.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccNamedColor2.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccNamedColor2.Empty">
+      <summary>Gets an new empty structure.</summary>
+      <value>Empty structure.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccNamedColor2.NamedColors">
+      <summary>Gets or sets the named color's data.</summary>
+      <value>IccNamedColor2Data structure that contains the named color's data.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccNamedColor2.Prefix">
+      <summary>Gets or sets the prefix for each color name.</summary>
+      <value>Array that contains the prefix for each color name (32-byte field that includes null termination).</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccNamedColor2.Suffix">
+      <summary>Gets or sets the suffix for each color name.</summary>
+      <value>Array that contains the suffix for each color name (32-byte field that includes null termination).</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccNamedColor2.VendorFlag">
+      <summary>Gets or sets the vendor specific flag.</summary>
+      <value>A value that indicates vendor specific flag.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccNamedColor2Data">
+      <summary>Contains data to be used in the IccNamedColor2 structure.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccNamedColor2Data.#ctor(System.Byte[],System.UInt16[],System.UInt16[])">
+      <summary>Initializes a new IccNamedColor2Data with explicit parameters.</summary>
+      <param name="colorRootName">An array that contains the color root name (32-byte field including null termination).</param>
+      <param name="colorPcsCoordinates">An array that contains the named color's PCS encoding.</param>
+      <param name="colorDeviceCoordinates">Array that contains the name color's device coordinates.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccNamedColor2Data.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccNamedColor2Data.ColorDeviceCoordinates">
+      <summary>Gets or sets the named color's device coordinates.</summary>
+      <value>Array that contains name color's device coordinates.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccNamedColor2Data.ColorPcsCoordinates">
+      <summary>Gets or sets the named color's PCS coordinates.</summary>
+      <value>An array that contains the named color's PCS encoding.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccNamedColor2Data.ColorRootName">
+      <summary>Gets or sets the color root name.</summary>
+      <value>An array that contains the color root name (32-byte field including null termination).</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccNamedColor2Data.Empty">
+      <summary>Gets an new empty structure.</summary>
+      <value>Empty structure.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccNameRecord">
+      <summary>Contains the name record data used in the IccMultiLocalizedUnicodeTagType structure.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccNameRecord.#ctor(System.UInt16,System.UInt16,System.Int32,System.Int32)">
+      <summary>Initializes a new IccNameRecord with explicit parameters.</summary>
+      <param name="nameLanguageCode">A value that represents the name language code from ISO-639.</param>
+      <param name="nameCountryCode">A value that represents the name country code from ISO-13166.</param>
+      <param name="nameLength">A value that represents the name length in bytes.</param>
+      <param name="nameOffset">A value that represents the name offset from the start of the tag in bytes.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccNameRecord.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccNameRecord.Empty">
+      <summary>Gets an new empty structure.</summary>
+      <value>Empty structure.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccNameRecord.NameCountryCode">
+      <summary>Gets or sets the name country code.</summary>
+      <value>A value that represents the name country code from ISO-13166.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccNameRecord.NameLanguageCode">
+      <summary>Gets or sets the name language code.</summary>
+      <value>A value that represents the name language code from ISO-639.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccNameRecord.NameLength">
+      <summary>Gets or sets the name record's length.</summary>
+      <value>A value that represents the name length in bytes.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccNameRecord.NameOffset">
+      <summary>Gets or sets the offset of the name record.</summary>
+      <value>A value that represents the name offset from the start of the tag in bytes.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccParametricCurve">
+      <summary>Describes a one-dimentional curve by specifying one of a predefined set of methods using the parameters. Contains data to be used in the parametricCurveType tag type.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccParametricCurve.#ctor(Leadtools.ColorConversion.IccFunctionsType,System.Int32[])">
+      <summary>Initializes a new IccParametricCurve with explicit parameters.</summary>
+      <param name="functionType">A value that indicates the function type. For a list of possible values, refer to IccFunctionsType.</param>
+      <param name="parameters">Array that contains one or more parameters.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccParametricCurve.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccParametricCurve.Empty">
+      <summary>Gets an new empty structure.</summary>
+      <value>Empty structure.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccParametricCurve.FunctionType">
+      <summary>Gets or sets the encoded value of the function type.</summary>
+      <value>A value that indicates the function type. For a list of possible values, refer to IccFunctionsType.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccParametricCurve.Parameters">
+      <summary>Gets or sets the function parameters.</summary>
+      <value>Array that contains one or more parameters.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccParametricCurve.Reserved">
+      <summary>Gets the reserved bytes.</summary>
+      <value>Reserved bytes and must be set to 0.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccProfileDescription">
+      <summary>Contains profile description data used in the IccProfileSequenceDescription structure.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccProfileDescription.#ctor(System.Int32,System.Int32,System.Byte[],Leadtools.ColorConversion.IccTechnologySignatureType,Leadtools.ColorConversion.IccMultiLocalizedUnicodeTagType,Leadtools.ColorConversion.IccMultiLocalizedUnicodeTagType)">
+      <summary>Initializes a new IccProfileDescription with explicit parameters.</summary>
+      <param name="deviceManufacturerSignature">A value that indicates the device manufacturer signature (from corresponding profile's header).</param>
+      <param name="deviceModelSignature">A value that indicates the device model signature (from corresponding profile's header).</param>
+      <param name="deviceAttributes">A value that indicates the attributes (from corresponding profile's header).</param>
+      <param name="deviceTechnologyInformation">A value that indicates the device technology information such as CRT, Dye Sublimation, etc. (corresponding to profile's technology signature). For a list of possible values refer to IccTechnologySignatureType.</param>
+      <param name="deviceManufacturerDescription">An IccMultiLocalizedUnicodeTagType class that contains displayable description of device manufacturer (profile's deviceMfgDescTag).</param>
+      <param name="deviceModelDescription">An IccMultiLocalizedUnicodeTagType class that contains displayable description of the device model (profile's deviceModelDescTag).</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccProfileDescription.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccProfileDescription.DeviceAttributes">
+      <summary>Gets or sets the device attributes.</summary>
+      <value>A value that indicates the attributes (from corresponding profile's header).</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccProfileDescription.DeviceManufacturerDescription">
+      <summary>Gets or sets the device manufacturer description.</summary>
+      <value>An **IccMultiLocalizedUnicodeTagType** class that contains displayable description of device manufacturer (profile's deviceMfgDescTag).</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccProfileDescription.DeviceManufacturerSignature">
+      <summary>Gets or sets the device manufacturer signature.</summary>
+      <value>A value that indicates the device manufacturer signature (from corresponding profile's header).</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccProfileDescription.DeviceModelDescription">
+      <summary>Gets or sets the device model description.</summary>
+      <value>An **IccMultiLocalizedUnicodeTagType** class that contains displayable description of the device model (profile's deviceModelDescTag).</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccProfileDescription.DeviceModelSignature">
+      <summary>Gets or sets the device model signature.</summary>
+      <value>A value that indicates the device model signature (from corresponding profile's header).</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccProfileDescription.DeviceTechnologyInformation">
+      <summary>Gets or sets the device technology information.</summary>
+      <value>A value that indicates the device technology information such as CRT, Dye Sublimation, etc. (corresponding to profile's technology signature). For a list of possible values refer to IccTechnologySignatureType.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccProfileDescription.Empty">
+      <summary>Gets an new empty structure.</summary>
+      <value>Empty structure.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccProfileSequenceDescription">
+      <summary>Contains an array of profile descriptions used for the profileSequenceDescType tag type.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccProfileSequenceDescription.#ctor(Leadtools.ColorConversion.IccProfileDescription[])">
+      <summary>Initializes a new IccProfileSequenceDescription with explicit parameters.</summary>
+      <param name="profileDescription">Array of IccProfileDescription classes that saves the profile description data.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccProfileSequenceDescription.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccProfileSequenceDescription.Empty">
+      <summary>Gets an new empty structure.</summary>
+      <value>Empty structure.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccProfileSequenceDescription.ProfileDescription">
+      <summary>Gets or sets the IccProfileDescription class array.</summary>
+      <value>Array of IccProfileDescription classes that saves the profile description data.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccResponse16Number">
+      <summary>Contains an 8 byte value, used to associate normalized device code with a measurement value.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccResponse16Number.#ctor(System.UInt16,System.Int32)">
+      <summary>Initializes a new IccResponse16Number with explicit parameters.</summary>
+      <param name="deviceCode">16-bit number in the interval \[DeviceMin to DeviceMax\].</param>
+      <param name="measurement">Measurement value.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccResponse16Number.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccResponse16Number.DeviceCode">
+      <summary>Gets or sets the device code.</summary>
+      <value>16-bit number in the interval \[DeviceMin to DeviceMax\].</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccResponse16Number.Empty">
+      <summary>Gets an new empty structure.</summary>
+      <value>Empty structure.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccResponse16Number.Measurement">
+      <summary>Gets or sets the measurement value.</summary>
+      <value>Measurement value.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccResponse16Number.Reserved">
+      <summary>Gets the reserved bytes.</summary>
+      <value>Reserved 2 bytes, must be set to zero.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccResponseArrays">
+      <summary>Provides a mechanism to relate physical colorant amounts with normalized device codecs produced by lut8Type, lut16Type or lutBToAType tags.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccResponseArrays.#ctor(Leadtools.ColorConversion.IccResponse16Number[])">
+      <summary>Initializes a new IccResponseArrays with explicit parameters.</summary>
+      <param name="responseNumber">IccResponse16Number structure with the number-of-measurements repsonse16Numbers appropriate for each channel.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccResponseArrays.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccResponseArrays.Empty">
+      <summary>Gets an new empty structure.</summary>
+      <value>Empty structure.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccResponseArrays.ResponseNumber">
+      <summary>Gets or sets response16Number data.</summary>
+      <value>IccResponse16Number structure with number-of-measurements repsonse16Numbers appropriate for each channel.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccResponseCurve">
+      <summary>Contains the response curve data that is used in the responseCurveSet16Type tag type.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccResponseCurve.#ctor(System.UInt16,System.Int32[],Leadtools.ColorConversion.IccCurveStructure[])">
+      <summary>Initializes a new IccCurveStructure with explicit parameters.</summary>
+      <param name="channelsCount">Non-negative value that indicates the number of channels.</param>
+      <param name="responseDataOffsets">Array of offsets, each relative to byte 0 of this structure, with one entry for each measurement type. Each will point to the response data for the measurement unit.</param>
+      <param name="curveStructure">IccCurveStructure structure that contains the curve data.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccResponseCurve.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccResponseCurve.ChannelsCount">
+      <summary>Gets or sets the number of channels.</summary>
+      <value>Non-negative value that indicates the number of channels.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccResponseCurve.CurveStructure">
+      <summary>Gets or sets the IccCurveStructure structure.</summary>
+      <value>IccCurveStructure structure that contains the curve data.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccResponseCurve.Empty">
+      <summary>Gets an new empty structure.</summary>
+      <value>Empty structure.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccResponseCurve.ResponseDataOffsets">
+      <summary>Gets or sets the array of offsets to the response data for the measurement unit.</summary>
+      <value>Array of offsets, each relative to byte 0 of this structure, with one entry for each measurement type. Each will point to the response data for the measurement unit.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccTag">
+      <summary>Contains the tag's information.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccTag.#ctor(System.Int32,System.Int32,System.Int32)">
+      <summary>Initializes a new IccTag with explicit parameters.</summary>
+      <param name="signature">A value that indicates the tag signature. For a list of possible values, refer to IccSignatureType. It can contain a private tag, but it shall be registered with ICC registry. The registration authority for this data is the ICC Technical Secretary. Set the ICC web site (&lt;https://www.color.org/index.xalter&gt;) for contact information.</param>
+      <param name="offset">A value that indicates the address of the beginning of the tag data element, with respect to the beginning of the profile data stream (which has an address of zero).</param>
+      <param name="size">A value that indicates the tag data element size in bytes. This value does not include any padded bytes at the end of the data.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccTag.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccTag.Empty">
+      <summary>Gets an new empty structure.</summary>
+      <value>Empty structure.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccTag.Offset">
+      <summary>Gets or sets the offset of the beginning of the tag data element.</summary>
+      <value>A value that indicates the address of the beginning of the tag data element, with respect to the beginning of the profile data stream (which has an address of zero).</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccTag.Signature">
+      <summary>Gets or sets the tag signature.</summary>
+      <value>A value that indicates the tag signature. For a list of possible values, refer to IccSignatureType. It can contain a private tag, but it shall be registered with ICC registry. The registration authority for this data is the ICC Technical Secretary. Set the ICC web site (&lt;https://www.color.org/index.xalter&gt;) for contact information.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccTag.Size">
+      <summary>Gets or sets the size of the tag data element.</summary>
+      <value>A value that indicates the tag data element size in bytes. This value does not include any padded bytes at the end of the data.</value>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTag.AToB0Tag">
+      <summary>AToB0Tag signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTag.AToB1Tag">
+      <summary>AToB1Tag signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTag.AToB2Tag">
+      <summary>AToB2Tag signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTag.BlueMatrixColumnTag">
+      <summary>BlueMatrixColumnTag signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTag.BlueTRCTag">
+      <summary>BlueTRCTag signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTag.BToA0Tag">
+      <summary>BToA0Tag signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTag.BToA1Tag">
+      <summary>BToA1Tag</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTag.BToA2Tag">
+      <summary>BToA2Tag signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTag.CalibrationDateTimeTag">
+      <summary>CalibrationDateTimeTag signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTag.CharTargetTag">
+      <summary>CharTargetTag signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTag.ChromaticAdaptationTag">
+      <summary>ChromaticAdaptationTag signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTag.ChromaticityTag">
+      <summary>ChromaticityTag signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTag.ColorantOrderTag">
+      <summary>ColorantOrderTag signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTag.ColorantTableOutTag">
+      <summary>ColorantTableOutTag signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTag.ColorantTableTag">
+      <summary>ColorantTableTag signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTag.CopyrightTag">
+      <summary>CopyrightTag signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTag.DeviceMfgDescTag">
+      <summary>DeviceMfgDescTag signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTag.DeviceModelDescTag">
+      <summary>DeviceModelDescTag signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTag.GamutTag">
+      <summary>GamutTag signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTag.GrayTRCTag">
+      <summary>GrayTRCTag signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTag.GreenMatrixColumnTag">
+      <summary>GreenMatrixColumnTag signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTag.GreenTRCTag">
+      <summary>GreenTRCTag signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTag.LuminanceTag">
+      <summary>LuminanceTag signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTag.MeasurementTag">
+      <summary>MeasurementTag signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTag.MediaBlackPointTag">
+      <summary>MediaBlackPointTag signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTag.MediaWhitePointTag">
+      <summary>MediaWhitePointTag signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTag.NamedColor2Tag">
+      <summary>NamedColor2Tag signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTag.OutputResponseTag">
+      <summary>OutputResponseTag signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTag.Preview0Tag">
+      <summary>Preview0Tag signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTag.Preview1Tag">
+      <summary>Preview1Tag signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTag.Preview2Tag">
+      <summary>Preview2Tag signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTag.ProfileDescriptionTag">
+      <summary>ProfileDescriptionTag signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTag.ProfileSequenceDescTag">
+      <summary>ProfileSequenceDescTag signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTag.RedMatrixColumnTag">
+      <summary>RedMatrixColumnTag signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTag.RedTRCTag">
+      <summary>RedTRCTag signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTag.TechnologyTag">
+      <summary>TechnologyTag signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTag.ViewingCondDescTag">
+      <summary>ViewingCondDescTag signature.</summary>
+    </member>
+    <member name="F:Leadtools.ColorConversion.IccTag.ViewingConditionsTag">
+      <summary>ViewingConditionsTag signature.</summary>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccTagList">
+      <summary>Contains a list of all the tags in the ICC profile.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccTagList.#ctor(Leadtools.ColorConversion.IccTag[])">
+      <summary>Initializes a new IccTagList with explicit parameters.</summary>
+      <param name="tags">IccTag class that contains a list of all the tags in the ICC profile.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccTagList.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccTagList.Empty">
+      <summary>Gets an new empty structure.</summary>
+      <value>Empty structure.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccTagList.Tags">
+      <summary>Gets or sets the tags list.</summary>
+      <value>IccTag class that contains a list of all the tags in the ICC profile.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccViewCondition">
+      <summary>Contains viewing conditions data assumed for the media for which the profile is defined.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccViewCondition.#ctor(Leadtools.ColorConversion.IccXyzNumber,Leadtools.ColorConversion.IccXyzNumber,Leadtools.ColorConversion.IccStandardIlluminantType)">
+      <summary>Initializes a new IccViewCondition with explicit parameters.</summary>
+      <param name="absIlluminant">CIE 'absolute' XYZ values for illuminant (in which Y is in cd/m2).</param>
+      <param name="absSurround">CIE 'absolute' XYZ values for surround (in which Y is in cd/m2).</param>
+      <param name="illuminantType">A value that represents the illuminant type. For a list of possible values, refer to IccStandardIlluminantType.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccViewCondition.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccViewCondition.AbsIlluminant">
+      <summary>Gets or sets the XYZ values for illuminant.</summary>
+      <value>CIE 'absolute' XYZ values for illuminant (in which Y is in cd/m2).</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccViewCondition.AbsSurround">
+      <summary>Gets or sets the XYZ values for surround.</summary>
+      <value>CIE 'absolute' XYZ values for surround (in which Y is in cd/m2).</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccViewCondition.Empty">
+      <summary>Gets an new empty structure.</summary>
+      <value>Empty structure.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccViewCondition.IlluminantType">
+      <summary>Gets or sets the illuminant type.</summary>
+      <value>A value that represents the illuminant type. For a list of possible values, refer to IccStandardIlluminantType.</value>
+    </member>
+    <member name="T:Leadtools.ColorConversion.IccXyzNumber">
+      <summary>Contains three fixed signed quantities used to encode CIEXYZ tristimulus values.</summary>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccXyzNumber.#ctor(System.Int32,System.Int32,System.Int32)">
+      <summary>Initializes a new IccXyzNumber with explicit parameters.</summary>
+      <param name="x">A value that represents the X tristimulus value of an XYZ color space.</param>
+      <param name="y">A value that represents the Y tristimulus value of an XYZ color space.</param>
+      <param name="z">A value that represents the Z tristimulus value of an XYZ color space.</param>
+    </member>
+    <member name="M:Leadtools.ColorConversion.IccXyzNumber.ToString">
+      <summary>Overridden. Returns a meaningful name for this method.</summary>
+      <returns>String containing the name of this method.</returns>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccXyzNumber.Empty">
+      <summary>Gets an new empty structure.</summary>
+      <value>Empty structure.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccXyzNumber.X">
+      <summary>Gets or sets the CIE X tristimulus value.</summary>
+      <value>A value that represents the X tristimulus value of an XYZ color space.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccXyzNumber.Y">
+      <summary>Gets or sets the CIE X tristimulus value.</summary>
+      <value>A value that represents the Y tristimulus value of an XYZ color space.</value>
+    </member>
+    <member name="P:Leadtools.ColorConversion.IccXyzNumber.Z">
+      <summary>Gets or sets the CIE Z tristimulus value.</summary>
+      <value>A value that represents the Z tristimulus value of an XYZ color space.</value>
+    </member>
+  </members>
+</doc>

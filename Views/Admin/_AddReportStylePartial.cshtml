@@ -1,0 +1,685 @@
+﻿@using TabFusionRMS.Resource
+@using TabFusionRMS.Models
+@model ReportStyle
+<style>
+    #LoadUserControl {
+        overflow: unset !important;
+    }
+    .sticker.stick {
+       right:32px;
+    }
+    .sticker {
+        right:0px;
+        margin-bottom:15px;
+    }
+    .dropdown {
+        position: relative;
+    }
+    .dropdown select {
+        width: 100%;
+    }
+    .dropdown > * {
+        box-sizing: border-box;
+        height: 36px;
+    }
+    .dropdown select {}
+    .dropdown input {
+        position: absolute;
+        width: calc(100% - 20px);
+    }
+    input[type='number'] {
+        -moz-appearance: textfield;
+    }
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+</style>
+
+@*@Using Html.BeginForm("SetReportStyle", "Admin", FormMethod.Post, New With {.id = "frmReportStyles", .class = "form-horizontal", .ReturnUrl = ViewData("ReturnUrl")})*@
+<form asp-action="SetReportStyle" asp-controller="Admin" method="post" id="frmReportStyles" class="form-horizontal" ReturnUrl = '@ViewData["ReturnUrl"]'>
+
+    <div id="parent">
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    @Html.HiddenFor((m)=> m.ReportStylesId)
+                    <label class="col-md-4 control-label" for="Id">@Languages.get_Translation("lblAddReportStylePartialRptStyleName")</label>
+                    <div class="col-lg-8 col-md-7">
+                        @Html.TextBoxFor((m)=> m.Id,new{@class = "form-control", MaxLength = "20"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="Description">@Languages.get_Translation("lblAddReportStylePartialDescr")</label>
+                    <div class="col-lg-8 col-md-7">
+                        @Html.TextBoxFor((m)=> m.Description,new{@class = "form-control", MaxLength = "30"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="Heading1Left">@Languages.get_Translation("lblAddReportStylePartialLftHeadingLn1") </label>
+                    <div class="col-lg-8 col-md-7">
+                        @Html.TextBoxFor((m)=> m.Heading1Left, new {@class = "form-control", MaxLength = "50"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="Heading1Center">@Languages.get_Translation("lblAddReportStylePartialCntHeadingLn1")</label>
+                    <div class="col-lg-8 col-md-7">
+                        @Html.TextBoxFor((m)=> m.Heading1Center, new{@class = "form-control", MaxLength = "50"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="Heading1Right">@Languages.get_Translation("lblAddReportStylePartialRgtHeadingLn1")</label>
+                    <div class="col-lg-8 col-md-7">
+                        @Html.TextBoxFor((m)=> m.Heading1Right,new{@class = "form-control", MaxLength = "50"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="Heading2Center">@Languages.get_Translation("lblAddReportStylePartialCntHeadingLn2")</label>
+                    <div class="col-lg-8 col-md-7">
+                        @Html.TextBoxFor((m)=> m.Heading2Center, new{@class = "form-control", MaxLength = "50"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="FooterLeft">@Languages.get_Translation("lblAddReportStylePartialLftFooterLn")</label>
+                    <div class="col-lg-8 col-md-7">
+                        @Html.TextBoxFor((m)=> m.FooterLeft,new{@class = "form-control", MaxLength = "50"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="FooterCenter">@Languages.get_Translation("lblAddReportStylePartialCntFooterLn")</label>
+                    <div class="col-lg-8 col-md-7">
+                        @Html.TextBoxFor((m)=> m.FooterCenter, new{@class = "form-control", MaxLength = "50"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="FooterRight">@Languages.get_Translation("lblAddReportStylePartialRgtFooterLn")</label>
+                    <div class="col-lg-8 col-md-7">
+                        @Html.TextBoxFor((m)=> m.FooterRight,new{@class = "form-control", MaxLength = "50"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="Orientation">@Languages.get_Translation("lblAddReportStylePartialOrien")</label>
+                    <div class="col-lg-8 col-md-7">
+                        <select id="Orientation" name="Orientation" class="form-control">
+                            <option value="0">@Languages.get_Translation("optAddReportStylePartialPrinterDefault")</option>
+                            <option value="1">@Languages.get_Translation("optAddReportStylePartialPortrait")</option>
+                            <option value="2">@Languages.get_Translation("optAddReportStylePartialLandscape")</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="HeaderSize">@Languages.get_Translation("lblAddReportStylePartialHeaderBoxHgt"):</label>
+                    <div class="col-lg-8 col-md-7">
+                        @Html.TextBoxFor((m)=> m.HeaderSize,new{@class = "form-control", MaxLength = "5"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="BoxWidth">@Languages.get_Translation("lblAddReportStylePartialLnThickness"):</label>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor((m)=> m.BoxWidth,new{@class = "form-control", MaxLength = "5"})
+
+                    </div>
+                    <label class="col-lg-4 col-md-3 control-label" for="ShadowSize">@Languages.get_Translation("lblAddReportStylePartialShadowThickness"):</label>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor((m)=> m.ShadowSize, new{@class = "form-control", MaxLength = "5"})
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="MaxLines">@Languages.get_Translation("lblAddReportStylePartialMaxRowLns"):</label>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor((m)=> m.MaxLines, new{@class = "form-control", MaxLength = "5"})
+
+                    </div>
+                    <label class="col-lg-4 col-md-3 control-label" for="MinColumnWidth">@Languages.get_Translation("lblAddReportStylePartialMinColWidth"):</label>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor((m)=> m.MinColumnWidth, new{@class = "form-control", MaxLength = "5"})
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-4 control-label" for="BlankLineSpacing">@Languages.get_Translation("lblAddReportStylePartialBlankLnSpacing"):</label>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor((m)=> m.BlankLineSpacing, new{@class = "form-control", MaxLength = "5"})
+
+                    </div>
+                    <label class="col-lg-4 col-md-3 control-label" for="ColumnSpacing">@Languages.get_Translation("lblAddReportStylePartialColSpacing"):</label>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor((m)=> m.ColumnSpacing,new{@class = "form-control", MaxLength = "5"})
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4"></div>
+                    <div class="col-lg-8 col-md-7">
+                        <div class="checkbox-cus">
+                            @*@Html.CheckBoxFor(Function(m) m.FixedLines)*@
+                            <input id="FixedLines" name="FixedLines" value="false" type="checkbox" />
+                            <label class="checkbox-inline" for="FixedLines">@Languages.get_Translation("lblAddReportStylePartialFixedHgtRows")</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4"></div>
+                    <div class="col-lg-8 col-md-7">
+                        <div class="checkbox-cus">
+                            @*@Html.CheckBoxFor(Function(m) m.AltRowShading)*@
+                            <input id="AltRowShading" name="AltRowShading" value="false" type="checkbox" />
+                            <label class="checkbox-inline" for="AltRowShading">@Languages.get_Translation("lblAddReportStylePartialAltRowShading")</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4"></div>
+                    <div class="col-lg-8 col-md-7">
+                        <div class="checkbox-cus">
+                            @*@Html.CheckBoxFor(Function(m) m.ReportCentered)*@
+                            <input id="ReportCentered" name="ReportCentered" value="false" type="checkbox" />
+                            <label class="checkbox-inline" for="ReportCentered">@Languages.get_Translation("lblAddReportStylePartialRptCentered")</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <fieldset class="admin_fieldset">
+                    <legend>@Languages.get_Translation("tlAddReportStylePartialFonts")</legend>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="Heading1Left">@Languages.get_Translation("lblAddReportStylePartialItem")</label>
+                            <div class="col-lg-8 col-md-7">
+                                <select id="FontItem" name="FontItem" class="form-control" previous="1">
+                                    <option id="item1" value="1">@Languages.get_Translation("optAddReportStylePartialHeadingLn1")</option>
+                                    <option id="item2" value="2">@Languages.get_Translation("optAddReportStylePartialHeadingLn2")</option>
+                                    <option id="item3" value="3">@Languages.get_Translation("optAddReportStylePartialSubHeading")</option>
+                                    <option id="item4" value="4">@Languages.get_Translation("optAddReportStylePartialColHeading")</option>
+                                    <option id="item5" value="5">@Languages.get_Translation("optAddReportStylePartialCol")</option>
+                                    <option id="item6" value="6">@Languages.get_Translation("optAddReportStylePartialFtrLn")</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="HeadingL1FontName">@Languages.get_Translation("lblAddReportStylePartialFontName")</label>
+                            <div class="col-lg-8 col-md-7">
+                                <input type="text" class=form-control name="FontName" id="FontName" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="HeadingL1FontSize">@Languages.get_Translation("lblAddReportStylePartialFontSize")</label>
+                            <div class="col-lg-8 col-md-7">
+                                <input type="text" class=form-control name="FontSize" id="FontSize" maxlength="2">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-4"></div>
+                            <div class="col-sm-2">
+                                <div class="checkbox-cus">
+                                    <input type="checkbox" name="FontBold" id="FontBold" />
+                                    <label class="checkbox-inline" for="FontBold">@Languages.get_Translation("chkAddReportStylePartialB")</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="checkbox-cus">
+                                    <input type="checkbox" name="FontItalic" id="FontItalic" />
+                                    <label class="checkbox-inline" for="FontItalic">@Languages.get_Translation("chkAddReportStylePartialI")</label>
+                                </div>
+                            </div>
+                            <div class="col-sm-2">
+                                <div class="checkbox-cus">
+                                    <input type="checkbox" name="FontUnderlined" id="FontUnderlined" />
+                                    <label class="checkbox-inline" for="FontUnderlined">@Languages.get_Translation("chkAddReportStylePartialU")</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-4"></div>
+                            <div class="col-md-7">
+                                <input type="button" value="@Languages.get_Translation("btnAddReportStylePartialChoose")" class="btn btn-primary" id="btnChoose">
+                            </div>
+                        </div>
+                        @Html.HiddenFor((m)=> m.HeadingL1FontBold)
+
+                        @Html.HiddenFor((m)=> m.HeadingL1FontItalic)
+
+                        @Html.HiddenFor((m)=> m.HeadingL1FontUnderlined)
+
+                        @Html.HiddenFor((m)=> m.HeadingL1FontName)
+
+                        @Html.HiddenFor((m)=> m.HeadingL1FontSize)
+
+                        @Html.HiddenFor((m)=> m.HeadingL2FontBold)
+
+                        @Html.HiddenFor((m)=> m.HeadingL2FontItalic)
+
+                        @Html.HiddenFor((m)=> m.HeadingL2FontUnderlined)
+
+                        @Html.HiddenFor((m)=> m.HeadingL2FontName)
+
+                        @Html.HiddenFor((m)=> m.HeadingL2FontSize)
+
+                        @Html.HiddenFor((m)=> m.SubHeadingFontBold)
+
+                        @Html.HiddenFor((m)=> m.SubHeadingFontItalic)
+
+                        @Html.HiddenFor((m)=> m.SubHeadingFontUnderlined)
+
+                        @Html.HiddenFor((m)=> m.SubHeadingFontName)
+
+                        @Html.HiddenFor((m)=> m.SubHeadingFontSize)
+
+                        @Html.HiddenFor((m)=> m.ColumnHeadingFontBold)
+
+                        @Html.HiddenFor((m)=> m.ColumnFontItalic)
+
+                        @Html.HiddenFor((m)=> m.ColumnHeadingFontUnderlined)
+
+                        @Html.HiddenFor((m)=> m.ColumnHeadingFontName)
+
+                        @Html.HiddenFor((m)=> m.ColumnHeadingFontSize)
+
+                        @Html.HiddenFor((m)=> m.ColumnFontBold)
+
+                        @Html.HiddenFor((m)=> m.ColumnFontItalic)
+
+                        @Html.HiddenFor((m)=> m.ColumnFontUnderlined)
+
+                        @Html.HiddenFor((m)=> m.ColumnFontName)
+
+                        @Html.HiddenFor((m)=> m.ColumnFontSize)
+
+                        @Html.HiddenFor((m)=> m.FooterFontBold)
+
+                        @Html.HiddenFor((m)=> m.FooterFontItalic)
+
+                        @Html.HiddenFor((m)=> m.FooterFontUnderlined)
+
+                        @Html.HiddenFor((m)=> m.FooterFontName)
+
+                        @Html.HiddenFor((m)=> m.FooterFontSize)
+
+                    </div>
+                </fieldset>
+                <fieldset class="admin_fieldset">
+                    <legend>@Languages.get_Translation("tlAddReportStylePartialColors") </legend>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="col-sm-4 text-right" for="TextForeColor">@Languages.get_Translation("lblAddReportStylePartialText"):</label>
+                            <div class="col-sm-2">
+                                <input style="display:none" value="#000000" name="TextForeColor" id="TextForeColor">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 text-right" for="ShadeBoxColor">@Languages.get_Translation("lblAddReportStylePartialHeaderBoxFill"):</label>
+                            <div class="col-sm-2">
+                                <input style="display:none" value="#000000" name="ShadeBoxColor" id="ShadeBoxColor">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 text-right" for="LineColor">@Languages.get_Translation("lblAddReportStylePartialLn"):</label>
+                            <div class="col-sm-2">
+                                <input style="display:none" value="#000000" name="LineColor" id="LineColor">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 text-right" for="ShadowColor">@Languages.get_Translation("lblAddReportStylePartialHeaderShadow"):</label>
+                            <div class="col-sm-2">
+                                <input style="display:none" value="#000000" name="ShadowColor" id="ShadowColor">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 text-right" for="ShadedLineColor">@Languages.get_Translation("lblAddReportStylePartialRowShading"):</label>
+                            <div class="col-sm-2">
+                                <input style="display:none" value="#000000" name="ShadedLineColor" id="ShadedLineColor">
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset Class="admin_fieldset">
+                    <legend>@Languages.get_Translation("tlAddReportStylePartialMargins")</legend>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <Label class="col-lg-3 col-md-2 col-sm-3 control-label" for="LeftMargin">@Languages.get_Translation("lblAddReportStylePartialLeft"):</Label>
+                            <div class="col-sm-3">
+                                @Html.TextBoxFor((m)=> m.LeftMargin,new{@class = "form-control", MaxLength = "4"})
+                               
+                            </div>
+                            <Label class="col-sm-3 control-label" for="TopMargin">@Languages.get_Translation("lblAddReportStylePartialTop"):</Label>
+                            <div class="col-sm-3">
+                                @Html.TextBoxFor((m)=> m.TopMargin,new{@class = "form-control", MaxLength = "4"})
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <Label Class="col-lg-3 col-md-2 col-sm-3 control-label" for="RightMargin">@Languages.get_Translation("lblAddReportStylePartialRight"):</Label>
+                            <div class="col-sm-3">
+                                @Html.TextBoxFor((m)=> m.RightMargin,new{@class = "form-control", MaxLength = "4"})
+
+                            </div>
+                            <Label Class="col-sm-3 control-label" for="BottomMargin">@Languages.get_Translation("lblAddReportStylePartialBottom"):</Label>
+                            <div class="col-sm-3">
+                                @Html.TextBoxFor((m)=> m.BottomMargin,new{@class = "form-control", MaxLength = "4"})
+                                
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            @*<div class="clearfix"></div>*@
+
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div Class="sticker stick">
+                    <input type="button" id="btnApplyStyle" value="@Languages.get_Translation("Apply")" class="btn btn-primary pull-right" />
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+@*@Using Html.BeginForm("SetPropertyDetails", "Admin", FormMethod.Post, New With {.id = "frmImportProperty", .class = "form-horizontal", .role = "form", .ReturnUrl = ViewData("ReturnUrl")})*@
+<form asp-action="SetPropertyDetails" asp-controller="Admin" method="post" class="form-horizontal" id="frmImportProperty" role="form" ReturnUrl = '@ViewData["ReturnUrl"]'>
+    <div class="modal fade" id="mdlFont" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel"><label id="myModelId">@Languages.get_Translation("tlAddReportStylePartialFont")</label></h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label id="lblFont" name="lblFont" for="ddlFont" class="col-sm-3 control-label">@Languages.get_Translation("tlAddReportStylePartialFont"):</label>
+                        <div class="col-sm-9">
+                            <select id="ddlFont" name="ddlFont" class="form-control" onchange="getFontFamily(this);">
+                                @*<option value=" 0">
+                                        Select Font
+                                    </option>*@
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label id="lblFontStyle" name="lblFontStyle" for="ddlFontStyle" class="col-sm-3 control-label">@Languages.get_Translation("lblAddReportStylePartialFontStyle")</label>
+                        <div class="col-sm-2">
+                            <div class="checkbox-cus">
+                                <input type="checkbox" name="pFontBold" id="pFontBold" />
+                                <label class="checkbox-inline" for="pFontBold">@Languages.get_Translation("chkAddReportStylePartialB")</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="checkbox-cus">
+                                <input type="checkbox" name="pFontItalic" id="pFontItalic" />
+                                <label class="checkbox-inline" for="pFontItalic">@Languages.get_Translation("chkAddReportStylePartialI")</label>
+                            </div>
+                        </div>
+                        <div class="copl-sm-2">
+                            <div class="checkbox-cus">
+                                <input type="checkbox" name="pFontUnderlined" id="pFontUnderlined" />
+                                <label class="checkbox-inline" for="pFontUnderlined">@Languages.get_Translation("chkAddReportStylePartialU")</label>
+                            </div>
+                        </div>
+                        @*<select id="ddlFontStyle" name="ddlFontStyle" class="form-control">
+                            </select>*@
+                    </div>
+                    <div class="row top_space">
+                        <label id="lblFontSize" name="lblFontSize" for="ddlFontSize" class="col-sm-3 control-label">@Languages.get_Translation("lblAddReportStylePartialSize")</label>
+                        <div class="col-sm-9">
+                            <div class="dropdown">
+                                <input type="text" id="textFontSize" onchange="getFontSizeFromText(this);" maxlength="2" />
+                                <select id="ddlSize" name="ddlSize" onchange="this.previousElementSibling.value = this.value; this.previousElementSibling.focus(); getFontSize(this);">
+                                    @*<option>This is option 1</option>
+                                        <option>Option 2</option>*@
+                                </select>
+                            </div>
+                            @*<select id="ddlSize" name="ddlSize" class="form-control" onchange="getFontSize(this);">
+                                </select>*@
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label id="lblSample" name="lblSample" class="col-sm-3 control-label">@Languages.get_Translation("lblAddReportStylePartialSample"):</label>
+                        <div class="col-sm-9 top_space">
+                            <label id="lblSampleDemo" name="lblSampleDemo">@Languages.get_Translation("lblAddReportStylePartialAaBbYyZz")</label>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="row">
+                            <div class="col-sm-12 col-md-12">
+                                <label id="lblSample" name="lblSample" class="control-label">This is an OpenType font.This same font will be used on both your printer and your screen.</label>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="row">
+                            <div class="col-sm-2 col-md-2">
+                                <label id="lblScript" name="lblScript" for="ddlScript" class="control-label">Script :</label>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                <select id="ddlScript" name="ddlScript" class="form-control">
+                                    <option value="0">Select Script</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2 col-md-2">
+                                <label id="lblShowMoreFont" name="lblShowMoreFont" for="ddlShowMoreFont" class="control-label">Show more fonts :</label>
+                            </div>
+                            <div class="col-sm-4 col-md-4">
+                                <select id="ddlShowMoreFont" name="ddlShowMoreFont" class="form-control">
+                                    <option value="0">Select Font</option>
+                                </select>
+                        </div>
+
+                    </div>*@
+                <div class="modal-footer">
+                    <button id="btnOkProperty" type="button" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">@Languages.get_Translation("Ok")</button>
+                    <button id="btnCancelProperty" type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">@Languages.get_Translation("Cancel")</button>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    '<!-- /.modal-dialog -->
+</form>
+<script src="@Url.Content("~/content/themes/tab/js/evol.colorpicker.min.js")"></script>
+<link href="~/content/themes/tab/css/evol.colorpicker.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+    $('#FontSize').keypress(function (event) {
+
+        if ((event.which != 8 && isNaN(String.fromCharCode(event.which))) || (event.which == 32)) {
+            event.preventDefault();
+        }
+    });
+
+    //$('textarea').keypress(function (event) {
+    //    if (event.keyCode == 13) {
+    //        event.preventDefault();
+    //    }
+    //});
+    //var inputFontSize = document.getElementById('FontSize');
+
+    //inputFontSize.addEventListener('change', function (e) {
+    //    var num = parseInt(this.value, 10),
+    //        min = 5,
+    //        max = 48;
+
+    //    if (isNaN(num)) {
+
+    //        this.value = 5;
+    //        return;
+    //    }
+
+    //    this.value = Math.max(num, min);
+    //    this.value = Math.min(num, max);
+    //    if (num < 5) {
+    //        this.value = 5
+    //    }
+
+    //});
+
+    $('#textFontSize').keypress(function (event) {
+        if (event.keyCode == 13) {
+            event.preventDefault();
+        }
+        if ((event.which != 8 && isNaN(String.fromCharCode(event.which))) || (event.which == 32)) {
+            event.preventDefault();
+        }
+    });
+
+    //var inputTextFontSize = document.getElementById('textFontSize');
+
+    //inputTextFontSize.addEventListener('change', function (e) {
+
+    //    var num = parseInt(this.value, 10),
+    //        min = 5,
+    //        max = 48;
+
+    //    if (isNaN(num)) {
+
+    //        this.value = 5;
+    //        return;
+    //    }
+
+    //    this.value = Math.max(num, min);
+    //    this.value = Math.min(num, max);
+    //    if (num < 5) {
+    //        this.value = 5
+    //    }
+
+    //});
+
+
+    $('#btnOkProperty').click(function () {
+
+        var fontFamily = $('select#ddlFont option:selected').val()
+
+        var fontSize = $('select#ddlSize option:selected').val();
+
+        var fontSizeText = $('#textFontSize').val();
+
+
+        var fontBold = $('#pFontBold').is(':checked')
+        var fontItalic = $('#pFontItalic').is(':checked')
+        var fontUnderline = $('#pFontUnderlined').is(':checked')
+
+        $('#FontName').val(fontFamily)
+        //Modified by Hemin for Bug Fix
+        //if (fontSizeText <= 72) {
+
+        //    $('#FontSize').val(fontSizeText)
+        //}
+        if (fontSizeText <= 72 && fontSizeText >= 8) {
+
+            $('#FontSize').val(fontSizeText)
+        }
+        else {
+            showAjaxReturnMessage(vrReportsRes['msgAddReportStylePartialTheFontSizeMustbebetween8n72'], "w");
+        }
+
+
+        if (fontBold != true && fontItalic != true && fontUnderline != true) {
+
+            $('#FontBold').attr('checked', false);
+            $('#FontItalic').attr('checked', false);
+            $('#FontUnderlined').attr('checked', false);
+        }
+        if (fontBold) {
+            $('#FontBold').attr('checked', true);
+        }
+        if (fontItalic) {
+            $('#FontItalic').attr('checked', true);
+        }
+        if (fontUnderline) {
+            $('#FontUnderlined').attr('checked', true);
+        }
+
+    });
+
+    $("#pFontBold").change(function () {
+        if (this.checked) {
+            $('#lblSampleDemo').css('font-weight', 'bold');
+        }
+        else {
+            $('#lblSampleDemo').css('font-weight', 'normal');
+        }
+    });
+    $("#pFontItalic").change(function () {
+        if (this.checked) {
+            $('#lblSampleDemo').css('font-style', 'italic');
+        }
+        else {
+            $('#lblSampleDemo').css('font-style', 'normal');
+        }
+    });
+    $("#pFontUnderlined").change(function () {
+        if (this.checked) {
+            $('#lblSampleDemo').css('text-decoration', 'underline');
+        }
+        else {
+            $('#lblSampleDemo').css('text-decoration', 'none');
+        }
+    });
+
+
+    function getFontSizeFromText(sel) {
+
+        if (!(8 <= parseInt(sel.value) && parseInt(sel.value) <= 72)) {
+            //Modified by Hemin
+            //showAjaxReturnMessage(vrViewsRes['msgAddReportStylePartialTheFontSizeMustbebetween8n72'], "w");
+            showAjaxReturnMessage(vrReportsRes['msgAddReportStylePartialTheFontSizeMustbebetween8n72'], "w");
+            return false;
+        }
+
+        if (sel.value <= 72 || sel.value >= 08) {
+            $('#lblSampleDemo').css("font-size", sel.value + "px");
+        }
+    }
+    function getFontSize(sel) {
+
+        if (!(8 <= parseInt(sel.value) && parseInt(sel.value) <= 72)) {
+            //Modified by Hemin
+            //showAjaxReturnMessage(vrViewsRes['msgAddReportStylePartialTheFontSizeMustbebetween8n72'], "w");
+            showAjaxReturnMessage(vrReportsRes['msgAddReportStylePartialTheFontSizeMustbebetween8n72'], "w");
+            return false;
+        }
+        if (sel.value <= 72 || sel.value >= 08) {
+            $('#lblSampleDemo').css("font-size", sel.value + "px");
+        }
+
+    }
+    function getFontFamily(sel) {
+        var fontF = document.getElementById("ddlFont");
+        var fontFamily = fontF.options[fontF.selectedIndex].text;
+        $('#lblSampleDemo').css("font-family", fontFamily);
+    }
+    $('#ddlFontStyle').change(function () {
+        var selectedStyle = $(this).val();
+
+        if (selectedStyle == 'Regular') {
+
+            $('#lblSampleDemo').css('font-style', 'normal');
+            //document.getElementById('#lblSampleDemo').style.fontStyle = 'normal';
+        }
+        if (selectedStyle == 'Bold') {
+            $('#lblSampleDemo').css('font-style', 'normal');
+            document.getElementById('#lblSampleDemo').style.fontWeight = 'bold';
+        }
+
+        if (selectedStyle == 'Italic') {
+
+            $('#lblSampleDemo').css("text-decoration", "none");
+            $('#lblSampleDemo').css('font-style', 'normal');
+            $('#lblSampleDemo').css('font-style', 'italic');
+            //document.getElementById('#lblSampleDemo').style.fontStyle = 'italic';
+        }
+        if (selectedStyle == 'Underline') {
+            //$('#lblSampleDemo').removeClass()
+            $('#lblSampleDemo').css('font-style', 'normal');
+            $('#lblSampleDemo').css("text-decoration", "none");
+            $('#lblSampleDemo').css('text-decoration', 'underline');
+            //document.getElementById('#lblSampleDemo').style.textDecoration == 'underline'
+        }
+        if (selectedStyle == 'Strikeout') {
+            //$('#lblSampleDemo').removeClass()
+            $('#lblSampleDemo').css("text-decoration", "none");
+            $('#lblSampleDemo').css('font-style', 'normal');
+            $('#lblSampleDemo').css("text-decoration", "line-through");
+        }
+
+    });
+</script>

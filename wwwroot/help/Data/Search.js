@@ -1,0 +1,1 @@
+define({r:0.5,st:'Stem',n:1,t:[0],u:['../Content/About_Attachments.htm'],s:['+','request'],p:[['+',23],['characters',10],['functions',45],['of',27],['select',21],['user',50]]});

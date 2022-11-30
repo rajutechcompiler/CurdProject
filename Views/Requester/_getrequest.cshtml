@@ -1,0 +1,99 @@
+﻿@using TabFusionRMS.Resource
+@using Controllers
+@model Requesters
+<div class="modal-body" style="padding-bottom: 0px; padding-top: 0px;">
+    <div class="form-horizontal">
+        <div class="row">
+            <label style="margin-left:20px;" id="lblRequest">Complete the below selection for the following item/s</label>
+            <div class="request-listing col-sm-12">
+                <ul id="requestlst" class="square-bullet-list">
+                   @foreach(var item in Model.itemsTobeRequest)
+                   {
+                        <li>@item</li>
+                   }
+            
+                </ul>
+            </div>
+            <div class="col-sm-5 popup-form-box border-right-specific">
+                <div class="form-group top_space">
+                    <div class="col-sm-12">
+                        <label>@Languages.get_Translation("Dateneededby")</label>
+                        <input type="date" id="txtreqDue" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <label>@Languages.get_Translation("lblBatchRequestPriority") </label>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td id="rdstandard"><input type="radio" name="priority" value="Standard" checked="checked"><label>Standard</label></td>
+                                </tr>
+                                <tr>
+                                    <td id="rdhigh"><input type="radio" name="priority" value="High"><label>High</label></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <label>@Languages.get_Translation("lblRequestsInstructions")</label>
+                        <textarea id="txtInstructions" rows="4" class="form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-7 popup-form-box no_padding">
+                <div class="col-sm-12 border-bottom-specific">
+                    <p class="emp-note">@Languages.get_Translation("Ifyou")</p>
+                    <div class="form-group">
+                        <label class="control-label col-sm-3 no_padding">
+                            <label>Find Employee</label>
+                        </label>
+                        <div class="col-sm-9">
+                            <input type="text" id="reqtxtFilter" placeholder="Provide at least 3 characters to show results" class="form-control"style="padding: 6px 3px; ">
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div id="emscrolldiv" class="col-sm-12 request-emp-listing">
+                    <table class="employee-box-list">
+                        <tbody id="employeeContainer">
+                            @foreach (var item in Model.rdemployddlist)
+                                if (item.disable)
+                                {
+                                    <tr>
+                                        <td><input type="radio" disabled="disabled" name="rdlEmployees" value="@item.value"><span style="cursor:pointer;font-size:14px">@item.text</span></td>
+                                    </tr>
+                                }
+                            else
+                                    {
+                                        <tr>
+                                        <td><input type="radio" name="rdlEmployees" value="@item.value"><span name="rdlEmployees" style="cursor:pointer;font-size:14px">@item.text</span></td>
+                                    </tr>
+                                    }
+                               
+                
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    @*<div class="col-xs-12">*@
+    <div class="row">
+        <label id="lblError">@Model.lblError</label>
+        @if (Model.chkWaitList)
+            {
+                <Label Class="col-lg-12 no_padding">
+                <input type="checkbox" id="chkWaitList" checked /> @Languages.get_Translation("chkRequestsWaitList")
+            </Label>
+            }
+   
+
+        <Button onclick="dlgClose.CloseDialog()" Class="btn btn-default" style="float: right;">Cancel</Button>
+        <Button id="btnSubmitRequest" Class="btn btn-success" style="float: right;margin-right:5px;">Request</Button>
+    </div>
+</div>

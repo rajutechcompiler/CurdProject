@@ -1,0 +1,220 @@
+﻿@using TabFusionRMS.Resource
+@using TabFusionRMS.Models
+@model System
+
+<section class="content-header">
+    <h1>
+        @Languages.get_Translation("tiApplicationAppearance")
+
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i>@Languages.get_Translation("mnuAdminHome")</a></li>
+        <li class="active">@Languages.get_Translation("tiApplicationAppearance")</li>
+    </ol>
+</section>
+<hr />
+@*@Using Html.BeginForm("SetSystemDetails", "Admin", FormMethod.Post, New With {.id = "frmAppearanceDetails", .ReturnUrl = ViewData("ReturnUrl")})*@
+<form asp-action="SetSystemDetails" asp-controller="Admin" method="post" id="frmAppearanceDetails">
+<div id="parent">
+    <form class="form-horizontal">
+        <fieldset>
+            <!-- Multiple Radios -->
+            <div class="form-group row">
+                <div class="col-sm-2 col-md-2">
+                    <label class="control-label" for="radios">
+                        @Languages.get_Translation("lblApplicationAppearanceTheme")
+
+                    </label>
+                </div>
+                <div class="col-sm-2 col-md-2 custombutton" id="radio-group">
+                    <div class="radio">
+                        <label for="radios-0">
+                            <input name="radios" id="current_theme" value="1" type="radio">
+                            @Languages.get_Translation("lblApplicationAppearanceCurrentTheme")
+
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label for="radios-1">
+                            <input name="radios" id="radios-1" value="2" checked="checked" type="radio">
+                            @Languages.get_Translation("lblApplicationAppearanceOffice2007")
+
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Multiple Checkboxes -->
+            <div class="form-group row">
+                <div class="col-sm-2 col-md-2"></div>
+                <div class="col-sm-4 col-md-4">
+                    <div class="col-sm-1 col-md-1">
+                         @Html.CheckBoxFor((m)=> m.AlternateRowColors??false,new{value = "1", name = "cbAltRowCol", id = "cbAltRowCol", autofocus = ""})
+                    </div>
+                    <label>
+                        @Languages.get_Translation("lblApplicationAppearanceAltRowCol")
+                    </label>
+                </div>
+
+            </div>
+
+
+            <div class="hidden" id="color-picker">
+                <div class="form-group row">
+                    <div class="col-sm-2 col-md-2 ">
+                        <label class="control-label" for="name">
+                            @Languages.get_Translation("lblApplicationAppearanceOddRowCol")
+
+                        </label>
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                        <div class="input-group col-sm-12 col-md-12">
+                            <div class="row">
+                                <div class="col-sm-3 col-md-3">
+                                    <label class="form-control" id="lbOddSample">
+                                        @Languages.get_Translation("lblApplicationAppearanceSAMPLE")
+                                    </label>
+                                </div>
+                                <div class="col-sm-4 col-md-4">
+                                    @Html.TextBoxFor((m)=> m.GridBackColorOdd,new{@class = "pick-a-color form-control", placeholder = "Background", id = "txtGridBackColorOdd", name = "txtGridBackColorOdd", autofocus = ""})
+                                </div>
+                                <div class="col-sm-4 col-md-4">
+                                        @Html.TextBoxFor((m)=> m.GridForeColorOdd,new{@class = "pick-a-color form-control", placeholder = "Foreground", id = "txtGridForeColorOdd", name = "txtGridForeColorOdd", autofocus = ""})
+                                    <!--<input type="text" class="pick-a-color form-control" id="txtOddFg" placeholder="Foreground">-->
+                                </div>
+                            </div>
+                        </div><!-- /input-group -->
+                    </div><!-- /.col-lg-6 -->
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-2 col-md-2 ">
+                        <label class="control-label" for="name">
+                            @Languages.get_Translation("lblApplicationAppearanceEvenRowCol")
+
+                        </label>
+                    </div>
+                    <div class="col-sm-6 col-md-6">
+                        <div class="input-group col-sm-12 col-md-12">
+                            <div class="row">
+                                <div class="col-sm-3 col-md-3">
+                                    <label class="form-control" id="lbEveSample">
+                                        @Languages.get_Translation("lblApplicationAppearanceSAMPLE")
+                                    </label>
+                                </div>
+                                <div class="col-sm-4 col-md-4">
+                                   @Html.TextBoxFor((m)=> m.GridBackColorEven,new{@class = "pick-a-color form-control", placeholder = "Background", id = "txtGridBackColorEven", name = "txtGridBackColorEven", autofocus = ""})
+                                </div>
+                                <div class="col-sm-4 col-md-4">
+                                    @Html.TextBoxFor((m)=> m.GridForeColorEven, new{@class = "pick-a-color form-control", placeholder = "Background", id = "txtGridForeColorEven", name = "txtGridForeColorEven", autofocus = ""})
+                                </div>
+                            </div>
+                        </div><!-- /input-group -->
+                    </div><!-- /.col-lg-6 -->
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6 col-md-6"></div>
+                    <button type="button" class="btn btn-primary" id="bRestore">
+                        @Languages.get_Translation("lblApplicationAppearanceRestore")
+                    </button>
+                </div>
+            </div>
+
+            <!-- Text input-->
+            <div class="form-group row">
+                <div class="col-sm-4 col-md-4 row">
+                    <div class="col-sm-7 col-md-7">
+                        <label class="control-label" for="textinput">
+                            @Languages.get_Translation("lblApplicationAppearanceFVML")
+
+                        </label>
+                    </div>
+                    <div class="col-sm-3 col-md-3">
+                       @Html.TextBoxFor((m)=> m.FormViewMinLines,new{@class = "form-control input-md", id = "txtFormMinLine", name = "txtFormMinLine", autofocus = ""})
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Select Basic -->
+            <div class="form-group row">
+                <div class="col-sm-4 col-md-4 row">
+                    <div class="col-sm-7 col-md-7">
+                        <label class="control-label" for="selectbasic">
+                            @Languages.get_Translation("lblApplicationAppearanceRowColors")
+
+                        </label>
+                    </div>
+                    <div class="col-sm-5 col-md-5">
+                        @*@Html.DropDownListFor(Function(m) m.ReportGridColor, DirectCast(TabFusionRMS.Models.System, ReportGridColor,))
+                        @Html.DropDownListFor(Function(m) m.VolumesId, DirectCast(ViewBag.OutputSettingList, SelectList), "", New With {.class = "form-control", .placeholder = "Output Volume", .required = "", .autofocus = ""})*@
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
+                            @Languages.get_Translation("btnApplicationAppearanceSelectColor")
+
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation">
+                                <a role="menuitem" tabindex="-1" href="#">
+                                    @Languages.get_Translation("lblApplicationAppearance1_PaleGreen")
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a role="menuitem" tabindex="-1" href="#">
+                                    @Languages.get_Translation("lblApplicationAppearance2_LightCoral")
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a role="menuitem" tabindex="-1" href="#">
+                                    @Languages.get_Translation("lblApplicationAppearance3_AzureMist")
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a role="menuitem" tabindex="-1" href="#">
+                                    @Languages.get_Translation("lblApplicationAppearance4_LightAlmond")
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a role="menuitem" tabindex="-1" href="#">
+                                    @Languages.get_Translation("lblApplicationAppearance5_Smoke")
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Multiple Checkboxes -->
+            <div class="form-group row">
+                <div class="col-sm-2 col-md-2"></div>
+                <div class="col-sm-4 col-md-4">
+                    <div class="col-sm-1 col-md-1">
+                       @Html.CheckBoxFor((m)=> m.UseTableIcons??false,new{value = "1", name = "cbUseTableIcon", id = "cbUseTableIcon", autofocus = ""})
+                    </div>
+                    <label for="checkboxes-1">
+                        @Languages.get_Translation("lblApplicationAppearanceUDI")
+
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-4 col-md-4"></div>
+                <button type="button" id="bApplyAppearance" class="btn btn-primary col-sm-1 col-md-1" aria-expanded="false">
+                    @Languages.get_Translation("Apply")
+
+                </button>
+            </div>
+
+        </fieldset>
+    </form>
+</div>
+</form>
+<input type="hidden" id="SystemAddressesId1" value="0" />
+<div id="AddEditDriveDialog">
+</div>
+<div id="AddEditVolumeDialog">
+</div>
+<script src="@Url.Content("~/scripts/appjs/appearance.js")"></script>
+
+
+

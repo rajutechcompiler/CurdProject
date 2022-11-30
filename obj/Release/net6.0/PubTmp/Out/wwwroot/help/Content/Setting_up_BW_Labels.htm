@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Help for Administrators|Label Integration">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Setting Up Black &amp;&#160;White Label Layouts</title>
+        <link href="../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/Components/Tablet.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/Components/Mobile.css" rel="stylesheet" />
+        <link href="Resources/Stylesheets/TABFusionRMS.css" rel="stylesheet" />
+        <link href="Resources/TableStyles/Rules_HeaderRow.css" rel="stylesheet" />
+        <script src="../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="3" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+            </div>
+        </div>
+        <h1>Setting Up Black &amp;&#160;White Label Layouts</h1>
+        <p>A label layout can be associated with only one table: you will need to repeat the following steps for each table for which users should be able to print labels. Creating more than a basic label (that is, one that includes data from all the table’s rows) requires the use of a SQL statement.</p>
+        <p class="Note" data-mc-autonum="Note: &#160;"><span class="autonumber"><span>Note: &#160;</span></span>It might be useful to sketch out your label on paper before creating it in <span class="VariablesProduct Name">TAB&#160;FusionRMS</span>.</p>
+        <h2>Creating a Label</h2>
+        <ol>
+            <li value="1">Click <span class="UI">Label Manager</span>. </li>
+            <li value="2">
+                <MadCap:conditionalText data-mc-conditions="Default.Browser">Click <span class="UI">New Label</span>. </MadCap:conditionalText>
+            </li>
+            <li value="3">Enter a <span class="UI">Label Name</span>.</li>
+            <li value="4">Select the table from which label data will be drawn, then the appropriate layout from the list of forms.</li>
+            <li value="5">To have labels include all rows in the table, click <span class="UI">Create SQL</span>. Otherwise, enter the appropriate SQL statement manually.</li>
+            <li value="6">Choose how many <span class="UI">Rows to Sample</span>.</li>
+            <li value="7">In the <span class="UI">SQL Update</span> box, enter the SQL statement to be run after labels are printed (typically this is used to set print flags).</li>
+            <li value="8">To have an outline printed around each label, check <span class="UI">Display Label&#160;Outline</span>.</li>
+            <li value="9">Click <span class="UI">Ok</span>.</li>
+            <li value="10">Add the necessary objects to the label, following the relevant procedure below. Once added to the label, objects can be repositioned (by dragging them to a new location) until the label design suits your purposes. To change the properties of an object, double-click on it. </li>
+        </ol>
+        <h3>Adding a Barcode</h3>
+        <ol>
+            <li value="1">
+                <MadCap:conditionalText data-mc-conditions="Default.Browser">Click <img src="Resources/Images/i_barcode.png" />. </MadCap:conditionalText>
+            </li>
+            <li value="2">Select the <span class="UI">Field Name</span> of the table from which barcode data will be drawn.</li>
+            <li value="3">Enter a <span class="UI">Format</span>, using the following mask characters. Note that, unless otherwise specified, all characters are placeholders for the values in the regional settings, and are treated as a literal for masking purposes.
+            <table style="width: 100%;mc-table-style: url('Resources/TableStyles/Rules_HeaderRow.css');margin-left: 0;margin-right: auto;" class="TableStyle-Rules_HeaderRow" cellspacing="0"><col class="TableStyle-Rules_HeaderRow-Column-Column1" style="width: 106px;" /><col class="TableStyle-Rules_HeaderRow-Column-Column1" /><thead><tr class="TableStyle-Rules_HeaderRow-Head-Header1"><th class="TableStyle-Rules_HeaderRow-HeadE-Column1-Header1">Mask Character</th><th class="TableStyle-Rules_HeaderRow-HeadD-Column1-Header1">Usage</th></tr></thead><tbody><tr class="TableStyle-Rules_HeaderRow-Body-Body1"><td class="TableStyle-Rules_HeaderRow-BodyE-Column1-Body1">#</td><td class="TableStyle-Rules_HeaderRow-BodyD-Column1-Body1">digit placeholder</td></tr><tr class="TableStyle-Rules_HeaderRow-Body-Body1"><td class="TableStyle-Rules_HeaderRow-BodyE-Column1-Body1">.</td><td class="TableStyle-Rules_HeaderRow-BodyD-Column1-Body1">decimal placeholder</td></tr><tr class="TableStyle-Rules_HeaderRow-Body-Body1"><td class="TableStyle-Rules_HeaderRow-BodyE-Column1-Body1">,</td><td class="TableStyle-Rules_HeaderRow-BodyD-Column1-Body1">thousands separator</td></tr><tr class="TableStyle-Rules_HeaderRow-Body-Body1"><td class="TableStyle-Rules_HeaderRow-BodyE-Column1-Body1">:</td><td class="TableStyle-Rules_HeaderRow-BodyD-Column1-Body1">time separator</td></tr><tr class="TableStyle-Rules_HeaderRow-Body-Body1"><td class="TableStyle-Rules_HeaderRow-BodyE-Column1-Body1">/</td><td class="TableStyle-Rules_HeaderRow-BodyD-Column1-Body1">date separator</td></tr><tr class="TableStyle-Rules_HeaderRow-Body-Body1"><td class="TableStyle-Rules_HeaderRow-BodyE-Column1-Body1">\</td><td class="TableStyle-Rules_HeaderRow-BodyD-Column1-Body1">indicates that next characters in mask are to be treated as literals</td></tr><tr class="TableStyle-Rules_HeaderRow-Body-Body1"><td class="TableStyle-Rules_HeaderRow-BodyE-Column1-Body1">&amp;</td><td class="TableStyle-Rules_HeaderRow-BodyD-Column1-Body1">character placeholder (any ANSI&#160;character in the range of 32-126 and 128-256)</td></tr><tr class="TableStyle-Rules_HeaderRow-Body-Body1"><td class="TableStyle-Rules_HeaderRow-BodyE-Column1-Body1">&gt;</td><td class="TableStyle-Rules_HeaderRow-BodyD-Column1-Body1">converts all following characters to uppercase</td></tr><tr class="TableStyle-Rules_HeaderRow-Body-Body1"><td class="TableStyle-Rules_HeaderRow-BodyE-Column1-Body1">&lt;</td><td class="TableStyle-Rules_HeaderRow-BodyD-Column1-Body1">converts all following characters to lower case</td></tr><tr class="TableStyle-Rules_HeaderRow-Body-Body1"><td class="TableStyle-Rules_HeaderRow-BodyE-Column1-Body1">A</td><td class="TableStyle-Rules_HeaderRow-BodyD-Column1-Body1">alphanumeric placeholder (entry required)</td></tr><tr class="TableStyle-Rules_HeaderRow-Body-Body1"><td class="TableStyle-Rules_HeaderRow-BodyE-Column1-Body1">a</td><td class="TableStyle-Rules_HeaderRow-BodyD-Column1-Body1">alphanumeric placeholder (entry optional)</td></tr><tr class="TableStyle-Rules_HeaderRow-Body-Body1"><td class="TableStyle-Rules_HeaderRow-BodyE-Column1-Body1">9</td><td class="TableStyle-Rules_HeaderRow-BodyD-Column1-Body1">digit placeholder (entry optional</td></tr><tr class="TableStyle-Rules_HeaderRow-Body-Body1"><td class="TableStyle-Rules_HeaderRow-BodyE-Column1-Body1">C</td><td class="TableStyle-Rules_HeaderRow-BodyD-Column1-Body1">character or space placeholder (entry optional); equivalent to &amp;, included for compatibility with Microsoft Access</td></tr><tr class="TableStyle-Rules_HeaderRow-Body-Body1"><td class="TableStyle-Rules_HeaderRow-BodyB-Column1-Body1">?</td><td class="TableStyle-Rules_HeaderRow-BodyA-Column1-Body1">letter placeholder</td></tr></tbody></table></li>
+        </ol>
+        <ol data-mc-continue="true">
+            <li value="4">Specify the number of digits from the table field that will be shown (<span class="UI">Maximum Characters</span>) and in which position the starting digit appears in the field (<span class="UI">Start Character&#160;Position</span>).</li>
+            <li value="5">Set the <span class="UI">Colors</span> for text and background, the <span class="UI">Alignment</span> of text and barcode lines and the dimensions of the barcode <span class="UI">Box</span>. </li>
+            <li value="6">Select the barcode <span class="UI">Type</span>, location of <span class="UI">UPC Notches</span> , <span class="UI">Direction</span> of barcode, <span class="UI">Width</span> and&#160;&#160;<span class="UI">Height</span> of the whole barcode (represented in twips (1 twip = 1/1440 inch) and the <span class="UI">Bar Width</span> of each individual bar, in pixels (default is to size bars automatically). </li>
+            <li value="7">
+                <MadCap:conditionalText data-mc-conditions="Default.Browser">Click <span class="UI">Add</span>.</MadCap:conditionalText>
+            </li>
+        </ol>
+        <h3>Adding a QR Code</h3>
+        <ol>
+            <li value="1">
+                <MadCap:conditionalText data-mc-conditions="Default.Browser">Click <img src="Resources/Images/i_qr_code.png" />. </MadCap:conditionalText>
+            </li>
+            <li value="2">Select the <span class="UI">Field Name</span> of the table from which QR code data will be drawn.</li>
+            <li value="3">Enter a <span class="UI">Format</span>, using the following mask characters. Note that, unless otherwise specified, all characters are placeholders for the values in the regional settings, and are treated as a literal for masking purposes. </li>
+            <li value="4">Specify the number of digits from the table field that will be shown (<span class="UI">Maximum Characters</span>) and in which position the starting digit appears in the field (<span class="UI">Start Character&#160;Position</span>).</li>
+            <li value="5">Set the <span class="UI">Colors</span> for text and background, the <span class="UI">Alignment</span> of text and barcode lines and the dimensions of the QR code <span class="UI">Box</span>. </li>
+            <li value="6">Choose the <span class="UI">ECC&#160;Type</span>, <span class="UI">Quiet Zone</span>, <span class="UI">Orientation</span>, and <span class="UI">Width</span> of the QR&#160;code. </li>
+            <li value="7">
+                <MadCap:conditionalText data-mc-conditions="Default.Browser">Click <span class="UI">Add</span>. </MadCap:conditionalText>
+            </li>
+        </ol>
+        <h3>Adding Text</h3>
+        <ol>
+            <li value="1">
+                <MadCap:conditionalText data-mc-conditions="Default.Browser">Click <img src="Resources/Images/i_text_34x26.png" style="width: 34;height: 26;" />. </MadCap:conditionalText>
+            </li>
+            <li value="2">Enter the <span class="UI">Static Text</span>.</li>
+            <li value="3">Set the text characteristics (color, alignment, font, orientation, size and text attribute).</li>
+            <li value="4">Set the dimensions of the box in which the text will be shown.</li>
+            <li value="5">
+                <MadCap:conditionalText data-mc-conditions="Default.Browser">Click <span class="UI">Add</span>. </MadCap:conditionalText>
+            </li>
+        </ol>
+        <h3>Adding the Contents of a Database Field</h3>
+        <ol>
+            <li value="1">
+                <MadCap:conditionalText data-mc-conditions="Default.Browser">Click <img src="Resources/Images/i_text_34x26.png" style="width: 34;height: 26;" />. </MadCap:conditionalText>
+            </li>
+            <li value="2">Choose the database <span class="UI">Field Name</span> containing the content to be added to the label. </li>
+            <li value="3">Specify the <span class="UI">Format</span> for presenting the database field’s contents, as for barcodes.</li>
+            <li value="4">Enter the <span class="UI">Start Character Position</span> and <span class="UI">Maximum Characters</span>. For example, to skip the first digit in this field, set the start position to “2”, to use just the first four digits in this field, set the start position to “1” and the maximum characters to “4”.</li>
+            <li value="5">Set the text characteristics (color, alignment, font, orientation, size and text attribute).</li>
+            <li value="6">Set the dimensions of the box in which the field’s contents will be shown.</li>
+            <li value="7">
+                <MadCap:conditionalText data-mc-conditions="Default.Browser">Click <span class="UI">Add</span>. </MadCap:conditionalText>
+            </li>
+        </ol>
+        <h2>Editing Label Layouts</h2>
+        <ol>
+            <li value="1">Click <span class="UI">Label Manager</span>. The&#160;Label&#160;Manager opens.<br /></li>
+            <li value="2">
+                <MadCap:conditionalText data-mc-conditions="Default.Browser">Select a label and click <span class="UI">Load Label</span>. </MadCap:conditionalText>
+            </li>
+            <li value="3">The label opens for editing.</li>
+            <li value="4">Make the necessary changes and save the revised label.</li>
+        </ol>
+    </body>
+</html>

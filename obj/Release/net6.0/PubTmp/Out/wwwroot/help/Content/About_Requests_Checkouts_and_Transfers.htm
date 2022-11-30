@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Help for Administrators|Request/Checkout/Transfer">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>About Tracking</title>
+        <link href="../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/Components/Tablet.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/Components/Mobile.css" rel="stylesheet" />
+        <link href="Resources/Stylesheets/TABFusionRMS.css" rel="stylesheet" />
+        <script src="../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="3" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+            </div>
+        </div>
+        <h1>About Tracking</h1>
+        <p style="font-style: italic;">[Carlos, please note that the structure of this section has changed to reflect the information I gathered from the demo]</p>
+        <h2>Overview</h2>
+        <p>In a physical records management environment, <span class="VariablesProduct Name">TAB&#160;FusionRMS</span> can be used to manage the movement of such records among people or to and from storage locations. This feature also allows users to be able to easily see where a record is currently located, whether anyone is waiting for it, and which users have had possession of it in the past. Records can be managed individually or as a collection of records in a box. </p>
+        <h2>About Containers</h2>
+        <p>Tracking involves virtual "containers" at different levels, which can represent people or physical locations. For example, container level 1 might be a file room or off-site storage location, container level 2 might be a person, and container level 3 might be a box that can contain files. </p>
+        <p>Records can be sent to a user or location through an administrator-initiated action, or in response to a request from that user. If the destination to which the record is one from which it must be returned, this is referred to as "checking out" the record; if the destination is a permanent one, this is referred to as "transferring" the record. The mechanism for processing the movement of records is the same regardless. </p>
+        <p> Users may keep checked-out records for a limited period of time, after which the records must be returned (checked-in) or, if another user has requested them, sent to that user, either directly or after they have been returned to their original location. (There is no explicit "check-in" function or "check-in" location: records are checked in by virtue of being returned to a location set up as an "IN" destination.)  </p>
+        <p>Records sent to a location may, depending on the location's configuration, remain there indefinitely or must be returned within a specific time period. The time period can be defined at the table and/or user level. Optionally, email notifications can be used to inform users that their requested records are available.</p>
+        <h2>About Boxes</h2>
+        <p>For efficient movement of multiple folders, they can be grouped into a virtual "box". When the box is transferred, so are its contents. The box and each of its contents may have a different return date: if a record in the box has a due date earlier than the box itself, that date remains unchanged.</p>
+        <p>Since boxes can be both destinations (or containers) and objects, it is best to perform box tracking as a separate transaction.  For example, you want to track folders to a box (as a container), and then track a box (as an object) to a location. </p>
+        <h2>About Active Employees</h2>
+        <p>It is possible to make employees inactive in order to prevent them from receiving transferred records, for example, if they are on vacation. Employees can be deactivated but not deleted, in order to preserve the history of their activities.</p>
+    </body>
+</html>

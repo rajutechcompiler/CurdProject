@@ -1,0 +1,54 @@
+﻿@using TabFusionRMS.Resource
+@using TabFusionRMS.Models
+@model SystemAddress
+
+<form class="form-horizontal" id="frmDriveDetails" role="form" name="frmDriveDetails" method="post" ReturnUrl='@ViewData["ReturnUrl"]'>
+    <div class="modal fade" id="mdlDriveDetails" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel">@Languages.get_Translation("tiAddDirectoryesPartialDriveDetails")</h4>
+                </div>
+                <div class="modal-body">
+                    @Html.HiddenFor((m)=> m.Id, new{value = "0"})
+                    @*<input type="hidden" id="Id" name="Id" value="0"/>*@
+                    
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="FirstName">@Languages.get_Translation("Name")</label>
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor((m)=> m.DeviceName, new{@class = "form-control", placeholder = Languages.get_Translation("phAddDirectoryesPartialDeviceName"), required = "", autofocus = "", maxlength = "50"})
+                                    @*<input type="text" class=" form-control" id="DeviceName" name="DeviceName" placeholder = '@Languages.get_Translation("phAddDirectoryesPartialDeviceName")' />*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="LastName">@Languages.get_Translation("lblAddDirectoryesPartialDriveLtrUNC")</label>
+                                <div class="col-sm-9">
+                                    @Html.TextBoxFor((m)=> m.PhysicalDriveLetter, new{@class = "form-control", placeholder = Languages.get_Translation("phAddDirectoryesPartialDriveLtrUNC"), required = "", autofocus = "", Style = "text-transform:uppercase;"})
+                                    @*<input type="text" class="form-control" id="PhysicalDriveLetter" name="PhysicalDriveLetter" placeholder = '@Languages.get_Translation("phAddDirectoryesPartialDriveLtrUNC")' required= "" autofocus="" style="text-transform:uppercase;" />*@
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button id="btnSaveDrive" type="button" class="btn btn-primary">@Languages.get_Translation("Save")</button>
+                    <button id="btnCancel" type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">@Languages.get_Translation("Cancel")</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+</form>
+
+@*<script src="@Url.Content("~/Scripts/AppJs/Directories.js")"></script>*@

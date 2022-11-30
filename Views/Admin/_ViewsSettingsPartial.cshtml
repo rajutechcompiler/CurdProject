@@ -1,0 +1,333 @@
+﻿@using TabFusionRMS.Resource
+@using TabFusionRMS.WebCS
+@model ViewsCustomModel
+<style>
+    .sticker.stick {
+        right: 47px;
+    }
+
+    .sticker {
+        right: 16px;
+        margin-bottom: 15px;
+    }
+</style>
+
+<section class="content">
+    @*@Using Html.BeginForm("SetViewsSettings", "Admin", FormMethod.Post, New With {.id = "frmViewsSettings", .class = "form-horizontal", .role = "form", .ReturnUrl = ViewData("ReturnUrl")})*@
+    <form asp-action="SetViewsSettings" asp-controller="Admin" method="post" id="frmViewsSettings" class="form-horizontal" role="form" >
+        <div id="parent">
+            @Html.HiddenFor((m)=> m.ViewsModel.MultiParent)
+            @Html.HiddenFor((m)=> m.ViewsModel.TableName, new {value = ""})
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="ViewName">@Languages.get_Translation("Name")</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor((m)=>m.ViewsModel.ViewName,new { @class = "form-control", placeholder = Languages.get_Translation("plViewsSettingsPartialViewName"), maxlength = 60})
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="ID">@Languages.get_Translation("Id").ToUpper()</label>
+                        <div class="col-md-8">
+                            <input class="form-control" id="txtViewId" type="text" readonly="readonly" />
+                            @*@Html.TextBoxFor(Function(m) m.ViewsModel.Id, New With {.class = "form-control", .placeholder = "Id", .ReadOnly = True})*@
+                            @Html.HiddenFor((m)=> m.ViewsModel.Id, new {@class = "form-control", placeholder = Languages.get_Translation("Id"), style ="display:none"})
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-10">
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <div class="checkbox-cus">
+                                <input id="ViewsModel_IncludeFileRoomOrder" name="IncludeFileRoomOrder" value="false" type="checkbox" />
+                                <label class="checkbox-inline" for="ViewsModel_IncludeFileRoomOrder">@Languages.get_Translation("chkViewsSettingsPartialIncludeFileRoomOrder")</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="checkbox-cus">
+                                <input id="ViewsModel_IncludeTrackingLocation" name="IncludeTrackingLocation" value="false" type="checkbox" />
+                                <label class="checkbox-inline" for="ViewsModel_IncludeTrackingLocation">@Languages.get_Translation("chkViewsSettingsPartialIncludeTrackingDst")</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="checkbox-cus">
+                                <input type='checkbox' id="ViewsModel_SearchableView" name='ViewsModel.SearchableView' value='true' />
+                                <label class="checkbox-inline" for="ViewsModel_SearchableView">@Languages.get_Translation("chkViewsSettingsPartialSearchableView")</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                @*<label class="col-sm-2 col-md-2 control-label"></label>
+                    <div class="checkbox-inline col-sm-4 col-md-4 ">
+                    <label>*@
+                @*@If (Model.ViewsModel.SearchableView Is Nothing) Then
+                    Model.ViewsModel.SearchableView = False
+                    End If*@
+
+                @*@Html.HiddenFor(Function(m) m.ViewsModel.SearchableView)*@
+                @*</label>
+                    </div>*@
+                <label class="col-md-2 control-label" for="MaxRecsPerFetch">@Languages.get_Translation("lblViewsSettingsPartialMaxRecords")</label>
+                <div class="col-md-4">
+                    @Html.TextBoxFor((m)=> m.ViewsModel.MaxRecsPerFetch, new {@class = "form-control", placeholder = Languages.get_Translation("lblViewsSettingsPartialMaxRecords"), maxlength = 6})
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label">@Languages.get_Translation("lblViewsSettingsPartialSQLStmt")</label>
+                <div class="col-md-10">
+                    @Html.TextAreaFor((m)=> m.ViewsModel.SQLStatement, new {@class = "form-control", placeholder = Languages.get_Translation("btnViewsSettingsPartialMovFiltersintoSQLStmt"), rows = "3"})
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-2"></div>
+                <div class="col-md-10">
+                    <button id="btnMoveFilterintoSQL" type="button" class="btn btn-primary">@Languages.get_Translation("btnViewsSettingsPartialMovFiltersintoSQLStmt")</button>
+                </div>
+            </div>
+            <fieldset class="admin_fieldset">
+                <legend>@Languages.get_Translation("tlViewsSettingsPartialTaskList")</legend>
+                <div class="col-md-2"></div>
+                <div class="col-md-3">
+                    <div class="checkbox-cus bottom_space">
+                        @*@Html.CheckBoxFor(Function(m) m.ViewsModel.InTaskList, New With {.Id = "ViewsModel_InTaskList"})*@
+                        <input id="ViewsModel_InTaskList" name="InTaskList" value="false" type="checkbox" />
+                        <label class="checkbox-inline" for="ViewsModel_InTaskList">@Languages.get_Translation("chkViewsSettingsPartialInTaskList")</label>
+                    </div>
+                </div>
+                <label class="col-md-3 control-label" for="MaxRecsPerFetch">@Languages.get_Translation("lblViewsSettingsPartialTaskListDisplay")</label>
+                <div class="col-md-4">
+                    @*@Html.TextBoxFor(Function(m) m.ViewsModel.TaskListDisplayString, New With {.class = "form-control", .placeholder = Languages.get_Translation("lblViewsSettingsPartialTaskListDisplay"), .maxlength = 255})*@
+                    @Html.TextBoxFor((m)=> m.ViewsModel.TaskListDisplayString, new {@class = "form-control", placeholder = Languages.get_Translation("lblViewsSettingsPartialTaskListDisplay"), maxlength = 255})
+                </div>
+            </fieldset>
+            <fieldset class=admin_fieldset>
+                <legend>@Languages.get_Translation("tlViewsSettingsPartialColumns")</legend>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <div class="btn-toolbar pull-right">
+                                <button id="btnAddColumn" type="button" class="btn btn-primary">@Languages.get_Translation("Add")</button>
+                                <button id="btnEditColumn" type="button" class="btn btn-primary">@Languages.get_Translation("Edit")</button>
+                                <button id="btnDeleteColumn" type="button" class="btn btn-primary">@Languages.get_Translation("Delete")</button>
+                                <button id="btnSortByColumn" type="button" class="btn btn-primary">@Languages.get_Translation("Sortby")</button>
+                                <button id="btnFilterByColumn" type="button" class="btn btn-primary">@Languages.get_Translation("btnViewsSettingsPartialFilterBy")</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group top_space">
+                        <div class="col-sm-12 table-responsive jqgrid-cus">
+                            <table id="grdViewColumns"></table>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <hr style="border-top:1px solid #fff;" />
+            <hr style="border-top:1px solid #fff;" />
+            <div class="form-group">
+                <div class="sticker stick">
+
+                    <button id="btnApplyViewSetting" type="button" class="btn btn-primary pull-right">@Languages.get_Translation("Apply")</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="mdlSortBy" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title" id="myModalLabel">@Languages.get_Translation("viewColumnSorttitleExpressSortList")</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="bootstrap-duallistbox-container row">
+                            @*<div class="col-sm-12">
+                                    <select multiple="multiple" size="10" name="duallistbox_ViewColumns" class="eItems" id="SelectViewColumn"></select>
+                                </div>*@
+                            <div class="col-sm-5">
+                                <label for="bootstrap-duallistbox-nonselected-list_duallistbox_Retention">@Languages.get_Translation("viewColumnSortAvailableColumns")</label>
+                                <div class="btn-group buttons">
+                                    <button type="button" class="btn moveall btn-default" title="@Languages.get_Translation("lblJsDualListBoxMoveAll")" disabled="">
+                                        <i class="glyphicon glyphicon-arrow-right"></i>
+                                        <i class="glyphicon glyphicon-arrow-right"></i>
+                                    </button>
+                                    <button type="button" class="btn move btn-default" id="btnMoveSelected" title="@Languages.get_Translation("lblJsDualListBoxMoveSelected")">
+                                        <i class="glyphicon glyphicon-arrow-right"></i>
+                                    </button>
+                                </div>
+                                <select style="height: 202px;" size="10" class="form-control" id="nonSelectedColumnList"></select>
+                            </div>
+                            <div class="col-sm-5">
+                                <label for="bootstrap-duallistbox-selected-list_duallistbox_Retention">@Languages.get_Translation("viewColumnSortSortedColumns")</label>
+                                <div class="btn-group buttons">
+                                    <button type="button" class="btn remove btn-default" id="btnRemoveSelected" title="@Languages.get_Translation("lblJsDualListBoxRMVSelected")">
+                                        <i class="glyphicon glyphicon-arrow-left"></i>
+                                    </button>
+                                    <button type="button" class="btn removeall btn-default" id="btnRemoveAllSelected" title="@Languages.get_Translation("lblJsDualListBoxRMVAll")">
+                                        <i class="glyphicon glyphicon-arrow-left"></i>
+                                        <i class="glyphicon glyphicon-arrow-left"></i>
+                                    </button>
+                                </div>
+                                <select style="height: 202px;" size="10" class="form-control" id="selectedColumnList"></select>
+                            </div>
+                            <div class="col-sm-2">
+                                <br>
+                                <button type="button" class="btn btn-default" aria-label="Up" id="btnSortByUp" style="margin-top: 5px;">
+                                    <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+                                </button>
+                                <button type="button" class="btn btn-default" aria-label="Down" id="btnSortByDown">
+                                    <span class="glyphicon glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="col-sm-5">
+                                </div>
+                                <div id="divSortBy" class="col-sm-5">
+                                    <div class="radio-inline">
+                                        <label><input type="radio" id="rbAscending" name="rbSortBy" value="false">@Languages.get_Translation("Ascending")</label>
+                                    </div>
+                                    <div Class="radio-inline">
+                                        <Label> <input type="radio" id="rbDescending" name="rbSortBy" value="true">@Languages.get_Translation("Descending")</Label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div Class="modal-footer">
+                        <div class="col-md-12 text-right">
+                        <button id="btnSortOk" type="button" class="btn btn-primary">@Languages.get_Translation("Ok")</button>
+                        <Button id="btnSortCancel" type="button" Class="btn btn-default">@Languages.get_Translation("Cancel")</Button>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+
+
+        <div class="modal fade" id="mdlViewsFilters" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title" id="myModalLabel">@Languages.get_Translation("tlViewsSettingsPartialFilter")</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div id="newLineLabel" class="well well-lg well-note">
+                                    <label id="lblFilterMsg" style="font-size:large">@Languages.get_Translation("lblViewsSettingsPartialPressNewLnToCrtANewFilter")</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="divFilterRow">
+                            <div class="filterfullrow" id="filterfullrow_0__Div">
+                                <div class="removerow">
+                                    <a id="btnRemoveRow" onclick="RemoveFilterRow($(this))" value="btnRemove_0__val">&times;</a>
+                                    @*<a id="btnRemoveRow"></a>*@
+                                </div>
+                                <div class="input-group">
+                                    @*<input type="hidden" id="hdnViewsId" name="hdnViewsId" value="0" />*@
+                                   
+                                    @Html.TextBoxFor((m)=>m.ViewFilterList[0].OpenParen, new {@class = "form-control input-sm hideControls", placeholder = "(", maxlength = "10", style = "display:none;width: 50px;", onChange = "BracketOnChnage()"})
+                                    @Html.HiddenFor((m)=>m.ViewFilterList[0].Id, new {@class="form-control input-sm"})
+                                    @Html.HiddenFor((m)=> m.ViewFilterList[0].ViewsId, new {@class = "form-control input-sm hktest"})
+                                    @Html.HiddenFor((m)=>m.ViewFilterList[0].DisplayColumnNum, new {@class = "form-control input-sm"})
+                                    
+                                    <input type="text" class="form-control input-sm hideControls" value="@Model.ViewFilterList?[0].OpenParen" placeholder="(" maxlength ="10" style ="display:none;width: 50px;"  onChange="BracketOnChnage()" />
+                                    <input type="hidden" class="form-control input-sm" id="Id" name="Id" value="@Model.ViewFilterList?[0].Id"  />
+                                    <input type="hidden" class="form-control input-sm hktest" id="ViewsId" name="ViewsId" value="@Model.ViewFilterList?[0].ViewsId"  />
+                                    <input type="hidden" class="form-control input-sm " id="DisplayColumnNum" name="DisplayColumnNum" value="@Model.ViewFilterList?[0].DisplayColumnNum" />
+
+                                    <span class="input-group-btn" style="width:0px;"></span>
+
+                                    <select style="margin-left:-1px;width: 90px;" id="ViewFilterList_0__ColumnNum" name="ViewFilterList[0].ColumnNum" onchange='FillOperator($(this),false)' class="form-control input-sm"></select>
+
+                                    <span class="input-group-btn" style="width:0px;"></span>
+
+                                    <select style="margin-left:-2px" id="ViewFilterList_0__Operator" name="Viewfilterlist[0].Operator" class="form-control input-sm ddlOperator"></select>
+
+                                    <span class="input-group-btn" style="width:0px;"></span>
+
+                                    <input type="checkbox" id="ViewFilterList_0__chkYesNoField" hidden="hidden" onclick="SetCheckValue($(this))">
+                                    <select style="margin-left:-3px;display:none;" id="ViewFilterList_0__sscComboBox" class="form-control input-sm" maxlength="255"></select>
+
+                                    <span class="input-group-btn" style="width:0px;"></span>
+
+                                    <input style="margin-left:-3px;display:none;" type="text" id="ViewFilterList_0__txtFilterData" class="form-control input-sm" />
+
+                                    <span class="input-group-btn" style="width:0px;"></span>
+
+                                    @Html.TextBoxFor((m)=> m.ViewFilterList[0].CloseParen, new {@class = "form-control input-sm hideControls", placeholder = ")", maxlength = "10", style = "display:none;margin-left:-4px;width: 50px", onChange = "BracketOnChnage()"})
+
+                                </div>
+                                <div class="hideControls" style="display:none">
+                                    <span class="radio-cus">
+                                        <input type="radio" id="ViewFilterList_0__JoinOperatorAnd" name="ViewFilterList[0].JoinOperator" value="And">
+                                        <label class="radio-inline " for="ViewFilterList_0__JoinOperatorAnd">@Languages.get_Translation("raViewsSettingsPartialAnd")</label>
+                                    </span>
+                                    <span class="radio-cus">
+                                        <input type="radio" id="ViewFilterList_0__JoinOperatorOr" name="ViewFilterList[0].JoinOperator" value="Or">
+                                        <Label Class="radio-inline" for="ViewFilterList_0__JoinOperatorOr">@Languages.get_Translation("raViewsSettingsPartialOr")</Label>
+                                    </span>
+                                    <div class="pull-right checkbox-cus">
+                                        <input type="checkbox" name="ViewFilterList[0].Active" id="ViewFilterList_0__Active" onchange="flagForFilterButton()" value="true" checked="checked">
+                                        <Label Class="checkbox-inline" for="ViewFilterList_0__Active">@Languages.get_Translation("chkViewsSettingsPartialActive")</Label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-3">
+                                <div class="checkbox-cus">
+                                    <input type="checkbox" name="chkActiveFooter" id="chkActiveFooter" value="true" checked="checked">
+                                    <Label Class="checkbox-inline" for="chkActiveFooter">@Languages.get_Translation("chkViewsSettingsPartialApplyFilters")</Label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="checkbox-cus">
+                                    <input type="checkbox" name="chkAdvanceFilters" id="chkAdvanceFilters" value="false">
+                                    <Label Class="checkbox-inline" for="chkAdvanceFilters">@Languages.get_Translation("chkViewsSettingsPartialAdvancedFeatures")</Label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btnCancel" type="button" class="btn btn-default">@Languages.get_Translation("Cancel")</button>
+                        <button id="btnOk" type="button" class="btn btn-primary">@Languages.get_Translation("Ok")</button>
+                        <button id="btnNewLine" type="button" class="btn btn-primary">@Languages.get_Translation("btnViewsSettingsPartialNewLine")</button>
+                        <button id="btnRemoveAll" type="button" class="btn btn-primary">@Languages.get_Translation("btnViewsSettingsPartialRemoveAll")</button>
+                        <button id="btnTestFilter" type="button" class="btn btn-success">@Languages.get_Translation("btnViewsSettingsPartialTestFilter")</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+   </form>
+</section>
+<input type="hidden" id="bSaveViews" value="" />
+<div id="AddViewColumn">
+</div>
+
+<input type="hidden" id="hdnGridColCount" value="@ViewBag.ColumnGrdCount" />
+<input type="hidden" id="hdnCallfrom" />
+<input type="hidden" id="hdnOperatorData" />
+<input type="hidden" id="hdnFilterRow" />
+
+<script src="@Url.Content("~/Content/themes/TAB/js/common.jqgrid.views.js")"></script>
+<script src="~/Scripts/AppJs/Sortlistbox.js"></script>
+<style>
+    .removePadding {
+        padding: 0 !important;
+    }
+</style>

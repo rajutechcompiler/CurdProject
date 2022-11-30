@@ -1,0 +1,149 @@
+﻿@using TabFusionRMS.Resource
+@model TabFusionRMS.WebCS.OrphanModel
+<!--toolbar buttons-->
+<style>
+    .Thmbnail-body {
+        height: 100px !important
+    }
+
+    .hidden-e {
+        display: none;
+    }
+</style>
+
+<input type="hidden" value="@Model.ViewName" id="hiddenViewName" />
+<input type="hidden" value="@Model.ViewId" id="hiddenViewId" />
+<input type="hidden" value="@Model.TableName" id="hiddenTableName" />
+<input type="hidden" value="@Model.TableRecordId" id="hiddenRecordId" />
+<input type="hidden" value="@Model.DisplayName" id="displayname" />
+<!--Delete Dashboard Modal-->
+<div class="modal" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="myModalDelete">
+    <div class="modal-dialog modal-sm modal-30">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button id="btnClose" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalDelete">@Languages.get_Translation("deleteOrphanAtt")</h4>
+            </div>
+            <div class="modal-body">
+                <p class="p-delete-msg">@Languages.get_Translation("msgConfForDelOrphanAtt")</p>
+            </div>
+            <div class="modal-footer">
+                <button id="btnDelete" type="button" class="btn btn-primary" onclick="obJvaultfunction.DeleteAttachment()">@Languages.get_Translation("Yes")</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">@Languages.get_Translation("No")</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<div id="ToolBar" class="col-sm-12" style="display: flex">
+    <div class="view-group">
+        <button class="btn btn-secondary dropdown-toggle tab_btn" data-toggle="dropdown" type="button" aria-expanded="false">
+            View
+            <i class="fa fa-angle-down"></i>
+        </button>
+        <ul class="dropdown-menu btn_menu">
+            <li id="liListView" onclick="obJvaultfunction.ChangeViewType('L')"><a>List</a></li>
+            <li id="liGridView" onclick="obJvaultfunction.ChangeViewType('G')"><a>Grid</a></li>
+        </ul>
+    </div>
+
+    <div style="margin-left: 5px">
+        <div class="input-group search_box">
+            <input type="text" id="fileSearchOrphan" onkeyup="obJvaultfunction.FilterOnEnter()" placeholder="Filter Files" autocompletetype="Search" maxlength="256" class="form-control" title="Filters all files with names matching the search query.">
+            <span class="input-group-btn">
+                <button type="button" id="btnSearchOrphan" title="Search" class="btn btn-default " onclick="obJvaultfunction.SearchOrphanAttachment()"><img src="/Content/themes/TAB/css/images/icons-search.svg" width="20px;"></button>
+            </span>
+            <div id="search_info"></div>
+        </div>
+        <button id="btnDefaultSearch" style="display:none;" name="Search">
+        </button>
+    </div>
+    @if(Model.IsAttachable.Equals(0)) {
+        <div Class="browse-group" style="margin-left: 5px" id="divBrowseFiles">
+            <input type="file" id="OrphanFileUploadForAddAttach" name="OrphanFileUploadForAddAttach" multiple="multiple" style="display: none" onchange="obJvaultfunction.ChangeBrowseFile(this)" />
+            <Button id="btnBrowseFile" Class="btn btn-secondary tab_btn" onclick="obJvaultfunction.BrowseFile()">
+                Browse Files
+            </Button>
+        </div>
+        <div style="margin-left: 5px" id="divDeleteAttachment" Class="hidden-e">
+            <Button id="btnDeleteAttachment" Class="btn btn-secondary tab_btn" onclick="obJvaultfunction.DeleteAttachmentConfim()">
+                Delete
+            </Button>
+        </div>
+        <div style="margin-left: 5px" id="divDownloadAttachment" Class="hidden-e">
+            <Button id="btnDownloadAttachment" Class="btn btn-secondary tab_btn" onclick="obJvaultfunction.DownloadAttachment()">
+                Download
+            </Button>
+        </div>
+        }
+
+    else{
+
+        <div style="margin-left: 5px;" id="btnRefreshAttachments">
+            <Button Class="btn btn-secondary tab_btn" onclick="obJvaultfunction.RefreshAttachments()">
+                <img src="/Content/themes/TAB/css/images/refresh30px.png" width="20px;">
+            </Button>
+        </div>
+
+        <div style="margin-left: 5px;display:none" Class="hidden-e" id="btnMoveAttachments">
+            <Button Class="btn btn-secondary tab_btn" onclick="obJvaultfunction.MoveAttachments()">
+                Move Attachment(s)
+            </Button>
+        </div>
+
+        <div style="margin-left:25px;margin-top:8px" id="btnRecordDisplayName">
+            <label>
+                @Model.DisplayName
+            </label>
+        </div>
+        <div style="margin-left:25px;margin-top:8px" id="divSelectedRecords" Class="hidden-e">
+            <label id="lblSelectedRecords">
+
+            </label>
+        </div>
+    }
+</div>
+<!--orphan container-->.
+<div class="row" id="AttachmentModalBody" style="width:100%;">
+    @if(Model.SelectedViewType == "Grid")
+    {
+        @*Html.Partial("_FlyoutPartialOrphansGrid.cshtml", Model.FlyoutModel);*@
+         @await Html.PartialAsync("../Shared/_FlyoutPartialOrphansGrid", Model.FlyoutModel);
+    }
+    else
+    {
+        @await Html.PartialAsync("../Vault/_FlyoutPartialOrphansList", Model.FlyoutModel);
+        @*Html.Partial("_FlyoutPartialOrphansList.cshtml", Model.FlyoutModel);*@
+    }
+   
+</div>
+
+<div style="margin-top: 5px; display: block;" id="paging" class="col-sm-12">
+    <nav aria-label="Page navigation example" class="page-navigation">
+        <ul class="pagination">
+            <li class="page-item per-page">@Languages.get_Translation("rowsPerPage"):  12</li><!--totoal rows-->
+        </ul>
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" onclick="obJvaultfunction.GoBack()"><i class="fa fa-step-backward" aria-hidden="true"></i></a></li>
+            <li class="page-item"><input type="number" value="1" onchange="obJvaultfunction.Pagechange(this)" class="form-control page-number"></li>
+            <li class="page-item"> @Languages.get_Translation("of") </li>
+           @{
+                var Totalpages = Convert.ToInt32(Math.Floor(Math.Ceiling((Convert.ToDouble(Model.TotalRecords / 12)))));
+            }
+            <li class="page-item total-pages" id="liTotalPages">@Totalpages </li><!--total per page-->
+            <li Class="page-item"><a class="page-link" onclick="obJvaultfunction.GoNext()"><i class="fa fa-step-forward" aria-hidden="true"></i></a></li>
+        </ul>
+        <ul Class="pagination">
+            <li Class="page-item total-rows" >@Languages.get_Translation("total"): @Model.TotalRecords</li><!--total rows-->
+        </ul>
+    </nav>
+</div>
+<script>
+ $(document).ready(function () {
+     //Bind event drag and drop
+     if(@Model.IsAttachable == 0) {
+        obJvaultfunction.DragAnddropNewFileOrphan();
+    }
+    });
+</script>

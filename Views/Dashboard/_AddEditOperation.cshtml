@@ -1,0 +1,153 @@
+﻿@using TabFusionRMS.WebCS.Controllers;
+@using TabFusionRMS.Resource;
+<form  class="form-horizontal" id="frmAddEditOperation" role="form" ReturnUrl = ViewData("ReturnUrl") class = "form-horizontal">
+<div class="modal fade in form-horizontal" id="modalOperation" tabindex="-1" role="dialog" aria-labelledby="myModalOperation">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="titleAddEditOperation">@Languages.get_Translation("addBarObjectOperation")</h4>
+                    <input type="hidden" value="0" id="hiddenOperationWidgetId" />
+                </div>
+                <div class="modal-body row-44">
+                    <fieldset class="admin_fieldset">
+                        <legend>@Languages.get_Translation("widgetInformation")</legend>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label" for="UserName">@Languages.get_Translation("widgetName")</label>
+                                    <div class="col-sm-8">
+                                        <input autofocus="" class="form-control" id="bcoWidgetName" name="bcoWidgetName" placeholder="@Languages.get_Translation("widgetName")" required="" type="text" value="" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label" for="lstView">@Languages.get_Translation("objectTable")</label>
+                                    <div class="col-sm-8 multiselect-div">
+                                        <select id="lstObject" data-mdb-visible-options="3" name="lstObject" class="form-control example-getting-started caretselect" multiple="multiple">
+                                            @foreach(var item in @ViewBag.AuditTable)
+                                            {
+                                                <option value="@item.Id">@item.UserName</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-4">
+
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <span for="lstObject" class="help-block"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label" for="lstView">@Languages.get_Translation("User")</label>
+                                    <div class="col-sm-8">
+                                        <select id="lstUsers" name="lstUsers" class="form-control searchable-drop caretselect">
+                                            <option value=""></option>
+                                            @foreach(var item in ViewBag.UsersList)
+                                            {
+                                                <option value="@item.SId">@item.Name</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-4">
+
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <span for="lstUsers" class="help-block"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label" for="lstAuditType">@Languages.get_Translation("auditType")</label>
+                                    <div class="col-sm-8 multiselect-div">
+                                        <select id="lstAuditType" data-mdb-visible-options="3" name="lstAuditType" class="form-control example-getting-started caretselect" multiple="multiple">
+                                            @foreach(var  item in @ViewBag.AuditType)
+                                            {
+                                                <option value="@item.Value">@item.Name</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label" for="lstView">@Languages.get_Translation("GroupBy")</label>
+                                    <div class="col-sm-8">
+                                        <select id="operationlstfilter" name="operationlstfilter" class="form-control caretselect">
+                                            <option value="" selected></option>
+                                            <option value="hour">Hour</option>
+                                            <option value="day">Day</option>
+                                            <option value="week">Week</option>
+                                            <option value="month">Month</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label" for="lstView">@Languages.get_Translation("period")</label>
+                                    <div class="col-sm-8">
+                                        <select id="operationlstPeriod" name="operationlstPeriod" class="form-control caretselect">
+                                            <option value="" selected></option>
+                                            <option value="1">Last 7 Days</option>
+                                            <option value="2">Last 30 Days</option>
+                                            <option value="3">Last 90 Days</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label" for="lstView">@Languages.get_Translation("refresh")</label>
+                                    <div class="col-sm-8">
+                                        <select id="operationRefreshTime" name="operationRefreshTime" class="form-control caretselect">
+                                            <option value="0" selected>Manual Refresh</option>
+                                            <option value="5">5 minutes</option>
+                                            <option value="10">10 minutes</option>
+                                            <option value="15">15 minutes</option>
+                                            <option value="20">20 minutes</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true" style="float:right;">@Languages.get_Translation("Cancel")</button>
+                    <button id="btnUserOperationsChart" type="button" class="btn btn-primary" style="float:right; margin-right:5px;">@Languages.get_Translation("Add")</button>
+
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+</form>
+
+<script>
+    dashboardfunc.PreventEnter();
+</script>

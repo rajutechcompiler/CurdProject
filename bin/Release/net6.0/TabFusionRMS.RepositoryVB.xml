@@ -1,0 +1,115 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+TabFusionRMS.RepositoryVB
+</name>
+</assembly>
+<members>
+<member name="T:TabFusionRMS.RepositoryVB.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:TabFusionRMS.RepositoryVB.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:TabFusionRMS.RepositoryVB.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="T:TabFusionRMS.RepositoryVB.IRepository`1">
+ <summary>
+ Used for dependency injection
+ </summary>
+ <typeparam name="T"></typeparam>
+</member>
+<member name="T:TabFusionRMS.RepositoryVB.IUnitOfWork">
+ <summary>
+Handle complete database operation 
+ </summary>
+</member>
+<member name="P:TabFusionRMS.RepositoryVB.RepositoriesUnitOfWork.Context">
+ <summary>
+ Created property for Data context
+ </summary>
+</member>
+<member name="M:TabFusionRMS.RepositoryVB.RepositoriesUnitOfWork.#ctor">
+ <summary>
+ Default constructor
+ </summary>
+</member>
+<member name="M:TabFusionRMS.RepositoryVB.RepositoriesUnitOfWork.Commit">
+ <summary>
+ When every transaction completed commit is called.
+ </summary>
+</member>
+<member name="P:TabFusionRMS.RepositoryVB.RepositoriesUnitOfWork.LazyLoadingEnabled">
+ <summary>
+ Heavy data is loaded when page is scrolled.
+ </summary>
+</member>
+<member name="M:TabFusionRMS.RepositoryVB.RepositoriesUnitOfWork.Dispose">
+ <summary>
+ Dispose is called to clear out memory
+ </summary>
+</member>
+<member name="P:TabFusionRMS.RepositoryVB.Repositories`1.UnitOfWork">
+ <summary>
+ Created property for data base connection initialize
+ </summary>
+</member>
+<member name="F:TabFusionRMS.RepositoryVB.Repositories`1._objectset">
+ <summary>
+ Initailize object set according to the entity (ex. database table (tbl_login) data )
+ </summary>
+</member>
+<member name="P:TabFusionRMS.RepositoryVB.Repositories`1.ObjectSet">
+ <summary>
+ get object set according to the entity (ex. database table (tbl_login) data )
+ </summary>
+</member>
+<member name="M:TabFusionRMS.RepositoryVB.Repositories`1.All">
+ <summary>
+ Retrive all data from passing dynamic entities
+ </summary>
+ <returns>Entities</returns>
+ 
+</member>
+<member name="M:TabFusionRMS.RepositoryVB.Repositories`1.Where(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+ <summary>
+ Retrive data from passing dynamic entities base on where condition on entities
+ </summary>
+ <param name="expression">Where condition</param>
+ <returns>Entities</returns>
+</member>
+<member name="M:TabFusionRMS.RepositoryVB.Repositories`1.Add(`0)">
+ <summary>
+ Insert data in entity
+ </summary>
+ <param name="entity">Entity</param>
+</member>
+<member name="M:TabFusionRMS.RepositoryVB.Repositories`1.AddList(System.Collections.Generic.List{`0})">
+ <summary>
+ Insert data in entity
+ </summary>
+ <param name="entity">Entity</param>
+</member>
+<member name="M:TabFusionRMS.RepositoryVB.Repositories`1.Update(`0)">
+ <summary>
+ Update data in entity
+ </summary>
+ <param name="entity"></param>
+</member>
+<member name="M:TabFusionRMS.RepositoryVB.Repositories`1.Delete(`0)">
+ <summary>
+ Delete data in entity
+ </summary>
+ <param name="entity"></param>
+</member>
+</members>
+</doc>

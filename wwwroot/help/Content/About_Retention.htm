@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="Default.xml" data-mc-path-to-help-system="../" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-toc-path="Help for Administrators|Retention">
+    <!-- saved from url=(0016)http://localhost -->
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>About Retention, Legal Holds and Disposition </title>
+        <link href="../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/Components/Tablet.css" rel="stylesheet" />
+        <link href="../Skins/Default/Stylesheets/Components/Mobile.css" rel="stylesheet" />
+        <link href="Resources/Stylesheets/TABFusionRMS.css" rel="stylesheet" />
+        <script src="../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../Resources/Scripts/foundation.min.js">
+        </script>
+        <script src="../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <div class="nocontent">
+            <div class="MCBreadcrumbsBox_0 breadcrumbs" data-mc-breadcrumbs-divider=" &gt; " data-mc-breadcrumbs-count="3" data-mc-toc="True"><span class="MCBreadcrumbsPrefix">You are here: </span>
+            </div>
+        </div>
+        <h1>About Retention, Legal Holds and Disposition </h1>
+        <p>These features are used when records are subject to legal regulations or business requirements that dictate that the records must be kept, or must be destroyed, within a specific time frame. Determining the appropriate rules to be applied, and to which records, should be the responsibility of an expert  (such as a records management consultant, records retention specialist, or attorney). It is recommended that legal counsel review and approve the retention configuration before it is put in place.</p>
+        <p class="Note" data-mc-autonum="Note: &#160;"><span class="autonumber"><span>Note: &#160;</span></span>“Retention”&#160;is sometimes called “Document Lifecycle Management”.</p>
+        <p>Retention can apply to an entire table, to an individual record or to all records of a specific folder type. When they reach the end of their defined retention period, retained records may be placed in a legal hold rather than being disposed of: this retains the records until the legal hold is removed.  </p>
+        <p>In an implementation with electronic records only, disposing of a record means the records and their attachments are removed from the database. In an implementation with physical records, in addition to these steps, staff locate and move to the appropriate location or destroy the physical documents. As a further step, an Audit report can be produced to show user actions that could have created a copy of the document (e.g. emailing or even viewing) so that users can be directed to destroy or return those copies as well.</p>
+        <p>Once a record becomes a candidate for disposition, how it is handled depends on the type of retention set for its table: </p>
+        <ul>
+            <li value="1">if the record is to be permanently archived, the electronic record is marked as archived and the physical records are moved to the designated “archive” location — searches will continue to find the electronic records </li>
+            <li value="2">if the record is to be destroyed, it (and its child records) and any attachments is deleted from database and the physical records are moved to the designated “destroy” location — searches will not find the electronic records or their attachments but will find an indication that they previously existed </li>
+            <li value="3">if the record is to be purged, it and all its child records are deleted from the database and the physical records are moved to the designated “purge” location — searches will not find the electronic records, although they are listed in the Final Disposition report</li>
+        </ul>
+        <p>Reports can be used to prove disposition to the relevant authorities. </p>
+        <p>As a supplement to disposition, records can be tracked to determine when they are considered inactive, allowing their associated documents to be moved to a designated “inactive” location. This is used primarily to move less-used documents to a temporary storage location: such records will still be subject to disposition. You can define how often records are checked for inactivity. Note that an archive location must be defined in order to use this feature. </p>
+    </body>
+</html>

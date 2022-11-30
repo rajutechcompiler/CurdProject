@@ -1,0 +1,387 @@
+﻿@using TabFusionRMS.Resource
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] - TAB FusionRMS</title>
+    <link href="@Url.Content("~/Images/TabFusion.ico")" rel="shortcut icon" type="image/x-icon" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,400italic,300" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+
+    @******** "~/bundles/modernizr" **************@
+    <script type="text/javascript" src= "~/Scripts\modernizr-2.6.2.js"></script>
+    @******** "~/bundles/modernizr" **************@
+
+    @****************** "~/Styles/MVCLayoutCSS" *******************@
+     <link rel="stylesheet" href= "~/Content/themes/TAB/css/bootstrap.min.css" />
+     <link rel="stylesheet" href= "~/Content/themes/TAB/css/chosen.css" />
+     <link rel="stylesheet" href= "~/Content/themes/TAB/css/media.css" />
+     <link rel="stylesheet" href= "~/Content/themes/TAB/css/font-awesome.css" />
+     <link rel="stylesheet" href= "~/Content/themes/TAB/css/simple-sidebar.css" />
+     <link rel="stylesheet" href= "~/Content/themes/TAB/css/linkes_drilldown.css" />
+     <link rel="stylesheet" href= "~/Content/themes/TAB/css/toastrmin.css" />
+     <link rel="stylesheet" href= "~/Content/themes/TAB/css/jquery.mCustomScrollbar.css" />
+     <link rel="stylesheet" href= "~/Content/themes/TAB/css/custom.css" />
+     <link rel="stylesheet" href= "~/Content/themes/TAB/css/custom-mvc.css" />
+     <link rel="stylesheet" href= "~/Content/themes/TAB/css/Fusion10.css" />
+     <link rel="stylesheet" href= "~/Content/themes/TAB/css/toastrmin.css" />
+     <link rel="stylesheet" href= "~/Content/themes/TAB/css/print.min.css" />
+     <link rel="stylesheet" href= "~/Content/themes/TAB/css/pikaday.css" />
+     <link rel="stylesheet" href= "~/Content/themes/TAB/css/HandsOnTable/handsontable.full.css" />
+    @*<link rel="stylesheet" href= "~/css/Styles-MVCLayoutCSS.css" />*@
+    @****************** "~/Styles/MVCLayoutCSS" *******************@
+
+    <link href="~/Content/themes/TAB/css/toastrmin.css" rel="stylesheet" />
+
+    <script src="~/Content/themes/TAB/js/es6-promise.auto.min.js"></script>
+    @**************** "~/bundles/MVCLayoutJS" ******************@
+    <script type="text/javascript" src="~/Content/themes/TAB/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="~/Content/themes/TAB/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="~/Content/themes/TAB/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Content/themes/TAB/js/jquery-ui-1.10.4.custom.js"></script>
+    <script type="text/javascript" src="~/Content/themes/TAB/js/jquery.auto-complete.js"></script>
+    <script type="text/javascript" src="~/Content/themes/TAB/js/jquery-cookie-plugin.js"></script>
+    <script type="text/javascript" src="~/Content/themes/TAB/js/moment.js"></script>
+    <script type="text/javascript" src="~/Content/themes/TAB/js/jquery.mCustomScrollbar.js"></script>
+    <script type="text/javascript" src="~/Content/themes/TAB/js/linkes_drilldown_mvc.js"></script>
+    <script type="text/javascript" src="~/Content/themes/TAB/js/chosen.jquery.js"></script>
+    <script type="text/javascript" src="~/Content/themes/TAB/js/jquery.flagstrap.js"></script>
+    <script type="text/javascript" src="~/Content/themes/TAB/js/toastrmin.js"></script>
+    <script type="text/javascript" src="~/Scripts/AppJs/BuildToastrMessage.js"></script>
+    <script type="text/javascript" src="~/Content/themes/TAB/js/print.min.js"></script>
+    <script type="text/javascript" src="~/Content/themes/TAB/js/pdf.js"></script>
+    <script type="text/javascript" src="~/Content/themes/TAB/js/pikaday.js"></script>
+    <script type="text/javascript" src="~/Scripts/FusionJs/AppNavigation.js"></script>
+    <script type="text/javascript" src="~/Content/themes/TAB/js/HandsOnTable/handsontable.full.js"></script>
+    @*<script type="text/javascript" src="~/js/MVCLayoutJS.js"></script>*@
+    @**************** "~/bundles/MVCLayoutJS" ******************@
+
+    <script src="~/Scripts/AppJs/BuildToastrMessage.js"></script>
+
+
+    <style>
+        .has-error .form-control {
+            border-color: #e65a57;
+        }
+
+        .has-error .control-label {
+            color: #de514e;
+        }
+
+        .has-error .selectize-input {
+            border-color: #e65a57 !important;
+        }
+
+        .has-error .help-block {
+            color: #e65a57;
+        }
+
+        .l_drillDown ul li {
+            padding: 0 0 0 10px !important;
+        }
+
+        .ml {
+            margin-left: 10px;
+        }
+    </style>
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#hlAboutUs').click(function () {
+                $.ajax({
+                    type: "POST",
+                    url: '../Admin/OpenAboutUs',
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    async: false,
+                    success: function (response) {
+                        var msg = response;
+                        $('#divAboutInfo').html(msg);
+                        $("#spinningWheel").hide();
+                        $('#dialog-form-AboutUs').modal('show');
+                        $("#dialog-form-AboutUs .modal-dialog").draggable({ disabled: true });
+                    },
+                    failure: function (response) {
+                        return false;
+                    }
+                });
+            });
+        });
+
+        window.onfocus = function () {
+            if (getCookie("Islogin") == "False") {
+                window.location.href = window.location.origin + "/signin.aspx?out=1"
+            }
+            if ($("#lblLoginUserName").html() != undefined) {
+                if (getCookie("lastUsername").toLowerCase() != $("#lblLoginUserName").html().toLowerCase().trim()) {
+                    window.location.reload();
+                }
+            }
+        };
+
+        var urls = {
+            AddEditDashboardPartial: '@Url.Action("AddEditDashboardPartial", "Dashboard")',
+            SetDashboardDetails: '@Url.Action("SetDashboardDetails", "Dashboard")',
+            SetDashboardJson: '@Url.Action("SetDashboardJson", "Dashboard")',
+            AddEditTaskListPartial: '@Url.Action("AddEditTaskListPartial", "Dashboard")',
+            AddEditChartPartial: '@Url.Action("AddEditChartPartial", "Dashboard")',
+            AddEditTrackedPartial: '@Url.Action("AddEditTrackedPartial", "Dashboard")',
+            AddEditOperationPartial: '@Url.Action("AddEditOperationPartial", "Dashboard")',
+            AddEditSeriesPartial: '@Url.Action("AddEditSeriesPartial", "Dashboard")',
+            GetWorkGroupTableMenu: '@Url.Action("GetWorkGroupTableMenu", "Dashboard")',
+            GetViewMenu: '@Url.Action("GetViewMenu", "Dashboard")',
+            GetViewColumnMenu: '@Url.Action("GetViewColumnMenu", "Dashboard")',
+            DeleteDashboard: '@Url.Action("DeleteDashboard", "Dashboard")',
+            RenameDashboard: '@Url.Action("RenameDashboardName", "Dashboard")',
+            GetViewColumnOnlyDate: '@Url.Action("GetViewColumnOnlyDate", "Dashboard")',
+            GetDashboardDetails : '@Url.Action("GetDashboardDetails", "Dashboard")',
+            GetChartData: '@Url.Action("GetChartData", "Dashboard")',
+            ValidatePermission: '@Url.Action("ValidatePermission", "Dashboard")',
+            GetTaskList: '@Url.Action("GetTaskList", "Dashboard")',
+            GetTrackedData: '@Url.Action("GetTrackedData", "Dashboard")',
+            GetOperationsData: '@Url.Action("GetOperationsData", "Dashboard")',
+            GetGridData: '@Url.Action("RunQuery", "Data")',
+            GetTimeSeriesChartData: '@Url.Action("GetTimeSeriesChartData", "Dashboard")',
+            UpdateFavouriteDashboard: '@Url.Action("UpdateFavouriteDashboard", "Dashboard")',
+            GetTotalrowsForGrid : '@Url.Action("GetTotalrowsForGrid", "data")',
+            CountBarChartData: '@Url.Action("CountBarChartData", "Dashboard")',
+            CountTimeSeriesChartData: '@Url.Action("CountTimeSeriesChartData", "Dashboard")',
+            CountOperationsData: '@Url.Action("CountOperationsData", "Dashboard")',
+            CountTrackedData: '@Url.Action("CountTrackedData", "Dashboard")',
+            CheckDataGridPermission: '@Url.Action("CheckDataGridPermission", "Dashboard")'
+
+        }
+
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        $(document).ready(function () {
+            setTimezoneCookie();
+        });
+
+        function setTimezoneCookie() {
+            var timezone_cookie = "timezoneoffset";
+            var sessid = $.cookie('sessid');
+            // if the timezone cookie not exists create one.
+            if (!$.cookie(timezone_cookie)) {
+                // check if the browser supports cookie
+                var test_cookie = 'test cookie';
+                $.cookie(test_cookie, true);
+
+                // browser supports cookie
+                if ($.cookie(test_cookie)) {
+                    // delete the test cookie
+                    $.cookie(test_cookie, null);
+                    // create a new cookie
+                    $.cookie(timezone_cookie, new Date().getTimezoneOffset());
+                    // re-load the page
+                    location.reload();
+                }
+            }
+            // if the current timezone and the one stored in cookie are different
+            // then store the new timezone in the cookie and refresh the page.
+            else {
+                var storedOffset = parseInt($.cookie(timezone_cookie));
+                var currentOffset = new Date().getTimezoneOffset();
+                // user may have changed the timezone
+                if (storedOffset !== currentOffset) {
+                    $.cookie(timezone_cookie, new Date().getTimezoneOffset());
+                    location.reload();
+                }
+            }
+        }
+    </script>
+
+    <style type="text/css">
+
+        .modal-header .close {
+            font-size: 29px !important;
+            line-height: 29px !important;
+            color: #002949 !important;
+            padding: 0 5px !IMPORTANT;
+            opacity: 1 !important;
+            font-weight: bolder;
+        }
+
+        #divMenu i {
+            float: right;
+        }
+
+        .nav > li > a {
+            font-family: DPLight;
+            color: #666666;
+        }
+
+        .nav a.active {
+            font-family: DPMedium;
+            font-weight: 700;
+            background-color: #002949;
+            color: #fff;
+        }
+
+        .nav > li > a:hover {
+            background-color: initial;
+            color: #232323;
+        }
+
+        .nav a.active:hover {
+            font-family: DPMedium;
+            font-weight: 700;
+            background-color: #002949;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="hidden" id="hdnHomeVal" value="@Languages.get_Translation("mnuAdminHome")" />
+    <input id="hdnRefInfo" type="hidden" />
+
+    <div style="position: absolute; top: 0px; bottom: 0px; left: 0px; right: 0px; min-height: 500px;">
+        <nav class="navbar navbar-default navbar-fixed-top tab-nave" role="navigation">
+            <div class="container-fluid">
+                <a id="aLogo" class="logo navbar-brand" href="~/Data"><img src="@Url.Content("~/Images/logo.png")" class="img-responsive" /></a>
+                    <div class="navbar-custom-menu pull-left" id="importSetup"></div>
+                    <div class="navbar-custom-menu pull-left scanmenu"></div>
+                    <span style="visibility:hidden" id="lblLoginUserName">@Keys.CurrentUserName</span>
+                <div class="collapse navbar-collapse navbar-right tab-menu" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a id="hlHome" href="~/Data">@Languages.get_Translation("Home")</a>
+                        </li>
+                        <li>
+                            <a id="hlHelp" href="~/help/default.html" target="Help">@Languages.get_Translation("Help")</a>
+                        </li>
+                        <li>
+                            <a id="hlAboutUs">@Languages.get_Translation("About")</a>
+                        </li>
+                        <li>
+                            <a id="hlSignout" href="/Logout">@Languages.get_Translation("SignOut")</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!--Search-->
+        <div id="wrapper" style="margin-top:0%;">
+            <!-- left panel start -->
+            <div class="sidebar-wrapper" id="divSearch">
+
+                <ContentTemplate>
+                    <div class="search_box_main l_drillDownWrapper" id="divSearchContent" style="border-bottom: 1px solid #dbdbdb;">
+                        <div id="pnlSearch">
+                            <div id="divCustomSearch1" class="input-group search_box">
+                                <input type="text" id="txtSearch" AutoCompleteType="Search" MaxLength="256" class="form-control" placeholder="@Languages.get_Translation("filterDashboard")" title="Filters dashboards">
+                                <span class="input-group-btn">
+                                    <button type="button" id="btnSearch" title="Search" class="btn btn-default glyphicon glyphicon-search"></button>
+                                </span>
+                                <div id="search_info"></div>
+                            </div>
+                            <Button Id="btnDefaultSearch" style="display:none;" name="Search" />
+                        </div>
+                    </div>
+                </ContentTemplate>
+
+                <div id="dashMenu" class="divMenu mCustomScrollbar _mCS_1" style="height: 75vh !important; visibility: visible;">
+                    <div class="mCustomScrollBox mCS-light mCSB_vertical mCSB_inside" style="max-height: none;" tabindex="0">
+                        <div class="mCSB_container" style="position:relative; top:0; left:0;" dir="ltr">
+                            <ul class="drillDownMenu  nav MyQuery_Fav l_drillDown ml" id="ulDashboardList">
+                                @*<li class="hasSubs"><a>Sample li</a></li>*@
+                            </ul>
+                        </div>
+
+                        <div class="mCSB_scrollTools mCSB_1_scrollbar mCS-light mCSB_scrollTools_vertical" style="display: block;">
+                            <div class="mCSB_draggerContainer">
+                                <div class="mCSB_draggerRail"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#menu-toggle" class="toggle_btn" id="menu-toggle"><i class="fa fa-caret-left" id="left-panel-arrow"></i></a>
+            </div>
+            <div id="page-content-wrapper">
+                @RenderBody()
+            </div>
+        </div>
+
+        <!--spinningwheel-->
+        <div id="spinningWheel" style="display:none" class="loaderMain-wrapper">
+            <div class="loaderMain"></div>
+        </div>
+        <div id="spingrid" style="display:none;" class="loaderMain-wrapper">
+            <i class="fa fa-refresh fa-spin" style="display:inline-flex;position:relative;margin-left:50%;margin-top:17%;font-size:20px"></i>
+        </div>
+
+        <div class="form-horizontal" id="divAboutInfo">
+
+        </div>
+    </div>
+
+
+    @RenderSection("scripts", required:false)
+
+    <script>
+        $(document).bind("mousemove keypress", 'body', function (e) {
+            time = new Date().getTime();
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            //open and close side menu
+            $("#menu-toggle").click(function (e) {
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+                var vrToggleIcon = $(this).find('i');
+                if (vrToggleIcon.hasClass('fa-caret-left')) {
+                    vrToggleIcon.removeClass('fa-caret-left').addClass('fa-caret-right');
+                }
+                else {
+                    vrToggleIcon.removeClass('fa-caret-right').addClass('fa-caret-left');
+                    $('#divmenuloader').hide();
+                }
+            });
+
+            $('.drillDownMenu').linkesDrillDown({ cookieName: null, menuLevel: 3 });
+            $(".rightdrildown").click(function () { $(this).addClass("rightdrildown_add"); });
+            $(".divMenu").mCustomScrollbar();
+        });
+
+        (function ($) {
+            $.fn.fnAlertMessage = function (options) {
+                var settings = $.extend({
+                    title: "Success",
+                    message: "Message",
+                    timeout: 1200,
+                    msgTypeClass: 'toast-success'//toast-warning
+                }, options);
+                return this.each(function () {
+                    $('#' + this.id).fadeIn(settings.timeout / 2).fadeOut(settings.timeout * 3);
+                    $('#' + this.id).find('.toast-title').html(settings.title);
+                    $('#' + this.id).find('.toast-message xmp').html(settings.message);
+                    $('#toast-container').find('.toast').removeClass('toast-success').removeClass("toast-error").addClass(settings.msgTypeClass);
+                });
+            };
+        }(jQuery));
+
+        $("#txtSearch").keyup(() => {            var input, filter;            input = document.getElementById("txtSearch");            filter = input.value.toUpperCase();            var dashboards = document.getElementsByClassName("hasSubs");            for (var i = 0; i < dashboards.length; i++) {                var a = dashboards[i].getElementsByTagName("a")[0];                query = a.textContent || a.innerText;                if (query.toUpperCase().indexOf(filter) > -1) {                    dashboards[i].style.display = "";                } else {                    dashboards[i].style.display = "none";                }            }        });
+
+    </script>
+</body>
+</html>

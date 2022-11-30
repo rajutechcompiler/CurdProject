@@ -1,0 +1,112 @@
+﻿@using TabFusionRMS.Resource
+@model TabFusionRMS.WebCS.OrphanModel
+@{
+    ViewData["Title"] = Languages.get_Translation("vaultTitle");
+   //ViewData("Title") = Languages.Translation("vaultTitle")
+    Layout = "~/Views/Shared/_LayoutVault.cshtml";
+
+}
+<!--04-07-2022-->
+@**************"~/bundles/VaultmvcJS"***********@            
+<script type="text/javascript" src="~/Scripts/FusionJs/DataSource.js"></script>
+<script type="text/javascript" src="~/Scripts/FusionJs/PagingFunctions.js"></script>
+<script type="text/javascript" src="~/Scripts/FusionJs/DataEvents.js"></script>
+<script type="text/javascript" src= "~/Scripts/FusionJs/DataFunctions.js"></script>
+@**************"~/bundles/VaultmvcJS"***********@            
+
+
+<!--toolbar buttons-->
+<style>
+    .Thmbnail-body {
+        position: relative;
+        height: 260px;
+        width: 100%;
+        overflow: hidden;
+        cursor: pointer;
+        z-index: 1;
+        font-size: 12px;
+        font-weight: 200;
+        border-right: 1px solid #002949;
+        border-bottom: 1px solid #002949;
+    }
+    .Thmbnail-body {
+        height: 178px !important;
+    }
+
+    
+    .Thmbnail-main {
+        position: relative;
+        background-color: #fefefe;
+        margin: auto;
+        padding: 0;
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+        box-shadow: 0 0 6px rgba(0,0,0,.2);
+    }
+
+    .Thmbnail-header {
+        padding: 10px 16px;
+        background-color: #fff;
+        color: black;
+        border: 1px solid #002949;
+        font-size: 16px;
+        font-weight: 300;
+    }
+
+    .hidden-e {
+        display: none;
+    }
+
+    .headover {
+        height: 17px !important;
+        overflow: hidden;
+        margin-right: 12%;
+    }
+
+    .caption {
+        position: absolute;
+        background: rgba(0,0,0,0.6);
+        height: 100%;
+        width: 100%;
+        transition: all ease .5s;
+        opacity: 0;
+        top: 0;
+        left: 0;
+    }
+
+        .caption .caption-content {
+            position: absolute;
+            width: 100%;
+            height: 20px;
+            text-align: center;
+            top: 50%;
+            margin-top: -12px;
+            color: #fff;
+        }
+
+    .pagination {
+        display: flex;
+        align-items: center;
+    }
+
+        .pagination > li {
+            margin-right: 10px;
+        }
+
+        .pagination input {
+            width: 80px;
+        }
+
+    .page-navigation {
+        display: flex;
+        justify-content: space-between;
+    }
+    .l_drillDown li{
+        border:none;
+    }
+</style>
+<br />
+<br />
+@*@Html.Partial("_OrphanContent")*@
+@Html.Partial("_OrphanContent", Model)

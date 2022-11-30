@@ -1,0 +1,116 @@
+﻿@using TabFusionRMS.Resource
+@model AzureADSecurityModel
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor;
+
+<section class="content form-horizontal">
+    <fieldset class="admin_fieldset">
+        <legend>@Languages.get_Translation("legendDefaultUser")</legend>
+        <div class="form-group row form-horizontal">
+            @{
+            var hidenIsAddEnbl=Model.ADEnabled ? "true": "false";
+            }
+            <div class="col-lg-2 col-md-3"><input type="hidden" id="hdnIsADEnabled" value="@hidenIsAddEnbl"/></div>
+            <div class="col-md-3">
+                <div class="checkbox-cus">
+                    <input type="checkbox" id="chkAzureADEnabled" name="AzureADEnabled" checked="@Model.ADEnabled" />
+                    <label class="checkbox-inline" for="chkAzureADEnabled">@Languages.get_Translation("lblSecurityAzureEnabled")</label>
+                </div>
+            </div>
+        </div>
+        @*<div id="divadDefaultUser" style="@IIf(Model.ADEnabled AndAlso String.IsNullOrEmpty(TabFusionRMS.WebVB.AzureADSettings.authToken), "display:block", "display:none")">*@
+
+        @{
+            var defaultUserStyle = (Model.ADEnabled && string.IsNullOrEmpty(AzureADSettings.authToken(HttpContextAccessor.HttpContext))) ? "display:block" : "display:none";
+        }
+
+        <div id="divadDefaultUser" style="@defaultUserStyle">
+            <div Class="row">
+                <div Class="form-horizontal">
+                    <div Class="col-lg-12 form-group">
+                        <Label Class="col-lg-2 col-md-3 control-label" for="AzureADAdminUserName">@Languages.get_Translation("lblSecurityAzureAdminUser")</Label>
+                        <div class="col-lg-6 col-md-7 col-sm-12 controls">
+                            <input type="text" name="AzureADAdminUserName" id="AzureADAdminUserName" value="@Model.ADAdminUser" class="form-control" placeholder="@Languages.get_Translation("phAzureADAdminUserName")" maxlength="100" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div Class="row">
+                <div Class="form-horizontal">
+                    <div Class="col-lg-12 form-group">
+                        <Label Class="col-lg-2 col-md-3 control-label" for="ddlFusionRMSRolesForAdminUser">@Languages.get_Translation("lblSecurityAzureFusionRMSRoles")</Label>
+                        <div class="col-lg-6 col-md-7 col-sm-12 controls">
+                            @Html.DropDownList("FusionRMSRolesForAdminUser", Model.FusionGroups, "", new {@class = "form-control", id = "ddlFusionRMSRolesForAdminUser", placeholder = "Select Fusion Group", required = "", autofocus = ""})
+                           @* <select class="form-control" id="ddlFusionRMSRolesForAdminUser" name="ddlFusionRMSRolesForAdminUser" asp-items="@Model.FusionGroups"  required = "" placeholder = "Select Fusion Group" autofocus = "" >
+                                 </select>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-lg-2 col-md-3"></div>
+            <div class="col-md-3">
+                <button id="btnSaveAzureAD" type="button" class="btn btn-primary">@Languages.get_Translation("Save")</button>
+            </div>
+        </div>
+    </fieldset>
+    @{
+    var divgroupmaping=(Model.ADEnabled && String.IsNullOrEmpty(AzureADSettings.authToken(HttpContextAccessor.HttpContext))) ? "display:block" : "display:none" ;
+    }
+    <fieldset id="divGroupMapping" class="admin_fieldset" style="@divgroupmaping">      
+        <legend>@Languages.get_Translation("legendSecurityAzureADRoleMapping")</legend>
+        <div class="row">
+            <div class="col-md-6">
+                <div Class="form-horizontal">
+                    <div Class="col-lg-12 form-group">
+                        <Label Class="col-lg-3 col-md-5 col-sm-12 control-label" for="AzureADGroups">@Languages.get_Translation("lblSecurityAzureADRoles")</Label>
+                        <div class="col-lg-9 col-md-7 col-sm-12 controls">
+                            @Html.DropDownList("AzureADRoles", Model.ADGroups, "", new {@class = "form-control", id = "ddlAzureADGroups", placeholder = "Select Azure Group", required = "", autofocus = ""})
+                           @* <select class="form-control" id="ddlAzureADGroups" name="ddlAzureADGroups" asp-items="@Model.ADGroups" placeholder = "Select Azure Group" required = "" autofocus = "">
+                            </select>*@
+                        </div>
+                    </div>
+                </div>
+                <div Class="form-horizontal">
+                    <div Class="col-lg-12 form-group">
+                        <Label Class="col-lg-3 col-md-5 col-sm-12 control-label" for="ddlFusionRMSRoles">@Languages.get_Translation("lblSecurityAzureFusionRMSRoles")</Label>
+                        <div class="col-lg-9 col-md-7 col-sm-12 controls">
+                            @Html.DropDownList("FusionRMSRoles", Model.FusionGroups, "",new{@class = "form-control", id = "ddlFusionRMSRoles", placeholder = "Select Fusion Group", required = "", autofocus = ""})
+                           @* <select class="form-control" id="ddlFusionRMSRoles" name="ddlFusionRMSRoles" asp-items="@Model.FusionGroups" placeholder = "Select Fusion Group" required = "" autofocus = "">
+                            </select>*@
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-3 col-md-5 col-sm-12"></div>
+                    <div class="col-md-4">
+                        <button id="btnAddMapping" type="button" class="btn btn-primary">@Languages.get_Translation("btnSecurityAddMapping")</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="col-md-12">
+                    <div class="col-md-3">
+                        <button id="btnSyncronize" type="button" class="btn btn-primary">@Languages.get_Translation("btnSecuritySynchronize")</button>
+                    </div>
+                    <div class="col-md-4">
+                        <button id="btnDeleteMapping" type="button" class="btn btn-primary">@Languages.get_Translation("btnSecurityDeleteMapping")</button>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <fieldset class="admin_fieldset">
+                        <legend id="lgdAssignedMembership">@Languages.get_Translation("legendSecurityAzureADRoleToFusionRMS")</legend>
+                        <div class="form-group displayuser">
+                            <label class="col-sm-12 text-control" id="displaySelUserName"></label>
+                            <div class="col-sm-12">
+                                @Html.DropDownList("MappedAdToFusionGroups", Model.MappedGroups, new {@class = "form-control", id = "ddlMappedAdToFusionGroups", size = 10, required = "", autofocus = ""})
+                            @*<select class="form-control" id="ddlMappedAdToFusionGroups" name="ddlMappedAdToFusionGroups" asp-items="@Model.MappedGroups"  required = "" autofocus = ""size="10" >
+                                 </select>*@
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</section>

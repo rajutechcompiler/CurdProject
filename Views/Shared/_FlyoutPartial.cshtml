@@ -1,0 +1,95 @@
+﻿@*@Imports TabFusionRMS.Models*@
+@using TabFusionRMS.Resource
+@model Task<TabFusionRMS.WebCS.FlyoutModel>
+
+<input type="hidden" id="sPageSize" value="@Model.Result.sPageSize" />
+<input type="hidden" id="sPageIndex" value="@Model.Result.sPageIndex " />
+<input type="hidden" id="totalRecCount" value="@Model.Result.totalRecCount" />
+<input type="hidden" id="viewName" value="@Model.Result.viewName" />
+<input type="hidden" id="stringQuery" value="@Model.Result.stringQuery" />
+
+
+<div class="row" id="ThumbnailDetails">
+    @{
+        var i = 0;
+    }
+    @if (Model.Result.FlyOutDetails.Count > 0)
+    {
+        @foreach (var item in Model.Result.FlyOutDetails)
+        {
+            i = i + 1;
+            string img64 = string.Empty;
+            var dockey = item.downloadEncryptAttachment;
+            @if (item.sFlyoutImages != null)
+            {
+                img64 = Convert.ToBase64String(item.sFlyoutImages);
+            }
+            <div Class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                <div Class="Thmbnail-main">
+                    <div Class="Thmbnail-header">@item.sAttachmentName</div>
+                    @if (item.sViewerLink != "0")
+                    {
+                        <a href="@item.sViewerLink" target="_blank">
+                            <div Class="Thmbnail-body">
+                                <div Class="caption">
+                                    <div Class="caption-content">
+                                        <i Class="fa fa-eye fa-3x"></i>
+                                    </div>
+                                </div>
+                                <img src="@string.Format("data:image/jpg;base64,{0}", img64)" id="@i" Class="img-responsive" width="300px" height="280px">
+                            </div>
+                        </a>
+                    }
+                    else
+                    {
+                        <a disabled="disabled">
+                            <div Class="Thmbnail-body">
+                                <div>
+                                    <div>
+                                        <i></i>
+                                    </div>
+                                </div>
+                                <img src="@string.Format("data:image/jpg;base64,{0}", img64)" style="cursor:default" id="@i" Class="img-responsive" width="300px" height="280px">
+                            </div>
+                        </a>
+                    }
+                    <div Class="Thmbnail-footer">
+                        <div Class="col-md-12 col-sm-12 col-xs-12">
+                            <span Class="fa-stack">
+                                @if (Model.Result.downloadPermission && item.sOrgFilePath != "disabled")
+                                {
+                                <a href="@Url.Action("DownloadAttachment", "Common", new { filePath = item.sOrgFilePath, fileName = item.sAttachmentName, docKey = dockey, viewName = Model.Result.viewName})" Class="a-color " data-toggle="tooltip" title="Download">
+                                    <span class="fa-stack">
+                                        <i class="fa fa-arrow-down fa-stack-1x" style="top:7px"></i>
+                                        <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                    </span>
+                                </a>
+                                }
+                                else
+                                {
+                                <a href="#" Class="a-disable" data-toggle="tooltip" title="Download" style="color:gray !important">
+                                    <span class="fa-stack">
+                                        <i class="fa fa-arrow-down fa-stack-1x" style="top:7px"></i>
+                                        <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                    </span>
+                                </a>
+                                }
+
+                            </span>
+                        </div>
+                        <div Class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="col-sm-12">
+            <div id="emptydrop" Class="empty-drop-here">
+                <span>@Languages.get_Translation("lblDragandDropFiles")</span>
+            </div>
+        </div>
+    }
+</div>
+

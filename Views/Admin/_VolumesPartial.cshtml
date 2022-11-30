@@ -1,0 +1,126 @@
+﻿@using TabFusionRMS.Models
+@using TabFusionRMS.Resource
+@model Volume
+
+
+@*@Using Html.BeginForm("SetVolumesDetails", "Admin", FormMethod.Post, New With {.id = "frmVolumesDetails", .class = "form-horizontal", .role = "form", .ReturnUrl = ViewData("ReturnUrl")})*@
+<form asp-action="SetVolumesDetails" asp-controller="Admin" method="post" id="frmVolumesDetails" class="form-horizontal" role="form" ReturnUrl = '@ViewData["ReturnUrl"]'>
+
+    <div class="modal fade" id="mdlVolumeDetails" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel">@Languages.get_Translation("tiValumnsPartialVD")</h4>
+                </div>
+                <div class="modal-body">
+                    @*@Html.HiddenFor(Function(m) m.SystemAddressesId, New With {.value = ViewBag.SystemAddressId})*@
+                    @Html.HiddenFor((m)=> m.SystemAddressesId,new{value = 0})
+                    @Html.HiddenFor((m)=> m.Id,new{value = "0"})
+                    @Html.HiddenFor((m)=> m.ViewGroup,new{value = "0"})
+                   
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="Name">@Languages.get_Translation("Name")</label>
+                                <div class="col-sm-8">
+                                    @Html.TextBoxFor((m)=> m.Name,new{@class = "form-control", placeholder = Languages.get_Translation("Name"), required = "", autofocus = "", maxlength = "50"})
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="PathName">@Languages.get_Translation("lblValumnsPartialPath")</label>
+                                <div class="col-sm-8">
+                                    @Html.TextBoxFor((m)=> m.PathName, new{@class = "form-control", placeholder = Languages.get_Translation("lblValumnsPartialPath"), required = "", autofocus = ""})
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="DirDiskMBLimitation">@Languages.get_Translation("lblValumnsPartialSizeLimtInMB")</label>
+                                <div class="col-sm-8">
+                                    @Html.TextBoxFor((m)=> m.DirDiskMBLimitation,new{@class = "form-control", placeholder = Languages.get_Translation("lblValumnsPartialSizeLimtInMB"), autofocus = "", maxlength = "10"})
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="DirCountLimitation">@Languages.get_Translation("lblValumnsPartialMaxNoOfFiles")</label>
+                                <div class="col-sm-8">
+                                    @Html.TextBoxFor((m)=> m.DirCountLimitation, new{@class = "form-control", placeholder = Languages.get_Translation("lblValumnsPartialMaxNoOfFiles"), autofocus = "", maxlength = "10"})
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="Active">@Languages.get_Translation("lblValumnsPartialAcptNewFiles")</label>
+                                <div class="col-sm-1">
+                                    <div class="checkbox-cus">
+                                    @*@Html.CheckBoxFor(Function(m) m.Active, New With {.class = "form-control", .autofocus = ""})*@
+                                    <input id="Active" name="Active" class="form-control" value="false" type="checkbox" autofocus="" />
+                                    <label class="checkbox-inline" for="Active">&nbsp;</label>
+                                </div></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    @*<div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="Online">@Languages.Translation("lblValumnsPartialOnline")</label>
+                                <div class="col-sm-1">
+                                    <div class="checkbox-cus">
+                                    @Html.CheckBoxFor(Function(m) m.Online, New With {.class = "form-control", .autofocus = ""})
+                                        <input id="Online" name="Online" class="form-control" value="false" type="checkbox" autofocus="" />
+                                    <label class="checkbox-inline" for="Online">&nbsp;</label>
+                                </div></div>
+                            </div>
+                        </div>
+                    </div>*@
+                    @*<div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="OfflineLocation">@Languages.Translation("lblValumnsPartialOffLinDesc")</label>
+                                <div class="col-sm-8">
+                                    @Html.TextBoxFor(Function(m) m.OfflineLocation, New With {.class = "form-control", .placeholder = Languages.Translation("lblValumnsPartialOffLinDesc"), .autofocus = "", .maxlength = "50"})
+                                </div>
+                            </div>
+                        </div>
+                    </div>*@
+                    
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="ImageTableName">@Languages.get_Translation("lblValumnsPartialImgTable")</label>
+                                <div class="col-sm-8">
+                                    @Html.TextBoxFor((m)=> m.ImageTableName,new{@class = "form-control", placeholder = Languages.get_Translation("lblValumnsPartialImgTable"), autofocus = "", maxlength = "20"})
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                </div>
+                <div class="modal-footer">
+                    <button id="btnSaveVolumes" type="button" class="btn btn-primary">@Languages.get_Translation("Save")</button>
+                    <button id="btnCancel" type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">@Languages.get_Translation("Cancel")</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+</form>
+
+@*<script src="@Url.Content("~/Scripts/AppJs/Directories.js")"></script>*@

@@ -1,0 +1,207 @@
+﻿@using TabFusionRMS.Resource
+@using Controllers
+@model Requesters
+<div class="modal-body" style="padding-bottom: 0px; padding-top: 0px; overflow: auto; max-height: 500px;">
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="col-sm-12">
+                <label class="control-label col-sm-3">@Languages.get_Translation("Requested") # </label>
+                <div class="col-sm-9">
+                    <input type="text" id="txtRequestid" disabled="disabled" value="@Model.RequestID" class="form-control" />
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12">
+                <label class="control-label col-sm-3">@Languages.get_Translation("lblBatchRequestPriority")</label>
+                <div class="col-sm-9">
+                    <input type="text" id="txtPriority" value="@Model.Priority" disabled="disabled" class="form-control" />
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12">
+                <label class="control-label col-sm-3">@Languages.get_Translation("DateRequested")</label>
+                <div class="col-sm-9">
+                    <input id="txtDateRequested" value="@Model.DateRequested" disabled="disabled" class="form-control" />
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12">
+                <label class="control-label col-sm-3">@Languages.get_Translation("DateNeeded")</label>
+                <div class="col-sm-9">
+                    <input type="text" id="txtDateNeeded" value="@Model.DateNeeded" disabled="disabled" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12">
+                <label class="control-label col-sm-3">@Languages.get_Translation("Status")</label>
+                <div class="col-sm-9">
+                    <input type="text" id="txtStatus" value="@Model.Status" disabled="disabled" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12">
+                <label class="control-label col-sm-3">@Languages.get_Translation("ReqInstru")</label>
+                <div class="col-sm-9">
+                    <input type="text" id="txtInstructions" value="@Model.Instruction" disabled="disabled" TextMode="MultiLine" Rows="5" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12">
+                <label class="control-label col-sm-3">@Languages.get_Translation("Fulfilled")</label>
+                <div class="col-sm-9 m-t-10">
+                    <label>
+                        if (model.Fulfilled)
+                        {
+                            if (Model.Instruction.length > 0)
+                                {
+                                    <input type="checkbox" checked id="cbFulfilled" />
+                                }
+                            else
+                                {
+                                    <input type="checkbox" disabled="disabled" checked id="cbFulfilled" />
+                                }
+
+                        else
+                            if (Model.Instruction.length > 0)
+                            {    
+                            <input type="checkbox" id="cbFulfilled" />
+                            }
+                            else
+                            {
+                                <input type="checkbox" disabled="disabled" id="cbFulfilled" />
+                            }
+                           
+            }
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div Class="form-group">
+            <div Class="col-sm-12">
+                <Label Class="control-label col-sm-3">@Languages.get_Translation("ReqFor")</Label>
+                <div class="col-sm-9">
+                    <input type="text" value="@Model.txtFor" id="txtFor" disabled="disabled" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12">
+                <label class="control-label col-sm-3">@Languages.get_Translation("ReqBy")</label>
+                <div class="col-sm-9">
+                    <input type="text" id="txtBy" value="@Model.By" disabled="disabled" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12">
+                <label class="control-label col-sm-3">@Languages.get_Translation("Phone")</label>
+                <div class="col-sm-9">
+                    <input type="text" id="txtPhone"value="@Model.Phone" disabled="disabled" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12">
+                <label class="control-label col-sm-3">@Languages.get_Translation("MailStop")</label>
+                <div class="col-sm-9">
+                    <input type="text" id="txtMail" value="@Model.Mail" disabled="disabled" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12">
+                <label class="control-label col-sm-3">@Languages.get_Translation("PullList") #</label>
+                <div class="col-sm-9">
+                    <input type="text" id="txtPullList" value="@Model.PullList" disabled="disabled" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12">
+                <label class="control-label col-sm-3">@Languages.get_Translation("PullDate")</label>
+                <div class="col-sm-9">
+                    <input type="text" id="txtPullDate" value="@Model.PullDate" disabled="disabled" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12">
+                <label class="control-label col-sm-3">@Languages.get_Translation("PullOperator")</label>
+                <div class="col-sm-9">
+                    <input type="text" id="txtPullOperator" value="@Model.PullOperator" disabled="disabled" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-12">
+                <label class="control-label col-sm-3">@Languages.get_Translation("Exception")</label>
+                <div class="col-sm-9 m-t-10">
+                    <label>
+                        if (Model.isException) 
+                           {
+                               if( Model.ExceptionAllowed) 
+                                {
+
+                                <input type="checkbox" checked id="cbException" />
+                                }
+                           
+                            else
+                               {
+                                   <input type="checkbox" disabled="disabled" checked id="cbException" />
+                               }
+                           }
+                        else
+                        {
+                            if (Model.ExceptionAllowed)
+                            {
+                                   <input type="checkbox" id="cbException" />
+                            }
+                         
+                        else
+                            {
+                                <input type="checkbox" disabled="disabled" id="cbException" />
+                            }
+                        }
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div Class="form-group">
+            <div Class="col-sm-12">
+                <Label Class="control-label col-sm-3">@Languages.get_Translation("Comment")</label>
+                <div class="col-sm-9">
+                    if (Model.isException)
+                    {
+                        if (Model.ExceptionAllowed)
+                        {
+                            <input type="text" id="txtComment" value="@Model.txtComment" TextMode="MultiLine" Rows="5" class="form-control">
+                        
+                        }
+                        else
+                            {
+                                <input type="text" id="txtComment" value="@Model.txtComment" disabled="disabled" TextMode="MultiLine" Rows="5" class="form-control">
+                        }
+                        }
+                    else
+                    {
+                        <input type="text" id="txtComment" value="@Model.txtComment" disabled="disabled" TextMode="MultiLine" Rows="5" class="form-control">
+                    }
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <div class="col-xs-12">
+        <Button id="btnOk" onclick="objRowtrackable.UpdateRequestDetails(@Model.RequestID)" class="btn btn-success text-uppercase">@Languages.get_Translation("Save")</Button>
+        <button id="btnCancel" onclick="dlgClose.CloseDialog()" class="btn btn-default text-uppercase">@Languages.get_Translation("Cancel")</button>
+        <button id="btnDelete" data-reqid="@Model.RequestID" onclick="objRowtrackable.DeleteRequest(event)" class="btn btn-danger text-uppercase">@Languages.get_Translation("Delete")</button>
+</div>
+</div>

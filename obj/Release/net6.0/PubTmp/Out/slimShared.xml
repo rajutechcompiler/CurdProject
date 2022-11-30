@@ -1,0 +1,226 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+slimShared
+</name>
+</assembly>
+<members>
+<member name="T:slimShared.CNetworkInformation">
+ <summary>
+ CNetworkInformation is a general-use class for determining the computer and
+ domain name of the current computer.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="T:slimShared.CSLIMDatabase">
+ <summary>
+ CSlimDatabase represents the connection information necessary to connect to
+ one of the SmeadSoft-supported database types.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="T:slimShared.CSLIMGeneral">
+ <summary>
+ General-use class used for serialization/deserialization of the general settings
+ stored by Slim Manager.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="T:slimShared.CSlimLicense">
+ <summary>
+ CSlimLicense represents an actual license issued to an installation. It contains
+ information about the customer that owns the license, the dealer that issued the
+ license and which products and features are available. Some OEM information is 
+ available, but is generally unused.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="F:slimShared.CSlimLicenseFeature._isSeatRestricted">
+ <summary>
+ CSlimLicenseFeature represents the named features in a license.
+ </summary>
+ <remarks></remarks>
+ 
+</member>
+<member name="F:slimShared.CSlimLicenseProduct._isSeatRestricted">
+ <summary>
+ CSlimLicenseProduct represents a product that is available within a license.
+ A license file can contain one or more licensed products. Each product found
+ within a license is given one CSlimLicenseProduct instance at runtime. This object
+ maintains the feature list available, the number of seats currently used for
+ the product and the number of reserved seats of the product. Currently SmeadSoft
+ and TAB FusionRMS Web Access are managed this way, but there is no limit to the number of
+ products that can be maintained in a license and seat-counted by SLIM.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="P:slimShared.CSlimUserSeat.Host">
+ <summary>
+ CSlimUserSeat represents a current user/seat combination. This information
+ is used in seat reservations and in identifying which users are currently
+ consuming a seat of a product.
+ 
+ A seat that is being consumed by an actual user must be frequently refreshed.
+ A refresh call is made to ensure that a particular seat does not expired (this
+ is accomplished in practice by an application call to ConsumeSeat). If a seat
+ is not refreshed, it is automatically expired so that another user can take
+ the seat. This is to ensure that an application crash does not infinitely consume
+ a seat that it had acquired. The timeout is currently 60 minutes and is not
+ tuneable from the outside.
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="F:slimShared.frmLocator._cancelled">
+ <summary>
+ this is the progress form that appears when an application is trying
+ to locate the slim service
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:slimShared.frmLocator.StepWorker_DoWork(System.Object,System.ComponentModel.DoWorkEventArgs)">
+ <summary>
+ Locate the slim server by first checking the last known location (registry), then
+ by checking for a local instance, then by using intLocateSlimServer (UDP broadcast).
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="T:slimShared.CSlimAPI">
+ <summary>
+ the public api used externally by the slimShared users for interacting
+ with the communications and data-storage facilities of SlimShared.
+ </summary>
+ <remarks></remarks>
+ 
+</member>
+<member name="F:slimShared.SlimShared._lock">
+ <summary>
+ SlimShared (the assembly) is the core management assembly for all SLIM-related
+ functions. SlimShared is used by all of the projects that need to access SLIM information.
+ This module contains the shared functions used generally throughout the assembly.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="P:slimShared.SlimShared.AppName">
+ <summary>
+ For error reporting to the event log and messagebox titles.
+ </summary>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:slimShared.SlimShared.connectToSlimServer(System.String,System.Int32)">
+ <summary>
+ Performs the basic connection to the SLIM server.
+ </summary>
+ <param name="sIPAddress">ip address of SLIM server</param>
+ <param name="iPort">port of the SLIM server</param>
+ <returns>true on successful connect</returns>
+ <remarks></remarks>
+</member>
+<member name="M:slimShared.SlimShared.closeSlim(System.String)">
+ <summary>
+ Gracefully disconnects from the SLIM server.
+ </summary>
+ <param name="sAddress"></param>
+ <remarks></remarks>
+</member>
+<member name="M:slimShared.SlimShared.messageSlimServer(System.String,System.Collections.ArrayList,System.Collections.ArrayList@)">
+ <summary>
+ General use messaging to and from SLIM server. SLIM server expects messages in
+ the format:
+   command [CRLF]
+   data [CRLF]
+   more data... [CRLF]
+
+ The response is:
+   response code [CRLF]
+   data [CRLF]
+   more data... [CRLF]
+ </summary>
+ <param name="sAddress">the address of the slim server in ip:port format</param>
+ <param name="mMessageLines">an arraylist of strings of the message to send</param>
+ <param name="mResultLines">an arraylist of strings of the response</param>
+ <returns>true on success</returns>
+ <remarks></remarks>
+</member>
+<member name="M:slimShared.SlimShared.intLocateSlimServer(System.Int32,System.String@)">
+ <summary>
+ Locates the SLIM server. Uses UDP broadcast on the given port. Returns the
+ address of the slim server in ip:port format.
+ </summary>
+ <param name="iPort">port to check for broadcast response</param>
+ <param name="sAddr">return address of slim server in ip:port format</param>
+ <returns>true on success</returns>
+ <remarks></remarks>
+</member>
+<member name="M:slimShared.SlimShared.shutdownLocator(System.String,System.Int32)">
+ <summary>
+ Gracefully requests the SLIM server to shutdown the locator service. This
+ function *could* be used remotely, but is only used within the service itself
+ to gracefully shut itself down.
+ </summary>
+ <param name="sIP">string IP address of slim service</param>
+ <param name="iPort">port of slim service</param>
+ <returns>true on success</returns>
+ <remarks></remarks>
+</member>
+<member name="M:slimShared.SlimShared.pingSlimServer(System.String)">
+ <summary>
+ Basic function to test if the SLIM server is responding to requests
+ </summary>
+ <param name="sAddress">ip:port of the slim server</param>
+ <returns>true on success</returns>
+ <remarks></remarks>
+</member>
+<member name="M:slimShared.SlimShared.locateSlimServerQuiet(System.String@)">
+ <summary>
+ Instantiate and call StartLocateSlimServer in frmLocator but does not show the form.  
+ frmLocator runs StartLocateSlimServer on a separate thread so the form is responsive to clicks, etc.
+ Values are set/returned through properties of the form.
+ </summary>
+ <param name="Address">ip:port location of found slim service</param>
+ <returns>true on success</returns>
+ <remarks></remarks>
+</member>
+<member name="M:slimShared.SlimShared.locateSlimServer(System.String@)">
+ <summary>
+ Instantiate and call StartLocateSlimServer in frmLocator and show the form.  
+ frmLocator runs StartLocateSlimServer on a separate thread so the form is responsive to clicks, etc.
+ Values are set/returned through properties of the form.
+ </summary>
+ <param name="Address">ip:port location of found slim service</param>
+ <returns>true on success</returns>
+ <remarks></remarks>
+</member>
+<member name="M:slimShared.SlimShared.getGroupList(System.Collections.ArrayList@,System.String)">
+ <summary>
+ LDAP helper function to retrieve the names of all the groups for the given domain.
+ </summary>
+ <param name="cList">the list of groups (return)</param>
+ <param name="sDomain">the domain to search</param>
+ <returns>true on success</returns>
+ <remarks></remarks>
+</member>
+<member name="M:slimShared.SlimShared.getGroupMembers(System.String,System.String)">
+ <summary>
+ retrieve the list of users for the given domain/group
+ </summary>
+ <param name="strDomain">the domain to search</param>
+ <param name="strGroup">the group</param>
+ <returns>an array of members (users) for the domain/group</returns>
+ <remarks></remarks>
+</member>
+<member name="M:slimShared.SlimShared.convertNTtoADName(System.String,System.String)">
+ <summary>
+ converts an NT login name to a properly-formatted name for use in the
+ AD support functions
+ </summary>
+ <param name="sHost"></param>
+ <param name="sNTName"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+</members>
+</doc>

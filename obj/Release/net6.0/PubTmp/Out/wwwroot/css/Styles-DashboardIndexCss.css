@@ -1,0 +1,3094 @@
+.multiselect-container {
+    position: absolute;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+    .multiselect-container .input-group {
+        margin: 5px;
+    }
+
+    .multiselect-container > li {
+        padding: 0;
+    }
+
+        .multiselect-container > li > a.multiselect-all label {
+            font-weight: 700;
+        }
+
+        .multiselect-container > li.multiselect-group label {
+            margin: 0;
+            padding: 3px 20px 3px 20px;
+            height: 100%;
+            font-weight: 700;
+        }
+
+        .multiselect-container > li.multiselect-group-clickable label {
+            cursor: pointer;
+        }
+
+        .multiselect-container > li > a {
+            padding: 0;
+        }
+
+            .multiselect-container > li > a > label {
+                margin: 0;
+                height: 100%;
+                cursor: pointer;
+                font-weight: 400;
+                padding: 3px 20px 3px 40px;
+            }
+
+                .multiselect-container > li > a > label.radio, .multiselect-container > li > a > label.checkbox {
+                    margin: 0;
+                }
+
+                .multiselect-container > li > a > label > input[type=checkbox] {
+                    margin-bottom: 5px;
+                }
+
+.btn-group > .btn-group:nth-child(2) > .multiselect.btn {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.form-inline .multiselect-container label.checkbox, .form-inline .multiselect-container label.radio {
+    padding: 3px 20px 3px 40px;
+}
+
+.form-inline .multiselect-container li a label.checkbox input[type=checkbox], .form-inline .multiselect-container li a label.radio input[type=radio] {
+    margin-left: -20px;
+    margin-right: 0;
+}
+
+.selectize-control.plugin-drag_drop.multi>.selectize-input>div.ui-sortable-placeholder{visibility:visible!important;background:#f2f2f2!important;background:rgba(0,0,0,.06)!important;border:0 none!important;-webkit-box-shadow:inset 0 0 12px 4px #fff;box-shadow:inset 0 0 12px 4px #fff}.selectize-control.plugin-drag_drop .ui-sortable-placeholder::after{content:'!';visibility:hidden}.selectize-control.plugin-drag_drop .ui-sortable-helper{-webkit-box-shadow:0 2px 5px rgba(0,0,0,.2);box-shadow:0 2px 5px rgba(0,0,0,.2)}.selectize-dropdown-header{position:relative;padding:3px 12px;border-bottom:1px solid #d0d0d0;background:#f8f8f8;-webkit-border-radius:4px 4px 0 0;-moz-border-radius:4px 4px 0 0;border-radius:4px 4px 0 0}.selectize-dropdown-header-close{position:absolute;right:12px;top:50%;color:#333;opacity:.4;margin-top:-12px;line-height:20px;font-size:20px!important}.selectize-dropdown-header-close:hover{color:#000}.selectize-dropdown.plugin-optgroup_columns .optgroup{border-right:1px solid #f2f2f2;border-top:0 none;float:left;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}.selectize-dropdown.plugin-optgroup_columns .optgroup:last-child{border-right:0 none}.selectize-dropdown.plugin-optgroup_columns .optgroup:before{display:none}.selectize-dropdown.plugin-optgroup_columns .optgroup-header{border-top:0 none}.selectize-control.plugin-remove_button [data-value]{position:relative;padding-right:24px!important}.selectize-control.plugin-remove_button [data-value] .remove{z-index:1;position:absolute;top:0;right:0;bottom:0;width:17px;text-align:center;font-weight:700;font-size:12px;color:inherit;text-decoration:none;vertical-align:middle;display:inline-block;padding:1px 0 0 0;border-left:1px solid transparent;-webkit-border-radius:0 2px 2px 0;-moz-border-radius:0 2px 2px 0;border-radius:0 2px 2px 0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box}.selectize-control.plugin-remove_button [data-value] .remove:hover{background:rgba(0,0,0,.05)}.selectize-control.plugin-remove_button [data-value].active .remove{border-left-color:transparent}.selectize-control.plugin-remove_button .disabled [data-value] .remove:hover{background:0 0}.selectize-control.plugin-remove_button .disabled [data-value] .remove{border-left-color:rgba(77,77,77,0)}.selectize-control.plugin-remove_button .remove-single{position:absolute;right:0;top:0;font-size:23px}.selectize-control{position:relative}.selectize-dropdown,.selectize-input,.selectize-input input{color:#333;font-family:inherit;font-size:inherit;line-height:20px;-webkit-font-smoothing:inherit}.selectize-control.single .selectize-input.input-active,.selectize-input{background:#fff;cursor:text;display:inline-block}.selectize-input{border:1px solid #ccc;padding:6px 12px;display:inline-block;width:100%;overflow:hidden;position:relative;z-index:1;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;-webkit-box-shadow:none;box-shadow:none;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px}.selectize-control.multi .selectize-input.has-items{padding:5px 12px 2px}.selectize-input.full{background-color:#fff}.selectize-input.disabled,.selectize-input.disabled *{cursor:default!important}.selectize-input.focus{-webkit-box-shadow:inset 0 1px 2px rgba(0,0,0,.15);box-shadow:inset 0 1px 2px rgba(0,0,0,.15)}.selectize-input.dropdown-active{-webkit-border-radius:4px 4px 0 0;-moz-border-radius:4px 4px 0 0;border-radius:4px 4px 0 0}.selectize-input>*{vertical-align:baseline;display:-moz-inline-stack;display:inline-block;zoom:1}.selectize-control.multi .selectize-input>div{cursor:pointer;margin:0 3px 3px 0;padding:1px 3px;background:#efefef;color:#333;border:0 solid transparent}.selectize-control.multi .selectize-input>div.active{background:#428bca;color:#fff;border:0 solid transparent}.selectize-control.multi .selectize-input.disabled>div,.selectize-control.multi .selectize-input.disabled>div.active{color:grey;background:#fff;border:0 solid rgba(77,77,77,0)}.selectize-input>input{display:inline-block!important;padding:0!important;min-height:0!important;max-height:none!important;max-width:100%!important;margin:0!important;text-indent:0!important;border:0 none!important;background:0 0!important;line-height:inherit!important;-webkit-user-select:auto!important;-webkit-box-shadow:none!important;box-shadow:none!important}.selectize-input>input::-ms-clear{display:none}.selectize-input>input:focus{outline:0!important}.selectize-input::after{content:' ';display:block;clear:left}.selectize-input.dropdown-active::before{content:' ';display:block;position:absolute;background:#fff;height:1px;bottom:0;left:0;right:0}.selectize-dropdown{position:absolute;z-index:10;border:1px solid #d0d0d0;background:#fff;margin:-1px 0 0 0;border-top:0 none;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;-webkit-box-shadow:0 1px 3px rgba(0,0,0,.1);box-shadow:0 1px 3px rgba(0,0,0,.1);-webkit-border-radius:0 0 4px 4px;-moz-border-radius:0 0 4px 4px;border-radius:0 0 4px 4px}.selectize-dropdown [data-selectable]{cursor:pointer;overflow:hidden}.selectize-dropdown [data-selectable] .highlight{background:rgba(255,237,40,.4);-webkit-border-radius:1px;-moz-border-radius:1px;border-radius:1px}.selectize-dropdown .optgroup-header,.selectize-dropdown .option{padding:3px 12px}.selectize-dropdown .option,.selectize-dropdown [data-disabled],.selectize-dropdown [data-disabled] [data-selectable].option{cursor:inherit;opacity:.5}.selectize-dropdown [data-selectable].option{opacity:1}.selectize-dropdown .optgroup:first-child .optgroup-header{border-top:0 none}.selectize-dropdown .optgroup-header{color:#777;background:#fff;cursor:default}.selectize-dropdown .active{background-color:#f5f5f5;color:#262626}.selectize-dropdown .active.create{color:#262626}.selectize-dropdown .create{color:rgba(51,51,51,.5)}.selectize-dropdown-content{overflow-y:auto;overflow-x:hidden;max-height:200px;-webkit-overflow-scrolling:touch}.selectize-control.single .selectize-input,.selectize-control.single .selectize-input input{cursor:pointer}.selectize-control.single .selectize-input.input-active,.selectize-control.single .selectize-input.input-active input{cursor:text}.selectize-control.single .selectize-input:after{content:' ';display:block;position:absolute;top:50%;right:17px;margin-top:-3px;width:0;height:0;border-style:solid;border-width:5px 5px 0 5px;border-color:#333 transparent transparent transparent}.selectize-control.single .selectize-input.dropdown-active:after{margin-top:-4px;border-width:0 5px 5px 5px;border-color:transparent transparent #333 transparent}.selectize-control.rtl.single .selectize-input:after{left:17px;right:auto}.selectize-control.rtl .selectize-input>input{margin:0 4px 0 -2px!important}.selectize-control .selectize-input.disabled{opacity:.5;background-color:#fff}.selectize-dropdown,.selectize-dropdown.form-control{height:auto;padding:0;margin:2px 0 0 0;z-index:1000;background:#fff;border:1px solid #ccc;border:1px solid rgba(0,0,0,.15);-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;-webkit-box-shadow:0 6px 12px rgba(0,0,0,.175);box-shadow:0 6px 12px rgba(0,0,0,.175)}.selectize-dropdown .optgroup-header{font-size:12px;line-height:1.42857143}.selectize-dropdown .optgroup:first-child:before{display:none}.selectize-dropdown .optgroup:before{content:' ';display:block;height:1px;margin:9px 0;overflow:hidden;background-color:#e5e5e5;margin-left:-12px;margin-right:-12px}.selectize-dropdown-content{padding:5px 0}.selectize-dropdown-header{padding:6px 12px}.selectize-input{min-height:34px}.selectize-input.dropdown-active{-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px}.selectize-input.dropdown-active::before{display:none}.selectize-input.focus{border-color:#66afe9;outline:0;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)}.has-error .selectize-input{border-color:#a94442;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075);box-shadow:inset 0 1px 1px rgba(0,0,0,.075)}.has-error .selectize-input:focus{border-color:#843534;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #ce8483;box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #ce8483}.selectize-control.multi .selectize-input.has-items{padding-left:9px;padding-right:9px}.selectize-control.multi .selectize-input>div{-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px}.form-control.selectize-control{padding:0;height:auto;border:none;background:0 0;-webkit-box-shadow:none;box-shadow:none;-webkit-border-radius:0;-moz-border-radius:0;border-radius:0}
+/*# sourceMappingURL=selectize.bootstrap3.min.css.map */
+@charset "utf-8";
+@import url("../Content/themes/TAB/css/CustomFont.css");
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    word-wrap: break-word !important;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+
+.modal-body {
+    position: relative;
+    padding: 15px;
+    /*font-size: 16px !important;*/
+}
+
+ul {
+    list-style-type: none;
+}
+
+.content-wrapper {
+    margin-left: 0px;
+    margin-top: 10px;
+    overflow-x: hidden !important;
+    height: auto !important;
+}
+
+.tab_btn:hover {
+    border: 1px solid #000;
+    color: #4e4e4e;
+    background: none;
+    cursor: pointer;
+}
+
+.modal-30 {
+    width: 30vw;
+}
+
+#modalAddNewDashboard {
+    z-index: 99999;
+}
+
+#widgetContent {
+
+    overflow: scroll;
+}
+
+.hidden-e {
+    display: none;
+}
+
+#openModal32 {
+    z-index: 99999;
+}
+
+#openModal1 {
+    /*z-index: 99999;*/
+    z-index: 1050;
+}
+
+#modalDeleteDashboard {
+    z-index: 99999;
+}
+
+#modal13 {
+    z-index: 99999;
+}
+
+#modal14 {
+    z-index: 99999;
+}
+
+#modalOperation {
+    z-index: 99999;
+}
+
+#modalTracked {
+    z-index: 99999;
+}
+
+#modalSeries {
+    z-index: 99999;
+}
+
+.row-44 .row{
+    height:44px;
+}
+
+.row{
+    margin: initial;
+}
+
+#modalDeleteWidget {
+    z-index: 99999;
+}
+
+#modalTask {
+    z-index: 99999;
+}
+
+#widgetName, #refreshTime {
+    width: 100%;
+}
+
+.widget-content {
+    height: calc(100% - 3em);
+    background: #fafafa;
+}
+
+/*.options {
+    float: right;
+    right: 10px;
+    width: 80px;
+}*/
+
+.widget-name {
+    padding-top: 0.5vh;
+    padding-bottom: 0%;
+    position: relative;
+}
+
+.p-del-dash {
+    word-wrap: break-word
+}
+
+.table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+    text-align: center;
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+}
+
+:root {
+    background: white;
+}
+
+.box {
+    margin-top: 120px;
+    margin-left: 20px;
+    overflow-y: hidden;
+}
+
+hr {
+    border-bottom: 0;
+    margin: 15px 0;
+}
+
+.dashbar {
+    height: auto;
+    width: 100%;
+    position: relative;
+   display:inline-block;
+    z-index: 1000;
+    margin-left: 20px;
+    margin-top: 6px;
+    padding-right: 20px;
+}
+.clear {
+    clear:both;
+}
+
+.sortable div .navBar {
+    font-size: 10px;
+    height: 40px;
+    width: 550px;
+    position: absolute;
+    top: 8%;
+    left: 50%;
+    margin: 0;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: #D8D8D8;
+    border-top-right-radius: 1px;
+    border-top-left-radius: 1px;
+}
+
+.widget-icons {
+    margin-top: -0.5%;
+    float: right;
+    right: 10px;
+    height: 33px;
+    width: 10%;
+}
+
+.sortable {
+    width: 100%;
+    /* height: auto;
+    margin-top: 14px;*/
+    height: 70vh;
+    margin-top: 20px;
+    list-style-type: none;
+    text-align: left;
+    overflow-y: scroll;
+    border: 1px solid #666666;
+    transition: ease .2s;
+}
+
+.widgets-container {
+    border: 1px solid #666666;
+    margin-bottom: 15px;
+    margin-left: 20px;
+    margin-top: 15px;
+    min-height: 500px;
+}
+
+td {
+    padding: 5px;
+    margin: 0px;
+    border: 1px solid gray;
+}
+
+.widget {
+    display: inline-block;
+    max-width: 98%;
+    /*width: 33%;*/
+    margin: 8px;
+    background: #fafafa;
+}
+
+.ui-icon {
+    display: none !important;
+}
+
+.ui-resizable-s {
+    cursor: s-resize;
+    width: 100%;
+    bottom: -3px;
+    left: 0;
+}
+
+h1 {
+    margin: 20px auto;
+    color: #90A4AE;
+    font-family: sans-serif;
+    font-weight: normal;
+    text-align: center;
+}
+
+.content {
+    font-size: 20px;
+    height: 260px;
+    width: 100%;
+    position: relative;
+    top: 100%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.sortable div h2 {
+    font-size: 60px;
+    height: 300px;
+    width: 550px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 0;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: #78909C;
+}
+
+#data-grid {
+    min-height: 400px;
+    min-width: 400px;
+    height: 100%;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#new-widget {
+    height: 34px;
+    margin-left: 0px;
+}
+
+#new-dash {
+    height: 34px;
+    margin-left: 20px;
+}
+
+.dashboards {
+    border-radius: 3px;
+    height: 30px;
+    width: 150px;
+    position: absolute;
+    top: 3px;
+    left: 5%;
+    margin: 3px;
+    color: #78909C;
+    border: 2px solid #22415C;
+}
+
+#task-list {
+    font-size: 20px;
+    height: 260px;
+    width: 550px;
+    position: absolute;
+    padding: 20px;
+    top: 50%;
+    left: 50%;
+    margin: 0;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: #78909C;
+}
+
+#widget-add {
+    border-radius: 7px;
+    border: 2px solid #22415C;
+    height: 30px;
+    width: 100px;
+    position: absolute;
+    top: 3px;
+    left: 16%;
+    margin: 3px;
+    color: #292929;
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+.modalDialog {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99999;
+    opacity: 0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+
+.modalDialog:target {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modalDialog > div {
+    width: 400px;
+    position: relative;
+    margin: 5% auto;
+    padding: 5px 20px 13px 20px;
+    border-radius: 10px;
+    background: #fff;
+    background: #339999;
+}
+
+.modalDialog {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999999;
+    opacity: 0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+
+.modalDialog:target {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modalDialog > div {
+    width: 500px;
+    position: relative;
+    margin: 10% auto;
+    padding: 5px 20px 13px 20px;
+    border-radius: 10px;
+    background: #fff;
+    background: #fff;
+}
+
+.modalDialog1 {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999999;
+    opacity: 0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.modalDialog1:target {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modalDialog1 > div {
+    width: 70%;
+    height: 70%;
+    position: relative;
+    margin: 10% auto;
+    padding: 5px 20px 13px 20px;
+    color: #78909C;
+    overflow: scroll;
+    background: #fff;
+}
+
+.close {
+    padding: 5px;
+    color: #000;
+    line-height: 25px;
+    position: absolute;
+    right: -31px;
+    right: 19px;
+    : center;
+    top: 12px;
+    width: 24px;
+    text-decoration: none;
+}
+
+.pd {
+    padding: 20px;
+}
+
+.p-10 li {
+    padding: 2px;
+    border: 1px solid #ccc;
+    margin-top: 8px;
+}
+
+.ml {
+    margin-left: 8%;
+}
+
+.m-t1 {
+    margin-top: 50px;
+}
+.m-t2 {
+    margin-top:-7px;
+}
+.m-t10 {
+    margin-top: 10px;
+}
+
+.pdb {
+    padding: 2px 30px 2px 30px;
+    .mr li img
+}
+
+{
+    margin-right: 27px;
+}
+
+.sortable div .navBar .nev-header {
+    width: 442px;
+    height: 46px;
+    top: -15px;
+    left: -15px;
+    background-color: #D8D8D8;
+    border-top: 2px solid #292929;
+    border-left: 2px solid #292929;
+    border-top-left-radius: 3px;
+}
+
+.all-icons {
+    padding-left: 34px;
+    width: 108px;
+    height: 46px;
+    top: -10%;
+    right: -427px;
+    display: inline-block;
+    background-color: #D8D8D8;
+    border-top: 2px solid #292929;
+    border-right: 2px solid #292929;
+    border-top-right-radius: 3px;
+}
+
+.sortable div h3 {
+    margin-top: 7px;
+    margin-left: 10px;
+}
+
+.modalDialog2 {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99999;
+    opacity: 0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+
+.modalDialog2:target {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modalDialog2 > div {
+    width: 70%;
+    height: 70%;
+    position: relative;
+    margin: 10% auto;
+    padding: 5px 20px 13px 20px;
+    color: #78909C;
+    overflow-y: scroll;
+    background: #fff;
+}
+
+.img1 {
+    position: relative;
+    width: 120px;
+}
+
+.img2 {
+    position: relative;
+    width: 120px;
+}
+
+.img3 {
+    position: relative;
+    width: 120px;
+}
+
+.img4 {
+    position: relative;
+    width: 120px;
+}
+
+.img11 {
+    padding-top: 56%;
+    position: relative;
+    width: 30px;
+}
+
+.img22 {
+    padding-top: 48%;
+    position: relative;
+    width: 30px;
+}
+
+.img33 {
+    padding-top: 48%;
+    position: relative;
+    width: 30px;
+}
+
+.img44 {
+    padding-top: 48%;
+    position: relative;
+    width: 30px;
+}
+
+
+.wibold {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.modal input[type=checkbox] {
+    outline: none;
+    margin: 0px 0px 0px -20px!important;
+}
+
+.multiselect-div .btn-group, .multiselect-div .btn-group ul {
+    width: 100% !important;
+}
+
+.multiselect-div .btn-group button {
+    width: 100% !important;
+    height: 34px !important;
+    text-align: left !important;
+}
+
+.multiselect-div .btn-group .caret {
+    float: right;
+    margin-top: 1%;
+    margin-right: 2%;
+}
+
+img {
+    cursor: pointer
+}
+
+#spinningWheel {
+    z-index: 999999;
+}
+.tdborder td {
+    padding: 5px;
+    margin: 0px;
+    border: 1px solid #ddd;
+    border-right: none;
+    border-left: none;
+}
+
+.table tr {
+    border: 1px solid #ddd;
+    padding: 3px;
+}
+.pt {
+    padding-top: 2%;
+}
+.pt-6 {
+    padding-top: 4%;
+}
+.modal-header {
+    cursor: grab;
+}
+
+.mlp {
+    padding: 0px 4px 0px 20px;
+    width: 100%;
+}
+
+.threedots {
+    position: relative;
+    top: 2px;
+    width: 70%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+    font-size: 14px;
+    margin: 0;
+    color: #666666;
+}
+
+.customTooltip {
+    display: inline;
+    position: relative;
+}
+
+    .customTooltip:hover:after {
+        background: #eee;
+        border-radius: 5px;
+        bottom: -58px;
+        color: black;
+        content: attr(gloss);
+        left: -14px;
+        padding: 5px 15px;
+        position: absolute;
+        z-index: 98;
+        width: auto;
+        white-space: nowrap;
+    }
+
+    .customTooltip:hover:before {
+        border: solid;
+        border-color: #ddd transparent;
+        border-width: 0 6px 6px 6px;
+        bottom: -4px;
+        content: "";
+        left: 40%;
+        position: absolute;
+        z-index: 99;
+    }
+
+.staricon {
+    margin-top: -11%;
+    position: relative;
+    float: right;
+    right: 7%;
+}
+
+.stariconfill {
+    position: relative;
+    float: right;
+    /*right: 3%;*/
+    font-size: 20px;
+}
+
+.stariconblank {
+    position:relative;
+    float: right;
+   
+    font-size: 20px;
+}
+.options {
+    float: right;
+    right: 10px;
+    width: 85px;
+    text-align:right;
+}
+.refresh {
+    width: 20px;
+    margin-right: 4px;
+}
+.top_action_content ul {
+    margin: 0;
+    padding: 15px 0 0 0;
+    border-top: 0px dashed #dfdfdf !important;
+}
+.chooseaWP {
+    font-size: 12px;
+}
+.spinfresh {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -13px;
+    margin-top: -13px;
+    font-size: 20px;
+}
+.xmpDashbaordNames {
+    margin: 0px !important;
+    font-family: DPLight;
+   
+    white-space: normal !important;
+}
+@media (min-width:360px) and (max-width: 768px) {
+    
+    .stariconblank {
+        position: absolute;
+        float: right;
+        right: 7%;
+        font-size: 20px;
+        top: 97%;
+    }
+    
+}
+
+#toast-container > div {
+    /*padding: 0px 15px 0px 50px !important;*/
+}
+.topheaderhe {
+    height: 43px !important;
+}
+
+
+/*.caretselect {
+        background-color: white;
+    border-radius: 4px;
+    display: inline-block;
+    font: inherit;
+    line-height: 1.5em;
+    padding: 0.5em 3.5em 0.5em 1em;
+        margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}*/
+
+.caretselect {
+     background-color: white;
+    border-radius: 4px;
+    display: inline-block;
+    font: inherit;
+    font-size:14px;
+    color:black;
+    line-height: 1.5em;
+    padding: 0.5em 3.5em 0.5em 1em;
+     margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.ml{margin-left:10px;}
+ /*arrows*/
+
+.caretselect {
+    background-image: linear-gradient(45deg, transparent 50%, black 50%), linear-gradient(135deg, black 50%, transparent 50%);
+    background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), 100% 0;
+    background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+    background-repeat: no-repeat;
+}
+
+.caretselect:focus {
+    background-image: linear-gradient(45deg, black 50%, transparent 50%), linear-gradient(135deg, transparent 50%, black 50%);
+    background-position: calc(100% - 15px) 1em, calc(100% - 20px) 1em, 100% 0;
+    background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+    background-repeat: no-repeat;
+    border-color: grey;
+    outline: 0;
+}
+
+.caret {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top: 5px dashed;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+}
+
+.xmp-elrg-name {
+    display: inline;
+    color: #002949;
+    font-size: 14px !important;
+    font-weight: bold !important;
+    text-transform: uppercase;
+}
+
+.fa.fa-star {
+    color: #979595;
+}
+xmp {
+    font-family: DPLight !important;
+}
+
+#openModal1 xmp {
+    font-family: DP !important;
+}
+
+.toast-message xmp{
+    margin : inherit;
+}
+
+.widget-cross{
+    /*float:right;*/
+}
+
+
+
+
+
+/*!
+ * Copyright (c) HANDSONCODE sp. z o. o.
+ * 
+ * HANDSONTABLE is a software distributed by HANDSONCODE sp. z o. o., a Polish corporation based in
+ * Gdynia, Poland, at Aleja Zwycięstwa 96-98, registered by the District Court in Gdansk under number
+ * 538651, EU tax ID number: PL5862294002, share capital: PLN 62,800.00.
+ * 
+ * This software is protected by applicable copyright laws, including international treaties, and dual-
+ * licensed – depending on whether your use for commercial purposes, meaning intended for or
+ * resulting in commercial advantage or monetary compensation, or not.
+ * 
+ * If your use is strictly personal or solely for evaluation purposes, meaning for the purposes of testing
+ * the suitability, performance, and usefulness of this software outside the production environment,
+ * you agree to be bound by the terms included in the "handsontable-non-commercial-license.pdf" file.
+ * 
+ * Your use of this software for commercial purposes is subject to the terms included in an applicable
+ * license agreement.
+ * 
+ * In any case, you must not make any such use of this software as to develop software which may be
+ * considered competitive with this software.
+ * 
+ * UNLESS EXPRESSLY AGREED OTHERWISE, HANDSONCODE PROVIDES THIS SOFTWARE ON AN &quot;AS IS&quot;
+ * BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, AND IN NO EVENT AND UNDER NO
+ * LEGAL THEORY, SHALL HANDSONCODE BE LIABLE TO YOU FOR DAMAGES, INCLUDING ANY DIRECT,
+ * INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES OF ANY CHARACTER ARISING FROM
+ * USE OR INABILITY TO USE THIS SOFTWARE.
+ * 
+ * Version: 12.0.1
+ * Release date: 16/05/2022 (built at 13/05/2022 13:50:27)
+ */
+/**
+ * Fix for bootstrap styles
+ */
+.handsontable .table th, .handsontable .table td {
+  border-top: none;
+}
+
+.handsontable tr {
+  background: #fff;
+}
+
+.handsontable td {
+  background-color: inherit;
+}
+
+.handsontable .table caption + thead tr:first-child th,
+.handsontable .table caption + thead tr:first-child td,
+.handsontable .table colgroup + thead tr:first-child th,
+.handsontable .table colgroup + thead tr:first-child td,
+.handsontable .table thead:first-child tr:first-child th,
+.handsontable .table thead:first-child tr:first-child td {
+  border-top: 1px solid #CCCCCC;
+}
+
+/* table-bordered */
+.handsontable .table-bordered {
+  border: 0;
+  border-collapse: separate;
+}
+
+.handsontable .table-bordered th,
+.handsontable .table-bordered td {
+  border-left: none;
+}
+
+.handsontable .table-bordered th:first-child,
+.handsontable .table-bordered td:first-child {
+  border-left: 1px solid #CCCCCC;
+}
+
+.handsontable .table > tbody > tr > td,
+.handsontable .table > tbody > tr > th,
+.handsontable .table > tfoot > tr > td,
+.handsontable .table > tfoot > tr > th,
+.handsontable .table > thead > tr > td,
+.handsontable .table > thead > tr > th {
+  line-height: 21px;
+  padding: 0;
+}
+
+.col-lg-1.handsontable, .col-lg-10.handsontable, .col-lg-11.handsontable, .col-lg-12.handsontable,
+.col-lg-2.handsontable, .col-lg-3.handsontable, .col-lg-4.handsontable, .col-lg-5.handsontable, .col-lg-6.handsontable, .col-lg-7.handsontable, .col-lg-8.handsontable, .col-lg-9.handsontable,
+.col-md-1.handsontable, .col-md-10.handsontable, .col-md-11.handsontable, .col-md-12.handsontable,
+.col-md-2.handsontable, .col-md-3.handsontable, .col-md-4.handsontable, .col-md-5.handsontable, .col-md-6.handsontable, .col-md-7.handsontable, .col-md-8.handsontable, .col-md-9.handsontable .col-sm-1.handsontable,
+.col-sm-10.handsontable, .col-sm-11.handsontable, .col-sm-12.handsontable,
+.col-sm-2.handsontable, .col-sm-3.handsontable, .col-sm-4.handsontable, .col-sm-5.handsontable, .col-sm-6.handsontable, .col-sm-7.handsontable, .col-sm-8.handsontable, .col-sm-9.handsontable .col-xs-1.handsontable,
+.col-xs-10.handsontable, .col-xs-11.handsontable, .col-xs-12.handsontable,
+.col-xs-2.handsontable, .col-xs-3.handsontable, .col-xs-4.handsontable, .col-xs-5.handsontable, .col-xs-6.handsontable, .col-xs-7.handsontable, .col-xs-8.handsontable, .col-xs-9.handsontable {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.handsontable .table-striped > tbody > tr:nth-of-type(even) {
+  background-color: #FFF;
+}
+.handsontable {
+  position: relative;
+}
+
+.handsontable .hide {
+  display: none;
+}
+
+.handsontable .relative {
+  position: relative;
+}
+
+.handsontable .wtHider {
+  width: 0;
+}
+
+.handsontable .wtSpreader {
+  position: relative;
+  /*must be 0, otherwise blank space appears in scroll demo after scrolling max to the right */
+  width: 0;
+  height: auto;
+}
+
+.handsontable table,
+.handsontable tbody,
+.handsontable thead,
+.handsontable td,
+.handsontable th,
+.handsontable input,
+.handsontable textarea,
+.handsontable div {
+  box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+}
+
+.handsontable input,
+.handsontable textarea {
+  min-height: initial;
+}
+
+.handsontable table.htCore {
+  border-collapse: separate;
+  /* it must be separate, otherwise there are offset miscalculations in WebKit: http://stackoverflow.com/questions/2655987/border-collapse-differences-in-ff-and-webkit */
+  /* this actually only changes appearance of user selection - does not make text unselectable */
+  /* -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    -ms-user-select: none;
+    user-select: none; // no browser supports unprefixed version
+  */
+  border-spacing: 0;
+  margin: 0;
+  border-width: 0;
+  table-layout: fixed;
+  width: 0;
+  outline-width: 0;
+  cursor: default;
+  /* reset bootstrap table style. for more info see: https://github.com/handsontable/handsontable/issues/224 */
+  max-width: none;
+  max-height: none;
+}
+
+.handsontable col {
+  width: 50px;
+}
+
+.handsontable col.rowHeader {
+  width: 50px;
+}
+
+.handsontable th,
+.handsontable td {
+  border-top-width: 0;
+  border-left-width: 0;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  height: 22px;
+  empty-cells: show;
+  line-height: 21px;
+  padding: 0 4px 0 4px;
+  /* top, bottom padding different than 0 is handled poorly by FF with HTML5 doctype */
+  background-color: #fff;
+  vertical-align: top;
+  overflow: hidden;
+  outline-width: 0;
+  white-space: pre-wrap;
+}
+
+[dir=rtl].handsontable th, [dir=rtl].handsontable td {
+  border-right-width: 0;
+  border-left: 1px solid #ccc;
+}
+
+.handsontable th:last-child {
+  /*Foundation framework fix*/
+  border-left: none;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+}
+
+[dir=rtl].handsontable th:last-child {
+  /*Foundation framework fix*/
+  border-right: none;
+  border-left: 1px solid #ccc;
+}
+
+.handsontable th:first-child,
+.handsontable th:nth-child(2),
+.handsontable td:first-of-type {
+  border-left: 1px solid #ccc;
+}
+
+[dir=rtl].handsontable th:first-child, [dir=rtl].handsontable th:nth-child(2), [dir=rtl].handsontable td:first-of-type {
+  border-right: 1px solid #ccc;
+}
+
+/* It removes double right border from first column header when row headers are disabled */
+.handsontable .ht_clone_top th:nth-child(2) {
+  border-left-width: 0;
+  border-right: 1px solid #ccc;
+}
+
+[dir=rtl].handsontable .ht_clone_top th:nth-child(2) {
+  border-right-width: 0;
+  border-left: 1px solid #ccc;
+}
+
+.handsontable.htRowHeaders thead tr th:nth-child(2) {
+  border-left: 1px solid #ccc;
+}
+
+[dir=rtl].handsontable.htRowHeaders thead tr th:nth-child(2) {
+  border-right: 1px solid #ccc;
+}
+
+.handsontable tr:first-child th,
+.handsontable tr:first-child td {
+  border-top: 1px solid #ccc;
+}
+
+.ht_master:not(.innerBorderInlineStart):not(.emptyColumns) ~ .handsontable tbody tr th,
+.ht_master:not(.innerBorderInlineStart):not(.emptyColumns) ~ .handsontable:not(.ht_clone_top) thead tr th:first-child {
+  border-right-width: 0;
+  border-left: 1px solid #ccc;
+}
+
+[dir=rtl].ht_master:not(.innerBorderInlineStart):not(.emptyColumns) ~ .handsontable tbody tr th, [dir=rtl].ht_master:not(.innerBorderInlineStart):not(.emptyColumns) ~ .handsontable:not(.ht_clone_top) thead tr th:first-child {
+  border-left-width: 0;
+  border-right: 1px solid #ccc;
+}
+
+/*
+innerBorderTop - Property controlled by top overlay
+innerBorderBottom - Property controlled by bottom overlay
+ */
+.ht_master:not(.innerBorderTop):not(.innerBorderBottom) thead tr:last-child th,
+.ht_master:not(.innerBorderTop):not(.innerBorderBottom) ~ .handsontable thead tr:last-child th,
+.ht_master:not(.innerBorderTop):not(.innerBorderBottom) thead tr.lastChild th,
+.ht_master:not(.innerBorderTop):not(.innerBorderBottom) ~ .handsontable thead tr.lastChild th {
+  border-bottom-width: 0;
+}
+
+.handsontable th {
+  background-color: #f0f0f0;
+  color: #222;
+  text-align: center;
+  font-weight: normal;
+  white-space: nowrap;
+}
+
+.handsontable thead th {
+  padding: 0;
+}
+
+.handsontable th.active {
+  background-color: #ccc;
+}
+
+.handsontable thead th .relative {
+  padding: 2px 4px;
+}
+
+.handsontable span.colHeader {
+  display: inline-block;
+  line-height: 1.1;
+}
+
+/* Selection */
+.handsontable .wtBorder {
+  position: absolute;
+  font-size: 0;
+}
+
+.handsontable .wtBorder.hidden {
+  display: none !important;
+}
+
+/* A layer order of the selection types */
+.handsontable .wtBorder.current {
+  z-index: 10;
+}
+
+.handsontable .wtBorder.area {
+  z-index: 8;
+}
+
+.handsontable .wtBorder.fill {
+  z-index: 6;
+}
+
+/* fill handle */
+.handsontable .wtBorder.corner {
+  font-size: 0;
+  cursor: crosshair;
+}
+
+.ht_clone_master {
+  z-index: 100;
+}
+
+.ht_clone_inline_start {
+  z-index: 120;
+}
+
+.ht_clone_bottom {
+  z-index: 130;
+}
+
+.ht_clone_bottom_inline_start_corner {
+  z-index: 150;
+}
+
+.ht_clone_top {
+  z-index: 160;
+}
+
+.ht_clone_top_inline_start_corner {
+  z-index: 180;
+}
+
+.handsontable col.hidden {
+  width: 0 !important;
+}
+
+.handsontable tr.hidden,
+.handsontable tr.hidden td,
+.handsontable tr.hidden th {
+  display: none;
+}
+
+.ht_master,
+.ht_clone_inline_start,
+.ht_clone_top,
+.ht_clone_bottom {
+  overflow: hidden;
+}
+
+.ht_master .wtHolder {
+  overflow: auto;
+}
+
+.handsontable .ht_master thead,
+.handsontable .ht_master tr th,
+.handsontable .ht_clone_inline_start thead {
+  visibility: hidden;
+}
+
+.ht_clone_top .wtHolder,
+.ht_clone_inline_start .wtHolder,
+.ht_clone_bottom .wtHolder {
+  overflow: hidden;
+}
+@charset "UTF-8";
+.handsontable {
+  touch-action: manipulation;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Helvetica Neue", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  color: #373737;
+}
+
+.handsontable a {
+  color: #104acc;
+}
+
+.handsontable.htAutoSize {
+  visibility: hidden;
+  left: -99000px;
+  position: absolute;
+  top: -99000px;
+}
+
+.handsontable td.htInvalid {
+  /*gives priority over td.area selection background*/
+  background-color: #ff4c42 !important;
+}
+
+.handsontable td.htNoWrap {
+  white-space: nowrap;
+}
+
+#hot-display-license-info {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Helvetica Neue", Arial, sans-serif;
+  font-size: 10px;
+  font-weight: normal;
+  color: #373737;
+  padding: 5px 0 3px 0;
+  text-align: left;
+}
+
+#hot-display-license-info a {
+  color: #104acc;
+  font-size: 10px;
+}
+
+/* plugins */
+/* row + column resizer*/
+.handsontable .manualColumnResizer {
+  position: absolute;
+  top: 0;
+  cursor: col-resize;
+  z-index: 210;
+  width: 5px;
+  height: 25px;
+}
+
+.handsontable .manualRowResizer {
+  position: absolute;
+  left: 0;
+  cursor: row-resize;
+  z-index: 210;
+  height: 5px;
+  width: 50px;
+}
+
+.handsontable .manualColumnResizer:hover,
+.handsontable .manualColumnResizer.active,
+.handsontable .manualRowResizer:hover,
+.handsontable .manualRowResizer.active {
+  background-color: #34a9db;
+}
+
+.handsontable .manualColumnResizerGuide {
+  position: absolute;
+  right: unset;
+  top: 0;
+  background-color: #34a9db;
+  display: none;
+  width: 0;
+  border-right: 1px dashed #777;
+  border-left: none;
+  margin-left: 5px;
+  margin-right: unset;
+}
+
+[dir=rtl].handsontable .manualColumnResizerGuide {
+  left: unset;
+  border-left: 1px dashed #777;
+  border-right: none;
+  margin-right: 5px;
+  margin-left: unset;
+}
+
+.handsontable .manualRowResizerGuide {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: #34a9db;
+  display: none;
+  height: 0;
+  border-bottom: 1px dashed #777;
+  margin-top: 5px;
+}
+
+.handsontable .manualColumnResizerGuide.active,
+.handsontable .manualRowResizerGuide.active {
+  display: block;
+  z-index: 209;
+}
+
+.handsontable .columnSorting {
+  position: relative;
+}
+
+.handsontable .columnSorting.sortAction:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* Arrow position */
+.handsontable span.colHeader.columnSorting::before {
+  /* Centering start */
+  top: 50%;
+  /* One extra pixel for purpose of proper positioning of sorting arrow, when `font-size` set to default */
+  margin-top: -6px;
+  /* Centering end */
+  /* For purpose of continuous mouse over experience, when moving between the `span` and the `::before` elements */
+  padding-left: 8px;
+  padding-right: 0;
+  position: absolute;
+  right: -9px;
+  left: unset;
+  content: "";
+  height: 10px;
+  width: 5px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x: right;
+}
+
+[dir=rtl].handsontable span.colHeader.columnSorting::before {
+  /* Centering end */
+  /* For purpose of continuous mouse over experience, when moving between the `span` and the `::before` elements */
+  padding-right: 8px;
+  padding-left: 0;
+  left: -9px;
+  right: unset;
+  background-position-x: left;
+}
+
+.handsontable span.colHeader.columnSorting.ascending::before {
+  /* arrow up; 20 x 40 px, scaled to 5 x 10 px; base64 size: 0.3kB */
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAoCAMAAADJ7yrpAAAAKlBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKE86IAAAADXRSTlMABBEmRGprlJW72e77tTkTKwAAAFNJREFUeAHtzjkSgCAUBNHPgsoy97+ulGXRqJE5L+xkxoYt2UdsLb5bqFINz+aLuuLn5rIu2RkO3fZpWENimNgiw6iBYRTPMLJjGFxQZ1hxxb/xBI1qC8k39CdKAAAAAElFTkSuQmCC");
+}
+
+.handsontable span.colHeader.columnSorting.descending::before {
+  /* arrow down; 20 x 40 px, scaled to 5 x 10 px; base64 size: 0.3kB */
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAoCAMAAADJ7yrpAAAAKlBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKE86IAAAADXRSTlMABBEmRGprlJW72e77tTkTKwAAAFJJREFUeAHtzjkSgCAQRNFmQYUZ7n9dKUvru0TmvPAn3br0QfgdZ5xx6x+rQn23GqTYnq1FDcnuzZIO2WmedVqIRVxgGKEyjNgYRjKGkZ1hFIZ3I70LyM0VtU8AAAAASUVORK5CYII=");
+}
+
+.htGhostTable .htCore span.colHeader.columnSorting:not(.indicatorDisabled)::after {
+  content: "*";
+  display: inline-block;
+  position: relative;
+  /* The multi-line header and header with longer text need more padding to not hide arrow,
+  we make header wider in `GhostTable` to make some space for arrow which is positioned absolutely in the main table */
+  padding-right: 20px;
+}
+
+.handsontable td.area,
+.handsontable td.area-1,
+.handsontable td.area-2,
+.handsontable td.area-3,
+.handsontable td.area-4,
+.handsontable td.area-5,
+.handsontable td.area-6,
+.handsontable td.area-7 {
+  position: relative;
+}
+
+.handsontable td.area:before,
+.handsontable td.area-1:before,
+.handsontable td.area-2:before,
+.handsontable td.area-3:before,
+.handsontable td.area-4:before,
+.handsontable td.area-5:before,
+.handsontable td.area-6:before,
+.handsontable td.area-7:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Fix for IE9 to spread the ":before" pseudo element to 100% height of the parent element */
+  bottom: -100% \9 ;
+  background: #005eff;
+}
+
+/* Fix for IE10 and IE11 to spread the ":before" pseudo element to 100% height of the parent element */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .handsontable td.area:before,
+.handsontable td.area-1:before,
+.handsontable td.area-2:before,
+.handsontable td.area-3:before,
+.handsontable td.area-4:before,
+.handsontable td.area-5:before,
+.handsontable td.area-6:before,
+.handsontable td.area-7:before {
+    bottom: -100%;
+  }
+}
+.handsontable td.area:before {
+  opacity: 0.1;
+}
+
+.handsontable td.area-1:before {
+  opacity: 0.2;
+}
+
+.handsontable td.area-2:before {
+  opacity: 0.27;
+}
+
+.handsontable td.area-3:before {
+  opacity: 0.35;
+}
+
+.handsontable td.area-4:before {
+  opacity: 0.41;
+}
+
+.handsontable td.area-5:before {
+  opacity: 0.47;
+}
+
+.handsontable td.area-6:before {
+  opacity: 0.54;
+}
+
+.handsontable td.area-7:before {
+  opacity: 0.58;
+}
+
+.handsontable tbody th.ht__highlight,
+.handsontable thead th.ht__highlight {
+  background-color: #dcdcdc;
+}
+
+.handsontable tbody th.ht__active_highlight,
+.handsontable thead th.ht__active_highlight {
+  background-color: #8eb0e7;
+  color: #000;
+}
+
+.handsontableInput {
+  border: none;
+  outline-width: 0;
+  margin: 0;
+  padding: 1px 5px 0 5px;
+  font-family: inherit;
+  line-height: 21px;
+  font-size: inherit;
+  box-shadow: 0 0 0 2px #5292F7 inset;
+  resize: none;
+  /*below are needed to overwrite stuff added by jQuery UI Bootstrap theme*/
+  display: block;
+  color: #000;
+  border-radius: 0;
+  background-color: #FFF;
+  /*overwrite styles potentionally made by a framework*/
+}
+
+.handsontableInput:focus {
+  outline: none;
+}
+
+.handsontableInputHolder {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.htSelectEditor {
+  -webkit-appearance: menulist-button !important;
+  position: absolute;
+  width: auto;
+}
+
+.htSelectEditor:focus {
+  outline: none;
+}
+
+/*
+TextRenderer readOnly cell
+*/
+.handsontable .htDimmed {
+  color: #777;
+}
+
+.handsontable .htSubmenu {
+  position: relative;
+}
+
+.handsontable .htSubmenu :after {
+  content: "▶";
+  color: #777;
+  position: absolute;
+  right: 5px;
+  font-size: 9px;
+}
+
+[dir=rtl].handsontable .htSubmenu :after {
+  content: "";
+}
+
+[dir=rtl].handsontable .htSubmenu :before {
+  content: "◀";
+  color: #777;
+  position: absolute;
+  left: 5px;
+  font-size: 9px;
+}
+
+/*
+TextRenderer horizontal alignment
+*/
+.handsontable .htLeft {
+  text-align: left;
+}
+
+.handsontable .htCenter {
+  text-align: center;
+}
+
+.handsontable .htRight {
+  text-align: right;
+}
+
+.handsontable .htJustify {
+  text-align: justify;
+}
+
+/*
+TextRenderer vertical alignment
+*/
+.handsontable .htTop {
+  vertical-align: top;
+}
+
+.handsontable .htMiddle {
+  vertical-align: middle;
+}
+
+.handsontable .htBottom {
+  vertical-align: bottom;
+}
+
+/*
+TextRenderer placeholder value
+*/
+.handsontable .htPlaceholder {
+  color: #999;
+}
+
+/**
+ * Handsontable listbox theme
+ */
+.handsontable.listbox {
+  margin: 0;
+}
+
+.handsontable.listbox .ht_master table {
+  border: 1px solid #ccc;
+  border-collapse: separate;
+  background: white;
+}
+
+.handsontable.listbox th,
+.handsontable.listbox tr:first-child th,
+.handsontable.listbox tr:last-child th,
+.handsontable.listbox tr:first-child td,
+.handsontable.listbox td {
+  border-color: transparent !important;
+}
+
+.handsontable.listbox th,
+.handsontable.listbox td {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.handsontable.listbox td.htDimmed {
+  cursor: default;
+  color: inherit;
+  font-style: inherit;
+}
+
+.handsontable.listbox .wtBorder {
+  visibility: hidden;
+}
+
+.handsontable.listbox tr td.current,
+.handsontable.listbox tr:hover td {
+  background: #eee;
+}
+
+.ht_editor_hidden {
+  z-index: -1;
+}
+
+.ht_editor_visible {
+  z-index: 200;
+}
+
+.handsontable td.htSearchResult {
+  background: #fcedd9;
+  color: #583707;
+}
+
+.handsontable .collapsibleIndicator {
+  position: absolute;
+  top: 50%;
+  transform: translate(0%, -50%);
+  left: unset;
+  right: 5px;
+  border: 1px solid #A6A6A6;
+  line-height: 8px;
+  color: #222;
+  border-radius: 10px;
+  font-size: 10px;
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+  -webkit-box-shadow: 0 0 0 6px rgb(238, 238, 238);
+  -moz-box-shadow: 0 0 0 6px rgb(238, 238, 238);
+  box-shadow: 0 0 0 6px rgb(238, 238, 238);
+  background: #eee;
+  text-align: center;
+}
+
+[dir=rtl].handsontable .collapsibleIndicator {
+  right: unset;
+  left: 5px;
+}
+/*
+
+ Handsontable Mobile Text Editor stylesheet
+
+ */
+.handsontable.mobile,
+.handsontable.mobile .wtHolder {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-overflow-scrolling: touch;
+}
+
+.handsontable.mobile .handsontableInput:focus {
+  -webkit-box-shadow: 0 0 0 2px #5292f7 inset;
+  -moz-box-shadow: 0 0 0 2px #5292f7 inset;
+  box-shadow: 0 0 0 2px #5292f7 inset;
+  -webkit-appearance: none;
+}
+
+.topSelectionHandle:not(.ht_master .topSelectionHandle),
+.topSelectionHandle-HitArea:not(.ht_master .topSelectionHandle-HitArea) {
+  z-index: 9999;
+}
+
+/* Initial left/top coordinates - overwritten when actual position is set */
+.topSelectionHandle,
+.topSelectionHandle-HitArea,
+.bottomSelectionHandle,
+.bottomSelectionHandle-HitArea {
+  left: -10000px;
+  top: -10000px;
+}
+
+.handsontable.hide-tween {
+  -webkit-animation: opacity-hide 0.3s;
+  animation: opacity-hide 0.3s;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+
+.handsontable.show-tween {
+  -webkit-animation: opacity-show 0.3s;
+  animation: opacity-show 0.3s;
+  animation-fill-mode: forwards;
+  -webkit-animation-fill-mode: forwards;
+}
+@charset "UTF-8";
+/*!
+ * Pikaday
+ * Copyright © 2014 David Bushell | BSD & MIT license | https://dbushell.com/
+ */
+.pika-single {
+  z-index: 9999;
+  display: block;
+  position: relative;
+  color: #333;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-bottom-color: #bbb;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/*
+clear child float (pika-lendar), using the famous micro clearfix hack
+http://nicolasgallagher.com/micro-clearfix-hack/
+*/
+.pika-single:before,
+.pika-single:after {
+  content: " ";
+  display: table;
+}
+
+.pika-single:after {
+  clear: both;
+}
+
+.pika-single {
+  *zoom: 1;
+}
+
+.pika-single.is-hidden {
+  display: none;
+}
+
+.pika-single.is-bound {
+  position: absolute;
+  box-shadow: 0 5px 15px -5px rgba(0, 0, 0, 0.5);
+}
+
+.pika-lendar {
+  float: left;
+  width: 240px;
+  margin: 8px;
+}
+
+.pika-title {
+  position: relative;
+  text-align: center;
+}
+
+.pika-label {
+  display: inline-block;
+  *display: inline;
+  position: relative;
+  z-index: 9999;
+  overflow: hidden;
+  margin: 0;
+  padding: 5px 3px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: bold;
+  background-color: #fff;
+}
+
+.pika-title select {
+  cursor: pointer;
+  position: absolute;
+  z-index: 9998;
+  margin: 0;
+  left: 0;
+  top: 5px;
+  filter: alpha(opacity=0);
+  opacity: 0;
+}
+
+.pika-prev,
+.pika-next {
+  display: block;
+  cursor: pointer;
+  position: relative;
+  outline: none;
+  border: 0;
+  padding: 0;
+  width: 20px;
+  height: 30px;
+  /* hide text using text-indent trick, using width value (it's enough) */
+  text-indent: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  background-color: transparent;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: 75% 75%;
+  opacity: 0.5;
+  *position: absolute;
+  *top: 0;
+}
+
+.pika-prev:hover,
+.pika-next:hover {
+  opacity: 1;
+}
+
+.pika-prev,
+.is-rtl .pika-next {
+  float: left;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAeCAYAAAAsEj5rAAAAUklEQVR42u3VMQoAIBADQf8Pgj+OD9hG2CtONJB2ymQkKe0HbwAP0xucDiQWARITIDEBEnMgMQ8S8+AqBIl6kKgHiXqQqAeJepBo/z38J/U0uAHlaBkBl9I4GwAAAABJRU5ErkJggg==");
+  *left: 0;
+}
+
+.pika-next,
+.is-rtl .pika-prev {
+  float: right;
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAeCAYAAAAsEj5rAAAAU0lEQVR42u3VOwoAMAgE0dwfAnNjU26bYkBCFGwfiL9VVWoO+BJ4Gf3gtsEKKoFBNTCoCAYVwaAiGNQGMUHMkjGbgjk2mIONuXo0nC8XnCf1JXgArVIZAQh5TKYAAAAASUVORK5CYII=");
+  *right: 0;
+}
+
+.pika-prev.is-disabled,
+.pika-next.is-disabled {
+  cursor: default;
+  opacity: 0.2;
+}
+
+.pika-select {
+  display: inline-block;
+  *display: inline;
+}
+
+.pika-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 0;
+}
+
+.pika-table th,
+.pika-table td {
+  width: 14.2857142857%;
+  padding: 0;
+}
+
+.pika-table th {
+  color: #999;
+  font-size: 12px;
+  line-height: 25px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.pika-button {
+  cursor: pointer;
+  display: block;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  outline: none;
+  border: 0;
+  margin: 0;
+  width: 100%;
+  padding: 5px;
+  color: #666;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: right;
+  background: #f5f5f5;
+}
+
+.pika-week {
+  font-size: 11px;
+  color: #999;
+}
+
+.is-today .pika-button {
+  color: #33aaff;
+  font-weight: bold;
+}
+
+.is-selected .pika-button,
+.has-event .pika-button {
+  color: #fff;
+  font-weight: bold;
+  background: #33aaff;
+  box-shadow: inset 0 1px 3px #178fe5;
+  border-radius: 3px;
+}
+
+.has-event .pika-button {
+  background: #005da9;
+  box-shadow: inset 0 1px 3px #0076c9;
+}
+
+.is-disabled .pika-button,
+.is-inrange .pika-button {
+  background: #D5E9F7;
+}
+
+.is-startrange .pika-button {
+  color: #fff;
+  background: #6CB31D;
+  box-shadow: none;
+  border-radius: 3px;
+}
+
+.is-endrange .pika-button {
+  color: #fff;
+  background: #33aaff;
+  box-shadow: none;
+  border-radius: 3px;
+}
+
+.is-disabled .pika-button {
+  pointer-events: none;
+  cursor: default;
+  color: #999;
+  opacity: 0.3;
+}
+
+.is-outside-current-month .pika-button {
+  color: #999;
+  opacity: 0.3;
+}
+
+.is-selection-disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
+.pika-button:hover,
+.pika-row.pick-whole-week:hover .pika-button {
+  color: #fff;
+  background: #ff8000;
+  box-shadow: none;
+  border-radius: 3px;
+}
+
+/* styling for abbr */
+.pika-table abbr {
+  border-bottom: none;
+  cursor: help;
+}
+/*
+AutocompleteRenderer down arrow
+*/
+.handsontable .htAutocompleteArrow {
+  float: right;
+  font-size: 10px;
+  color: #EEE;
+  cursor: default;
+  width: 16px;
+  text-align: center;
+}
+
+[dir=rtl].handsontable .htAutocompleteArrow {
+  float: left;
+}
+
+.handsontable td .htAutocompleteArrow:hover {
+  color: #777;
+}
+
+.handsontable td.area .htAutocompleteArrow {
+  color: #d3d3d3;
+}
+/*
+CheckboxRenderer
+*/
+.handsontable .htCheckboxRendererInput {
+  display: inline-block;
+}
+
+.handsontable .htCheckboxRendererInput.noValue {
+  opacity: 0.5;
+}
+
+.handsontable .htCheckboxRendererLabel {
+  font-size: inherit;
+  vertical-align: middle;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.handsontable .htCheckboxRendererLabel.fullWidth {
+  width: 100%;
+}
+.handsontable .htCommentCell {
+  position: relative;
+}
+
+.handsontable .htCommentCell:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: unset;
+  border-left: 6px solid transparent;
+  border-right: none;
+  border-top: 6px solid black;
+}
+
+[dir=rtl].handsontable .htCommentCell:after {
+  left: 0;
+  right: unset;
+  border-right: 6px solid transparent;
+  border-left: none;
+}
+
+.htCommentsContainer .htComments {
+  display: none;
+  z-index: 1059;
+  position: absolute;
+}
+
+.htCommentsContainer .htCommentTextArea {
+  box-shadow: rgba(0, 0, 0, 0.117647) 0 1px 3px, rgba(0, 0, 0, 0.239216) 0 1px 2px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border: none;
+  border-left: 3px solid #ccc;
+  border-right: none;
+  background-color: #fff;
+  width: 215px;
+  height: 90px;
+  font-size: 12px;
+  padding: 5px;
+  outline: 0px !important;
+  -webkit-appearance: none;
+}
+
+[dir=rtl].htCommentsContainer .htCommentTextArea {
+  border-right: 3px solid #ccc;
+  border-left: none;
+}
+
+.htCommentsContainer .htCommentTextArea:focus {
+  box-shadow: rgba(0, 0, 0, 0.117647) 0 1px 3px, rgba(0, 0, 0, 0.239216) 0 1px 2px, inset 0 0 0 1px #5292f7;
+  border-left: 3px solid #5292f7;
+  border-right: none;
+}
+
+[dir=rtl].htCommentsContainer .htCommentTextArea:focus {
+  border-right: 3px solid #5292f7;
+  border-left: none;
+}
+/*!
+ * Handsontable ContextMenu
+ */
+.htContextMenu:not(.htGhostTable) {
+  display: none;
+  position: absolute;
+  /* needs to be higher than 1050 - z-index for Twitter Bootstrap modal (#1569) */
+  z-index: 1060;
+}
+
+.htContextMenu .ht_clone_top,
+.htContextMenu .ht_clone_bottom,
+.htContextMenu .ht_clone_inline_start,
+.htContextMenu .ht_clone_top_inline_start_corner,
+.htContextMenu .ht_clone_bottom_inline_start_corner {
+  display: none;
+}
+
+.htContextMenu .ht_master table.htCore {
+  border-color: #ccc;
+  border-style: solid;
+  border-top-width: 1px;
+  border-bottom-width: 2px;
+  border-left-width: 1px;
+  border-right-width: 2px;
+}
+
+[dir=rtl].htContextMenu .ht_master table.htCore {
+  border-right-width: 1px;
+  border-left-width: 2px;
+}
+
+.htContextMenu .wtBorder {
+  visibility: hidden;
+}
+
+.htContextMenu table tbody tr td {
+  background: white;
+  border-width: 0;
+  padding: 4px 6px 0 6px;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.htContextMenu table tbody tr td:first-child {
+  border-top-width: 0;
+  border-bottom-width: 0;
+  border-left-width: 0;
+  border-right-width: 0;
+}
+
+[dir=rtl].htContextMenu table tbody tr td:first-child {
+  border-right-width: 0;
+  border-left-width: 0;
+}
+
+.htContextMenu table tbody tr td.htDimmed {
+  font-style: normal;
+  color: #323232;
+}
+
+.htContextMenu table tbody tr td.current,
+.htContextMenu table tbody tr td.zeroclipboard-is-hover {
+  background: #f3f3f3;
+}
+
+.htContextMenu table tbody tr td.htSeparator {
+  border-top: 1px solid #e6e6e6;
+  height: 0;
+  padding: 0;
+  cursor: default;
+}
+
+.htContextMenu table tbody tr td.htDisabled {
+  color: #999;
+  cursor: default;
+}
+
+.htContextMenu table tbody tr td.htDisabled:hover {
+  background: #fff;
+  color: #999;
+  cursor: default;
+}
+
+.htContextMenu table tbody tr.htHidden {
+  display: none;
+}
+
+.htContextMenu table tbody tr td .htItemWrapper {
+  margin-left: 10px;
+  margin-right: 6px;
+}
+
+.htContextMenu table tbody tr td div span.selected {
+  margin-top: -2px;
+  position: absolute;
+  left: 4px;
+}
+
+.htContextMenu .ht_master .wtHolder {
+  overflow: hidden;
+}
+textarea.HandsontableCopyPaste {
+  position: fixed !important;
+  top: 0 !important;
+  right: 100% !important;
+  overflow: hidden;
+  opacity: 0;
+  outline: 0 none !important;
+}
+@charset "UTF-8";
+/*!
+ * Handsontable DropdownMenu
+ */
+.handsontable .changeType {
+  background: #eee;
+  border-radius: 2px;
+  border: 1px solid #bbb;
+  color: #bbb;
+  font-size: 9px;
+  line-height: 9px;
+  padding: 2px;
+  margin: 3px 1px 0 5px;
+  float: right;
+}
+
+[dir=rtl].handsontable .changeType {
+  float: left;
+}
+
+.handsontable .changeType:before {
+  content: "▼ ";
+}
+
+.handsontable .changeType:hover {
+  border: 1px solid #777;
+  color: #777;
+  cursor: pointer;
+}
+
+.htDropdownMenu:not(.htGhostTable) {
+  display: none;
+  position: absolute;
+  /* needs to be higher than 1050 - z-index for Twitter Bootstrap modal (#1569) */
+  z-index: 1060;
+}
+
+.htDropdownMenu .ht_clone_top,
+.htDropdownMenu .ht_clone_bottom,
+.htDropdownMenu .ht_clone_inline_start,
+.htDropdownMenu .ht_clone_top_inline_start_corner,
+.htDropdownMenu .ht_clone_bottom_inline_start_corner {
+  display: none;
+}
+
+.htDropdownMenu table.htCore {
+  border-color: #ccc;
+  border-style: solid;
+  border-top-width: 1px;
+  border-bottom-width: 2px;
+  border-left-width: 1px;
+  border-right-width: 2px;
+}
+
+[dir=rtl].htDropdownMenu table.htCore {
+  border-right-width: 1px;
+  border-left-width: 2px;
+}
+
+.htDropdownMenu .wtBorder {
+  visibility: hidden;
+}
+
+.htDropdownMenu table tbody tr td {
+  background: white;
+  border-width: 0;
+  padding: 4px 6px 0 6px;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.htDropdownMenu table tbody tr td:first-child {
+  border-top-width: 0;
+  border-right-width: 0;
+  border-bottom-width: 0;
+  border-left-width: 0;
+}
+
+[dir=rtl].htDropdownMenu table tbody tr td:first-child {
+  border-left-width: 0;
+  border-right-width: 0;
+}
+
+.htDropdownMenu table tbody tr td.htDimmed {
+  font-style: normal;
+  color: #323232;
+}
+
+.htDropdownMenu table tbody tr td.current,
+.htDropdownMenu table tbody tr td.zeroclipboard-is-hover {
+  background: #e9e9e9;
+}
+
+.htDropdownMenu table tbody tr td.htSeparator {
+  border-top: 1px solid #e6e6e6;
+  height: 0;
+  padding: 0;
+  cursor: default;
+}
+
+.htDropdownMenu table tbody tr td.htDisabled {
+  color: #999;
+}
+
+.htDropdownMenu table tbody tr td.htDisabled:hover {
+  background: #fff;
+  color: #999;
+  cursor: default;
+}
+
+.htDropdownMenu:not(.htGhostTable) table tbody tr.htHidden {
+  display: none;
+}
+
+.htDropdownMenu table tbody tr td .htItemWrapper {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.htDropdownMenu table tbody tr td div span.selected {
+  margin-top: -2px;
+  position: absolute;
+  left: 4px;
+}
+
+.htDropdownMenu .ht_master .wtHolder {
+  overflow: hidden;
+}
+@charset "UTF-8";
+/*!
+ * Handsontable Filters
+ */
+/* Conditions menu */
+.htFiltersConditionsMenu:not(.htGhostTable) {
+  display: none;
+  position: absolute;
+  z-index: 1070;
+}
+
+.htFiltersConditionsMenu .ht_clone_top,
+.htFiltersConditionsMenu .ht_clone_inline_start,
+.htFiltersConditionsMenu .ht_clone_corner {
+  display: none;
+}
+
+.htFiltersConditionsMenu table.htCore {
+  border: 1px solid #bbb;
+  border-bottom-width: 2px;
+  border-right-width: 2px;
+}
+
+.htFiltersConditionsMenu .wtBorder {
+  visibility: hidden;
+}
+
+.htFiltersConditionsMenu table tbody tr td {
+  background: white;
+  border-width: 0;
+  padding: 4px 6px 0 6px;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.htFiltersConditionsMenu table tbody tr td:first-child {
+  border-top-width: 0;
+  border-right-width: 0;
+  border-bottom-width: 0;
+  border-left-width: 0;
+}
+
+[dir=rtl].htFiltersConditionsMenu table tbody tr td:first-child {
+  border-left-width: 0;
+  border-right-width: 0;
+}
+
+.htFiltersConditionsMenu table tbody tr td.htDimmed {
+  font-style: normal;
+  color: #323232;
+}
+
+.htFiltersConditionsMenu table tbody tr td.current,
+.htFiltersConditionsMenu table tbody tr td.zeroclipboard-is-hover {
+  background: #e9e9e9;
+}
+
+.htFiltersConditionsMenu table tbody tr td.htSeparator {
+  border-top: 1px solid #e6e6e6;
+  height: 0;
+  padding: 0;
+}
+
+.htFiltersConditionsMenu table tbody tr td.htDisabled {
+  color: #999;
+}
+
+.htFiltersConditionsMenu table tbody tr td.htDisabled:hover {
+  background: #fff;
+  color: #999;
+  cursor: default;
+}
+
+.htFiltersConditionsMenu table tbody tr td .htItemWrapper {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.htFiltersConditionsMenu table tbody tr td div span.selected {
+  margin-top: -2px;
+  position: absolute;
+  left: 4px;
+}
+
+.htFiltersConditionsMenu .ht_master .wtHolder {
+  overflow: hidden;
+}
+
+.handsontable .htMenuFiltering {
+  border-bottom: 1px dotted #ccc;
+  height: 135px;
+  overflow: hidden;
+}
+
+.handsontable .ht_master table td.htCustomMenuRenderer {
+  background-color: #fff;
+  cursor: auto;
+}
+
+/* Menu label */
+.handsontable .htFiltersMenuLabel {
+  font-size: 0.75em;
+}
+
+/* Component action bar */
+.handsontable .htFiltersMenuActionBar {
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 3px;
+}
+
+/* Component filter by conditional */
+.handsontable .htFiltersMenuCondition.border {
+  border-bottom: 1px dotted #ccc !important;
+}
+
+.handsontable .htFiltersMenuCondition .htUIInput {
+  padding: 0 0 5px 0;
+}
+
+/* Component filter by value */
+.handsontable .htFiltersMenuValue {
+  border-bottom: 1px dotted #ccc !important;
+}
+
+.handsontable .htFiltersMenuValue .htUIMultipleSelectSearch {
+  padding: 0;
+}
+
+.handsontable .htFiltersMenuCondition .htUIInput input,
+.handsontable .htFiltersMenuValue .htUIMultipleSelectSearch input {
+  font-family: inherit;
+  font-size: 0.75em;
+  padding: 4px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.htUIMultipleSelect .ht_master .wtHolder {
+  overflow-y: scroll;
+}
+
+.handsontable .htFiltersActive .changeType {
+  border: 1px solid #509272;
+  color: #18804e;
+  background-color: #d2e0d9;
+}
+
+.handsontable .htUISelectAll {
+  margin-left: 0;
+  margin-right: 10px;
+}
+
+[dir=rtl].handsontable .htUISelectAll {
+  margin-right: 0;
+  margin-left: 10px;
+}
+
+.handsontable .htUIClearAll, .handsontable .htUISelectAll {
+  display: inline-block;
+}
+
+.handsontable .htUIClearAll a, .handsontable .htUISelectAll a {
+  font-size: 0.75em;
+}
+
+.handsontable .htUISelectionControls {
+  text-align: right;
+}
+
+[dir=rtl].handsontable .htUISelectionControls {
+  text-align: left;
+}
+
+.handsontable .htCheckboxRendererInput {
+  margin-top: 0;
+  margin-right: 5px;
+  margin-bottom: 0;
+  margin-left: 0;
+  vertical-align: middle;
+  height: 1em;
+}
+
+[dir=rtl].handsontable .htCheckboxRendererInput {
+  margin-left: 5px;
+  margin-right: 0;
+}
+
+/* UI elements */
+/* Input */
+.handsontable .htUIInput {
+  padding: 3px 0 7px 0;
+  position: relative;
+  text-align: center;
+}
+
+.handsontable .htUIInput input {
+  border-radius: 2px;
+  border: 1px solid #d2d1d1;
+}
+
+.handsontable .htUIInput input:focus {
+  outline: 0;
+}
+
+.handsontable .htUIInputIcon {
+  position: absolute;
+}
+
+/* Button */
+.handsontable .htUIInput.htUIButton {
+  cursor: pointer;
+  display: inline-block;
+}
+
+.handsontable .htUIInput.htUIButton input {
+  background-color: #eee;
+  color: #000;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.75em;
+  font-weight: bold;
+  height: 19px;
+  min-width: 64px;
+}
+
+.handsontable .htUIInput.htUIButton input:hover {
+  border-color: #b9b9b9;
+}
+
+.handsontable .htUIInput.htUIButtonOK {
+  margin-left: 0;
+  margin-right: 10px;
+}
+
+[dir=rtl].handsontable .htUIInput.htUIButtonOK {
+  margin-right: 0;
+  margin-left: 10px;
+}
+
+.handsontable .htUIInput.htUIButtonOK input {
+  background-color: #0f9d58;
+  border-color: #18804e;
+  color: #fff;
+}
+
+.handsontable .htUIInput.htUIButtonOK input:hover {
+  border-color: #1a6f46;
+}
+
+/* Select */
+.handsontable .htUISelect {
+  cursor: pointer;
+  margin-bottom: 7px;
+  position: relative;
+}
+
+.handsontable .htUISelectCaption {
+  background-color: #e8e8e8;
+  border-radius: 2px;
+  border: 1px solid #d2d1d1;
+  font-family: inherit;
+  font-size: 0.75em;
+  font-weight: bold;
+  padding: 3px 20px 3px 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.handsontable .htUISelectCaption:hover {
+  background-color: #e8e8e8;
+  border: 1px solid #b9b9b9;
+}
+
+.handsontable .htUISelectDropdown:after {
+  content: "▲";
+  font-size: 7px;
+  position: absolute;
+  right: 10px;
+  top: 0;
+}
+
+.handsontable .htUISelectDropdown:before {
+  content: "▼";
+  font-size: 7px;
+  position: absolute;
+  right: 10px;
+  top: 8px;
+}
+
+/* SelectMultiple */
+.handsontable .htUIMultipleSelect .handsontable .htCore {
+  border: none;
+}
+
+.handsontable .htUIMultipleSelect .handsontable .htCore td:hover {
+  background-color: #F5F5F5;
+}
+
+.handsontable .htUIMultipleSelectSearch input {
+  border-radius: 2px;
+  border: 1px solid #d2d1d1;
+  padding: 3px;
+}
+
+.handsontable .htUIRadio {
+  display: inline-block;
+  margin-left: 0;
+  margin-right: 5px;
+  height: 100%;
+}
+
+[dir=rtl].handsontable .htUIRadio {
+  margin-right: 0;
+  margin-left: 5px;
+}
+
+.handsontable .htUIRadio:last-child {
+  margin-right: 0;
+}
+
+.handsontable .htUIRadio > input[type=radio] {
+  margin-left: 0;
+  margin-right: 0.5ex;
+}
+
+[dir=rtl].handsontable .htUIRadio > input[type=radio] {
+  margin-right: 0;
+  margin-left: 0.5ex;
+}
+
+.handsontable .htUIRadio label {
+  vertical-align: middle;
+}
+
+.handsontable .htFiltersMenuOperators {
+  padding-bottom: 5px;
+}
+@charset "UTF-8";
+/*
+ * Handsontable HiddenColumns
+ */
+.handsontable th.beforeHiddenColumn {
+  position: relative;
+}
+
+.handsontable th.beforeHiddenColumn::after,
+.handsontable th.afterHiddenColumn::before {
+  color: #bbb;
+  position: absolute;
+  top: 50%;
+  font-size: 5pt;
+  transform: translateY(-50%);
+}
+
+.handsontable th.afterHiddenColumn {
+  position: relative;
+}
+
+.handsontable th.beforeHiddenColumn::after {
+  right: 1px;
+  content: "◀";
+  /* left arrow */
+}
+
+[dir=rtl].handsontable th.beforeHiddenColumn::after {
+  right: initial;
+  left: 1px;
+  content: "▶";
+  /* right arrow */
+}
+
+.handsontable th.afterHiddenColumn::before {
+  left: 1px;
+  content: "▶";
+  /* right arrow */
+}
+
+[dir=rtl].handsontable th.afterHiddenColumn::before {
+  right: 1px;
+  left: initial;
+  content: "◀";
+  /* left arrow */
+}
+@charset "UTF-8";
+/*!
+ * Handsontable HiddenRows
+ */
+.handsontable th.beforeHiddenRow::before,
+.handsontable th.afterHiddenRow::after {
+  color: #bbb;
+  font-size: 6pt;
+  line-height: 6pt;
+  position: absolute;
+  left: 2px;
+}
+
+.handsontable th.beforeHiddenRow,
+.handsontable th.afterHiddenRow {
+  position: relative;
+}
+
+.handsontable th.beforeHiddenRow::before {
+  content: "▲";
+  bottom: 2px;
+}
+
+.handsontable th.afterHiddenRow::after {
+  content: "▼";
+  top: 2px;
+}
+
+.handsontable.ht__selection--rows tbody th.beforeHiddenRow.ht__highlight:before,
+.handsontable.ht__selection--rows tbody th.afterHiddenRow.ht__highlight:after {
+  color: #eee;
+}
+
+.handsontable td.afterHiddenRow.firstVisibleRow,
+.handsontable th.afterHiddenRow.firstVisibleRow {
+  border-top: 1px solid #CCC;
+}
+.htRowHeaders .ht_master.innerBorderInlineStart ~ .ht_clone_top_inline_start_corner th:nth-child(2),
+.htRowHeaders .ht_master.innerBorderInlineStart ~ .ht_clone_inline_start td:first-of-type {
+  border-left: 0 none;
+}
+.handsontable .wtHider {
+  position: relative;
+}
+
+.handsontable.ht__manualColumnMove.after-selection--columns thead th.ht__highlight {
+  cursor: move;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.handsontable.ht__manualColumnMove.on-moving--columns,
+.handsontable.ht__manualColumnMove.on-moving--columns thead th.ht__highlight {
+  cursor: move;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+.handsontable.ht__manualColumnMove.on-moving--columns .manualColumnResizer {
+  display: none;
+}
+
+.handsontable .ht__manualColumnMove--guideline,
+.handsontable .ht__manualColumnMove--backlight {
+  position: absolute;
+  height: 100%;
+  display: none;
+}
+
+.handsontable .ht__manualColumnMove--guideline {
+  background: #757575;
+  width: 2px;
+  top: 0;
+  margin-inline-start: -1px;
+  margin-inline-end: 0;
+  z-index: 205;
+}
+
+.handsontable .ht__manualColumnMove--backlight {
+  background: #343434;
+  background: rgba(52, 52, 52, 0.25);
+  display: none;
+  z-index: 205;
+  pointer-events: none;
+}
+
+.handsontable.on-moving--columns.show-ui .ht__manualColumnMove--guideline,
+.handsontable.on-moving--columns .ht__manualColumnMove--backlight {
+  display: block;
+}
+.handsontable .wtHider {
+  position: relative;
+}
+
+.handsontable.ht__manualRowMove.after-selection--rows tbody th.ht__highlight {
+  cursor: move;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.handsontable.ht__manualRowMove.on-moving--rows,
+.handsontable.ht__manualRowMove.on-moving--rows tbody th.ht__highlight {
+  cursor: move;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
+.handsontable.ht__manualRowMove.on-moving--rows .manualRowResizer {
+  display: none;
+}
+
+.handsontable .ht__manualRowMove--guideline,
+.handsontable .ht__manualRowMove--backlight {
+  position: absolute;
+  width: 100%;
+  display: none;
+}
+
+.handsontable .ht__manualRowMove--guideline {
+  background: #757575;
+  height: 2px;
+  left: 0;
+  margin-top: -1px;
+  z-index: 205;
+}
+
+.handsontable .ht__manualRowMove--backlight {
+  background: #343434;
+  background: rgba(52, 52, 52, 0.25);
+  display: none;
+  z-index: 205;
+  pointer-events: none;
+}
+
+.handsontable.on-moving--rows.show-ui .ht__manualRowMove--guideline,
+.handsontable.on-moving--rows .ht__manualRowMove--backlight {
+  display: block;
+}
+.handsontable tbody td[rowspan][class*=area][class*=highlight]:not([class*=fullySelectedMergedCell]):before {
+  opacity: 0;
+}
+
+.handsontable tbody td[rowspan][class*=area][class*=highlight][class*=fullySelectedMergedCell-multiple]:before {
+  opacity: 0.1;
+}
+
+.handsontable tbody td[rowspan][class*=area][class*=highlight][class*=fullySelectedMergedCell-0]:before {
+  opacity: 0.1;
+}
+
+.handsontable tbody td[rowspan][class*=area][class*=highlight][class*=fullySelectedMergedCell-1]:before {
+  opacity: 0.2;
+}
+
+.handsontable tbody td[rowspan][class*=area][class*=highlight][class*=fullySelectedMergedCell-2]:before {
+  opacity: 0.27;
+}
+
+.handsontable tbody td[rowspan][class*=area][class*=highlight][class*=fullySelectedMergedCell-3]:before {
+  opacity: 0.35;
+}
+
+.handsontable tbody td[rowspan][class*=area][class*=highlight][class*=fullySelectedMergedCell-4]:before {
+  opacity: 0.41;
+}
+
+.handsontable tbody td[rowspan][class*=area][class*=highlight][class*=fullySelectedMergedCell-5]:before {
+  opacity: 0.47;
+}
+
+.handsontable tbody td[rowspan][class*=area][class*=highlight][class*=fullySelectedMergedCell-6]:before {
+  opacity: 0.54;
+}
+
+.handsontable tbody td[rowspan][class*=area][class*=highlight][class*=fullySelectedMergedCell-7]:before {
+  opacity: 0.58;
+}
+/* Column's number position */
+.handsontable span.colHeader.columnSorting::after {
+  /* Centering start */
+  top: 50%;
+  /* Two extra pixels (-2 instead of -4) for purpose of proper positioning of numeric indicators, when `font-size` set to default */
+  margin-top: -2px;
+  /* Centering end */
+  position: absolute;
+  right: -15px;
+  left: unset;
+  /* For purpose of continuous mouse over experience, when moving between the `::before` and the `::after` elements */
+  padding-left: 5px;
+  padding-right: unset;
+  font-size: 8px;
+  height: 8px;
+  line-height: 1.1;
+  /* Workaround for IE9 - IE11 */
+  text-decoration: underline;
+}
+
+[dir=rtl].handsontable span.colHeader.columnSorting::after {
+  left: -15px;
+  right: unset;
+  /* For purpose of continuous mouse over experience, when moving between the `::before` and the `::after` elements */
+  padding-right: 5px;
+  padding-left: unset;
+}
+
+/* Workaround for IE9 - IE11, https://stackoverflow.com/a/21902566, https://stackoverflow.com/a/32120247 */
+.handsontable span.colHeader.columnSorting::after {
+  text-decoration: none;
+}
+
+/* We support up to 7 numeric indicators, describing order of column in sorted columns queue */
+.handsontable span.colHeader.columnSorting[class^=sort-]::after,
+.handsontable span.colHeader.columnSorting[class*=" sort-"]::after {
+  content: "+";
+}
+
+.handsontable span.colHeader.columnSorting.sort-1::after {
+  content: "1";
+}
+
+.handsontable span.colHeader.columnSorting.sort-2::after {
+  content: "2";
+}
+
+.handsontable span.colHeader.columnSorting.sort-3::after {
+  content: "3";
+}
+
+.handsontable span.colHeader.columnSorting.sort-4::after {
+  content: "4";
+}
+
+.handsontable span.colHeader.columnSorting.sort-5::after {
+  content: "5";
+}
+
+.handsontable span.colHeader.columnSorting.sort-6::after {
+  content: "6";
+}
+
+.handsontable span.colHeader.columnSorting.sort-7::after {
+  content: "7";
+}
+
+/* Drop-down menu widens header by 5 pixels, sort sequence numbers won't overlap the icon; mainly for the IE9+ */
+.htGhostTable th div button.changeType + span.colHeader.columnSorting:not(.indicatorDisabled) {
+  padding-right: 5px;
+}
+.handsontable thead th.hiddenHeader:not(:first-of-type) {
+  display: none;
+}
+@charset "UTF-8";
+.handsontable th.ht_nestingLevels {
+  text-align: left;
+  padding-left: 7px;
+}
+
+[dir=rtl].handsontable th.ht_nestingLevels {
+  text-align: right;
+  padding-right: 7px;
+}
+
+.handsontable th div.ht_nestingLevels {
+  display: inline-block;
+  position: absolute;
+  left: 11px;
+  right: unset;
+}
+
+[dir=rtl].handsontable th div.ht_nestingLevels {
+  right: 11px;
+  left: unset;
+}
+
+.handsontable.innerBorderInlineStart th div.ht_nestingLevels,
+.handsontable.innerBorderInlineStart ~ .handsontable th div.ht_nestingLevels {
+  right: 10px;
+  left: unset;
+}
+
+[dir=rtl].handsontable.innerBorderInlineStart th div.ht_nestingLevels, [dir=rtl].handsontable.innerBorderInlineStart ~ .handsontable th div.ht_nestingLevels {
+  left: 10px;
+  right: unset;
+}
+
+.handsontable th span.ht_nestingLevel {
+  display: inline-block;
+}
+
+.handsontable th span.ht_nestingLevel_empty {
+  display: inline-block;
+  width: 10px;
+  height: 1px;
+  float: left;
+}
+
+[dir=rtl].handsontable th span.ht_nestingLevel_empty {
+  float: right;
+}
+
+.handsontable th span.ht_nestingLevel::after {
+  content: "┐";
+  font-size: 9px;
+  display: inline-block;
+  position: relative;
+  bottom: 3px;
+}
+
+.handsontable th div.ht_nestingButton {
+  display: inline-block;
+  position: absolute;
+  right: -2px;
+  left: unset;
+  cursor: pointer;
+}
+
+[dir=rtl].handsontable th div.ht_nestingButton {
+  left: -2px;
+  right: unset;
+}
+
+.handsontable th div.ht_nestingButton.ht_nestingExpand::after {
+  content: "+";
+}
+
+.handsontable th div.ht_nestingButton.ht_nestingCollapse::after {
+  content: "-";
+}
+
+.handsontable.innerBorderInlineStart th div.ht_nestingButton,
+.handsontable.innerBorderInlineStart ~ .handsontable th div.ht_nestingButton {
+  right: 0;
+  left: unset;
+}
+
+[dir=rtl].handsontable.innerBorderInlineStart th div.ht_nestingButton, [dir=rtl].handsontable.innerBorderInlineStart ~ .handsontable th div.ht_nestingButton {
+  left: 0;
+  right: unset;
+}

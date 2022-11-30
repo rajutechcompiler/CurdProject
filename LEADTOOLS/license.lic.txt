@@ -1,0 +1,28 @@
+[Info]
+Description = License file for LEADTOOLS SDK
+Javascript License
+Evaluation License
+
+[Expiration]
+Expiry Date = 12/13/2022
+
+[Customer]
+Company = Tab
+Application = EvalApp
+LEADContact = sales@leadtools.com
+UserContact = mmashiah@tab.com
+
+[Product]
+Version = 22.0
+PurchaseDate = 10/14/2022
+Product1 = EVAL220
+
+[Unlocks]
+Basic
+App Store
+
+[Domain Locks]
+Lock = (default)
+
+[JSLicense]
+License = {"ver":"3.0","code":"tECx8gAQXcPX/Z1t80ZmUh5f3vIYrHVszmndZan/eWkIQEwTgih2fj2PWrrNSM/ZHXots/s8a278gFCzod6q6a5UEhQQYkNl9eghT7wWHV3YFXPSzkzlbt5CD3ifYyhKJ2Y5Rqwg6LPm8RD+Dur71zV42W3HR4ZYtvp/zgoT7/scYIEr4aKbMvSRUKn8H6I8hhzZE//W95V4IHN0A1rSCmgNG8y92veS9jCnQ7d5W4CG9mWwLXfzt/NmSehWMzFYVirt9nelLD3pgP7ji1Z/O/bwcqK+B3J4nBIuiUVAY8sL9AQ4Czyf0WVvGANdg9cEO3lx03VOh6ySL8gkcWyOcLn8G/z/rgnxD1zUyuQ4SIL1CbxwtAO6NiqiAbV1JYgL0Z2FM7X3AnrgvWsyIgO2g+qiVMQzGM7D4BO0/6YAAJIC2uZzcIdxyi7fxFPPjWGSWcc1qkqZH4U0g8D7zemvq3eAkPnt9LjpriJ5/MCHQoyTR88HminPbqN333vsqhuQLGnAkS9slmeFxQjX5dFVVxa2nBDn4rwrUkstuEAS7SztiWFhVHLcKEylY9vDZdreld/ej5PdNOscyD7TrMz91J8UelXY4zsNlh1gLwKiNkQVz5UUzVaPaYg7Mvdn2CREzXF9l0OGcJhpepp92Dw="}

@@ -1,0 +1,393 @@
+[
+  {
+    "outputFileName": "wwwroot/js/MVCLayoutJS.js",
+    "inputFiles": [
+      "wwwroot/Content/themes/TAB/js/jquery-3.4.1.min.js",
+      "wwwroot/Content/themes/TAB/js/jquery-3.4.1.min.js",
+      "wwwroot/Content/themes/TAB/js/bootstrap.min.js",
+      "wwwroot/Content/themes/TAB/js/jquery-ui-1.10.4.custom.js",
+      "wwwroot/Content/themes/TAB/js/jquery.auto-complete.js",
+      "wwwroot/Content/themes/TAB/js/jquery-cookie-plugin.js",
+      "wwwroot/Content/themes/TAB/js/moment.js",
+      "wwwroot/Content/themes/TAB/js/jquery.mCustomScrollbar.js",
+      "wwwroot/Content/themes/TAB/js/linkes_drilldown_mvc.js",
+      "wwwroot/Content/themes/TAB/js/chosen.jquery.js",
+      "wwwroot/Content/themes/TAB/js/jquery.flagstrap.js",
+      "wwwroot/Content/themes/TAB/js/toastrmin.js",
+      "wwwroot/Scripts/AppJs/BuildToastrMessage.js",
+      "wwwroot/Content/themes/TAB/js/print.min.js",
+      "wwwroot/Content/themes/TAB/js/pdf.js",
+      "wwwroot/Content/themes/TAB/js/pikaday.js",
+      "wwwroot/Scripts/FusionJs/AppNavigation.js",
+      "wwwroot/Content/themes/TAB/js/HandsOnTable/handsontable.full.js"
+    ],
+    "minify": {
+      "enabled": false,
+      "renameLocals": true
+    }
+  },
+  {
+    "outputFileName": "wwwroot/js/jQuery.js",
+    "inputFiles": [
+      "wwwroot/Content/themes/TAB/js/jquery-3.4.1.min.js",
+      "wwwroot/Scripts/AppJs/BuildToastrMessage.js",
+      "wwwroot/Scripts/AppJs/CommonFunctions.js",
+      "wwwroot/Content/themes/TAB/js/bootstrap.min.js"
+    ],
+    "minify": {
+      "enabled": false,
+      "renameLocals": true
+    }
+  },
+  {
+    "outputFileName": "wwwroot/js/jQueryViewer.js",
+    "inputFiles": [
+      "wwwroot/Content/themes/TAB/js/jquery-3.4.1.min.js",
+      "wwwroot/Content/themes/TAB/js/DocumentViewer/jquery-resizable.js",
+      "wwwroot/Content/themes/TAB/js/bootstrap.min.js",
+      "wwwroot/Content/themes/TAB/js/jquery-migrate-1.2.1.js",
+      "wwwroot/Content/themes/TAB/js/jquery.bootstrap-duallistbox.js",
+      "wwwroot/Content/themes/TAB/js/jquery-uimin.js",
+      "wwwroot/Content/themes/TAB/js/jquery.jqGridmin.js",
+      "wwwroot/Content/themes/TAB/js/toastrmin.js",
+      "wwwroot/Content/themes/TAB/js/confirmModel.js"
+    ],
+    "minify": {
+      "enabled": false,
+      "renameLocals": true
+    }
+  },
+  {
+    "outputFileName": "wwwroot/js/masterjs.js",
+    "inputFiles": [
+      "wwwroot/Content/themes/TAB/js/jquery-migrate-1.2.1.js",
+      "wwwroot/Content/themes/TAB/js/jquery.validate.js",
+      "wwwroot/Content/themes/TAB/js/jquery-uimin.js",
+      "wwwroot/Content/themes/TAB/js/grid.locale-en.js",
+      "wwwroot/Content/themes/TAB/js/bootstrap-multiselect.js",
+      "wwwroot/Content/themes/TAB/js/jquery-cookie-plugin.js",
+      "wwwroot/Content/themes/TAB/js/confirmModel.js",
+      "wwwroot/Content/themes/TAB/js/jquery.bootstrap-duallistbox.js",
+      "wwwroot/Content/themes/TAB/js/jquery.jqGridmin.js",
+      "wwwroot/Content/themes/TAB/js/common.jqgrid.js",
+      "wwwroot/Content/themes/TAB/js/toastrmin.js",
+      "wwwroot/Content/themes/TAB/js/moment.js",
+      "wwwroot/Scripts/AppJs/Data.js",
+      "wwwroot/Scripts/AppJs/Views.js",
+      "wwwroot/Scripts/AppJs/Reports.js",
+      "wwwroot/Scripts/AppJs/AdminReports.js",
+      "wwwroot/Scripts/AppJs/ReportStyle.js",
+      "wwwroot/Scripts/AppJs/ReportViewColumn.js",
+      "wwwroot/Content/themes/TAB/js/linkes_drilldown.js",
+      "wwwroot/Content/themes/TAB/js/jquery.mCustomScrollbar.js",
+      "wwwroot/Content/themes/TAB/js/jquery.mousewheel.min.js"
+    ],
+    "minify": {
+      "enabled": false,
+      "renameLocals": true
+    }
+  },
+  {
+    "outputFileName": "wwwroot/js/Aspjs.js",
+    "inputFiles": [
+      "wwwroot/Content/themes/TAB/js/jquery-3.4.1.min.js",
+      "wwwroot/Content/themes/TAB/js/jquery-ui-1.10.4.custom.js",
+      "wwwroot/Content/themes/TAB/js/jquery-cookie-plugin.js",
+      "wwwroot/Content/themes/TAB/js/data.js",
+      "wwwroot/Content/themes/TAB/js/confirmModel.js",
+      "wwwroot/Content/themes/TAB/js/toastrmin.js"
+    ],
+    "minify": {
+      "enabled": false,
+      "renameLocals": true
+    }
+  },
+  {
+    "outputFileName": "wwwroot/js/TableTabJs.js",
+    "inputFiles": [
+      "wwwroot/Scripts/AppJs/TableTab.js",
+      "wwwroot/Scripts/AppJs/TableRetention.js",
+      "wwwroot/Scripts/AppJs/TablesFileRoomOrder.js",
+      "wwwroot/Scripts/AppJs/TableTracking.js",
+      "wwwroot/Scripts/AppJs/TableGeneral.js",
+      "wwwroot/Scripts/AppJs/TablesField.js"
+    ],
+    "minify": {
+      "enabled": false,
+      "renameLocals": true
+    }
+  },
+  {
+    "outputFileName": "wwwroot/js/Tablesorter.js",
+    "inputFiles": [
+      "wwwroot/Content/themes/tab/js/kinetic-v5.1.0.min.js",
+      "wwwroot/Content/themes/tab/js/jsbarcode.js",
+      "wwwroot/Content/themes/tab/js/code128.js",
+      "wwwroot/Content/themes/tab/js/code39.js",
+      "wwwroot/Content/themes/tab/js/ean_upc.js",
+      "wwwroot/Content/themes/tab/js/itf.js",
+      "wwwroot/Content/themes/tab/js/itf14.js",
+      "wwwroot/Content/themes/tab/js/canvas-toblob.js",
+      "wwwroot/Scripts/AppJs/PrintLabel.js",
+      "wwwroot/Content/themes/tab/js/jquery.qrcode-0.12.0.min.js",
+      "wwwroot/Content/themes/tab/js/evol.colorpicker.min.js",
+      "wwwroot/Content/themes/TAB/js/pdf.js",
+      "wwwroot/Content/themes/TAB/js/pdf.worker.js"
+    ],
+    "minify": {
+      "enabled": false,
+      "renameLocals": true
+    }
+  },
+  {
+    "outputFileName": "wwwroot/js/Datapage.js",
+    "inputFiles": [
+      "wwwroot/Content/themes/tab/js/kinetic-v5.1.0.min.js",
+      "wwwroot/Content/themes/tab/js/jsbarcode.js",
+      "wwwroot/Content/themes/tab/js/code128.js",
+      "wwwroot/Content/themes/tab/js/code39.js",
+      "wwwroot/Content/themes/tab/js/ean_upc.js",
+      "wwwroot/Content/themes/tab/js/itf.js",
+      "wwwroot/Content/themes/tab/js/itf14.js",
+      "wwwroot/Content/themes/tab/js/canvas-toblob.js",
+      "wwwroot/Scripts/AppJs/PrintLabel.js",
+      "wwwroot/Content/themes/tab/js/jquery.qrcode-0.12.0.min.js",
+      "wwwroot/Content/themes/tab/js/evol.colorpicker.min.js",
+      "wwwroot/Content/themes/TAB/js/pdf.js",
+      "wwwroot/Content/themes/TAB/js/pdf.worker.js"
+    ],
+    "minify": {
+      "enabled": false,
+      "renameLocals": true
+    }
+  },
+  {
+    "outputFileName": "wwwroot/js/MainJS.js",
+    "inputFiles": [
+      "wwwroot/Content/themes/TAB/js/jquery-3.4.1.min.js",
+      "wwwroot/Content/themes/TAB/js/jquery-ui-1.10.4.custom.js",
+      "wwwroot/Content/themes/TAB/js/jquery.auto-complete.js",
+      "wwwroot/Content/themes/TAB/js/jquery-cookie-plugin.js",
+      "wwwroot/Content/themes/TAB/js/data.js",
+      "wwwroot/Content/themes/TAB/js/bootstrap.min.js",
+      "wwwroot/Content/themes/TAB/js/linkes_drilldown.js",
+      "wwwroot/Content/themes/TAB/js/moment.js",
+      "wwwroot/Content/themes/TAB/js/jquery.mCustomScrollbar.js",
+      "wwwroot/Content/themes/TAB/js/chosen.jquery.js",
+      "wwwroot/Content/themes/TAB/js/jquery.flagstrap.js",
+      "wwwroot/Scripts/AppJs/AttachmentViewer.js",
+      "wwwroot/Scripts/AppJs/MainMaster.js"
+    ],
+    "minify": {
+      "enabled": false,
+      "renameLocals": true
+    }
+  },
+  {
+    "outputFileName": "wwwroot/js/Tablesortermvc.js",
+    "inputFiles": [
+      "wwwroot/Content/themes/TAB/js/jquery.tablesorter.js",
+      "wwwroot/Content/themes/TAB/js/jquery.tablesorter.widgets.js",
+      "wwwroot/Content/themes/TAB/js/jquery.metadata.js"
+    ],
+    "minify": {
+      "enabled": false,
+      "renameLocals": true
+    }
+  },
+  {
+    "outputFileName": "wwwroot/js/DatamvcJS.js",
+    "inputFiles": [
+      "wwwroot/Scripts/FusionJs/DataSource.js",
+      "wwwroot/Scripts/FusionJs/PagingFunctions.js",
+      "wwwroot/Scripts/FusionJs/DataEvents.js",
+      "wwwroot/Scripts/FusionJs/DataFunctions.js",
+      "wwwroot/Scripts/FusionJs/TabFusionGrids.js"
+    ],
+    "minify": {
+      "enabled": false,
+      "renameLocals": true
+    }
+  },
+  {
+    "outputFileName": "wwwroot/js/DatamvcJS.js",
+    "inputFiles": [
+      "wwwroot/Scripts/FusionJs/PagingFunctions.js",
+      "wwwroot/Scripts/FusionJs/ReportingSource.js",
+      "wwwroot/Scripts/FusionJs/Reporting.js"
+    ],
+    "minify": {
+      "enabled": false,
+      "renameLocals": true
+    }
+  },
+  {
+    "outputFileName": "wwwroot/js/VaultmvcJS.js",
+    "inputFiles": [
+      "wwwroot/Scripts/FusionJs/DataSource.js",
+      "wwwroot/Scripts/FusionJs/PagingFunctions.js",
+      "wwwroot/Scripts/FusionJs/DataEvents.js",
+      "wwwroot/Scripts/FusionJs/DataFunctions.js"
+    ],
+    "minify": {
+      "enabled": false,
+      "renameLocals": true
+    }
+  },
+  {
+    "outputFileName": "wwwroot/js/leadTools.js",
+    "inputFiles": [
+      "wwwroot/Content/themes/TAB/js/LeadTools/Leadtools.js",
+      "wwwroot/Content/themes/TAB/js/LeadTools/Leadtools.Scanning.js",
+      "wwwroot/Content/themes/TAB/js/LeadTools/Leadtools.Controls.js",
+      "wwwroot/Content/themes/TAB/js/LeadTools/Leadtools.Annotations.Core.js",
+      "wwwroot/Content/themes/TAB/js/LeadTools/Leadtools.Annotations.Designers.js",
+      "wwwroot/Content/themes/TAB/js/LeadTools/Leadtools.Annotations.Rendering.JavaScript.js",
+      "wwwroot/Content/themes/TAB/js/LeadTools/Leadtools.Annotations.Automation.js",
+      "wwwroot/Content/themes/TAB/js/LeadTools/Leadtools.Documents.js",
+      "wwwroot/Content/themes/TAB/js/LeadTools/Leadtools.Documents.UI.js",
+      "wwwroot/Content/themes/TAB/js/DocumentViewer/Dialogs/PrintDlgNew.js"
+    ],
+    "minify": {
+      "enabled": false,
+      "renameLocals": true
+    }
+  },
+  {
+    "outputFileName": "wwwroot/js/Dashboard.js",
+    "inputFiles": [
+      "wwwroot/Content/themes/TAB/js/DocumentViewer/jquery-resizable.js",
+      "wwwroot/Content/themes/TAB/js/confirmModel.js",
+      "wwwroot/Scripts/AppJs/BuildToastrMessage.js"
+    ],
+    "minify": {
+      "enabled": false,
+      "renameLocals": true
+    }
+  },
+  {
+    "outputFileName": "wwwroot/js/DashboardJS.js",
+    "inputFiles": [
+      "wwwroot/Content/themes/TAB/js/jquery.validate.js",
+      "wwwroot/Content/themes/TAB/js/bootstrap-multiselect.js",
+      "wwwroot/Content/themes/TAB/js/chart.min.js",
+      "wwwroot/Scripts/AppJs/CommonFunctions.js",
+      "wwwroot/Content/themes/TAB/js/selectize.js",
+      "wwwroot/Scripts/FusionJs/Dashboard.js",
+      "wwwroot/Scripts/FusionJs/DashboardEvents.js",
+      "wwwroot/Scripts/FusionJs/DashboardFunctions.js",
+      "wwwroot/Scripts/FusionJs/Resources.js",
+      "wwwroot/Content/themes/TAB/js/HandsOnTable/handsontable.full.js"
+    ],
+    "minify": {
+      "enabled": false,
+      "renameLocals": true
+    }
+  },
+  {
+    "outputFileName": "wwwroot/css/Styles-css.css",
+    "inputFiles": [
+      "wwwroot/Content/themes/TAB/css/bootstrap.min.css",
+      "wwwroot/Content/themes/TAB/css/font-awesome.css",
+      "wwwroot/Content/themes/TAB/css/ui.jqgrid.css",
+      "wwwroot/Content/themes/TAB/css/bootstrap-multiselect.css",
+      "wwwroot/Content/themes/TAB/css/bootstrap-duallistboxmin.css",
+      "wwwroot/Content/themes/TAB/css/toastrmin.css",
+      "wwwroot/Content/themes/TAB/css/flags.css",
+      "wwwroot/Content/themes/TAB/css/jquery-ui-1.10.4.custom.css",
+      "wwwroot/Content/themes/TAB/css/admin_custom.css",
+      "wwwroot/Content/themes/TAB/css/Fusion10.css",
+      "wwwroot/Content/themes/TAB/css/jquery.mCustomScrollbar.css",
+      "wwwroot/Content/themes/TAB/css/linkes_drilldown.css"
+    ],
+    "minify": {
+      "enabled": false,
+      "renameLocals": true
+    }
+  },
+  {
+    "outputFileName": "wwwroot/css/Styles-cssViewer.css",
+    "inputFiles": [
+      "wwwroot/Content/themes/TAB/css/bootstrap.min.css",
+      "wwwroot/Content/themes/TAB/css/font-awesome.css",
+      "wwwroot/Content/themes/TAB/css/ui.jqgrid.css",
+      "wwwroot/Content/themes/TAB/css/bootstrap-multiselect.css",
+      "wwwroot/Content/themes/TAB/css/bootstrap-duallistboxmin.css",
+      "wwwroot/Content/themes/TAB/css/toastrmin.css",
+      "wwwroot/Content/themes/TAB/css/flags.css",
+      "wwwroot/Content/themes/TAB/css/jquery-ui-1.10.4.custom.css",
+      "wwwroot/Content/themes/TAB/css/Fusion10.css",
+      "wwwroot/Content/themes/TAB/css/jquery.mCustomScrollbar.css",
+      "wwwroot/Content/themes/TAB/css/linkes_drilldown.css"
+    ],
+    "minify": {
+      "enabled": false,
+      "renameLocals": true
+    }
+  },
+  {
+    "outputFileName": "wwwroot/css/Styles-MVCLayoutCSS.css",
+    "inputFiles": [
+      "wwwroot/Content/themes/TAB/css/bootstrap.min.css",
+      "wwwroot/Content/themes/TAB/css/chosen.css",
+      "wwwroot/Content/themes/TAB/css/media.css",
+      "wwwroot/Content/themes/TAB/css/font-awesome.css",
+      "wwwroot/Content/themes/TAB/css/simple-sidebar.css",
+      "wwwroot/Content/themes/TAB/css/linkes_drilldown.css",
+      "wwwroot/Content/themes/TAB/css/toastrmin.css",
+      "wwwroot/Content/themes/TAB/css/jquery.mCustomScrollbar.css",
+      "wwwroot/Content/themes/TAB/css/custom.css",
+      "wwwroot/Content/themes/TAB/css/custom-mvc.css",
+      "wwwroot/Content/themes/TAB/css/Fusion10.css",
+      "wwwroot/Content/themes/TAB/css/toastrmin.css",
+      "wwwroot/Content/themes/TAB/css/print.min.css",
+      "wwwroot/Content/themes/TAB/css/pikaday.css",
+      "wwwroot/Content/themes/TAB/css/HandsOnTable/handsontable.full.css"
+    ],
+    "minify": {
+      "enabled": false,
+      "renameLocals": true
+    }
+  },
+  {
+    "outputFileName": "wwwroot/css/Styles-AspCss.css",
+    "inputFiles": [
+      "wwwroot/Content/themes/TAB/css/jquery-ui-1.10.4.custom.css",
+      "wwwroot/Content/themes/TAB/css/smeadsoft_master.css",
+      "wwwroot/Content/themes/TAB/css/data.css",
+      "wwwroot/Content/themes/TAB/css/Grid.css",
+      "wwwroot/Content/themes/TAB/css/toolbar.css",
+      "wwwroot/Content/themes/TAB/css/toastrmin.css",
+      "wwwroot/Content/themes/TAB/css/Tab.css"
+    ],
+    "minify": {
+      "enabled": false,
+      "renameLocals": true
+    }
+  },
+  {
+    "outputFileName": "wwwroot/css/Styles-Dashboard.css",
+    "inputFiles": [
+      "wwwroot/Content/themes/TAB/css/custom.css",
+      "wwwroot/Content/themes/TAB/css/toastrmin.css",
+      "wwwroot/Content/themes/TAB/css/jquery-ui-1.10.4.custom.css"
+    ],
+    "minify": {
+      "enabled": false,
+      "renameLocals": true
+    }
+  },
+  {
+    "outputFileName": "wwwroot/css/Styles-DashboardIndexCss.css",
+    "inputFiles": [
+      "wwwroot/Content/themes/TAB/css/bootstrap-multiselect.css",
+      "wwwroot/Content/themes/TAB/css/selectize.css",
+      "wwwroot/Content/themes/TAB/css/Dashboard.css",
+      "wwwroot/Content/themes/TAB/css/HandsOnTable/handsontable.full.css"
+    ],
+    "minify": {
+      "enabled": false,
+      "renameLocals": true
+    }
+  }
+]

@@ -1,0 +1,231 @@
+﻿@using TabFusionRMS.Models
+@using TabFusionRMS.Resource
+@model Table
+<style>
+    .sticker.stick {right: 48px;}
+    .sticker {right: 0px;margin-bottom: 15px;}
+</style>
+<section class="content form-horizontal">
+    @*@Using Html.BeginForm("TrackingForm", "Admin", FormMethod.Post, New With {.id = "frmTableTracking", .class = "form-horizontal", .ReturnUrl = ViewData("ReturnURL")})*@
+    <form asp-action="TrackingForm" asp-controller="Admin" class="form-horizontal" method="post" id="frmTableTracking" ReturnUrl = '@ViewData["ReturnURL"]'>
+        <div id="parent">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        @Html.HiddenFor((m)=> m.TableName)
+                        <label class="col-md-4 control-label" for="TrackingTable">@Languages.get_Translation("lblTableTrackingPartialContainerLvl")</label>
+                        <div class="col-lg-8 col-md-7 controls">
+                            <select id="TrackingTable" name="TrackingTable" class="form-control"></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="TrackingStatusFieldName">@Languages.get_Translation("lblTableTrackingPartialTrackingStatusField")</label>
+                        <div class="col-lg-8 col-md-7 controls">
+                            @Html.TextBoxFor((m)=> m.TrackingStatusFieldName,new{disabled = "disabled", @class = "form-control", maxlength = "50"})
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <fieldset class="admin_fieldset" id="OutSetupDiv">
+                <legend>@Languages.get_Translation("tiTableTrackingPartialOutSetup") <label id="DisabledOutId" style="display:none"> @Languages.get_Translation("tiTableTrackingOutSetupLableForDisabled")</label></legend>
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="OutTable">@Languages.get_Translation("lblTableTrackingPartialOutType")</label>
+                                <div class="col-lg-8 col-md-7 controls">
+                                    <select id="OutTable" name="OutTable" class="form-control">
+                                        <option value="0">@Languages.get_Translation("optTableTrackingPartialUseOutField")</option>
+                                        <option value="1">@Languages.get_Translation("optTableTrackingPartialAlwaysOut")</option>
+                                        <option value="2">@Languages.get_Translation("optTableTrackingPartialAlwaysIn")</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="TrackingDueBackDaysFieldName">@Languages.get_Translation("lblTableTrackingPartialDueBackDaysField")</label>
+                                <div class="col-lg-8 col-md-7 controls">
+                                    <select id="TrackingDueBackDaysFieldName" name="TrackingDueBackDaysFieldName" class="form-control"></select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-lg-2 col-md-4 control-label" for="TrackingOUTFieldName">@Languages.get_Translation("lblTableTrackingPartialOutField")</label>
+                        <div class="col-lg-4 col-md-7 controls">
+                            <select id="TrackingOUTFieldName" name="TrackingOUTFieldName" class="form-control" disabled="disabled"></select>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="TrackingACTIVEFieldName">@Languages.get_Translation("lblTableTrackingPartialActiveField")</label>
+                        <div class="col-lg-8 col-md-7 controls">
+                            <select id="TrackingACTIVEFieldName" name="TrackingACTIVEFieldName" class="form-control"></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="TrackingEmailFieldName">@Languages.get_Translation("lblTableTrackingPartialEmailAdd")</label>
+                        <div class="col-lg-8 col-md-7 controls">
+                            <select id="TrackingEmailFieldName" name="TrackingEmailFieldName" class="form-control"></select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <fieldset class="admin_fieldset">
+                <legend>@Languages.get_Translation("tiTableTrackingPartialContainers")</legend>
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="TrackingRequestableFieldName">@Languages.get_Translation("lblTableTrackingPartialReqField")</label>
+                                <div class="col-lg-8 col-md-7 controls">
+                                    <select id="TrackingRequestableFieldName" name="TrackingRequestableFieldName" class="form-control" disabled="disabled"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="TrackingPhoneFieldName">@Languages.get_Translation("lblTableTrackingPartialPhnField")</label>
+                                <div class="col-lg-8 col-md-7 controls">
+                                    <select id="TrackingPhoneFieldName" name="TrackingPhoneFieldName" class="form-control" disabled="disabled"></select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="InactiveLocationField">@Languages.get_Translation("lblTableTrackingPartialInActiveStrgField")</label>
+                                <div class="col-lg-8 col-md-7 controls">
+                                    <select id="InactiveLocationField" name="InactiveLocationField" class="form-control" disabled="disabled"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="TrackingMailStopFieldName">@Languages.get_Translation("lblTableTrackingPartialMailStop")</label>
+                                <div class="col-lg-8 col-md-7 controls">
+                                    <select id="TrackingMailStopFieldName" name="TrackingMailStopFieldName" class="form-control" disabled="disabled"></select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="ArchiveLocationField">@Languages.get_Translation("lblTableTrackingPartialArchiveStrgField")</label>
+                                <div class="col-lg-8 col-md-7 controls">
+                                    <select id="ArchiveLocationField" name="ArchiveLocationField" class="form-control" disabled="disabled"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+
+                                <label class="col-md-4 control-label" for="SignatureRequiredFieldName">@Languages.get_Translation("lblTableTrackingPartialSignReq")</label>
+                                <div class="col-lg-8 col-md-7 controls">
+                                    <select id="SignatureRequiredFieldName" name="SignatureRequiredFieldName" class="form-control" disabled="disabled"></select>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label class="col-md-4  control-label" for="OperatorsIdField">@Languages.get_Translation("lblTableTrackingPartialUserIdField")</label>
+                                <div class="col-lg-8 col-md-7 controls">
+                                    <select id="OperatorsIdField" name="OperatorsIdField" class="form-control" disabled="disabled"></select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <div class="form-group">
+
+                <div class="col-lg-2 col-md-3">
+                    <div class="checkbox-cus">
+                        @*@Html.CheckBoxFor(Function(m) m.Trackable)*@
+                        <input id="Trackable" name="Trackable" value="false" type="checkbox" />
+                        <label class="checkbox-inline" for="Trackable">@Languages.get_Translation("lblTableTrackingPartialTrackingObj")</label>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="checkbox-cus">
+                        @*@Html.CheckBoxFor(Function(m) m.AllowBatchRequesting, New With {.disable = "disabled"})*@
+                        <input id="AllowBatchRequesting" name="AllowBatchRequesting" value="false" type="checkbox" />
+                        <label class="checkbox-inline" for="AllowBatchRequesting">@Languages.get_Translation("lblTableTrackingPartialAllowReqs")</label>
+                    </div>
+                </div>
+            </div>
+
+            <fieldset class="admin_fieldset top_space">
+                <legend>@Languages.get_Translation("tiTableTrackingPartialIniTrackingDest")</legend>
+                <div class="col-sm-12">
+                    <div class="row" id="InitialListDiv">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <div class="clearfix visible-md-block col-md-4"></div>
+                                <div class="col-lg-6 col-md-8">
+                                    <div class="checkbox-cus">
+                                        <input type="checkbox" id="AutoAssignOnAdd" disabled="disabled">
+                                        <label class="checkbox-inline" for="AutoAssignOnAdd">@Languages.get_Translation("lblTableTrackingPartialAutoAssignOnAdd")</label>
+                                    </div>
+                                </div>
+                                <div class="clearfix visible-md-block col-md-4"></div>
+                                <div class="col-lg-6 col-md-8">
+                                    <div class="checkbox-cus">
+                                        @*@Html.CheckBoxFor(Function(m) m.AutoAddNotification, New With {.disabled = "disabled"})*@
+                                        <input id="AutoAddNotification" name="AutoAddNotification" value="false" title="@Languages.get_Translation("lblTableTrackingPartialSendDeliveryEmailTooltip")" type="checkbox" disabled="disabled" />
+                                        <label class="checkbox-inline" for="AutoAddNotification" title="@Languages.get_Translation("lblTableTrackingPartialSendDeliveryEmailTooltip")">@Languages.get_Translation("lblTableTrackingPartialSendDeliveryEmail")</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label" for="DefaultTrackingId" id="lblDestination">@Languages.get_Translation("lblTableTrackingPartialDestId")</label>
+
+                                <div class="col-lg-8 col-md-7 controls">
+                                    @*<select id="DefaultTrackingId" name="DefaultTrackingId" class="form-control" style="font-family:monospace" disabled="disabled">*@
+                                    <select id="DefaultTrackingId" name="DefaultTrackingId" class="form-control" style="font-family:monospace" disabled="disabled">
+                                        @*@Html.HiddenFor(Function(m) m.DefaultTrackingId)*@
+                                        @Html.HiddenFor((m)=> m.DefaultTrackingTable)
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" id="IntialLabelDiv">
+                        <div class="clearfix visible-md-block col-md-4"></div>
+                        <div class="col-md-8 col-lg-12">
+                            <label class="control-label" id="noRecordLabel" for="noRecordLabel" style="color: red"></label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+            <div class="row">
+                <div class="col-sm-12 sticker stick">
+                    <input type="button" id="btnApply" value="@Languages.get_Translation("Apply")" class="btn btn-primary pull-right" />
+                </div>
+            </div>
+        </div>
+   </form>
+</section>
+<script src="@Url.Content("~/Scripts/AppJs/TableTracking.js")"></script>

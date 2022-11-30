@@ -1,0 +1,57 @@
+﻿@using TabFusionRMS.Resource
+@model  TabFusionRMS.WebCS.RetentionButtons
+<div class="modal-body">
+    <div class="form-horizontal">
+        <div class="form-group">
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label class="control-label col-sm-3">
+                        <span>@Languages.get_Translation("lblFinalDispositionControlDateOfDisposition")</span>
+                    </label>
+                    <div class="col-sm-9">
+                        <input type="date" value="@Model.TodayDate" id="submitDate" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label class="control-label col-sm-3">
+                        <span>@Languages.get_Translation("lblFinalDispositionControlAuthorizingUser")</span>
+                    </label>
+                    <div class="col-sm-9">
+                        <input type="text" id="submitUserName" value="@Model.username" disabled="disabled" class="form-control">
+                    </div>
+                </div>
+            </div>
+            @if(Model.ddlSelection.Count > 0 ){
+                <div Class="form-group">
+                    <div Class="col-sm-12">
+                        <Label Class="control-label col-sm-3">
+                            <span>@Languages.get_Translation("lblImportMainFormDest")</span>
+                        </Label>
+                        <div Class="col-sm-9">
+                            <select id="submitDropdown" Class="form-control">
+                                @foreach(var item in Model.ddlSelection){
+                                    <option selected="selected" value="@item.value">@item.text</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+<div Class="modal-footer">
+    <div Class="col-xs-12 text-right">
+        @if( Model.ddlSelection.Count == 0 && Model.btnSetSubmitType == "archive") {
+            <input type="button" dataset.submittype="@Model.btnSetSubmitType" value="@Model.btnSubmitText" disabled="disabled" Class="btn btn-success">
+        }
+        else{
+        <input type="button" dataset.submittype="@Model.btnSetSubmitType" value="@Model.btnSubmitText" id="btnSubmit" Class="btn btn-success">
+        }
+        <input type="button" value="@Languages.get_Translation("Cancel")" onclick="$(prop.Dialogbox.Dialogboxid).hide()" Class="btn btn-default">
+    </div>
+</div>
+

@@ -1,0 +1,40 @@
+﻿@using TabFusionRMS.Resource
+@{
+    ViewData["Title"] = Languages.get_Translation("RetentionCodeMaintenance");
+    Layout = "~/Views/Shared/_LayoutRetention.cshtml";
+}
+
+<section class="content-header">
+    <h1 class="main_title">
+        <span id="title">@Languages.get_Translation("RetentionCodeMaintenance")</span>
+    </h1>
+    
+</section>
+
+<section class="content">
+    <div class="form-group row">
+        <div class="col-sm-12 col-md-12">
+            <div class="pull-right">
+                <input type="button" id="gridAdd" name="gridAdd" value="@Languages.get_Translation("Add")" class="btn btn-primary" />
+                <input type="button" id="gridEdit" name="gridEdit" value="@Languages.get_Translation("Edit")" class="btn btn-primary" />
+                <input type="button" id="gridRemove" name="gridRemove" value="@Languages.get_Translation("Remove")" class="btn btn-primary" />
+                <input type="button" id="btnReassignRetCode" name="btnReassignRetCode" value="@Languages.get_Translation("btnRetentionCodeMaintenanceReassignRetCode")" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-12">
+            <div class="table-responsive jqgrid-cus">
+                <div id="divRetentionCodeGrid">
+                    <table id="grdRetentionCode"></table>
+                    <div id="grdRetentionCode_pager">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="AddEditRetentionCodeDialog"></div>
+    <div id="ReassignRetentionCodeDialog"></div>
+</section>
+<script src="@Url.Content("~/Scripts/AppJs/Retention.js")"></script>
+<script src="@Url.Content("~/Scripts/AppJs/ReassignRetentionCode.js")"></script>

@@ -1,0 +1,172 @@
+﻿@using TabFusionRMS.Resource
+<section class="content form-horizontal">
+    <div class="modal fade" id="mdlTblRetentionProperties" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel"><span id="retentionPropName"></span> @Languages.get_Translation("tiRetentionPropertiesPartialRetProps")</h4>
+                </div>
+                <div class="modal-body">
+                    <fieldset class="admin_fieldset">
+                        <legend>@Languages.get_Translation("tiRetentionPropertiesPartialRetFinalDisposition")</legend>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <input type="hidden" id="hdnActionType" value="N" />
+                                <span class="radio-cus">
+                                    <input type="radio" name="disposition" value="0" checked="checked" id="rdbNone">
+                                    <label class="radio-inline" for="rdbNone">@Languages.get_Translation("None")</label>
+                                </span>
+                                <p><h5><small class="small-font">@Languages.get_Translation("lblRetentionPropertiesPartialRetDisable4Tbl")</small></h5></p>
+                            </div>
+                            <div class="col-sm-6">
+                                <span class="radio-cus">
+                                    <input type="radio" name="disposition" value="2" id="rdbDestruction" />
+                                    <label class="radio-inline" for="rdbDestruction">@Languages.get_Translation("chkRetentionPropertiesPartialDestruction")</label>
+                                </span>
+                                <p><h5><small class="small-font">@Languages.get_Translation("lblRetentionPropertiesPartialRecsRMarkedAsDestroyed")</small></h5></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <span class="radio-cus">
+                                    <input type="radio" name="disposition" value="1" disabled="disabled" id="rdbPermanentArchiv" />
+                                    <label class="radio-inline" for="rdbPermanentArchiv">@Languages.get_Translation("chkRetentionPropertiesPartialPermanentArchiv")</label>
+                                </span>
+                                <p><h5><small class="small-font" id="lblPermanentArchive"></small></h5></p>
+                            </div>
+                            <div class="col-sm-6">
+                                <span class="radio-cus">
+                                    <input type="radio" name="disposition" value="3" id="rdbPartialPurge" />
+                                    <label class="radio-inline" for="rdbPartialPurge">@Languages.get_Translation("chkRetentionPropertiesPartialPurge")</label>
+                                </span>
+                                <p><h5><small class="small-font">@Languages.get_Translation("lblRetentionPropertiesPartialRecsAttachRPermanentlyDel")</small></h5></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <p><h5><small class="small-font">@Languages.get_Translation("lblRetentionPropertiesPartialThrRNoArciveLocations")</small></h5></p>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <div class="checkbox-cus">
+                                <input type="checkbox" id="chkInactivity" name="Inactivity" />
+                                <label class="checkbox-inline" for="chkInactivity">@Languages.get_Translation("chkRetentionPropertiesPartialInActivity")</label>
+                            </div>
+                        </div>
+                    </div>
+                    <fieldset class="admin_fieldset">
+                        <legend>@Languages.get_Translation("tiRetentionPropertiesPartialInRetCodeAssign")</legend>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <span class="radio-cus">
+                                    <input type="radio" name="assignment" value="0" checked="checked" id="rdbPartialManually" />
+                                    <label class="radio-inline" for="rdbPartialManually">@Languages.get_Translation("chkRetentionPropertiesPartialManually")</label>
+                                </span>
+                                @*Modified by hemin
+                                    <p><h5><small>@Languages.Translation("lblRetentionPropertiesPartialAllowUsr2SelRetCode</small>")</h5></p>*@
+                                <p><h5><small class="small-font">@Languages.get_Translation("lblRetentionPropertiesPartialAllowUsr2SelRetCode")</small></h5></p>
+                            </div>
+                            <div class="col-sm-4">
+                                <span class="radio-cus">
+                                    <input type="radio" name="assignment" value="1" id="rdbByCurrentTbl" />
+                                    <label class="radio-inline" for="rdbByCurrentTbl">@Languages.get_Translation("chkRetentionPropertiesPartialByCurrentTbl")</label>
+                                </span>
+                                <p><h5><small class="small-font">@Languages.get_Translation("lblRetentionPropertiesPartialAutoSetSingleRetCode")</small></h5></p>
+                            </div>
+                            <div class="col-sm-4">
+                                <span class="radio-cus">
+                                    <input type="radio" name="assignment" value="2" disabled="disabled" id="rdbByRelateTbl" />
+                                    <label class="radio-inline" for="rdbByRelateTbl">@Languages.get_Translation("chkRetentionPropertiesPartialByRelateTbl")</label>
+                                </span>
+                                <p><h5><small class="small-font">@Languages.get_Translation("lblRetentionPropertiesPartialAutoSetRetCodeRelatedTbl")</small></h5></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <fieldset class="admin_fieldset">
+                                    <legend>@Languages.get_Translation("tiRetentionPropertiesPartialDefRetCode")</legend>
+                                    <select id="lstRetentionCodes" class="form-control"></select>
+                                </fieldset>
+                            </div>
+                            <div class="col-sm-6">
+                                <fieldset class="admin_fieldset">
+                                    <legend>@Languages.get_Translation("tiRetentionPropertiesPartialRetTbls")</legend>
+                                    <select id="lstRelatedTables" disabled="disabled" class="form-control"></select>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset class="admin_fieldset">
+                        <legend>@Languages.get_Translation("tiRetentionPropertiesPartialFielsDefinitions")</legend>
+                        @*<div class="row">
+                                <div class="col-sm-12 col-md-6">
+                                    @Languages.Translation("lblRetentionPropertiesPartialRetCode") <select id="lstFieldRetentionCode" class="form-control"></select>
+                                </div>
+                            </div>*@
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="col-sm-12">@Languages.get_Translation("lblRetentionPropertiesPartialRetCode")</label>
+                                    <div class="col-md-6">
+                                        <select id="lstFieldRetentionCode" class="form-control"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-sm-12">@Languages.get_Translation("lblRetentionPropertiesPartialDateOpened") </label>
+                                    <div class="col-sm-12">
+                                        <select id="lstFieldDateOpened" class="form-control"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-sm-12">@Languages.get_Translation("lblRetentionPropertiesPartialDateClosed")</label>
+                                    <div class="col-sm-12">
+                                        <select id="lstFieldDateClosed" class="form-control"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-sm-12">@Languages.get_Translation("lblRetentionPropertiesPartialDateCreated")</label>
+                                    <div class="col-sm-12">
+                                        <select id="lstFieldDateCreated" class="form-control"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-sm-12">@Languages.get_Translation("lblRetentionPropertiesPartialOthrDate")</label>
+                                    <div class="col-sm-12">
+                                        <select id="lstFieldOtherDate" class="form-control"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <p><h5><small id="lblStarField" class="small-font">@Languages.get_Translation("lblRetentionPropertiesPartialFieldNotCurrInTbl")</small></h5></p>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="modal-footer">
+                    <button id="btnSaveRetentionProp" type="button" class="btn btn-primary">@Languages.get_Translation("Ok")</button>
+                    <button id="btnCancelRetentionProp" type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">@Languages.get_Translation("Cancel")</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <div id="mdlTblRetentionPropertiesClone" class="fixed-footer" style="display: none"></div>
+        <!-- /.modal-dialog -->
+    </div>
+</section>

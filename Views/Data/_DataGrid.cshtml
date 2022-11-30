@@ -1,0 +1,81 @@
+﻿@using TabFusionRMS.Resource
+<!--toolbar buttons-->
+<div class="row">
+    <div id="ToolBar" class="col-sm-12" style="margin-bottom:10px">
+
+    </div>
+</div>
+<!--handsOnTable grid-->
+<div class="row">
+    <div id="mainDataContainer" style="margin-bottom: 5px;" class="col-sm-12">
+        <div id="handsOnTableContainer" style="display: none;">
+
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div style=" display: block;margin-top:-13px" id="paging-div" class="  col-sm-12  col-xs-12">
+        <nav aria-label="Page navigation example" class="page-navigation">
+            <div class="pagination  ">
+                <div id="divPerPageRecord" Class=""> @Languages.get_Translation("lbltotalRecords"): <span>0</span></div>
+            </div>
+            <ul class="pagination pagi wrap" style="justify-content:center">
+                <li Class="page-item first " onclick="pagingfun.FirstPage()"><a class="page-link">First</a></li>
+                <li Class="#" onclick="pagingfun.Previous()"><a>&laquo;</a></li>
+                <li Class="liIndex" index="0" style="display:none;" onclick="pagingfun.GetRecord(this)"><a> </a></li>
+                <li Class="liIndex" index="0" style="display: none;" onclick="pagingfun.GetRecord(this)"><a> </a></li>
+                <li Class="liIndex" index="0" style="display: none;" onclick="pagingfun.GetRecord(this)"><a> </a></li>
+                <li onclick="pagingfun.Next()"><a>&raquo;</a></li>
+                <li Class="page-item last" onclick="pagingfun.LastPage()"><a class="page-link">Last</a></li>
+                <li>Page</li>
+                <li class="inpo">
+                    <div Class="input-group">
+                        <input id="inputGotoPageNum" Class="form-control" style="width: 70px !important; padding: 6px 3px !important; text-align: center !important;" title="@Languages.get_Translation("gotoTooltip")" type="number" autocomplete="off" onkeypress="return pagingfun.GotoPageNoKeypressEvt(this)" onchange="return pagingfun.GotoPageNoChangeEvt(this)">
+                        <span style="top:8px; position: relative; ">&nbsp;of <span id="spanTotalPage">0</span></span>
+                        <span Class="input-group-addon" style="cursor: pointer;display:none" title="@Languages.get_Translation("gotoTooltip")" onclick="pagingfun.GoToPage()" id="spanGotoPage"><i class="glyphicon glyphicon-arrow-right"></i></span>
+                    </div>
+                </li>
+            </ul>
+            <div Class="pagination">
+                <div id="divTotalRecords" class=""> Total Records: <i id="spinTotal" class="fa fa-refresh fa-spin"></i><span id="spanTotalRecords" style="display:none">0</span></div>
+            </div>
+        </nav>
+    </div>
+</div>
+<!--Tracking-->
+    <div class="col-xs-12 footer" id="TrackingStatusDiv" style="display:none;bottom:-25px;padding:17px">
+        <div class="col-sm-12">
+            <div class="panel panel-default col-sm-12 no_padding location_panel">
+                <div class="panel-heading col-sm-12 no_padding top_action_header panel-heading1">
+                    <div class="col-xs-6 col-sm-6 top_action_header_block">
+                        Current Location
+                    </div>
+                    <div class="col-xs-6 col-sm-6 top_action_header_block">
+                        Requests Wait List
+                        <a class="show-hide pull-right" onclick="TrackingHideShowClick(this,0)" data-toggle="collapse" href="#top_action_items1">@Languages.get_Translation("Show") [+]</a>
+                    </div>
+                </div>
+                <div id="top_action_items1" class="panel-collapse col-xs-12 no_padding top_action_content collapse" style="">
+                    <div class="col-xs-6 col-sm-6">
+                        <div id="TrackingLeft" style="width: 100%; height: 125px; overflow:auto">
+                            <ul class="tastk_list">
+                                <li><span id="lblTrackTime"></span></li>
+                                <li><span id="lblTracking"><br></span></li>
+                                <li><span id="lblDueBack"></span></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xs-6  col-sm-6">
+                        <div id="TrackingRight" style="width: 100%; overflow: auto; height: 145px;">
+                            <table id="tblRequests" class="table" style="font-size:14px;">
+                                <tbody id="trackingbody">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

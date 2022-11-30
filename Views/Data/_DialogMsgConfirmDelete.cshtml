@@ -1,0 +1,16 @@
+﻿@using TabFusionRMS.Resource
+<div>
+    <p style="font-size:12pt" id="dialogMsgTxt">@Languages.get_Translation("msgDeleteConfirmation")</p>
+    <ul style="color:DarkRed;font-size:11pt;overflow-x:auto;max-height:450px;" id="listItem">
+        @foreach(var item in ViewBag.ItemList){
+            <li>@item</li>
+        }
+    </ul>
+</div>
+<div class="modal-footer">
+    <div class="row">
+        <button onclick="$(app.domMap.Dialogboxbasic.BasicDialog).hide()" type="button" class="btn btn-default" style="float: right;" data-dismiss="modal">@Languages.get_Translation("No")</button>
+        <a onclick="obJtoolbarmenufunc.DeleteRowsFromServer()" class="btn btn-primary btn-ok" style="float: right; margin-right:5px;">@Languages.get_Translation("Yes")</a>
+
+    </div>
+</div>

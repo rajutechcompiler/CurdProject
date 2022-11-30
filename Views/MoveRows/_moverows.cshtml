@@ -1,0 +1,118 @@
+﻿@using TabFusionRMS.Resource
+@using Controllers
+@model Moving
+
+<style>
+    .tablebox {
+        margin-left: 5px;
+    }
+
+        .tablebox label {
+            cursor: pointer;
+        }
+
+        .tablebox i {
+            cursor: pointer;
+        }
+
+        .tablebox tbody {
+            display: none;
+        }
+    .txt-italic{
+        font-style:italic
+    }
+</style>
+
+<div class="modal-body" style="padding-bottom: 0px; padding-top: 0px;">
+    <div class="form-horizontal">
+        <div class="row">
+            <div class="request-listing col-sm-12">
+                <Label id="lblRequest">@Languages.get_Translation("lblMoveControlItemMoved")</Label>
+                <ul id="MoveItemlist" class="square-bullet-list">
+                    @foreach (var item in Model.itemsTobeMove)
+                    {
+                        <li>@item</li>
+                    }
+                   
+                </ul>
+            </div>
+            <div Class="col-sm-5 popup-form-box border-right-specific">
+                <div Class="form-group top_space">
+                    <div Class="col-sm-12">
+                        <Label>@Languages.get_Translation("lblMoveControlSelDestTab")</Label>
+                        @* starting another loop here *@
+                        @for (var index = 0; index<=Model.rbDestinationTable.Count - 1; index++) 
+                        {
+                            <div Class="tablebox">
+                            <i class="fa fa-caret-right" onclick="collapseViews(this)"> <label> @Model.rbDestinationTable[index]</label></i>
+                                <Table id="DestinationsTable">
+                                    <tbody id="rblDestinationTableContainer">
+                                        @for (var i = 0; i<= Model.rbDestinationViews[index].Count - 1;i++)
+                                        {
+                                            <tr>
+                                                <td><input type="radio" data-viewid="@Model.rbDestinationViews[index][i].viewId" name="rblDestinations" value="@Model.rbDestinationViews[index][i].value"><span name="rblDestinations" style="font-size:14px;cursor:pointer">@Model.rbDestinationViews[index][i].text</span></td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </Table>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div Class="col-sm-7 popup-form-box no_padding">
+                <div Class="col-sm-12 border-bottom-specific top_space">
+                    <div class="txt-italic">@Languages.get_Translation("lblMoveControlSelDestRow")</div>
+                    <div Class="form-group top_space">
+                        <Label Class="control-label col-sm-2 no_padding">@Languages.get_Translation("Find")</Label>
+                        <div Class="col-sm-10">
+                            <input type="text" placeholder="Provide at least 3 characters to show results" id="txtFilter" Class="form-control" />
+                        </div>
+                    </div>
+                </div>
+                <div Class="clearfix"></div>
+                <div id="scrolldiv" Class="col-sm-12 request-emp-listing">
+                    <Table id="DestinationsTable">
+                        <tbody id="rblDestinationItemsContainer">
+                            @foreach (var item in Model.rbDestinationsItem)
+                            {
+                                  <tr>
+                                    <td><input type="radio" name="rbDestinationsItem" value="@item.value"><span name="rbDestinationsItem" style="font-size:14px">@item.text</span></td>
+                                </tr>
+                            }
+                          
+                        
+                        </tbody>
+                    </Table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div Class="modal-footer">
+    <div Class="col-xs-12">
+        <Label id="lblError" style="color:Red"></Label>
+    </div>
+    @*<div Class="col-xs-12">*@
+<div Class="row">
+    <button id="btnCancel" onclick="dlgClose.CloseDialog()" class="btn btn-default" style="float: right;">@Languages.get_Translation("Cancel")</button>
+    <Button id="btnMove" Class="btn btn-success" style="float: right;margin-right:5px;">@Languages.get_Translation("Move")</Button>
+
+</div>
+</div>
+
+<script>
+
+    var gMoveView =  @Html.Raw(Json.Serialize(Model.moveView))
+
+    function collapseViews(elem) {
+        var collaps = elem.nextElementSibling.children[0];
+        if (collaps.style.display === 'none' || collaps.style.display === '') {
+            collaps.style.display = 'block'
+            elem.className = 'fa fa-caret-down'
+        } else {
+            collaps.style.display = 'none'
+            elem.className = 'fa fa-caret-right'
+        }
+    }
+</script>

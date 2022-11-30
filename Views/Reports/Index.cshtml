@@ -1,0 +1,87 @@
+﻿@using TabFusionRMS.Resource;
+@model TabFusionRMS.WebCS.ReportingMenu;
+@{
+
+    ViewData["Title"] = Languages.get_Translation("reportsTitle");
+    Layout = "~/Views/Shared/_LayoutReports.cshtml";
+
+}
+
+
+<div class="container-fluid">
+    <style>
+        .reportRecord {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .pagination {
+            display: flex;
+            align-items: center;
+        }
+
+            .pagination > li {
+                margin-right: 10px;
+            }
+
+            .pagination input {
+                width: 80px;
+            }
+
+        .page-navigation {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .handsontable td, .handsontable th {
+            height: 34px;
+        }
+
+        .currentRow {
+            background-color: #c7e4f0 !important;
+        }
+
+        #btnContainer div:nth-child(2) div {
+            display: inline-flex;
+        }
+
+        .disableAllCsvBtn {
+            pointer-events: none;
+            cursor: default;
+        }
+    </style>
+
+    <div id="btnContainer" class="col-md-12" style="margin-top:30px">
+
+
+    </div>
+    <div class="col-md-12">
+        <div class="divreport" style="margin-top:10px">
+            <div style="text-align:center">
+                <h1 id="ReportTitle"></h1>
+                <h6 id="itemDescription"></h6>
+            </div>
+            <div>
+                <ul class="reportRecord">
+                </ul>
+            </div>
+        </div>
+        <div>
+            <div id="handsOnTableContainer" style="display: none; max-height: 350px; width: 100%;">
+
+            </div>
+        </div>
+        <div id="paging-container">
+            @Html.Partial("_PagingFooter", Model.Paging)
+
+        </div>
+    </div>
+</div>
+
+<script>
+$(document).ready(() => {
+    preventCharchters();
+});
+var dateFormat = '@Model.dateFormat';
+</script>

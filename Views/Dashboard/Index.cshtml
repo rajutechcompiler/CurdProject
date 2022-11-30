@@ -1,0 +1,373 @@
+﻿@inject IJsonHelper Json;
+@using TabFusionRMS.Resource
+@{
+   
+    //@Code ViewData("Title") = Languages.get_Translation("dashboardTitle")
+    ViewData["Title"] = Languages.get_Translation("dashboardTitle");
+     Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+@*<link rel="stylesheet" href="~/Content/themes/TAB/css/HandsOnTable/handsontable.full.css" />*@
+
+@******************"~/Styles/DashboardIndexCss"****************@
+           <link rel="stylesheet"href="~/Content/themes/TAB/css/bootstrap-multiselect.css"/> 
+           <link rel="stylesheet"href="~/Content/themes/TAB/css/selectize.css"/> 
+           <link rel="stylesheet"href= "~/Content/themes/TAB/css/Dashboard.css"/> 
+           <link rel="stylesheet"href= "~/Content/themes/TAB/css/HandsOnTable/handsontable.full.css"/>
+@******************"~/Styles/DashboardIndexCss"****************@
+<style>
+    /*.handsontable .wtHolder {
+        width: 100%
+    }
+    .handsontable{
+        width: 100%
+    }*/
+    /*    .wtHider {
+        margin: 0 auto;
+    }*/
+
+    /*this css override multiselect css. If text is too large, it will hide it.*/
+    .multiselect-div button {
+        overflow: hidden;
+        padding: 9px;
+    }
+</style>
+@*<div id="toast-container" class="toast-top-center">
+        <div class="toast toast-success">
+            <div class="toast-title"></div>
+            <div class="toast-message"><xmp style="white-space: pre-wrap"></xmp></div>
+        </div>
+    </div>*@
+<div id="divModalLoad">
+
+</div>
+
+<!--Delete Dashboard Modal-->
+<div class="modal" id="modalDeleteDashboard" tabindex="-1" role="dialog" aria-labelledby="myModalDeleteDashboard">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button id="btnClose" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalDeleteDashboard">@Languages.get_Translation("deleteDashboard")</h4>
+            </div>
+            <div class="modal-body">
+                <p class="p-delete-msg">@Languages.get_Translation("msgConfForDel")</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true" style="float:right;">@Languages.get_Translation("No")</button>
+                <button id="btnDeleteDashboard" type="button" class="btn btn-primary" style="float:right; margin-right:5px;">@Languages.get_Translation("Yes")</button>
+
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="modal" id="modaConfirmToSaveChart" tabindex="-1" role="dialog" aria-labelledby="myModalConfirmToSaveChart">
+    <div class="modal-dialog modal-sm modal-30">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button id="btnClose" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="">Record threshold value</h4>
+                <input type="hidden" id="hiddenObjChart" value="" />
+                <input type="hidden" id="hiddenObjChartWidgetId" value="" />
+            </div>
+            <div class="modal-body">
+                <p class="p-delete-msg">Based on the Selection of column, Widget wouldn’t be shown in a proper User-Friendly manner. Do you wish to continue?</p>
+            </div>
+            <div class="modal-footer">
+                <button id="btnConfirmToSaveChart" type="button" onclick="SaveWidgetAfterConfirmation()" class="btn btn-primary">@Languages.get_Translation("Yes")</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">@Languages.get_Translation("No")</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<!--Delete Widget Modal-->
+<div class="modal" id="modalDeleteWidget" tabindex="-1" role="dialog" aria-labelledby="myModalDeletWidget">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button id="btnClose" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalDeleteWidget">@Languages.get_Translation("deleteWidget")</h4>
+            </div>
+            <div class="modal-body">
+                <p class="p-delete-msg">@Languages.get_Translation("msgConfForWidgetDel")</p>
+            </div>
+            <div class="modal-footer">
+                <div class="col-md-12 text-right">
+                <button id="btnDeleteWidget" type="button" class="btn btn-primary" onclick="dashboardfunc.DeleteWidget()" data-dismiss="modal" aria-hidden="true">@Languages.get_Translation("Yes")</button>
+                <input id="hiddenWidgetID" type="hidden" />
+                <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">@Languages.get_Translation("No")</button>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="modal" id="openModal32" tabindex="-1" role="dialog" aria-labelledby="myopenModal32">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button id="btnClose" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">@Languages.get_Translation("chooseWidget")</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group row">
+                    <div class="text-center">
+                        <div class="">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tbody class="p-10 text-center  tdborder" style="{border:none;}">
+                                        <tr onclick="dashboardfunc.OpenModalChart('BAR')">
+
+                                            <td><img src="~/Content/themes/TAB/css/images/barchart.png" class="img1"> </td>
+                                            <td>
+                                                <div class="pt wibold">@Languages.get_Translation("barChart")</div>
+                                                <p class="chooseaWP">
+                                                    Displays the Records based on specific column values as a bar chart
+                                                </p>
+                                            </td>
+                                            <td><img src="~/Content/themes/TAB/css/images/pl.png" class="img11"> </td>
+                                        </tr>
+                                        <tr onclick="dashboardfunc.OpenModalChart('PIE')">
+                                            <td><img src="~/Content/themes/TAB/css/images/piechart.png" class="img1"> </td>
+                                            <td>
+                                                <div class="pt wibold">@Languages.get_Translation("pieChart")</div><p class="chooseaWP">
+                                                    Displays the percentiles of Records based on specific
+                                                    column values
+                                                </p>
+                                            </td>
+                                            <td><img src="~/Content/themes/TAB/css/images/pl.png" class="img11"></td>
+                                        </tr>
+                                        <tr onclick="dashboardfunc.OpenModalChart('DATA')">
+                                            <td><img src="~/Content/themes/TAB/css/images/grid.png" class="img1"></td>
+                                            <td>
+                                                <div class="pt wibold">@Languages.get_Translation("dataGrid")</div><p class="chooseaWP">
+                                                    Displays the Record from the Table/View in form of Grid for quick access
+                                                </p>
+                                            </td>
+                                            <td><a><img src="~/Content/themes/TAB/css/images/pl.png" class="img11"></a></td>
+                                        </tr>
+                                        <tr onclick="dashboardfunc.OpenModalTracked('CHART_1')">
+                                            <td><img src="~/Content/themes/TAB/css/images/barchartobject.png" class="img2"></td>
+                                            <td>
+                                                <div class="pt wibold">@Languages.get_Translation("barChartObjectsTrackedByDay")</div><p class="chooseaWP">
+                                                    Display records based on Objects
+                                                    Tracked by the User over period as a bar chart
+                                                </p>
+                                            </td>
+                                            <td><img src="~/Content/themes/TAB/css/images/pl.png" class="img22"></td>
+                                        </tr>
+
+                                        <tr onclick="dashboardfunc.OpenModalOperation('CHART_2')">
+                                            <td><img src="~/Content/themes/TAB/css/images/barchartuser.png" class="img3"></td>
+                                            <td>
+                                                <div class="pt wibold">@Languages.get_Translation("barChartObjectUserOperationByDay")</div><p class="chooseaWP">
+                                                    Display records based on Audit Types over period as a bar chart
+                                                </p>
+                                            </td>
+                                            <td><img src="~/Content/themes/TAB/css/images/pl.png" class="img33"></td>
+                                        </tr>
+                                        <tr onclick="dashboardfunc.OpenModalSeries('CHART_3')">
+                                            <td><img src="~/Content/themes/TAB/css/images/barcharttime.png" class="img4"></td>
+                                            <td>
+                                                <div class="pt-6 wibold">@Languages.get_Translation("barChartTimeSeries")</div>
+                                                <p class="chooseaWP">Display specific date column values at successive intervals of time as a bar chart</p>
+                                            </td>
+                                            <td><img src="~/Content/themes/TAB/css/images/pl.png" class="img44"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<!-- Enlarged View | Widget-->
+<div class="modal" id="openModal1" tabindex="-1" role="dialog" aria-labelledby="myopenModal1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button id="btnClose" type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="dashboardfunc.Clean()">×</button>
+                <h4 class="modal-title">@Languages.get_Translation("enlargeView") - <xmp id="widgetEnlargeName" class="xmp-elrg-name"></xmp></h4>                <input type="hidden" value="" id="hiddenEnlargeType" />
+            </div>
+            <div class="modal-body" id="divEnlargeBody">
+                <div class="form-group row">
+
+                    <div class="col-xs-12 col-sm-12" id="spinnerDiv_widgetContent" style="width: 100%; height: 388px; overflow: hidden;">
+                        @*<i class="fa fa-refresh fa-spin" style="margin-left:50%;margin-top:23%;font-size:20px;"></i>*@
+                    </div>
+                    <div id="widgetContent" class="col-xs-12 col-sm-12 text-center" style="overflow: hidden;">
+                        <div class="col-xs-12 col-sm-12" id="enlargeChartTitle" style="max-height:5%;width:100%"></div>
+                        <div class="col-xs-12 col-sm-12" id="enlargeChart" style="height:95%;width:100%"></div>
+                    </div>
+                    <div style="margin-top: 5px; display: block; " id="paging" class="col-sm-12 hidden-e text-center">
+                        <nav aria-label="Page navigation example" class="page-navigation">
+                            <ul class="pagination pagi" style="justify-content: center" id="ulEnlargeGrid">
+                                <li Class="page-item first " onclick="dashboardfunc.GetRecord('First', this, 'ulEnlargeGrid')"><a class="page-link">First</a></li>
+                                <li Class="#" onclick="dashboardfunc.GetRecord('Previous', this, 'ulEnlargeGrid')"><a>&laquo;</a></li>
+                                <li Class="liIndex" style="display:none;" index="0" onclick="dashboardfunc.GetRecord('Index', this, 'ulEnlargeGrid')"><a> </a></li>
+                                <li Class="liIndex" style="display:none;" index="0" onclick="dashboardfunc.GetRecord('Index', this, 'ulEnlargeGrid')"><a> </a></li>
+                                <li Class="liIndex" style="display:none;" index="0" onclick="dashboardfunc.GetRecord('Index', this, 'ulEnlargeGrid')"><a> </a></li>
+                                <li onclick="dashboardfunc.GetRecord('Next', this, 'ulEnlargeGrid')"><a>&raquo;</a></li>
+                                <li Class="page-item last" onclick="dashboardfunc.GetRecord('Last', this, 'ulEnlargeGrid')"><a class="page-link">Last</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<!-- Dashboard -->
+<div class="content-wrapper">
+
+    <div class="fuild-container mlp">
+        <div class="row">
+            <div class="panel-group col-xs-12 no_padding">
+                <div class="panel panel-default col-xs-12 no_padding">
+                    <div class="panel-heading col-xs-12 no_padding no-margin top_action_header topheaderhe">
+                        <div class="col-xs-12 col-sm-12 top_action_header_block">
+                            <div class="text-center">
+                                <span id="spanWidgetHeading"><xmp style="position:relative; top:-12px;">DASHBOARD</xmp></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+
+        <!-- Dashboard NavBar-->
+
+        <div class="dashbar">
+
+            <button id="new-dashboard" class="btn btn-secondary tab_btn">@Languages.get_Translation("newDashboard")</button>
+            <button id="del-dash" class="btn btn-secondary tab_btn hidden-e" data-toggle="modal" data-target="#modalDeleteDashboard">@Languages.get_Translation("deleteDashboard")</button>
+            <button id="rename-dash" class="btn btn-secondary tab_btn hidden-e">@Languages.get_Translation("renameDashboard")</button>
+            <button id="btnClone" class="btn btn-secondary tab_btn hidden-e">@Languages.get_Translation("cloneDashboard")</button>
+            <button id="new-widget" class="btn btn-secondary tab_btn hidden-e" data-backdrop="static" data-keyboard="false" data-toggle="modal" data-target="#openModal32">@Languages.get_Translation("addWidget")</button>
+            <button id="btnReset" class="btn btn-secondary tab_btn hidden-e" onclick="dashboardfunc.WidgetResetDefaultSize()"><img src="/Content/themes/TAB/css/images/refresh30px.png" width="20px;"></button>
+            @*<button id="btnReset" class="btn btn-secondary tab_btn hidden-e" onclick="dashboardfunc.WidgetResetDefaultSize()">@Languages.get_Translation("resetButton")</button>*@
+            <input type="hidden" value="" id="hiddenDashboardId" />
+            <input type="hidden" value="" id="hiddenChartVal" />
+            <i class="fa fa-star stariconfill hidden-e" aria-hidden="true" id="btnFavSolid"></i>
+            <i class="fa fa-star-o stariconblank hidden-e" aria-hidden="true" id="btnFavBlank"></i>
+            @*<div class="clear"></div>*@
+        </div>
+
+        <div class="box m-t2">
+            <div id="sortable" class="sortable">
+
+                <!--Dashboard Widgets Here -->
+            </div>
+
+            <!--This Widget are using for clone for widget-->
+            <div>
+                <div id="widget-clone" class="hidden-e">
+                    <div id="[ReplaceWidgetId]" class="panel panel-default col-lg-4 col-sm-12 col-md-12 no_padding no-margin widget clone" style="width: [width];height: [height]">
+                        <div class="row" style="height:100%">
+                            <div class="panel-heading col-xs-12 no_padding no-margin top_action_header nav-bar">
+                                <div class="col-xs-8 col-sm-8 top_action_header_block no-margin widget-name">
+                                    <input type="text" style="display:none" value=[ReplaceWidgetHeading] />
+                                    <a class="customTooltip" gloss="[ReplaceWidgetHeading]" href="#"><h1 id="spanWidgetHeading" class="threedots">[ReplaceWidgetHeading]</h1></a>
+                                </div>
+                                <div class="col-xs-2 col-sm-2 top_action_header_block no_padding no-margin options">
+                                    <img src="~/Content/themes/TAB/css/images/refresh30px.png" onclick="dashboardfunc.RefreshWidget([ReplaceWidgetId],'[ReplaceWidgetName]')" class="icons" style="width:20px;" />
+                                    <img src="~/Content/themes/TAB/css/images/arrows-fullscreen.png" data-toggle="modal" data-target="#openModal1" onclick="dashboardfunc.Enlarge([ReplaceWidgetId],'[ReplaceWidgetName]')" class="icons" />
+                                    <img src="~/Content/themes/TAB/css/images/three-dots-vertical.png" onclick="dashboardfunc.EditModal('[ReplaceWidgetName]', '[ReplaceWidgetId]')" class="icons" />
+                                    <img src="~/Content/themes/TAB/css/images/x-lg.png" onclick="dashboardfunc.WidgetConf([ReplaceWidgetId])" class="icons" />
+                                </div>
+                            </div>
+                            <div class="panel-collapse col-xs-12 no_padding top_action_content widget-content" aria-expanded="true">
+                                <div class="col-xs-12 col-sm-12 hidden-e task-clone" id="Task_[ReplaceWidgetId]" style="width: 100%; height: 100%; overflow: hidden;">
+                                    <ul id="tasks-list_[ReplaceWidgetId]" class="tastk_list">
+                                    </ul>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 hidden-e grid-clone" id="Grid_[ReplaceWidgetId]" style="width: 100%; height: 100%;overflow-y: auto;">
+                                    <table class="table">
+                                        <thead></thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 hidden-e" id="CanvasDiv_[ReplaceWidgetId]" style="width: 100%; height: 100%; overflow: hidden;">
+                                    <canvas id="Canvas_[ReplaceWidgetId]"></canvas>
+                                </div>
+                                <div class="col-xs-12 col-sm-12" id="spinnerDiv_[ReplaceWidgetId]" style="width: 100%; height: 100%; overflow: hidden;">
+                                    <i class="fa fa-refresh fa-spin" style="margin-left:50%;margin-top:10%;font-size:20px;"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Scripts/FusionJs/Dashboard.js"></script>
+
+@* ******* "~/bundles/DashboardJS" ***********@
+<script src="~/Content/themes/TAB/js/jquery.validate.js"></script>
+<script src="~/Content/themes/TAB/js/bootstrap-multiselect.js"></script>
+<script src="~/Content/themes/TAB/js/chart.min.js"></script>
+<script src="~/Scripts/AppJs/CommonFunctions.js"></script>
+<script src="~/Content/themes/TAB/js/selectize.js"></script>
+<script src="~/Scripts/FusionJs/Dashboard.js"></script>
+<script src="~/Scripts/FusionJs/DashboardEvents.js"></script>
+<script src="~/Scripts/FusionJs/DashboardFunctions.js"></script>
+@*<script src="~/Scripts/FusionJs/Resources.js"></script>*@
+<script src="~/Content/themes/TAB/js/HandsOnTable/handsontable.full.js"></script>           
+@* ******* "~/bundles/DashboardJS" ***********@
+
+@*<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0-rc.1/dist/chartjs-plugin-datalabels.min.js" integrity="sha256-Oq8QGQ+hs3Sw1AeP0WhZB7nkjx6F1LxsX6dCAsyAiA4=" crossorigin="anonymous"></script>*@
+<script src="~/Content/themes/TAB/js/chartjs-plugin-datalabels.min.js"></script>
+
+@*<script src="~/Content/themes/TAB/js/HandsOnTable/handsontable.full.js"></script>*@
+
+<script>
+    $(document).ready(function () {
+
+        BindDashboardList(@Html.Raw(Json.Serialize(Model.DashboardListHtml)))
+        DashboardList = []
+        dashboardfunc.ReloadModalSortable();
+        dashboardfunc.ReloadSelect();
+        var LayoutData = @Html.Raw(Json.Serialize(Model.LanguageCulture));
+        Language = JSON.parse(LayoutData);
+        dashboardfunc.ResizableEnlargeWidget();
+
+
+        //BindDashboardList(Json.Serialize('Model.DashboardListHtml'))
+        //DashboardList = []
+        //dashboardfunc.ReloadModalSortable();
+        //dashboardfunc.ReloadSelect();
+        //var LayoutData = Json.Serialize('Model.LanguageCulture');
+        //Language = JSON.parse(LayoutData);
+        //dashboardfunc.ResizableEnlargeWidget();
+    });
+
+    dashboardfunc.PreventEnter();
+
+</script>

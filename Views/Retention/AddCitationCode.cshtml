@@ -1,0 +1,79 @@
+﻿@using TabFusionRMS.Resource
+@using TabFusionRMS.Models
+@model TabFusionRMS.Models.SLRetentionCitation
+
+<form asp-action="SetCitationCode" asp-controller="Retention" method="post" id="frmCitationCodeDetails" class="form-horizontal" ReturnUrl='ViewData["ReturnUrl"]'>
+    <div class="modal fade" id="mdlCitationCode" tabindex="-1"  aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel">@Languages.get_Translation("CitationMaintenance")</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <input type="hidden" id="SLRetentionCitationId" name="SLRetentionCitationId" value="0"/>
+                                <label class="col-sm-3 control-label" for="Id">@Languages.get_Translation("lblAddCitationCodeCitation")</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="txtCitation" name="Citation" class="form-control" maxlength="20" placeholder="@Languages.get_Translation("phAddCitationCodeCitationCode")" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="Subject">@Languages.get_Translation("lblAddCitationCodeSubject")</label>
+                                <div class="col-sm-9">
+                                    <input type="text" id="txtSubject" name="Subject" class="form-control" maxlength="100" placeholder="@Languages.get_Translation("lblAddCitationCodeSubject")" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="Notes">@Languages.get_Translation("lblAddCitationCodeNotation")</label>
+                                <div class="col-sm-9">
+                                    <textarea id="txtNotation" name="Notation" cols="20" rows="2" style="resize:none;" class="form-control"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="LegalPeriod">@Languages.get_Translation("lblAddCitationCodeLegalPeriod")</label>
+                                <div class="col-sm-9">
+                                        <input type="text" id="txtLegalPeriod" name="LegalPeriod" class="form-control" maxlength="10" />
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-offset-4 col-sm-4">
+                                <button id="btnGetAssigenedRetentionCodes" type="button" class="btn btn-primary">@Languages.get_Translation("btnAddCitationCodeAssignedRetCodes")</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btnSaveCitationCode" type="button" class="btn btn-primary">@Languages.get_Translation("Save")</button>
+                        <button id="btnCancel" type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">@Languages.get_Translation("Cancel")</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+        </div>
+
+        <div class="modal fade" id="mdlListRetentionCodes" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel"><span id="codeAssignmentVal"> <label id="lblCitationCode"></label></span></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <label class="col-sm-12">@Languages.get_Translation("tiAddCitationCodeCurrAssignedRetCodes")</label>
+                            <div class="col-sm-12">
+                                <select id="lstRetentionCodes" size="10" class="form-control"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="btnCancelCodes" type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">@Languages.get_Translation("Close")</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
+</form>

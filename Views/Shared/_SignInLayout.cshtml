@@ -1,0 +1,1035 @@
+﻿@using TabFusionRMS.Resource
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <link href="/Images/TabFusion.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Page-Enter" content="blendTrans(duration=0)" />
+    <meta http-equiv="Page-Exit" content="blendTrans(duration=0)" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="-1" />
+    <meta http-equiv="CACHE-CONTROL" content="NO-CACHE" />
+    <title>@Languages.get_Translation("pgTiTABWebAccess")</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,700,600italic" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link href="/Content/themes/TAB/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/Content/themes/TAB/css/media.css" rel="stylesheet" />
+    <link href="/Content/themes/TAB/css/font-awesome.css" rel="stylesheet" />
+    <link href="/Content/themes/TAB/css/simple-sidebar.css" rel="stylesheet" />
+    <link href="/Content/themes/TAB/css/linkes_drilldown.css" rel="stylesheet" />
+    <link href="/Content/themes/TAB/css/toastrmin.css" rel="stylesheet" />
+    <link href="/Content/themes/TAB/css/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/themes/TAB/css/chosen.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/themes/TAB/css/custom.css" rel="stylesheet" media="screen, print" />
+    <link href="/Content/themes/TAB/css/Fusion10.css" rel="stylesheet" />
+
+    @************"~/bundles/MainJS"******************************@
+    <script src="~/Content/themes/TAB/js/jquery-3.4.1.min.js"></script>
+    <script src="~/Content/themes/TAB/js/jquery-ui-1.10.4.custom.js"></script>
+    <script src="~/Content/themes/TAB/js/jquery.auto-complete.js"></script>
+    <script src="~/Content/themes/TAB/js/jquery-cookie-plugin.js"></script>
+    <script src="~/Content/themes/TAB/js/data.js"></script>
+    <script src="~/Content/themes/TAB/js/bootstrap.min.js"></script>
+    <script src="~/Content/themes/TAB/js/linkes_drilldown.js"></script>
+    <script src="~/Content/themes/TAB/js/moment.js"></script>
+    <script src="~/Content/themes/TAB/js/jquery.mCustomScrollbar.js"></script>
+    <script src="~/Content/themes/TAB/js/chosen.jquery.js"></script>
+    <script src="~/Content/themes/TAB/js/jquery.flagstrap.js"></script>
+    <script src="~/Scripts/AppJs/AttachmentViewer.js"></script>
+    <script src="~/Scripts/AppJs/MainMaster.js"></script>
+    @************"~/bundles/MainJS"******************************@
+
+     <script type="text/javascript">
+            var ie='';
+        </script>
+       
+
+        <script type="text/javascript"> 
+           
+            //-----Start MyQueries :Added by Milan Patel
+            
+            function setQueryLabel_Click() {      
+                //if(getCookie('myQueryValue') == -1)
+                //    return false;
+                if ($('#txtTitle').css('display') == 'none')
+                {
+                    $("#hdnTitle").val('true');
+                    $("#Dialog_Query_lblTitle").hide();
+                    $("#Dialog_Query_lblTitle").next().show();
+                    setTimeout(function () { $('#txtTitle').focus(); }, 100);
+                }
+                return false;               
+            }        
+
+            //End MyQueries :Added by Milan Patel----------------------------------------------------
+
+            function setCancelQueryWindow_Click() {
+                setCookie('hdnMenuIds', getCookie('hdnMenuIdsOld'));
+                delCookie('hdnMenuIdsOld');
+                modalPopupAsuncClose();
+            }
+            
+            function fn_FloatingButtons_QueryWindowFilter() {
+                setTimeout(function () {
+                    if ($('.modalblock').hasScrollBar()) {
+                        $('.modalblock').scrollTop($('.modalblock').get(0).scrollHeight - $('.modalblock').height());
+                    }
+                }, 800);
+            }
+            function fn_FloatingButtons_BatchRequest() {
+                setTimeout(function () {
+                    if ($('.modalblock').hasScrollBar() && $('.divLocate').css('display')!='none') {
+                        $('#mdlFooterClone').empty().html($('.modal-content .divLocate .modal-footer').clone());
+                        $('#mdlFooterClone').find('.modal-footer').css({ 'margin-left': '2px'});
+                        $('.modalblock').scroll(function () {
+                            if ($('.modalblock').get(0).scrollHeight > (($('.modalblock').height() + $('.modalblock').scrollTop()) + 80)) {
+                                $('#mdlFooterClone').addClass('affixed');
+                            }
+                            else {
+                                $('#mdlFooterClone').removeClass('affixed');
+                            }
+                        });
+                    }
+                    else if ($('.modalblock').hasScrollBar() && $('.divLocate').css('display')=='none') {
+                        $('#mdlFooterClone').empty().html($('.modal-content .divWorkpad .modal-footer').clone()).show();
+                        $('#mdlFooterClone').find('.modal-footer').css({ 'margin-left': '24px'});
+                        $('.modalblock').scroll(function () {
+                            if ($('.modalblock').get(0).scrollHeight > (($('.modalblock').height() + $('.modalblock').scrollTop()) + 65)) {
+                                $('#mdlFooterClone').addClass('affixed');
+                                $('.model-content .divWorkpad .modal-footer').hide();
+                            }
+                            else {
+                                $('#mdlFooterClone').removeClass('affixed');
+                                $('.model-content .divWorkpad .modal-footer').show();
+                            }
+                        });
+                    }
+                    else {
+                        $('#mdlFooterClone').hide();
+                    }
+                }, 800);
+            }
+           
+            function chkSearchResults() {
+                var vrViewText ='';
+                if ($('.result_msg table tbody tr').length <= 2) {
+                    $('.result_msg table tbody tr').each(function(index,value){
+                        if(index==0)
+                        {
+                            value.innerHTML = value.innerHTML.replace(/<a/g , "<a onClick='javascript:return false;'");
+                            value.innerHTML = value.innerHTML.replace(/darkblue/g , "gray");
+                        }
+                        else {
+                            var vrShowTextIndex = value.innerHTML.indexOf("Show All");
+                            if(vrShowTextIndex>0){
+                                vrViewText = $(value).html().split("'")[1];
+                            }
+							isShowAll = true;
+                            var vrA = "<a onClick='SetHomeBreadcrumb(this,\""+vrViewText+"\")'";
+                            value.innerHTML = value.innerHTML.replace(/<a/g , vrA);
+                        }
+                    });
+                }
+                else
+                {
+                    $('.result_msg table tbody tr').each(function(index,value){
+                        var vrShowTextIndex = value.innerHTML.indexOf("Show All");
+                        if(vrShowTextIndex>0){
+                            vrViewText = $(value).html().split("'")[1];
+                        }
+						
+                        var vrA = "<a onClick='SetHomeBreadcrumb(this,\""+vrViewText+"\")'";
+                        value.innerHTML = value.innerHTML.replace(/<a/g , vrA);
+                    });
+                }
+            }
+            //moti mashia need to be fix.
+            function SetHomeBreadcrumb(elem, vrViewText) {  
+                var vrBrL0='';
+                var vrBrL1 = '';
+                  //create cookies for document viewer add by Moti Mashiah 
+                if (elem.href.split('//')[1].split('/')[1] == "DocumentViewer") {
+                    setCookie("searchInput", $("#txtSearch").val());
+                }
+                $(".drillDownMenu").find("a:contains('"+vrViewText+"')").each(function(index,value){
+                    if(value.id.indexOf('AL')==0 && (index==0||index==1))
+                    {
+                        vrBrL0 = $('#'+value.id).parent().parent().parent().find('a')[0].id;
+                        vrBrL1 = value.id;
+                        setCookie('hdnMenuIds',vrBrL0 + '|' + vrBrL1 ,1);
+                    }
+                    if(value.id.indexOf('FAL')==0 && index==0)
+                    {
+                        vrBrL1 = $('#'+value.id).parent().parent().parent().find('a')[0].id;
+                        vrBrL0 = $('#'+vrBrL1).parent().parent().parent().find('a')[0].id;
+                        setCookie('hdnMenuIds',vrBrL0 + '|' + vrBrL1 ,1);
+                    }
+                });
+         		if (elem.innerText === 'Show All') {                    
+                    $('#divmenuloader').removeClass("loaderMain-wrapper");
+                    if (!$("#divmenuloader").hasClass("loaderMain-search-wrapper"))
+                        $('#divmenuloader').addClass("loaderMain-search-wrapper");
+                    $('#divmenuloader').show();
+                    $('.modal .fade').modal('show');
+                }
+                else {
+                    if (!$("#divmenuloader").hasClass("loaderMain-wrapper"))
+                        $('#divmenuloader').addClass("loaderMain-wrapper");
+                    $('#divmenuloader').removeClass("loaderMain-search-wrapper");
+                    $('#divmenuloader').hide();
+                }
+                delCookie('hdnMenuIdsOld');
+            }
+
+            function LoadQueryWindow(mnuId, id, url) {  
+                localStorage.setItem("viewId", id); 
+                setCookie('hdnMenuIdsOld',getCookie('hdnMenuIds'));
+                var L0 = $('#'+mnuId.id).parent().parent().parent().parent().parent().find('a')[0].id;
+                var L1 = $('#'+mnuId.id).parent().parent().parent().find('a')[0].id;
+                setCookie('hdnMenuIds',L0 + '|' + L1 + '|' + mnuId.id,1);    
+                if(id!=''){    
+                    //Start MyQueries :Added by Milan Patel -----------------
+                    if(id.indexOf('_') > 0)
+                    {
+                        setCookie('hdnMenuIds',L1 + '|' + mnuId.id,1);
+                        var ids = id.split('_');                        
+                        //$("#hdnmyQueriesId").val(ids[1]);
+                        $("#hdnviewId").val(ids[0]); // Added value from array after spliting viewid
+                        setCookie("myQueryValue",ids[1]);
+                        setCookie("SavedCriteriaType",ids[1]+"_"+ids[2]);
+                        setCookie("myQueryName",mnuId.innerText);                        
+                        if(ids[2]=='1')
+                        {
+                            $("#hdnBreadCrumbsClick").val('1');
+                            setCookie("myQueryValue",-1);
+                            setCookie("myQueryName",'');
+                        }
+                        else
+                            $("#hdnBreadCrumbsClick").val('0');
+                    }
+                    else
+                    {
+                        //$("#hdnmyQueriesId").val(0);
+                        $("#hdnviewId").val(id);
+                        setCookie("myQueryValue",0);
+                        setCookie("myQueryName",'');
+                        setCookie("SavedCriteriaType",'');
+                        $("#hdnBreadCrumbsClick").val('0');
+                    }                   
+                    //End MyQueries :Added by Milan Patel----------------------                    
+                    
+                    //$("#hdnviewId").val(id);
+                    $("#btnitem").click();                    
+                }
+                if(url != undefined && url!= '')
+                {
+                    window.location = url;
+                }
+                else
+                {
+                    var path = window.location.pathname;
+                    var page = path.split("/").pop();
+                    if(page=="tabquik.aspx" || page=="AuditReport.aspx")
+                        window.location="data.aspx";
+                }                
+            }
+            //'''Changed by Ritesh - Start
+            function LoadQueryWindowBreadCrumbs(id)
+            {                
+                $("#hdnBreadCrumbsClick").val(1);
+                if(id!=''){
+                    $("#hdnviewId").val(id);
+                    $("#btnitem").click();
+                }
+            }
+            //'''Changed by Ritesh - End
+            function CheckForLinkPermission(){          
+                var IsAccessAllowed = false;
+                $.ajax({
+                    type: "POST",
+                    url: 'Admin/ValidateApplicationLink',                    
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    data: JSON.stringify({pModuleNameStr:'Label Integration'}),
+                    async: false,
+                    success: function(response){                        
+                        if(response == "1"){
+                            IsAccessAllowed = true;
+                        }
+                        else{
+                            alert('@Languages.get_Translation("msgMainMasterAccessRightsForLabelMng").Replace("'", "\'")');                            
+                            IsAccessAllowed = false;
+                        }
+                    },
+                    failure: function(response) {
+                        alert(response.d);
+                    }
+                });
+                return IsAccessAllowed;
+            }
+            function pageLoad()
+            {
+                var manager = Sys.WebForms.PageRequestManager.getInstance();
+                //manager.add_endRequest(OnEndRequest);
+                manager.add_beginRequest(OnBeginRequest);
+                if (ie!='lte8') {
+                    if($("tr.tableFloatingHeaderOriginal").length==0)
+                    {
+                        MakeFloatingHeader();
+                    }
+                }
+                //alert(document.activeElement);
+                if(document.activeElement!=null)
+                {
+                    //alert(document.activeElement.toString());
+                    if(document.activeElement.toString()!='[object HTMLInputElement]')
+                        $('#ctl00_txtSearch').focus();
+                }
+                else
+                    $('#ctl00_txtSearch').focus();
+                $('.menuLoadShow').each(function() {
+                    $(this).show();
+                });
+            }
+            function OnBeginRequest(sender, args)
+            {
+                var postBackElement = args.get_postBackElement();
+                if(postBackElement != undefined){
+                    if (postBackElement.id.indexOf('btnSearch')>-1)
+                    { 
+                        $get('ctl00_DialogProgress').style.display = "block";  
+                    }
+                }
+            }
+
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-33627844-1']);
+            _gaq.push(['_trackPageview']);
+            
+         
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+            function InitializeRequest(sender, args) {
+                if (!(args._postBackElement == null)) {
+                    if (args._postBackElement.id === 'Dialog_Search_imgClose') {
+                        $('#divmenuloader').hide();
+                    }
+                }
+            }
+
+            function EndRequest(sender, args) {
+                // after update occur on UpdatePanel re-init the Autocomplete
+                globalSearch();
+            }
+            function globalSearch() {
+                $("input[id$=txtSearch]").autoComplete({
+                    source: function (term, suggest) {
+                        term = term.toLowerCase();
+                        $.ajax({
+                            url: 'Data.aspx/globalSearchResult',
+                            //data: "{ 'prefix': '" + request.term + "'}",
+                            dataType: "json",
+                            type: "POST",
+                            contentType: "application/json; charset=utf-8",
+                            success: function (data) {
+                                var choices = data.d;
+                                var suggestions = [];
+                                for (i = 0; i < choices.length; i++)
+                                    if (~choices[i].toLowerCase().indexOf(term)) suggestions.push(choices[i]);
+                                suggest(suggestions);
+                            }
+                        });
+                       
+                    },
+                    minChars: 0
+                });
+            }
+
+            var vrClientsRes = [];
+
+            $(document).ready(function() { 
+
+                //Start AboutUs :Added by Milan Patel----------------------
+                $('#lbAboutUs').click(function(){                    
+                    $.ajax({
+                        type: "POST",
+                        url: 'Admin/OpenAboutUs',                    
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",                        
+                        async: false,
+                        success: function (response) {                            
+                            var msg = response;                                                    
+                            $('#divAboutInfo').html(msg);
+                            $('#dialog-form-AboutUs').modal('show');
+                            $("#dialog-form-AboutUs .modal-dialog").draggable({ disabled: true });
+                        },
+                        failure: function(response) {
+                            return false;
+                        }
+                    });
+                });
+                //End AboutUs :Added by Milan Patel----------------------
+
+                $(".notification-container").click(function(){
+                    $(".notification-counter").html("");
+                    $(".notification-counter").removeAttr("style");
+                });                               
+                setTimezoneCookie();
+                $(".divMenu").mCustomScrollbar();
+
+                var prm = Sys.WebForms.PageRequestManager.getInstance();
+                prm.add_initializeRequest(InitializeRequest);
+                prm.add_endRequest(EndRequest);
+
+                // Place here the first init of the autocomplete
+                globalSearch();
+
+             
+                $('.tastk_list').click(function(){
+                    setCookie("hdnMenuIds","");
+                });
+                $('.drillDownMenu').linkesDrillDown({cookieName:null,menuLevel:3});
+                $(".rightdrildown").click(function () {
+                    $(this).addClass("rightdrildown_add");
+                });
+
+                $("#menu-toggle").click(function (e) {
+                    e.preventDefault();
+                    $("#wrapper").toggleClass("toggled");
+                    var vrToggleIcon = $(this).find('i');
+                    if(vrToggleIcon.hasClass('fa-chevron-left')){
+                        vrToggleIcon.removeClass('fa-chevron-left').addClass('fa-chevron-right');
+                    }
+                    else{
+                        vrToggleIcon.removeClass('fa-chevron-right').addClass('fa-chevron-left');
+                        $('#divmenuloader').hide();
+                    }
+                });
+
+                //Start MyQueries :Added by Milan Patel----------------------
+                if(getCookie('myQueryValue')!= null && getCookie('myQueryValue') != undefined && getCookie('myQueryValue') > 0){                    
+                    
+                    $('#ContentPlaceHolder1_divMyQueryDelete').css('display','inline-block'); 
+                    
+                    if(getCookie("SavedCriteriaType")!= null && getCookie('SavedCriteriaType') != undefined)
+                    {
+                        var val = getCookie("SavedCriteriaType").split('_')[1];
+                        if(val==="0")
+                        {
+                            $('#ContentPlaceHolder1_divMyQueryDelete').attr("data-toggle","tooltip");    
+                            $('#ContentPlaceHolder1_divMyQueryDelete').attr("data-original-title",'<%= Languages.Translation("tooltipDeleteQuery") %>');    
+                            //$('#ContentPlaceHolder1_divMyQueryDelete').attr("data-original-title","Delete My Query");    
+                        }
+                    }
+
+                    if (getCookie('hdnMenuIds') != undefined) {
+                        var menuid = getCookie('myQueryName');
+                        $('#divMenu').find('.MyQuery_Fav:first').find("a").each(function () {
+                            if ($(this).text() == menuid) {
+                                var id = $(this).attr("id");
+                                var hdnMenuIds = getCookie('hdnMenuIds');
+                                var selectMyQueryMenu = hdnMenuIds.split('|');
+                                if(selectMyQueryMenu[0] + "|" + id != hdnMenuIds)
+                                {
+                                    setCookie('hdnMenuIds', selectMyQueryMenu[0] + '|' + id, 1);
+                                }
+                            }
+                        })
+                    }
+                }
+                if(getCookie('myQueryValue') == -1)
+                {
+                    $('#ContentPlaceHolder1_divMyQueryDelete').attr("data-toggle","tooltip");    
+                    $('#ContentPlaceHolder1_divMyQueryDelete').attr("data-original-title",'<%= Languages.Translation("tolltipDeleteFavorite") %>');  
+                    //$('#ContentPlaceHolder1_divMyQueryDelete').attr("data-original-title","Delete My Favorite");    
+                }
+                
+                //End MyQueries :Added by Milan Patel----------------------
+
+                if(getCookie('hdnMenuIds')!= null && getCookie('hdnMenuIds') != undefined){
+                    var vrBreadcrumb = "<li><a href='#'>"+'<%= Languages.Translation("mnuAdminHome") %>'+"</a></li>";
+                    var vrArr =getCookie('hdnMenuIds').split('|');
+                    $.each(vrArr, function( index, value ) {
+                        vrBreadcrumb+= "<li class='glyphicon glyphicon-menu-right'><a href='#'>"+$('#'+value).text()+"</a></li>";
+                        if((vrArr.length-1)>index){
+                            if(value!="undefined"){
+                                if(value.toString().indexOf('FAL') == -1){
+                                    $('#'+value).trigger('click');
+                                }
+                            }
+                        }
+                        if((vrArr.length-1)==index){
+                            $('#'+value).addClass('selectedMenu');
+                        }
+                    });
+                   
+                }
+                if(localStorage.getItem('vrClientsRes')== undefined ||localStorage.getItem('vrClientsRes')==null)
+                {
+                    getLanguageText(); 
+                }
+                else
+                {
+                    vrClientsRes = JSON.parse(localStorage.getItem('vrClientsRes'));
+                    if(getCookie(vrClientsRes["currentUserName"])== null || (getCookie(vrClientsRes["currentUserName"])!= null && getCookie(vrClientsRes["currentUserName"]).indexOf(vrClientsRes["cultureKey"])==-1))
+                    {
+                        getLanguageText(); 
+                    }
+                }
+            });
+
+            function ValidateMyQueryName(e) {
+                var name = $('#txtTitle').val();
+                if (typeof (name) === 'undefined') {
+                    return false;
+                } 
+                $.ajax({
+                    type: "POST",
+                    url: 'data.aspx/ValidateMyQueryName',                    
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    data: JSON.stringify({ queryName: name, isTitleChanged: $('#hdnTitle').val() }),
+                    async: false,
+                    success: function (response) {
+                        var msg = response.d;                             
+                        if (msg=="") {
+                            return true;
+                        }
+                        else if(msg=="My Query name should not be blank.")
+                        {
+                            var menuid = getCookie('myQueryName');
+                            $('#txtTitle').val(menuid);
+                            $('#Dialog_Query_lblTitle').text(menuid);                                
+                            $('#toast-container').fnAlertMessage({title:'',msgTypeClass:'toast-warning', message:msg,timeout:2000});                                
+                            e.preventDefault();
+                            return false;
+                        }
+                        else {
+                            $('#toast-container').fnAlertMessage({title:'',msgTypeClass:'toast-warning', message:msg,timeout:2000});                                
+                            e.preventDefault();
+                            return false;
+                        }
+                    },
+                    failure: function(response) {
+                        $('#toast-container').fnAlertMessage({title:'',msgTypeClass:'toast-warning', message:'Unknown Error',timeout:2000});                                
+                        e.preventDefault();
+                        return false;
+                    }
+                });
+            }
+
+            function getLanguageText() {
+                $.ajax({
+                    type: "POST",
+                    url: "Data.aspx/GetClientResourceKeys",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        vrClientsRes = response.d;
+                        localStorage.setItem('vrClientsRes',JSON.stringify(vrClientsRes));
+                        $('#hdnmsgSearchResultsAreAvailable').val(vrClientsRes["msgSearchResultsAreAvailable"]);
+                        $('#hdnmsgSearchResultIsAvailable').val(vrClientsRes["msgSearchResultIsAvailable"]);
+                        console.log(vrClientsRes + "this is me");
+                    },
+                    failure: function (response) {},
+                    error: function (xhr, status, error) {}
+                });
+            }
+            function SetHideShowText(sel)
+            {
+                var result = sel.text().split(" ");
+                if (result[result.length - 1] == "[+]")
+                    sel.text(vrClientsRes["Hide"]+" [-]");
+                else
+                    sel.text(vrClientsRes["Show"]+" [+]");
+            }
+            function setTimezoneCookie() {
+                var timezone_cookie = "timezoneoffset";
+
+                // if the timezone cookie not exists create one.
+                if (!$.cookie(timezone_cookie)) {
+                    // check if the browser supports cookie
+                    var test_cookie = 'test cookie';
+                    $.cookie(test_cookie, true);
+
+                    // browser supports cookie
+                    if ($.cookie(test_cookie)) {
+
+                        // delete the test cookie
+                        $.cookie(test_cookie, null);
+
+                        // create a new cookie 
+                        $.cookie(timezone_cookie, new Date().getTimezoneOffset());
+                        // re-load the page
+                        //location.reload();
+                    }
+                }
+                    // if the current timezone and the one stored in cookie are different
+                    // then store the new timezone in the cookie and refresh the page.
+                else {
+                    var storedOffset = parseInt($.cookie(timezone_cookie));
+                    var currentOffset = new Date().getTimezoneOffset();
+                    // user may have changed the timezone
+                    if (storedOffset !== currentOffset) {
+                        $.cookie(timezone_cookie, new Date().getTimezoneOffset());
+                        //location.reload();
+                    }
+                }
+            }
+            function MakeFloatingHeader(){
+                $("table.tableWithFloatingHeader").each(function() {
+                    //$(this).wrap("<div class=\"divTableWithFloatingHeader\" style=\"position:absolute\"></div>");
+                
+                    var originalHeaderRow = $("tr:first", this);
+                    $("div.ft_rel_container").each(function() {
+                        var tableTmpl= function () {
+                            return '<table />';							
+                        }
+                    
+                        originalHeaderRow.before(originalHeaderRow.clone());
+                        var clonedHeaderRow = $("tr:first", this);
+                        clonedHeaderRow.addClass("tableFloatingHeader");
+                        clonedHeaderRow.css("position", "absolute");
+                        clonedHeaderRow.css("top", "1px");
+                        clonedHeaderRow.css("left", "1px");
+                        //clonedHeaderRow.css("right", "20px");
+                        //clonedHeaderRow.css("visibility", "hidden");
+
+                        originalHeaderRow.addClass("tableFloatingHeaderOriginal");
+                        $(this).prepend((tableTmpl, {'class': 'ft_r ui-widget-header'}));
+                        $(this).append(clonedHeaderRow);
+                        var fixedCols=0;
+                        UpdateTableHeaders();
+                        $("div.ft_scroller").scroll(function () {
+				
+                            if (fixedCols > 0) {
+                                clonedHeaderRow.css('top', ($(this).scrollTop()*-1));
+                            }
+                            clonedHeaderRow.css('left', ($(this).scrollLeft()*-1)+1);
+                        });
+                        $(window).resize(function () {
+				
+                            if (fixedCols > 0) {
+                                clonedHeaderRow.css('top', ($(this).scrollTop()*-1));
+                            }
+                            clonedHeaderRow.css('left', ($(this).scrollLeft()*-1)+1);
+                            UpdateTableHeaders();
+                        });
+                    });
+                    /* */
+                });
+            }
+            function UpdateTableHeaders() { 
+                $("div.ft_rel_container").each(function() {
+                    var originalHeaderRow = $(".tableFloatingHeaderOriginal", this);
+                    var floatingHeaderRow = $(".tableFloatingHeader", this);
+                    var first=1;
+                    var offset = $(this).offset();
+              
+                    // Copy cell widths from original header
+                    $("th", floatingHeaderRow).each(function(index) {
+                        var cellWidth;
+                        if(first==1)
+                        {
+                            cellWidth = $("th", originalHeaderRow).eq(index).css('width');
+                            $(this).css('width', (parseInt(cellWidth)+2)+"px");
+                            first=0;
+                        }
+                        else
+                        {
+                            cellWidth = $("th", originalHeaderRow).eq(index).css('width');
+                            $(this).css('width', cellWidth);
+                        }
+                    });
+
+                    // Copy row width from whole table
+                    var w=parseInt(originalHeaderRow.css("width"));
+                    floatingHeaderRow.css("width", (w+10)+"px");
+                   
+                    var h=parseInt(floatingHeaderRow.css("height"));
+                   
+                    //floatingHeaderRow.css("height", (h-2)+"px");
+                    originalHeaderRow.css("min-height",(h)+"px");
+                });
+            }
+            function modalPopupAsuncClose(){$('.modal').modal('hide');$('.modal-backdrop').remove()}
+                    
+            //Added by hasmukh for date format
+            function getDatePreferenceCookieForMoment() {
+                var vUserName = $.cookie('lastUsername');
+                if ($.cookie(vUserName)) {
+                    var dateFormat = 'mm/dd/yy';
+                    var readCookie = $.cookie(vUserName);
+                    readCookie = readCookie.split('&');
+                    for (i = 0; i < readCookie.length; i++) {
+                        var readCookieArray = readCookie[i].split('=');
+                        if (readCookieArray[0] == 'PreferedDateFormat') {
+                            dateFormat = readCookieArray[1];
+                        }
+                    }
+                    return dateFormat;
+                }
+                return undefined;
+            }
+            function fnImportFavorite_FileOpen()
+            {
+                $('#fileSource').val("");
+                $('#fileSource').off('change').change(function () {
+                    var Tempfile = document.getElementById('fileSource').files[0];
+                    var fileName = Tempfile["name"];
+                    $('#'+$('#fileSource').parent().parent().find('[id*=InputFileName]').attr('id')).val('');
+                    var extensionArray = fileName.split(".");
+                    var extensionLength = extensionArray.length;
+                    var extension = null;
+                    if (extensionLength !== 0 && extensionLength !== 1)
+                        extension = extensionArray[extensionLength - 1];
+                    if (extension == null || extension == "") {
+                        extension = "txt";
+                    }
+                    extension = extension.trim().toLowerCase();
+                    var extArray = ["txt", "csv", "xls", "xlsx"];
+                    var allowFlag = jQuery.inArray(extension, extArray);
+                    if (allowFlag == -1) {
+                        $('#toast-container').fnAlertMessage({title:'',msgTypeClass:'toast-warning', message:'Please select txt, csv, xls, xlsx file.',timeout:2000});
+                        return false;
+                    }
+                    else
+                    {
+                        $('#'+$('#fileSource').parent().parent().find('[id*=InputFileName]').attr('id')).val(fileName);
+                        var d = $(this).next('[id*=btnUpload]').length;
+                        var fileUpload = $("#fileSource").get(0);
+                        var files = fileUpload.files;
+
+                        var data = new FormData();
+                        for (var i = 0; i < files.length; i++) {
+                            data.append(files[i].name, files[i]);
+                        }
+                        var sURL= "ImportFileHandler.ashx?chkRowField="+$('#chk1RowFieldNames').is(':checked');
+                        if (extension=='txt') {
+                            sURL+="&del=tab";
+                        }
+                        else if(extension=='csv'){
+                            sURL+="&del=comma";
+                        }
+                        document.cookie = 'SourceCol=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+                        $.ajax({ 
+                            type: "POST",
+                            url: sURL,
+                            data: data,
+                            processData: false,
+                            contentType: false,
+                            async: false,
+                            success: function (data, status) {   
+                                var arrData = $.parseJSON(data);
+                                var vrRadio = "";
+                                for (var i = 0; i < arrData.length; i++) {
+                                    vrRadio+="<div class='radio'><input type='radio' onclick='fnSelectedSourceCol(this)' name='optRadio' id='"+i.toString()+"' ><label for='"+i.toString()+"'>"+arrData[i][0]+"</label></div>";
+                                }
+                                $('[id*=rblSourceCol1]').html('');
+                                $('[id*=rblSourceCol1]').append(vrRadio);
+                                $('[id*=aReport]').hide();
+                                $('[id*=btnImportFavRecord]').removeAttr('disabled');
+                            }
+                        });  
+                    }
+                });
+                $("#fileSource").click();
+            }
+            function fnSelectedSourceCol(obj){
+                $('[id*=btnImportFavRecord]').removeAttr('disabled');
+                setCookie('SourceCol',obj.id,1);
+            }
+
+            //Start : Added by Hasmukh for confirmation box
+            function confirmClient(heading, question, cancelButtonTxt, okButtonTxt, callback) {
+                var confirmModal =
+                    $('<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">' +
+                        '<div class="modal-dialog">' +
+                            '<div class="modal-content">' +
+                                '<div class="modal-header">' +
+                                    '<h3>' + heading + '</h3>' +
+                                '</div>' +
+                                '<div class="modal-body">' +
+                                    '<p>' + question + '</p>' +
+                                '</div>' +
+                                '<div class="modal-footer">' +
+                                    '<button type="button" class="btn btn-default" data-dismiss="modal">' +
+                                    cancelButtonTxt + '</button>' +
+                                    '<a href="#" id="okButton" class="btn btn-danger btn-ok">' +
+                                  okButtonTxt +
+                                '</a>' +
+                                '</div>' +
+                            '</div>' +
+                        '</div>' +
+                    '</div>');
+
+                confirmModal.find('#okButton').click(function (event) {
+                    var fn = window[callback];
+                    fn();
+                    confirmModal.modal('hide');
+                });
+                //confirmModal.ShowModel();
+                confirmModal.modal({ show: true, keyboard: false, backdrop: 'static' });
+            };
+            
+            //End : Added by Hasmukh for confirmation box
+            function CheckFullTextEnabled(event)
+            {                              
+                var isFullTextSearchEnabled = false;
+
+                $.ajax({
+                    type: "POST",
+                    async: false,
+                    url: "Data.aspx/IsTableHasActiveFulltextIndex",                    
+                    data: '{sTableName: "SLIndexer"}',
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {                        
+                        var res = JSON.parse(response.d)
+                        if (res.errortype == 's')
+                            isFullTextSearchEnabled = true;
+                        else if (res.errortype == 'e')
+                            $('#toast-container').fnAlertMessage({ title: '', msgTypeClass: 'toast-error', message: res.message, timeout: 2500 });
+                        else if (res.errortype == 'w')                            
+                            $('#toast-container').fnAlertMessage({ title: '', msgTypeClass: 'toast-warning', message: res.message, timeout: 2500 });                            
+                        
+                    },
+                    failure: function (response) { },
+                    error: function (xhr, status, error) { }
+                });                
+                //if (isFullTextSearchEnabled && event.target.id != "btnDefaultSearch") $('#hdnBtnSearch').click();
+                if (isFullTextSearchEnabled) $('#hdnBtnSearch').click();
+                return isFullTextSearchEnabled;
+            }
+
+            //Start : Added by Hasmukh for Delete records from Favourite List
+
+            function DeleteFavouriteRecords()
+            {
+                $.ajax({
+                    type: "POST",
+                    url: "Data.aspx/DeleteRecordsFromFavourite",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        var res = JSON.parse(response.d)
+                        if(res.errortype=='e')
+                            $('#toast-container').fnAlertMessage({title:'',msgTypeClass:'toast-error', message:res.message,timeout:2000});
+                        else if (res.errortype == 'w')
+                            $('#toast-container').fnAlertMessage({title:'',msgTypeClass:'toast-warning', message:res.message,timeout:2000});
+                        else
+                        {
+                            $('#toast-container').fnAlertMessage({title:'',msgTypeClass:'toast-success', message:res.message,timeout:2000});
+                            var hdnMenuIds = getCookie('hdnMenuIds').split('|');
+                            var idname = hdnMenuIds[hdnMenuIds.length-1];
+                            setTimeout(function () { LoadQueryWindow($("#" + idname)[0],res.strMenuIds);  }, 2000);
+                        }
+                    },
+                    failure: function (response) {},
+                    error: function (xhr, status, error) {}
+                });
+            }
+
+            //End : Added by Hasmukh for Delete records from Favourite List
+        </script>
+        <script type="text/javascript">
+            (function ( $ ) {
+                $.fn.fnAlertMessage = function( options ) {        
+                    var settings = $.extend({
+                        title: "Success",
+                        message: "Message",
+                        timeout:3000,
+                        msgTypeClass:'toast-success'//toast-warning
+                    }, options );
+                    return this.each(function(){
+                        $('#'+this.id).fadeIn(settings.timeout/2).fadeOut(settings.timeout*3);
+                        $('#'+this.id).find('.toast-title').html(settings.title);
+                        $('#'+this.id).find('.toast-message').html(settings.message);
+                        $('#toast-container').find('.toast').removeClass('toast-success').removeClass('toast-error').removeClass('toast-warning').addClass(settings.msgTypeClass);
+                    });
+                };
+ 
+            }( jQuery ));
+            (function ($) {
+                $.fn.hasScrollBar = function () {
+                    return this.get(0).scrollHeight > this.height();
+                }
+            })(jQuery);
+        </script>
+
+</head>
+<body id="MasterBody" runat="server">
+    <input type="hidden" id="hdnHomeVal" value="@Languages.get_Translation("mnuAdminHome")" />
+    <div id="toast-container" class="toast-top-center" style="display: none;">
+        <div class="toast toast-success">
+            <div class="toast-title"></div>
+            <div class="toast-message"></div>
+        </div>
+    </div>
+    <div id="form1" runat="server" style="position: absolute; top: 0px; bottom: 0px; left: 0px; right: 0px; min-height: 500px;" enctype="Multipart/Form-Data">
+        <input type="hidden" id="hdnMenuIds" value="0"/>
+        <input type="hidden" id="hdnmsgSearchResultsAreAvailable" value="0"/>
+        <input type="hidden" id="hdnmsgSearchResultIsAvailable" value="0"/>
+
+       @* <ajax:ToolkitScriptManager ID="tsm" runat="server" EnableScriptGlobalization="false" 
+        EnableScriptLocalization="false" EnablePartialRendering="true" AsyncPostBackTimeout="36000">
+    </ajax:ToolkitScriptManager>*@
+        <nav class="navbar navbar-default navbar-fixed-top tab-nave" id="AdminMenu" runat="server" style="display:none">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only"><%= Languages.Translation("lsgTogglenavigation") %></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="Data.aspx">
+                        <img src="/Images/logo.png" width="" height="" alt="Tab Fusion" class="img-responsive" /></a>
+                </div>
+
+                <div class="collapse navbar-collapse navbar-right tab-menu" id="bs-example-navbar-collapse-1">
+                    @*<ul class="nav navbar-nav">
+                        <li>
+                            <asp:HyperLink ID="hlBackgroundStatus" CssClass="notification-container" runat="server" Text="Background Status" Target="BackgroundStatus" NavigateUrl="~/BackgroundStatus"><%= Languages.Translation("lblMSGExportBackgroundStatus")%></asp:HyperLink>
+                            <span class="notification-counter" runat="server" id="spanBackgroundStatusNotification"></span>
+                        </li>
+                        <li>
+                            <asp:HyperLink ID="hlAdmin" runat="server" Text="Admin" Target="Admin" NavigateUrl="~/Admin"><%= Languages.Translation("Admin")%></asp:HyperLink></li>
+                        <li>
+                            <asp:HyperLink ID="hlLabelManager" runat="server" Text="Label Manager" Target="Label" NavigateUrl="~/LabelManager" onclick="return CheckForLinkPermission();"><%= Languages.Translation("LabelManager")%></asp:HyperLink></li>
+                        <li>
+                            <asp:HyperLink ID="hlLabelDashboard" runat="server" Text="Dashboard" Target="Label" NavigateUrl="~/Dashboard" onclick="return CheckForLinkPermission();"><%= Languages.Translation("LabelDashboard")%></asp:HyperLink></li>
+                        <li>
+                            <asp:HyperLink ID="hlScanner" runat="server" Text="Scanner" Target="Scanner" NavigateUrl="~/Scanner"><%= Languages.Translation("Scanner")%></asp:HyperLink></li>
+                        <li>
+                            <asp:HyperLink ID="hlImport" runat="server" Text="Import" Target="Import" NavigateUrl="~/Import"><%= Languages.Translation("Import")%></asp:HyperLink></li>
+                        <li>
+                            <asp:HyperLink ID="hlTasks" runat="server" Text="Tasks" NavigateUrl="handler.aspx?workgroup=1"><%= Languages.Translation("Tasks")%></asp:HyperLink></li>
+                        <li>
+                            <asp:LinkButton ID="lbTools" runat="server" Text="Tools" OnClientClick="modalPopupAsync()"><%= Languages.Translation("Tools")%></asp:LinkButton></li>
+                        <%-- <li>
+                            <asp:HyperLink ID="hlTracking" runat="server" Text="Tracking" NavigateUrl="barcodetracking.aspx" Target="Tracking"><%= Languages.Translation("Tracking")%></asp:HyperLink></li>--%>
+                        <li>
+                            <asp:HyperLink ID="hlTracking" runat="server" Text="Tracking" Target="BarcodeTracker" NavigateUrl="~/BarcodeTracker/Index"><%= Languages.Translation("Tracking") %></asp:HyperLink></li>
+                        <li>
+                            <asp:HyperLink ID="hlHelp" runat="server" Text="Help"><%= Languages.Translation("Help")%></asp:HyperLink></li>
+                        <li>
+                            <asp:LinkButton ID="lbAboutUs" runat="server"><%= Languages.Translation("About")%></asp:LinkButton></li>
+                        <li>
+                            <asp:HyperLink ID="hlSignout" runat="server" Text="Sign Out" NavigateUrl="logout.aspx"><%= Languages.Translation("SignOut")%></asp:HyperLink></li>
+                    </ul>*@
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+        <nav class="navbar navbar-default navbar-fixed-top tab-nave" id="ShowOnlyLogo" style="display:none">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">@Languages.get_Translation("lsgTogglenavigation")</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="Data.aspx">
+                        <img src="/Images/logo.png" alt="Tab Fusion" class="img-responsive" /></a>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+        <!--Search-->
+        <div id="wrapper">
+            <!-- left panel start -->
+            @*<div class="sidebar-wrapper" id="divSearch" runat="server">
+                <asp:UpdatePanel ID="upserch" runat="server">
+                    <ContentTemplate>
+                        <div class="search_box_main l_drillDownWrapper" id="divSearchContent" runat="server">
+                            <asp:Panel runat="server" DefaultButton="btnDefaultSearch" ID="pnlSearch">
+                                <div id="divCustomSearch1" class="input-group search_box">
+                                    <asp:TextBox ID="txtSearch" runat="server" Visible="false" AutoCompleteType="Search" MaxLength="256" CssClass="form-control"
+                                        ToolTip="Searches all views in the database for matching words."></asp:TextBox>
+                                    <span class="input-group-btn">
+                                        <button runat="server" type="button" id="btnSearch" title="Search" ValidationGroup="Search" onclick="CheckFullTextEnabled(event);" class="btn btn-default glyphicon glyphicon-search"></button>
+                                        <asp:Button ID="hdnBtnSearch" UseSubmitBehavior="false" runat="server" style="display:none;" ValidationGroup="Search" OnClick="btnSearch_Click"></asp:Button>
+                                    </span>
+                                    <div id="search_info"></div>
+                                </div>
+                            <asp:Button Id="btnDefaultSearch" UseSubmitBehavior="false" runat="server" style="display:none;" ValidationGroup="Search" OnClick="btnSearch_Click" OnClientClick="return CheckFullTextEnabled(event);"/>                            
+                            </asp:Panel>
+                            <asp:RequiredFieldValidator runat="server" id="reqSearchText" ValidationGroup="Search" Font-Size="12px" ControlToValidate="txtSearch" ErrorMessage="*" ForeColor="Red" Font-Bold="true" />
+                            <div class="input-group checkbox search_checkbox m-t-5">
+                                <asp:CheckBox ID="chkAttachments" Checked="false" runat="server" Text="Include attachments" ToolTip="Search attachment text" Visible="False" />
+                            </div>
+
+                            <div class="input-group checkbox search_checkbox">
+                                <asp:CheckBox ID="chkQuick" Checked="false" runat="server" Text="Current table only" ToolTip="Only search current table" />
+                            </div>
+
+                            <div class="input-group checkbox search_checkbox">
+                                <asp:CheckBox ID="chkNode" Checked="false" runat="server" Text="Under this row only" ToolTip="Only search for items under the selected item" />
+                            </div>
+                        </div>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+                <asp:UpdateProgress ID="upsearch" runat="server" AssociatedUpdatePanelID="upserch" DynamicLayout="true">
+                    <ProgressTemplate>
+                        <div class="loaderMain-wrapper">
+                            <div class="loaderMain"></div>
+                        </div>
+                    </ProgressTemplate>
+                </asp:UpdateProgress>
+                <div id="divMenu" class="divMenu" runat="server"></div>
+
+                <a href="#menu-toggle" class="toggle_btn" id="menu-toggle"><i class="fa fa-caret-left" id="left-panel-arrow"></i></a>
+
+                <div style="visibility: hidden">
+                    <asp:HiddenField ID="hdnviewId" runat="server" Value="51" />
+                    <asp:HiddenField ID="hdnBreadCrumbsClick" runat="server" Value="0" />
+                    <asp:Button ID="btnitem" Visible="true" runat="server" Text="Menu"/>
+                </div>
+            </div>*@
+            <div id="page-content-wrapper">
+
+                @*<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>*@
+
+                @RenderBody()
+
+            </div>
+        </div>
+        @*<div id="divContent">
+            <div id="DialogUpdate">
+                <ContentTemplate>
+                    <tab:DialogBox ID="Dialog" runat="server" Visible="false" />
+                </ContentTemplate>
+                <Triggers>
+                    <asp:AsyncPostBackTrigger ControlID="lbTools" EventName="Click" />
+                    <asp:AsyncPostBackTrigger ControlID="lbAboutUs" EventName="Click" />
+                </Triggers>
+            </div>
+        </div>*@
+        <div ID="DialogProgress" style="display:none">
+            <div>
+                <div class="loaderMain-wrapper">
+                    <div class="loaderMain"></div>
+                </div>
+            </div>
+        </div>
+        <div id="divmenuloader" class="loaderMain-wrapper" style="width: 12.5% !important;display:none;">
+            <div class="loaderMain"></div>
+        </div>
+
+        <div class="form-horizontal" id="divAboutInfo">                            
+        </div>        
+    </div>
+</body>
+</html>

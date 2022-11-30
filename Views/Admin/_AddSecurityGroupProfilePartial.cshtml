@@ -1,0 +1,61 @@
+﻿@using TabFusionRMS.Models
+@using TabFusionRMS.Resource
+@model SecureGroup
+
+@*@Using Html.BeginForm(Nothing, Nothing, FormMethod.Post, New With {.id = "frmGroupAddEditScreen", .class = "form-horizontal", .role = "form", .ReturnUrl = ViewData("ReturnUrl")})*@
+<form class="form-horizontal" id="frmGroupAddEditScreen" role="form" method="post" ReturnUrl = '@ViewData["ReturnUrl"]'>
+
+    <div class="modal fade" id="mdlSecurityGroupsAddEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button id="btnClose" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel"><label id="lblSecurityTitlelbl"> @Languages.get_Translation("tiASGPPartialAddNewGrp")</label></h4>
+                </div>
+                <div Class="modal-body">
+                    @Html.HiddenFor((m)=> m.GroupID, new{value = "0"})
+                    <fieldset class="admin_fieldset">
+                        <legend>@Languages.get_Translation("tiASGPPartialGrpProfile")</legend>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="GroupName">@Languages.get_Translation("lblASGPPartialGrpName"):</label>
+                                <div class="col-sm-8">
+                                    @Html.TextBoxFor((m)=> m.GroupName, new{@class = "form-control", placeholder = Languages.get_Translation("lblASGPPartialGrpName"), required = "", autofocus = "", maxlength = "50"})
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="Description">@Languages.get_Translation("Description"):</label>
+                                <div class="col-sm-8">
+                                    @Html.TextAreaFor((m)=> m.Description,new{@class = "form-control", placeholder = Languages.get_Translation("Description"), required = "", autofocus = "", maxlength = "100"})
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="AutoLockSeconds">@Languages.get_Translation("lblASGPPartialAutoLock"):</label>
+                                <div class="col-sm-8">
+                                    @Html.TextBoxFor((m)=> m.AutoLockSeconds,new{@class = "form-control", placeholder = Languages.get_Translation("lblASGPPartialAutoLock"), required = "", autofocus = ""})
+
+                                    @Languages.get_Translation("lblASGPPartialAutoLockMsg")
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="AutoLogOffSeconds">@Languages.get_Translation("lblASGPPartialAutoLogOff") :</label>
+                                <div class="col-sm-8">
+                                    @Html.TextBoxFor((m)=> m.AutoLogOffSeconds, new{@class = "form-control", required = "", autofocus = "", maxlength = "4"})
+
+                                    @Languages.get_Translation("lblASGPPartialAutoLogOffMsg")
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="modal-footer">
+                    <button id="btnSaveSecurityGroup" type="button" class="btn btn-primary">@Languages.get_Translation("Save")</button>
+                    <button id="btnSecurityGroupClose" type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">@Languages.get_Translation("Cancel")</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+</form>

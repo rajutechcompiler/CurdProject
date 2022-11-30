@@ -1,0 +1,512 @@
+@namespace MadCap url(http://www.madcapsoftware.com/Schemas/MadCap.xsd);
+/*<meta />*/
+
+.page_break_before
+{
+	page-break-before: always;
+}
+
+.keep_with_next
+{
+	page-break-after: avoid;
+}
+
+body
+{
+	font-family: Calibri, sans-serif;
+	line-height: 1.2em;
+	font-size: 1em;
+}
+
+p.Contents
+{
+	page-break-after: avoid;
+	page-break-inside: avoid;
+	font-size: 1.5em;
+	font-weight: normal;
+	color: #000000;
+	margin: 0px;
+	margin-bottom: 12px;
+	page-break-before: always;
+}
+
+h1
+{
+	page-break-after: avoid;
+	page-break-inside: avoid;
+	font-weight: normal;
+	margin: 0px;
+	margin-bottom: 15px;
+	font-size: 1.7em;
+	color: #00a1e1;
+}
+
+h2
+{
+	page-break-after: avoid;
+	page-break-inside: avoid;
+	margin: 0px;
+	margin-bottom: 2px;
+	margin-top: 36px;
+	page-break-after: avoid;
+	page-break-inside: avoid;
+	font-weight: normal;
+	font-size: 1.5em;
+	color: #002949;
+}
+
+h3
+{
+	page-break-after: avoid;
+	page-break-inside: avoid;
+	margin: 0px;
+	margin-bottom: 2px;
+	margin-top: 36px;
+	font-weight: normal;
+	color: #002949;
+	font-size: 1.4em;
+}
+
+h4
+{
+	page-break-after: avoid;
+	page-break-inside: avoid;
+	color: #002949;
+	margin-bottom: 2px;
+	font-size: 1.2em;
+	margin-top: 20px;
+	font-weight: normal;
+}
+
+h5
+{
+	page-break-after: avoid;
+	page-break-inside: avoid;
+	color: #002949;
+	margin-bottom: 2px;
+	font-size: 1em;
+	margin-top: 20px;
+	font-weight: normal;
+}
+
+p
+{
+	margin-bottom: 6px;
+	margin-top: 6px;
+}
+
+ol,
+ul
+{
+	margin-bottom: 8px;
+	margin-top: 8px;
+}
+
+li
+{
+	margin-bottom: 3px;
+	margin-top: 3px;
+}
+
+img
+{
+	border: none;
+}
+
+a:link
+{
+	color: #00A1E1;
+}
+
+a:visited
+{
+	color: #818285;
+}
+
+a.Popup
+{
+	
+}
+
+MadCap|expandingHead
+{
+	font-style: italic;
+	font-weight: normal;
+	cursor: hand;
+	text-decoration: none;
+	color: #006600;
+}
+
+MadCap|expandingBody
+{
+	color: #777777;
+	font-style: italic;
+}
+
+MadCap|dropDownHotspot
+{
+	cursor: hand;
+	font-style: italic;
+	text-decoration: none;
+	color: #006600;
+}
+
+MadCap|xref
+{
+	mc-format: '{paratext}';
+	color: #00a1e1;
+}
+
+span.UI
+{
+	font-weight: bold;
+	font-style: normal;
+	color: #696969;
+}
+
+p.TableHead
+{
+	font-weight: bold;
+}
+
+p.TableBody
+{
+	
+}
+
+th
+{
+	font-weight: normal;
+}
+
+p.PrintHeader
+{
+	
+}
+
+p.PrintFooter
+{
+	
+}
+
+p.FrontMatterHeadingFirst
+{
+	font-weight: bold;
+	page-break-before: always;
+	margin-top: 0px;
+}
+
+p.FrontMatterHeading
+{
+	font-weight: bold;
+	margin-top: 12px;
+}
+
+p.FrontMatterBody
+{
+	
+}
+
+MadCap|conditionalText
+{
+	background-color: #a9a9a9;
+}
+
+span.term
+{
+	font-style: italic;
+}
+
+@media print
+{
+	body
+	{
+		mc-hyphenate: never;
+		line-height: 1em;
+		font-size: 10pt;
+		font-family: Calibri;
+	}
+
+	p.Contents
+	{
+		font-size: 20pt;
+		margin: 0pt;
+		margin-bottom: 10pt;
+		border-bottom: solid 1pt #002949;
+		border-bottom-color: #00a1e1;
+		color: #00a1e1;
+		font-weight: normal;
+		font-family: Georgia;
+		margin-top: 30pt;
+	}
+
+	h1
+	{
+		font-size: 20pt;
+		margin: 0pt;
+		mc-auto-number-format: 'GH:{n+}.  ';
+		margin-bottom: 10pt;
+		color: #00a1e1;
+		border-bottom-color: #00a1e1;
+		font-weight: normal;
+		letter-spacing: 0.5pt;
+		font-family: Georgia;
+		padding-bottom: 2pt;
+		margin-top: 0;
+		border-bottom-style: solid;
+		border-bottom-width: 1px;
+	}
+
+	h2
+	{
+		margin: 0pt;
+		margin-bottom: 3pt;
+		color: #002949;
+		font-weight: bold;
+		font-family: Calibri;
+		font-size: 14pt;
+		margin-top: 18pt;
+	}
+
+	h3
+	{
+		font-weight: bold;
+		margin: 0pt;
+		margin-bottom: 3pt;
+		mc-heading-level: 0;
+		color: #002949;
+		font-style: normal;
+		font-family: Calibri;
+		margin-top: 12pt;
+		font-size: 12pt;
+	}
+
+	h4
+	{
+		font-weight: bold;
+		margin: 0pt;
+		margin-bottom: 3pt;
+		mc-heading-level: 0;
+		color: #002949;
+		font-family: Calibri;
+		margin-top: 12pt;
+		font-size: 11pt;
+	}
+
+	h5
+	{
+		font-weight: bold;
+		margin: 0pt;
+		margin-bottom: 3pt;
+		margin-top: 12pt;
+		mc-heading-level: 0;
+		color: #002949;
+		font-family: Calibri;
+		font-size: 10pt;
+	}
+
+	p
+	{
+		margin-bottom: 4pt;
+		margin-top: 4pt;
+		text-indent: 0in;
+	}
+
+	ol,
+	ul
+	{
+		margin-bottom: 0pt;
+		margin-top: 0pt;
+	}
+
+	li
+	{
+		margin-bottom: 4pt;
+		margin-top: 4pt;
+	}
+
+	MadCap|xref
+	{
+		mc-format: '“{paratext}” on page {page}';
+		color: #000000;
+		text-decoration: none;
+	}
+
+	p.FrontMatterHeadingFirst
+	{
+		margin-bottom: 3pt;
+		margin-top: 0pt;
+		font-family: Calibri;
+		font-size: 9pt;
+	}
+
+	p.FrontMatterHeading
+	{
+		margin-top: 18pt;
+		margin-bottom: 3pt;
+		font-family: Calibri;
+		font-size: 9pt;
+	}
+
+	a:link
+	{
+		color: #000000;
+	}
+
+	a:visited
+	{
+		color: #000000;
+	}
+
+	p.CoverDocumentTitle
+	{
+		margin-top: 40pt;
+		margin-bottom: 0;
+	}
+
+	p.CoverDocumentVersion
+	{
+		margin-top: 4pt;
+	}
+
+	p.PrintFooter
+	{
+		font-family: Calibri;
+		color: #002949;
+		margin-top: 0pt;
+		margin-bottom: 0pt;
+		font-weight: bold;
+	}
+
+	p.PrintHeader
+	{
+		font-family: Calibri;
+		color: #002949;
+		margin-top: 0pt;
+		margin-bottom: 3pt;
+		font-weight: bold;
+	}
+
+	p.TableHead
+	{
+		font-family: Calibri;
+	}
+
+	p.TOC1
+	{
+		font-size: 10pt;
+		page-break-after: avoid;
+		margin-top: 12pt;
+		margin-bottom: 2pt;
+		mc-leader-offset: 0in;
+		mc-leader-indent: 0.05in;
+	}
+
+	p.TOC2
+	{
+		font-size: 10pt;
+		margin-bottom: 2pt;
+		margin-top: 2pt;
+		margin-left: 0in;
+		mc-leader-indent: 0.05in;
+		mc-leader-offset: 0in;
+	}
+
+	p.TOC3
+	{
+		font-size: 10pt;
+	}
+
+	MadCap|tocProxy
+	{
+		padding-left: 0px;
+	}
+
+	p.Example
+	{
+		font-style: inherit;
+		color: #191970;
+	}
+
+	span.UI
+	{
+		font-style: italic;
+	}
+
+	span.term
+	{
+		font-style: italic;
+	}
+
+	p.FrontMatterBody
+	{
+		font-size: 9pt;
+	}
+}
+
+p.TOC1
+{
+	mc-leader-indent: 0in;
+	mc-leader-offset: -0.88in;
+}
+
+p.TOC2
+{
+	mc-leader-offset: -0.88in;
+	mc-leader-indent: 0in;
+}
+
+p.TOC3
+{
+	mc-leader-indent: 0pt;
+	mc-leader-offset: -0.88in;
+}
+
+p.Note
+{
+	mc-auto-number-format: 'Note:  ';
+}
+
+p.CoverDocumentTitle
+{
+	color: #002949;
+	font-weight: bold;
+	font-family: Calibri;
+	font-size: 26pt;
+}
+
+p.CoverDocumentVersion
+{
+	color: #002949;
+	font-family: Calibri;
+	font-size: 18pt;
+}
+
+MadCap|tocProxy
+{
+	border-top-style: none;
+}
+
+p.question
+{
+	background-color: #ffff00;
+}
+
+MadCap|breadcrumbsProxy
+{
+	color: #818285;
+	border-bottom-color: #818285;
+	padding-bottom: 2px;
+	font-size: 0.85em;
+	margin-bottom: 25px;
+}
+
+p.CoverWebsite
+{
+	font-size: 10.5 pt;
+	margin: 0;
+	color: #00a1e1;
+	font-weight: bold;
+	font-family: Calibri;
+}
+

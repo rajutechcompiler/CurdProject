@@ -1,0 +1,148 @@
+﻿@using TabFusionRMS.Resource
+@using Controllers
+@model Transfers
+<style>
+    .tablebox {
+        margin-left: 5px;
+    }
+
+        .tablebox label {
+            cursor: pointer;
+        }
+
+        .tablebox i {
+            cursor: pointer;
+        }
+
+        .tablebox tbody {
+            display: none;
+        }
+
+    #DivDueBack {
+        margin-top: 10px;
+        display: none;
+    }
+</style>
+
+<div class="modal-body" style="padding-bottom: 0px;">
+    <div class="form-horizontal">
+        <div class="row">
+            <label style="margin-left:20px" Id="lblTransfer">@Model.lblTransfer</label>
+            <div class="request-listing col-sm-12">
+                <ul id="TransferItems" class="square-bullet-list">
+                    @foreach(var item in Model.itemsTobeTransfer)
+                    {
+                      <li>@item</li>   
+                    }
+                </ul>
+            </div>
+            <div class="col-sm-5 popup-form-box border-right-specific">
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <label><b>@Languages.get_Translation("lblTransferSelecttran") </b></label>
+                        @for(var index = 0; index<=Model.lsTaransferType.Count-1;index++ )
+                        {
+                            <div Class="tablebox">
+                                <i class="fa fa-caret-right" onclick="collapseViews(this)"> <label> @Model.lsTaransferType[index]</label></i>
+                                <Table id="DestinationsTable">
+                                    <tbody id="lsTaransferTypeTableContainer">
+                                        @for(var i=0;i<=Model.lsViews[index].Count-1;i++)
+                                        {
+                                            <tr>
+                                                <td><input type="radio" name="trlLocationType" data-tableName="@Model.lsViews[index][i].ContainerTableName" data-viewid="@Model.lsViews[index][i].ContainerViewid"><span name="trlLocationType" style="font-size:14px; cursor:pointer">@Model.lsViews[index][i].text</span></td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                </Table>
+                            </div>
+                        }
+
+                        @for(var index = 0;index<=Model.lsTaransferType.Count - 1;index++)
+                        {
+                            <div Class="tablebox">
+                                <i class="fa fa-caret-right" onclick="collapseViews(this)"> <label> @Model.lsTaransferType[index]</label></i>
+                                <Table id="DestinationsTable">
+                                    <tbody id="lsTaransferTypeTableContainer">
+                                        @for(var i = 0; i<=Model.lsViews[index].Count - 1;i++)
+                                        {
+                                           <tr>
+                                                <td><input type="radio" name="trlLocationType" data-tableName="@Model.lsViews[index][i].ContainerTableName" data-viewid="@Model.lsViews[index][i].ContainerViewid"><span name="trlLocationType" style="font-size:14px; cursor:pointer">@Model.lsViews[index][i].text</span></td>
+                                            </tr> 
+                                        }
+                                    </tbody>
+                                </Table>
+                            </div>
+                        }
+
+                        <div id="DivDueBack">
+                            <Label Class="pull-left col-lg-12 no_padding">@Languages.get_Translation("lblTransferDueBack")</Label>
+                            <input Class="inputbox" Id="txtDueBack" type="date">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-7 popup-form-box no_padding">
+                <div class="col-lg-12 border-bottom-specific">
+                    <p class="emp-note">@Languages.get_Translation("lblTransferIfyoudest")</p>
+                    <div class="form-group">
+                        <label class="col-sm-2"><b>@Languages.get_Translation("Find")</b></label>
+                        <div class="col-sm-10">
+                            <input placeholder="Provide at least 3 characters to show results" type="text" Id="tstxtFilter" Class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div id="tsscrolldiv" class="col-sm-12">
+                    <Table id="DestinationsTable">
+                        <tbody id="trlDestinationItemsContainer">
+                            @foreach(var item in Model.trDestinationsItem)
+                            {
+                                <tr>
+                                    <td><input type="radio" name="trDestinationsItem" value="@item.value"><span name="trDestinationsItem" style="cursor:pointer;font:14px">@item.text</span></td>
+                                </tr>
+                            }
+
+                            </tbody>
+                    </Table>
+                </div>
+                <div class="col-sm-12">
+                    <label Id="lblError" style="color:red"></label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    @*<div class="col-lg-12">*@
+    <div class="row">
+        <button Id="btnCancel" Class="btn btn-default " onclick="dlgClose.CloseDialog()" style="float: right;">@Languages.get_Translation("Cancel")</button>
+        <button Id="btnTransferItems" Class="btn btn-success" style="float: right; margin-right:5px;">@Languages.get_Translation("btnTransfersTransfer")</button>
+
+    </div>
+        </div>
+
+        <input type="hidden" id="transferlabel" value="@Model.lblTitle" />
+        <script>
+
+            //function collapseViews(elem) {
+            //    var collaps = elem.parentElement.nextElementSibling.children[0];
+            //    if (collaps.style.display === 'none' || collaps.style.display === '') {
+            //        collaps.style.display = 'block'
+            //        elem.parentElement.className = 'fa fa-caret-down'
+            //    } else {
+            //        collaps.style.display = 'none'
+            //        elem.parentElement.className = 'fa fa-caret-right'
+            //    }
+            //}
+
+            function collapseViews(elem) {
+                var collaps = elem.nextElementSibling.children[0];
+                if (collaps.style.display === 'none' || collaps.style.display === '') {
+                    collaps.style.display = 'block'
+                    elem.className = 'fa fa-caret-down'
+                } else {
+                    collaps.style.display = 'none'
+                    elem.className = 'fa fa-caret-right'
+                }
+            }
+        </script>

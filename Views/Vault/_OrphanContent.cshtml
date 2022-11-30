@@ -1,0 +1,204 @@
+﻿@using TabFusionRMS.Resource
+@model TabFusionRMS.WebCS.OrphanModel;
+
+@{
+   int PerPageRecord = Model.DefaultPerPageRecord;
+   var Totalpages = Math.Ceiling(((decimal)Model.TotalRecords / PerPageRecord));
+}
+
+<link href="~/Content/themes/TAB/css/progress.css" rel="stylesheet" />
+<!--toolbar buttons-->
+<style>
+
+
+    .hidden-e {
+        display: none;
+    }
+
+    /*.grid-body {
+        margin-left: 15px;
+    }*/
+    .h34{
+        height:34px;
+    }
+</style>
+
+<input type="hidden" value="@Model.ViewName" id="hiddenViewName" />
+<input type="hidden" value="@Model.ViewId" id="hiddenViewId" />
+<input type="hidden" value="@Model.TableName" id="hiddenTableName" />
+<input type="hidden" value="@Model.TableRecordId" id="hiddenRecordId" />
+<input type="hidden" value="@Model.DisplayName" id="displayname" />
+
+<!--Delete Dashboard Modal-->
+<div class="modal" id="modalDelete" tabindex="-1" role="dialog" aria-labelledby="myModalDelete">
+    <div class="modal-dialog modal-sm modal-30">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button id="btnClose" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalDelete">@Languages.get_Translation("deleteOrphanAtt")</h4>
+            </div>
+            <div class="modal-body">
+                <p class="p-delete-msg">@Languages.get_Translation("msgConfForDelOrphanAtt")</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true" style="float:right;">@Languages.get_Translation("No")</button>
+                <button id="btnDelete" type="button" class="btn btn-primary" onclick="obJvaultfunction.DeleteAttachment()" style="float:right; margin-right:8px;">@Languages.get_Translation("Yes")</button>
+
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<div id="ToolBar" class="col-sm-12" style="display: flex;padding:0;height:35px;margin-bottom:7px;">
+    <div class="view-group">
+        <button class="btn btn-secondary dropdown-toggle tab_btn" data-toggle="dropdown" type="button" aria-expanded="false">
+            @Languages.get_Translation("viewAttachments")
+            <i class="fa fa-angle-down"></i>
+        </button>
+        <ul class="dropdown-menu btn_menu">
+            <li id="liListView" onclick="obJvaultfunction.ChangeViewType('L')"><a>@Languages.get_Translation("ListView")</a></li>
+            <li id="liGridView" onclick="obJvaultfunction.ChangeViewType('G')"><a>@Languages.get_Translation("GalleryView")</a></li>
+        </ul>
+    </div>
+
+    <div style="margin-left: 5px">
+        <div class="input-group search_box">
+            <input type="text" id="fileSearchOrphan" onkeyup="obJvaultfunction.FilterOnEnter()" placeholder="@Languages.get_Translation("filterFiles")" autocompletetype="Search" maxlength="256" class="form-control" title="@Languages.get_Translation("filterFilesTooltip")">
+            <span class="input-group-btn">
+                <button type="button" id="btnSearchOrphan" title="@Languages.get_Translation("searchTooltip")" class="btn btn-default h34" onclick="obJvaultfunction.FilterOnSearch()"><img src="/Content/themes/TAB/css/images/icons-search.svg" width="19px;"></button>
+            </span>
+            <div id="search_info"></div>
+        </div>
+        <button id="btnDefaultSearch" style="display:none;" name="Search">
+        </button>
+    </div>
+
+    
+    @if (Model.IsAttachable.Equals(0))
+    {
+
+        <div Class="browse-group" style="margin-left: 5px" id="divBrowseFiles">
+            <input type="file" id="OrphanFileUploadForAddAttach" name="OrphanFileUploadForAddAttach" multiple="multiple" style="display: none" onchange="obJvaultfunction.ChangeBrowseFile(this)" />
+            <Button id="btnBrowseFile" Class="btn btn-secondary tab_btn" onclick="obJvaultfunction.BrowseFile()">
+                @Languages.get_Translation("browseFiles")
+            </Button>
+        </div>
+        if (Model.DeletePermission == true)
+        {
+            <div style="margin-left: 5px" id="divDeleteAttachment" Class="hidden-e">
+                <Button id="btnDeleteAttachment" Class="btn btn-secondary tab_btn" onclick="obJvaultfunction.DeleteAttachmentConfim()">
+                    @Languages.get_Translation("deleteAttachments")
+                </Button>
+            </div>
+        }
+
+        <div style="margin-left: 5px" id="divDownloadAttachment" Class="hidden-e">
+            <Button id="btnDownloadAttachment" Class="btn btn-secondary tab_btn" onclick="obJvaultfunction.CheckDownloadable()">
+                @Languages.get_Translation("downloadAttachments")
+            </Button>
+        </div>
+
+        <div style="margin-left: 5px;" id="btnRefreshAttachments">
+            <Button Class="btn btn-secondary tab_btn" title="@Languages.get_Translation("refreshTooltip")" onclick="obJvaultfunction.RefreshAttachments(this)">
+                <img src="/Content/themes/TAB/css/images/refresh30px.png" width="20px;">
+            </Button>
+        </div>
+    }
+    else
+    {
+    <div style="margin-left: 5px;display:none" Class="hidden-e" id="btnMoveAttachments">
+        <Button Class="btn btn-secondary tab_btn" onclick="obJvaultfunction.MoveAttachments()">
+            @Languages.get_Translation("moveAttachments")
+        </Button>
+    </div>
+     <div style="margin-left: 5px;" id="btnRefreshAttachments">
+        <Button Class="btn btn-secondary tab_btn" onclick="obJvaultfunction.RefreshAttachments(this)">
+            <img src="/Content/themes/TAB/css/images/refresh30px.png" width="20px;">
+        </Button>
+    </div>
+     <div style="margin-left:25px;margin-top:8px" id="btnRecordDisplayName">
+        <label>
+            Attach Document(s) to: @Model.DisplayName
+        </label>
+    </div>
+
+    @*@<div style="margin-left:25px;margin-top:8px" id="divSelectedRecords" Class="hidden-e">
+            <label id="lblSelectedRecords">
+
+            </label>
+        </div>*@
+    }
+</div>
+<!--orphan container-->‏
+  <div id="AttachmentModalBody" style="width:100%;clear:both;">
+
+    @if (Model.SelectedViewType == "Grid")
+    {
+        @Html.Partial("../Shared/_FlyoutPartialOrphansGrid", Model.FlyoutModel)
+    }
+    else
+    {
+        @Html.Partial("../Shared/_FlyoutPartialOrphansList", Model.FlyoutModel)
+    }
+</div>
+
+<div style="margin-top: 5px;" id="paging-div" class="col-sm-12">
+    <nav aria-label="Page navigation example" class="page-navigation">
+        <div class="pagination">
+            <div id="divPerPageRecord" Class=""> @Languages.get_Translation("documentsPerPage"): <span>@PerPageRecord</span></div>
+        </div>
+        <ul class="pagination pagi wrap" style="justify-content:center">
+            <li Class="page-item first " onclick="vaultPagingfunc.FirstPage()"><a class="page-link">First</a></li>
+            <li Class="#" onclick="vaultPagingfunc.Previous()"><a>&laquo;</a></li>
+            <li Class="liIndex" index="0" style="display:none" onclick="vaultPagingfunc.GetRecord(this)"><a> </a></li>
+            <li Class="liIndex" index="0" style="display:none" onclick="vaultPagingfunc.GetRecord(this)"><a> </a></li>
+            <li Class="liIndex" index="0" style="display:none" onclick="vaultPagingfunc.GetRecord(this)"><a> </a></li>
+            <li onclick="vaultPagingfunc.Next()"><a>&raquo;</a></li>
+            <li Class="page-item last" onclick="vaultPagingfunc.LastPage()"><a class="page-link">Last</a></li>
+            <li>Page</li>
+            <div Class="input-group inpo">
+                <input id="inputGotoPageNum" Class="form-control" style="width: 60px !important; padding: 6px 3px !important; text-align: center !important;" title="@Languages.get_Translation("gotoTooltip")" type="number" autocomplete="off" onkeypress="return vaultPagingfunc.GotoPageNoKeypressEvt(this)" onchange="return vaultPagingfunc.GotoPageNoChangeEvt(this)">
+                <span style="padding: 0px 4px; position: relative; top: 9px;">&nbsp;@Languages.get_Translation("of") <span id="spanTotalPage">@Totalpages</span></span>
+                <span Class="input-group-addon" style="cursor: pointer;display:none;" title="@Languages.get_Translation("gotoTooltip")" onclick="vaultPagingfunc.GoToPage()" id="spanGotoPage"><i class="glyphicon glyphicon-arrow-right"></i></span>
+            </div>
+        </ul>
+        <div Class="pagination">
+            <div id="divTotalRecords" class=""> @Languages.get_Translation("totalDocuments"): <span>@Model.TotalRecords</span></div>
+        </div>
+    </nav>
+</div>
+<div id="ProgressloadingDialog" class="modal" tabindex="-1" role="dialog" style="margin-top:20%;margin-left:50%">
+    <label style="color:rgb(0, 161, 225)"></label>
+    <div class="row">
+        <div class="col-md-3 col-sm-6">
+            <div class="progress blue">
+                <span class="progress-left">
+                    <span class="progress-bar"></span>
+                </span>
+                <span class="progress-right">
+                    <span class="progress-bar"></span>
+                </span>
+                <div class="progress-value"><span id="progressPercentage"></span></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var vaultPagingfunc;
+    $(document).ready(function () {
+     //Bind event drag and drop
+     if (@Model.IsAttachable == 0) {
+         obJvaultfunction.DragAnddropNewFileOrphan()
+     }
+     var PageNumber = 0
+     if (@Model.TotalRecords> 0) {
+         PageNumber = 1
+     }
+     vaultPagingfunc = new VaultPagingfunc(PageNumber, @Totalpages, @Model.TotalRecords, @PerPageRecord);
+     vaultPagingfunc.VisibleIndexs();
+     vaultPagingfunc.AddCommaToTotalRecords();
+        vaultPagingfunc.SetTextFieldValues();
+        OrphanSelectedView = '@Model.SelectedViewType';
+    });
+</script>

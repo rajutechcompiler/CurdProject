@@ -1,0 +1,150 @@
+﻿@using TabFusionRMS.WebCS.Controllers;
+@using TabFusionRMS.Resource;
+<form  class="form-horizontal" id="frmAddEditSeries" role="form" ReturnUrl = ViewData("ReturnUrl")>
+    <div class="modal fade in form-horizontal" id="modalSeries" tabindex="-1" role="dialog" aria-labelledby="myModalSeries">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="titleAddEditSeries">@Languages.get_Translation("addBarSeries")</h4>
+                    <input type="hidden" value="0" id="hiddenSeriesWidgetId" />
+                </div>
+                <div class="modal-body row-44">
+                    <fieldset class="admin_fieldset">
+                        <legend>@Languages.get_Translation("widgetInformation")</legend>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label" for="UserName">@Languages.get_Translation("widgetName")</label>
+                                    <div class="col-sm-8">
+                                        <input autofocus="" class="form-control" id="bcsdWidgetName" name="bcsdWidgetName" placeholder="@Languages.get_Translation("widgetName")" required="" type="text" value="" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label" for="lstWork">@Languages.get_Translation("workGroup")</label>
+                                    <input type="hidden" value="" id="hiddenserieslstWorkGroup" />
+                                    <div class="col-sm-8">
+                                        <select id="serieslstWorkGroup" name="serieslstWorkGroup" class="form-control searchable-drop">
+                                            <option value="" selected></option>
+                                            @foreach( var item in Model.WorkGroup)
+                                               {
+                                                <option value="@item.ID">@item.WorkGroupName</option>
+                                            }
+                                        </select>
+                                        <span for="serieslstWorkGroup" class="help-block"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label" for="lstView">@Languages.get_Translation("objectTable")</label>
+                                    <input type="hidden" value="" id="hiddenseriesListTable" />
+                                    <div class="col-sm-8">
+                                        <select id="seriesListTable" name="seriesListTable" class="form-control">
+                                            <option value="" selected></option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label" for="lstView">@Languages.get_Translation("parentView")</label>
+                                    <input type="hidden" value="" id="hiddenserieslstView" />
+                                    <div class="col-sm-8">
+                                        <select id="serieslstView" name="serieslstView" class="form-control">
+                                            <option value="" selected></option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label" for="lstView">@Languages.get_Translation("Column")</label>
+                                    <input type="hidden" value="" id="hiddenserieslstCol" />
+                                    <div class="col-sm-8">
+                                        <select id="serieslstCol" name="serieslstCol" class="form-control">
+                                            <option value="" selected></option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label" for="lstView">@Languages.get_Translation("GroupBy")</label>
+                                    <div class="col-sm-8">
+                                        <select id="serieslstfilter" name="serieslstfilter" class="form-control">
+                                            <option value="" selected></option>
+                                            <option value="hour">Hour</option>
+                                            <option value="day">Day</option>
+                                            <option value="week">Week</option>
+                                            <option value="month">Month</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label" for="lstView">@Languages.get_Translation("period")</label>
+                                    <div class="col-sm-8">
+                                        <select id="serieslstPeriod" name="serieslstPeriod" class="form-control">
+                                            <option value="" selected></option>
+                                            <option value="1">Last 7 Days</option>
+                                            <option value="2">Last 30 Days</option>
+                                            <option value="3">Last 90 Days</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label" for="lstView">@Languages.get_Translation("refresh")</label>
+                                    <div class="col-sm-8">
+                                        <select id="seriesRefreshTime" name="seriesRefreshTime" class="form-control">
+                                            <option value="0" selected>Manual Refresh</option>
+                                            <option value="5">5 minutes</option>
+                                            <option value="10">10 minutes</option>
+                                            <option value="15">15 minutes</option>
+                                            <option value="20">20 minutes</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true" style="float:right;">@Languages.get_Translation("Cancel")</button>
+                    <button id="btnTimeSeriesChart" type="button" class="btn btn-primary" style="float:right; margin-right:5px;">@Languages.get_Translation("Add")</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+</form>
+
+<script>
+    dashboardfunc.PreventEnter();
+</script>

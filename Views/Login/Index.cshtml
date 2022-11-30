@@ -1,0 +1,187 @@
+﻿@using TabFusionRMS.Resource
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_SignInLayout.cshtml";
+}
+
+<link href="~/Content/themes/TAB/css/login.css" rel="stylesheet" />
+@*asp-antiforgery="false" asp-controller="Login" asp-action="SignInUser"*@
+<form action="/Login/SignInUser" method="post">
+    <div class="container-fluid login_container">
+        <div class="row">
+            <div class="col-xs-12 col-md-6 login-text">
+                @Html.Raw(Languages.get_Translation("tiSignInOrganizeManageMobilizeUrInfo"))
+            </div>
+            <div class="col-xs-12 col-md-6">
+                <div class="panel panel-default login-form-box no_padding col-xs-12">
+                    <div class="panel-heading no_padding login-form-heading col-xs-12">
+                        <div class="col-xs-6 ">
+                            <img src="~/Content/themes/TAB/img/login-logo.png" style="width:200px" alt="TAB FusionRMS" class="img-responsive" />
+                        </div>
+                        <div class="col-xs-6 text-right">@Languages.get_Translation("DatabaseSignIn")</div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="panel-body">
+                        <div class="signin-content">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <span style="color:red" id="lblError" Text=""></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+
+                                @{
+                                    var panCloud = "table";
+                                    if (ViewBag.panCloud != null)
+                                    {
+                                        bool visible = Convert.ToBoolean(ViewBag.panCloud);
+                                        panCloud = visible ? "table" : "none";
+                                    }
+                                }
+
+                                <div id="panCloud" class="input-group" style="display:@panCloud">
+                                    <label class="input-group-addon form_field_icon"><i class="fa fa-database"></i></label>
+                                    <select class="form-control form_field" id="ddlDatabase" name="ddlDatabase">
+                                        @*<option id="-1"></option>*@
+                                        @if (ViewBag.Database is not null)
+                                        {
+                                            foreach (var item in ViewBag.Database)
+                                            {
+                                                if(item.Selected == true)
+                                                {
+                                                 <option value="@item.Value" selected="selected">@item.Text</option>   
+                                                }
+                                                else
+                                                {
+                                                    <option value="@item.Value">@item.Text</option>
+                                                }
+                                            }
+                                        }
+                                    </select>
+                                    <input type="hidden" id="hdnSSOEnabled" name="hdnSSOEnabled" value="@ViewBag.hdnSSOEnabled" />
+                                    <input type="hidden" id="hdnSSODBSelected"  name="hdnSSODBSelected" value="@ViewBag.hdnSSODBSelected" />
+                                </div>
+                                @{
+                                    var panCustomer = "none";
+                                    if (ViewBag.panCustomer != null)
+                                    {
+                                        bool visible = Convert.ToBoolean(ViewBag.panCustomer);
+                                        panCustomer = visible ? "initial" : "none";
+                                    }
+                                }
+                                <div id="PanCustomer" class="input-group" style="display:@panCustomer;">
+                                    <label class="input-group-addon form_field_icon" for="txtCustomerKey"><i class="fa fa-database fa-flip-horizontal"></i></label>
+                                    <input type="text" class="form-control form_field" id="txtCustomerKey" name="txtCustomerKey" value="@ViewBag.txtCustomerKey"/>
+                                </div>
+                            </div>
+                            <div class="form-group" id="usernameid">
+                                <div class="input-group">
+                                    <label class="input-group-addon form_field_icon" for="txtUserName"><i class="fa fa-user"></i></label>
+                                    <input type="text" class="form-control form_field" id="txtUserName" name="txtUserName" value="@ViewBag.txtUserName"/>
+                                </div>
+                            </div>
+                            <div class="form-group" id="passwordid">
+                                <div class="input-group">
+                                    <label class="input-group-addon form_field_icon" for="txtPassword"><i class="fa fa-unlock-alt"></i></label>
+                                    <input type="password" class="form-control form_field" id="txtPassword" name="txtPassword" value="@ViewBag.txtPassword"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox stay-logged-in">
+                                    <input type="checkbox" id="chkSaveAuth" name="chkSaveAuth" />
+                                    <label>@Languages.get_Translation("StaySignedIn")</label>
+                                    <span class="pull-right hint-info">@Languages.get_Translation("PwdCaseSensitive")</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="panel-footer">
+                        <div>
+                            <input type="submit" class="login-btn" value="@Languages.get_Translation("btnSignIn")" id="btnSignIn" />
+                            @*<button id="btnSignIn" class="login-btn">@Languages.get_Translation("btnSignIn")</button>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<footer class="footer login-footer top_space bottom_space">
+    <div class="container-fluid">
+        <div class="col-sm-6 last-login-text-align">
+            <span id="lblAttempt">@ViewBag.lblAttempt</span>
+        </div>
+        <div class="col-sm-6 version-text-align">
+            <span id="lblService" Text="">@ViewBag.lblService</span>
+        </div>
+    </div>
+</footer>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var delCookie = function (name) {
+            domain = window.location.host;
+            document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;path=/; domain=' + domain;
+
+        };
+        delCookie('hdnMenuIds');
+        delCookie('hdnMenuIdsOld');
+        delCookie('hdnAdminMnuIds');
+        delCookie('gridlist');
+        localStorage.removeItem('vrClientsRes');
+
+        //code for sso on ready by Moti mashiah
+        var dropval = $("#ddlDatabase").val();
+        var ssot = getCookie("hdnSSOEnabled");
+
+        for (var i = 0; i < ssot.length; i++) {
+            if (dropval == i) {
+                if (getCookie("hdnSSOEnabled")[i] == 1) {
+                    $("#usernameid").hide();
+                    $("#ContentPlaceHolder1_passwordid").hide();
+                    $("#hdnSSODBSelected").val("1");
+                } else {
+                    $("#usernameid").show();
+                    $("#passwordid").show();
+                    $("#hdnSSODBSelected").val("0");
+                }
+            }
+        }
+
+        $("#ContentPlaceHolder1_ddlDatabase").change(function () {
+            var dbSelected = $(this).val();
+            var ddldata = $("#ContentPlaceHolder1_ddlDatabase");
+            for (var i = 0; i < ssot.length; i++) {
+                if (dbSelected == i) {
+                    if (ssot[i] == 1) {
+                        $("#usernameid").hide();
+                        $("#passwordid").hide();
+                        $("#hdnSSODBSelected").val("1");
+                    } else {
+                        $("#usernameid").show();
+                        $("#passwordid").show();
+                        $("#hdnSSODBSelected").val("0");
+                    }
+                }
+            }
+        });
+        //End code for sso on ready
+
+        var lblErrorMsg = '@TempData["lblError"]'
+        if(lblErrorMsg != '')
+        {
+            if(lblErrorMsg == '@Languages.get_Translation("msgSignInPlzSelDataBase")')
+            {
+                $('#toast-container').fnAlertMessage({title:'',msgTypeClass:'toast-warning', message : lblErrorMsg});
+            }
+            else
+            {
+                $("#lblError").html(lblErrorMsg);
+            }
+        }
+
+    });
+
+</script>

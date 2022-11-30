@@ -1,0 +1,552 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = TabFusionRMS.WebCS
+build_property.RootNamespace = TabFusionRMS.WebCS
+build_property.ProjectDir = E:\TabFusion Project\TabFusionRMS 11.1.0 Git\TabFusionRMS.WebCS\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = E:\TabFusion Project\TabFusionRMS 11.1.0 Git\TabFusionRMS.WebCS
+build_property._RazorSourceGeneratorDebug = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_AddAboutPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX0FkZEFib3V0UGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_AddColumnViewPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX0FkZENvbHVtblZpZXdQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_AddDirectoriesPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX0FkZERpcmVjdG9yaWVzUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_AddNewDatabasePartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX0FkZE5ld0RhdGFiYXNlUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_AddReportStylePartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX0FkZFJlcG9ydFN0eWxlUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_AddSecurityAzureADPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX0FkZFNlY3VyaXR5QXp1cmVBRFBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_AddSecurityGroupProfilePartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX0FkZFNlY3VyaXR5R3JvdXBQcm9maWxlUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_AddSecurityUserProfilePartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX0FkZFNlY3VyaXR5VXNlclByb2ZpbGVQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_AddTABQUIKKey.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX0FkZFRBQlFVSUtLZXkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_ApplicationAppearancePartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX0FwcGxpY2F0aW9uQXBwZWFyYW5jZVBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_AttachmentsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX0F0dGFjaG1lbnRzUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_AuditingPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX0F1ZGl0aW5nUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_BackgroundProcessPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX0JhY2tncm91bmRQcm9jZXNzUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_BarCodeSearchPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX0JhckNvZGVTZWFyY2hQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_DataPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX0RhdGFQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_DirectoriesPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX0RpcmVjdG9yaWVzUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_EmailNotificationPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX0VtYWlsTm90aWZpY2F0aW9uUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_EmailSettingPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX0VtYWlsU2V0dGluZ1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_ExternalDBPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX0V4dGVybmFsREJQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_LocalizePartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX0xvY2FsaXplUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_LoginWarningMsgPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX0xvZ2luV2FybmluZ01zZ1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_MapPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX01hcFBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_ReportDefinitionsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX1JlcG9ydERlZmluaXRpb25zUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_ReportListPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX1JlcG9ydExpc3RQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_ReportsTreePartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX1JlcG9ydHNUcmVlUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_ReportStylesPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX1JlcG9ydFN0eWxlc1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_RequestorPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX1JlcXVlc3RvclBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_RetentionPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX1JldGVudGlvblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_RetentionPropertiesPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX1JldGVudGlvblByb3BlcnRpZXNQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_SecurityGroupsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX1NlY3VyaXR5R3JvdXBzUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_SecurityPermissionsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX1NlY3VyaXR5UGVybWlzc2lvbnNQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_SecuritySecurablesPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX1NlY3VyaXR5U2VjdXJhYmxlc1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_SecurityTabPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX1NlY3VyaXR5VGFiUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_SecurityUsersPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX1NlY3VyaXR5VXNlcnNQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_TableAdvancedPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX1RhYmxlQWR2YW5jZWRQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_TableFields.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX1RhYmxlRmllbGRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_TableFileRoomOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX1RhYmxlRmlsZVJvb21PcmRlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_TableGeneralPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX1RhYmxlR2VuZXJhbFBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_TableRegisterPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX1RhYmxlUmVnaXN0ZXJQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_TablesRetentionPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX1RhYmxlc1JldGVudGlvblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_TableTabPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX1RhYmxlVGFiUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_TableTrackingPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX1RhYmxlVHJhY2tpbmdQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_TABQUIKFieldMapping.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX1RBQlFVSUtGaWVsZE1hcHBpbmcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_TABQUIKLabelList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX1RBQlFVSUtMYWJlbExpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_TrackingFieldPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX1RyYWNraW5nRmllbGRQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_TrackingPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX1RyYWNraW5nUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_ViewsListPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX1ZpZXdzTGlzdFBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_ViewsSettingsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX1ZpZXdzU2V0dGluZ3NQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_ViewTreePartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX1ZpZXdUcmVlUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Admin/_VolumesPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cX1ZvbHVtZXNQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/BackgroundStatus/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFja2dyb3VuZFN0YXR1c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/BarcodeTracker/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFyY29kZVRyYWNrZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/ChangePassword/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhbmdlUGFzc3dvcmRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Dashboard/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Dashboard/_AddEditChart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXF9BZGRFZGl0Q2hhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Dashboard/_AddEditDashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXF9BZGRFZGl0RGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Dashboard/_AddEditOperation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXF9BZGRFZGl0T3BlcmF0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Dashboard/_AddEditSeries.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXF9BZGRFZGl0U2VyaWVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Dashboard/_AddEditTaskList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXF9BZGRFZGl0VGFza0xpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Dashboard/_AddEditTracked.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGFzaGJvYXJkXF9BZGRFZGl0VHJhY2tlZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/DataToolsLayout/_batchRequest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YVRvb2xzTGF5b3V0XF9iYXRjaFJlcXVlc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/DataToolsLayout/_localization.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YVRvb2xzTGF5b3V0XF9sb2NhbGl6YXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/DataToolsLayout/_password.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YVRvb2xzTGF5b3V0XF9wYXNzd29yZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/DataToolsLayout/_tools.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YVRvb2xzTGF5b3V0XF90b29scy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Data/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Data/TabQuik.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YVxUYWJRdWlrLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Data/_AddtoFavorite.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YVxfQWRkdG9GYXZvcml0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Data/_AuditReport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YVxfQXVkaXRSZXBvcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Data/_DataGrid.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YVxfRGF0YUdyaWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Data/_DialogMsgConfirmDelete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YVxfRGlhbG9nTXNnQ29uZmlybURlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Data/_linkscriptDialog.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YVxfbGlua3NjcmlwdERpYWxvZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Data/_LoadNewRecordForm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YVxfTG9hZE5ld1JlY29yZEZvcm0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Data/_NewFavorite.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YVxfTmV3RmF2b3JpdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Data/_OrphanContent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YVxfT3JwaGFuQ29udGVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Data/_Query.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YVxfUXVlcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Data/_Reporting.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YVxfUmVwb3J0aW5nLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Data/_RetentionInfo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YVxfUmV0ZW50aW9uSW5mby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Data/_RetentionInfoHolde.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRGF0YVxfUmV0ZW50aW9uSW5mb0hvbGRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/DocumentViewer/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9jdW1lbnRWaWV3ZXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/DocumentViewer/Orphan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9jdW1lbnRWaWV3ZXJcT3JwaGFuLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/DocumentViewer/_DocviewerInit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9jdW1lbnRWaWV3ZXJcX0RvY3ZpZXdlckluaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/DocumentViewer/_DocviewerInitOrphan.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRG9jdW1lbnRWaWV3ZXJcX0RvY3ZpZXdlckluaXRPcnBoYW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/ImportFavorite/_importfavorites.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW1wb3J0RmF2b3JpdGVcX2ltcG9ydGZhdm9yaXRlcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Import/_ImportMainForm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW1wb3J0XF9JbXBvcnRNYWluRm9ybS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/LabelManager/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGFiZWxNYW5hZ2VyXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/LabelManager/_AddBarCodePartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGFiZWxNYW5hZ2VyXF9BZGRCYXJDb2RlUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Login/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Logout/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9nb3V0XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/MoveRows/_moverows.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92ZVJvd3NcX21vdmVyb3dzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/PrintBarcode/_getbarcode.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJpbnRCYXJjb2RlXF9nZXRiYXJjb2RlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Reports/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Reports/_AuditReport.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xfQXVkaXRSZXBvcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Reports/_Inactivepulllist.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xfSW5hY3RpdmVwdWxsbGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Reports/_PagingFooter.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xfUGFnaW5nRm9vdGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Reports/_ReportQuery.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xfUmVwb3J0UXVlcnkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Reports/_submitform.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xfc3VibWl0Zm9ybS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Requester/_getrequest.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdGVyXF9nZXRyZXF1ZXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Requester/_requestdetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVxdWVzdGVyXF9yZXF1ZXN0ZGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Retention/AddCitationCode.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV0ZW50aW9uXEFkZENpdGF0aW9uQ29kZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Retention/AddRetentionCode.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV0ZW50aW9uXEFkZFJldGVudGlvbkNvZGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Retention/AssignCitationCode.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV0ZW50aW9uXEFzc2lnbkNpdGF0aW9uQ29kZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Retention/CitationMaintenance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV0ZW50aW9uXENpdGF0aW9uTWFpbnRlbmFuY2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Retention/DetailedCitationCode.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV0ZW50aW9uXERldGFpbGVkQ2l0YXRpb25Db2RlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Retention/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV0ZW50aW9uXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Retention/RetentionCodeMaintenance.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV0ZW50aW9uXFJldGVudGlvbkNvZGVNYWludGVuYW5jZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Retention/_ReassignRetentionCodePartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmV0ZW50aW9uXF9SZWFzc2lnblJldGVudGlvbkNvZGVQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Scanner/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Nhbm5lclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Scanner/_DiskSourcePartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Nhbm5lclxfRGlza1NvdXJjZVBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Scanner/_UploadScanFiles.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2Nhbm5lclxfVXBsb2FkU2NhbkZpbGVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Shared/_FlyoutPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9GbHlvdXRQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Shared/_FlyoutPartialOrphansGrid.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9GbHlvdXRQYXJ0aWFsT3JwaGFuc0dyaWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Shared/_FlyoutPartialOrphansList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9GbHlvdXRQYXJ0aWFsT3JwaGFuc0xpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Shared/_LayoutAdmin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRBZG1pbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Shared/_LayoutBarcodeTracker.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRCYXJjb2RlVHJhY2tlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Shared/_LayoutDashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXREYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Shared/_LayoutData.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXREYXRhLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Shared/_LayoutDocumentViewer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXREb2N1bWVudFZpZXdlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Shared/_LayoutNoMenu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXROb01lbnUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Shared/_LayoutReports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRSZXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Shared/_LayoutRetention.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRSZXRlbnRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Shared/_LayoutVault.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRWYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Shared/_SignInLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9TaWduSW5MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Transfer/_transfer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHJhbnNmZXJcX3RyYW5zZmVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Upload/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXBsb2FkXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Vault/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmF1bHRcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Vault/_OrphanContent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmF1bHRcX09ycGhhbkNvbnRlbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/TabFusion Project/TabFusionRMS 11.1.0 Git/TabFusionRMS.WebCS/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-s6mlhjx7qo

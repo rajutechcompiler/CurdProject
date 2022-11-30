@@ -1,0 +1,95 @@
+﻿@using TabFusionRMS.Resource;
+@model TabFusionRMS.WebCS.Controllers.PrintBarcode;
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-6 printleftpanel">
+            <div class="form-group">
+                <label>@Languages.get_Translation("lblDataDesign")</label>
+                <select id="labelDesign" class="form-control">
+                    @foreach (var item in Model.labelDesign)
+                    {
+                        <option value="@item.value">@item.text</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label>@Languages.get_Translation("lblDataStock")</label>
+                <select id="labelForm" class="form-control">
+                    @foreach (var item in Model.labelForm)
+                        @if (item.value == Model.formSelectionid)
+                        {
+                            <option selected value="@item.value">@item.text</option>
+                        }
+                        else
+                        {
+                            <option value="@item.value">@item.text</option>
+                        }
+                </select>
+                <div class="input-group" style="top: 7px;">
+                    <span class="input-group-btn">
+                        <button id="setDefault" class="pull-right btn btn-warning">@Languages.get_Translation("btnDataSetasDefault")</button>
+                    </span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-7 col-lg-7" style="top: 6px;">@Languages.get_Translation("lblDataStartPrintingWithLabel")</label>
+                <div id="updateLabelPreview">
+                    <div class="input-group search_box bottom_space">
+                        <input id="strtPrinting" value="1" MaxLength="@Model.totalLabels" class="form-control" />
+                        <span class="input-group-btn">
+                            <button id="BarcodeBtnUp" class="btn btn-default glyphicon glyphicon-chevron-up"></button>
+                            <button id="BarcodeBtnDown" class="btn btn-default glyphicon glyphicon-chevron-down"></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="totalLabels">@Languages.get_Translation("Labels"):</label>
+                <label id="totalLabels">@Model.totalLabels</label>
+            </div>
+            <div class="form-group">
+                <label for="totalPages">@Languages.get_Translation("Pages"):</label>
+                <label id="totalPages">@Model.totalPages</label>
+            </div>
+            <div class="form-group">
+                <label for="totalSkipped">@Languages.get_Translation("lblDataSkipped"):</label>
+                <Label id="totalSkipped">@Model.totalSkipped</Label>
+            </div>
+            <div class="form-group">
+                <label for="labelOutline">
+                    <input type="checkbox" id="labelOutline" value="Draw Label Outlines" /> @Languages.get_Translation("lblDataDrawLblOutlines")
+                </label>
+            </div>
+            <div class="form-group previewDataCheckbox">
+                <label for="previewData">
+                    <input type="checkbox" value="Preview Data" id="previewData" checked />@Languages.get_Translation("lblDataPreviewData")
+                </label>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div id="previewContainer" background-color: white; vertical-align: middle; position: relative;">
+                <canvas id="printPreview" style="border:1px solid black;"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    @*<div class="text-right">*@
+    <div class="row">
+        <label id="labelUniqueName" Style="display: none;"></label>
+
+        <button onclick='dlgClose.CloseDialog()' class="btn btn-default" style="float: right;">@Languages.get_Translation("Cancel")</button>
+        <a id="btnbcodeDownload" class="btn btn-success" style="float: right; margin-right:5px;">@Languages.get_Translation("Download")</a>
+    </div>
+</div>
+<input id="labeldownloadid" type="hidden" value="@Model.labelFileName" />
+<script>
+    var labelFileDynamicpath = @Html.Raw(Json.Serialize(Model.labelFileDynamicpath));
+    var labelFileName = @Html.Raw(Json.Serialize(Model.labelFileName));
+    var labelIserror = @Html.Raw(Json.Serialize(Model.isError));
+    var labelmsg = @Html.Raw(Json.Serialize(Model.Msg));
+    var labelDesignInit = @Html.Raw(Json.Serialize(Model.labelDesign[0].value));
+
+    document.getElementById("btnbcodeDownload").href = `/PrintBarcode/Downloadbarcodefile?labelUniqueName=${labelFileName}&labelId=${labelDesignInit}&ids=${app.globalverb.ids}`
+</script>

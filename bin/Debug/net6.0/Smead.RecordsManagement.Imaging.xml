@@ -1,0 +1,1122 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Smead.RecordsManagement.Imaging
+</name>
+</assembly>
+<members>
+<member name="T:Smead.RecordsManagement.Imaging.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.BurstImagePointers">
+<summary>
+  Looks up a localized string similar to INSERT INTO ImagePointers (TrackablesId, TrackablesRecordVersion, ScanDirectoriesId, ScanSequence, ScanDateTime,
+    [FileName], PageNumber, CRC, Orientation, Skew, Front, ImageHeight, ImageWidth, ImageSize, 
+    BarCodeCount, BarCodes, [PageCount], OrgDirectoriesId, OrgFileName, OrgFullPath) 
+SELECT TrackablesId, @versionNumber, ScanDirectoriesId, 1, getdate(), 
+    @fileName,  @pageNumber, CRC, Orientation, Skew, Front, ImageHeight, ImageWidth, ImageSize, 
+    BarCodeCount, BarCodes, 1, OrgDirectorie [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.CheckIn">
+<summary>
+  Looks up a localized string similar to UPDATE Trackables SET CheckedOut = 0, CheckedOutDate = NULL, CheckedOutUser = NULL,
+                      CheckedOutIP = NULL, CheckedOutMAC = NULL, CheckedOutUserId = NULL, PersistedCheckOut = 0
+FROM   Trackables               
+INNER JOIN Userlinks ON Trackables.Id = Userlinks.TrackablesId 
+WHERE (UserLinks.IndexTable = @tableName) 
+  AND (UserLinks.IndexTableId = @tableId) 
+  AND (UserLinks.AttachmentNumber = @attachmentNumber)
+
+UPDATE Trackables 
+   SET OfficialRecord = @officialRecord, 
+       [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.CheckOut">
+<summary>
+  Looks up a localized string similar to INSERT INTO Trackables (Id, RecordVersion, RecordTypesId, [PageCount], Orphan, 
+					    Verified, OfficialRecord, OfficialRecordReconciliation)
+SELECT t.Id, ((SELECT TOP 1 Trackables.RecordVersion FROM Trackables 
+			  INNER JOIN Userlinks ON Trackables.Id = Userlinks.TrackablesId 
+			  WHERE (UserLinks.IndexTable = @tableName) 
+                AND (UserLinks.IndexTableId = @tableId) 
+                AND (UserLinks.AttachmentNumber = @attachmentNumber)
+              ORDER BY Trackables.RecordVersion [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.CheckOutUndo">
+<summary>
+  Looks up a localized string similar to DELETE ImagePointers FROM ImagePointers p
+INNER JOIN Trackables ON p.TrackablesId = Trackables.Id 
+                     AND p.TrackablesRecordVersion = Trackables.RecordVersion 
+INNER JOIN  Userlinks ON Trackables.Id = Userlinks.TrackablesId
+WHERE (UserLinks.IndexTable = @tableName) 
+  AND (UserLinks.IndexTableId = @tableId) 
+  AND (UserLinks.AttachmentNumber = @attachmentNumber)
+  AND (Trackables.RecordVersion &lt; 0)
+
+DELETE PCFilesPointers FROM PCFilesPointers p
+INNER JOIN Trackables ON p.Trackabl [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.CopyAnnotations">
+<summary>
+  Looks up a localized string similar to INSERT INTO Annotations (TableId, [Table], Annotation, DeskOf, NoteDateTime, UserName) 
+SELECT @newId, [Table], Annotation, DeskOf, NoteDateTime, UserName
+FROM Annotations WHERE [Table] = &apos;REDLINE&apos; AND TableId = @currentId
+.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.CopyDatabaseImagePointers">
+<summary>
+  Looks up a localized string similar to INSERT INTO ImagePointers (TrackablesId, TrackablesRecordVersion, ScanDirectoriesId, ScanDateTime, 
+    FileName, PageNumber, CRC, Orientation, Skew, Front, ImageHeight, ImageWidth, ImageSize, 
+    BarCodeCount, BarCodes, PageCount, OrgDirectoriesId, OrgFileName, OrgFullPath)
+SELECT TrackablesId, @versionNumber, ScanDirectoriesId, getdate() AS ScanDateTime, 
+         @fileName AS FileName, @pageNumber, CRC, Orientation, Skew, Front, ImageHeight, ImageWidth, ImageSize, 
+    BarCodeCount, BarCodes, PageC [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.CopyImagePointers">
+<summary>
+  Looks up a localized string similar to INSERT INTO ImagePointers (TrackablesId, TrackablesRecordVersion, ScanDirectoriesId, ScanDateTime, 
+    FileName, PageNumber, CRC, Orientation, Skew, Front, ImageHeight, ImageWidth, ImageSize, 
+    BarCodeCount, BarCodes, PageCount, OrgDirectoriesId, OrgFileName, OrgFullPath)
+SELECT TrackablesId, @versionNumber, ScanDirectoriesId, getdate() AS ScanDateTime, 
+    &apos;.&apos; + FileName AS FileName, @pageNumber, CRC, Orientation, Skew, Front, ImageHeight, ImageWidth, ImageSize, 
+    BarCodeCount, BarCodes, PageC [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.CopyPCFilesPointers">
+<summary>
+  Looks up a localized string similar to INSERT INTO PCFilesPointers (TrackablesId, TrackablesRecordVersion, ScanDirectoriesId, 
+    FileName, Pages, OrgDirectoriesId, OrgFileName, PCFilesEditGrp, PCFilesNVerGrp, OrgFullPath)
+SELECT TrackablesId, @versionNumber, ScanDirectoriesId, 
+    @fileName AS FileName, Pages, OrgDirectoriesId, OrgFileName, PCFilesEditGrp, PCFilesNVerGrp, OrgFullPath
+FROM PCFilesPointers WHERE Id = @Id;
+SELECT SCOPE_IDENTITY()
+.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.DeleteAllTrackables">
+<summary>
+  Looks up a localized string similar to DELETE FROM Trackables 
+WHERE (Id = @trackableId).
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.DeleteAnnotations">
+<summary>
+  Looks up a localized string similar to DELETE FROM Annotations WHERE [Table] = &apos;REDLINE&apos; AND TableId LIKE @currentId
+.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.DeleteCollectionItems">
+<summary>
+  Looks up a localized string similar to DELETE i FROM [SLCollectionItems] i
+INNER JOIN SLCollections c ON c.Id = i.CollectionId
+WHERE c.[Name] = @userId AND i.[Table]= @tableName AND i.[TableId] = @tableId {0}
+
+DELETE c FROM SLCollections c 
+LEFT OUTER JOIN SLCollectionItems i on i.CollectionId = c.Id
+WHERE c.[Name] = @userId AND i.[Table] IS NULL
+
+.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.DeleteImageTableRecords">
+<summary>
+  Looks up a localized string similar to DELETE FROM [{0}] WHERE Id = @recordId.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.DeleteIndexerRecords">
+<summary>
+  Looks up a localized string similar to DELETE FROM [SLIndexer]
+WHERE (IndexType &lt;&gt; 8) AND (IndexTableName = @tableName) AND (IndexTableID = @tableId) AND (AttachmentNumber = @attachmentNumber) {0} 
+
+DELETE FROM [SLIndexerCache]
+WHERE (IndexType &lt;&gt; 8) AND (IndexTableName = @tableName) AND (IndexTableID = @tableId) AND (AttachmentNumber = @attachmentNumber) {0} .
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.DeleteNote">
+<summary>
+  Looks up a localized string similar to DELETE FROM Annotations WHERE Id = @Id.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.DeleteNoteByTableNameId">
+<summary>
+  Looks up a localized string similar to DELETE FROM Annotations WHERE [Table] = @noteTable AND [TableId] = @currentId.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.DeletePointers">
+<summary>
+  Looks up a localized string similar to DELETE FROM [{0}] WHERE Id = @currentId.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.DeleteTrackable">
+<summary>
+  Looks up a localized string similar to DELETE FROM Trackables 
+WHERE (Id = @trackableId)
+  AND (RecordVersion = @versionNumber)
+ 
+SELECT Id FROM Trackables WHERE Id = @trackableId.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.DeleteUserlink">
+<summary>
+  Looks up a localized string similar to DELETE FROM Userlinks
+WHERE (UserLinks.IndexTable = @tableName) 
+  AND (UserLinks.IndexTableId = @tableId) 
+  AND (UserLinks.AttachmentNumber = @attachmentNumber) 
+.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.EditNote">
+<summary>
+  Looks up a localized string similar to UPDATE Annotations SET Annotation = @Memo WHERE Id = @Id
+.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetAllAttachments">
+<summary>
+  Looks up a localized string similar to SELECT Tables.TableName AS IndexTable, UserLinks.IndexTableId, UserLinks.AttachmentNumber AS AttachmentNumber, 
+    Trackables.Id AS TrackablesId, Trackables.RecordVersion, Attachments.PageNumber AS PageNumber, 
+    Trackables.RecordTypesId AS RecordType, Trackables.Orphan, Trackables.CheckedOut, Trackables.CheckedOutDate, 
+    Trackables.CheckedOutUser, Trackables.CheckedOutUserId, Trackables.CheckedOutFolder, Trackables.CheckedOutIP, Trackables.CheckedOutMAC, 
+    Trackables.OfficialRecord, Volumes.Im [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetAllAttachmentsWithCheckOut">
+<summary>
+  Looks up a localized string similar to SELECT Tables.TableName AS IndexTable, UserLinks.IndexTableId, UserLinks.AttachmentNumber AS AttachmentNumber, 
+    Trackables.Id AS TrackablesId, ABS(Trackables.RecordVersion) AS RecordVersion, Attachments.PageNumber AS PageNumber, 
+    Trackables.RecordTypesId AS RecordType, Trackables.Orphan, Trackables.CheckedOut, Trackables.CheckedOutDate, 
+    Trackables.CheckedOutUser, Trackables.CheckedOutUserId, Trackables.CheckedOutFolder, Trackables.CheckedOutIP, Trackables.CheckedOutMAC, 
+    Trackables.Offi [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetAllDirectoriesByVolumeId">
+<summary>
+  Looks up a localized string similar to SELECT Directories.*, 
+    Volumes.ImageTableName AS ImageTableName, Volumes.DirDiskMBLimitation, Volumes.DirCountLimitation, ISNULL(Volumes.Active, 0) AS VolumeActive, 
+    Directories.DirFullFlag, Directories.Id AS DirectoriesId, 
+    SystemAddresses.PhysicalDriveLetter + CAST(Volumes.PathName AS VARCHAR(260)) + ISNULL(Directories.Path,&apos;&apos;) + &apos;\&apos; AS FullPath 
+FROM Directories
+INNER JOIN         Volumes ON Directories.VolumesId = Volumes.Id 
+INNER JOIN SystemAddresses ON Volumes.SystemAddressesId = Sy [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetAllOrphans">
+<summary>
+  Looks up a localized string similar to SELECT ROW_NUMBER() OVER(ORDER BY SecureVault.TrackablesId DESC) AS RowNum, SecureVault.* 
+FROM 
+(SELECT DISTINCT Trackables.Id AS TrackablesId, Trackables.RecordVersion, Attachments.PageNumber AS PageNumber, Trackables.RecordTypesId AS RecordType, Trackables.Orphan, 
+ &apos;Orphans&apos; AS TableUserName, &apos;Orphans&apos; AS IndexTable, &apos;&apos; AS IndexTableId, 1 AS AttachmentNumber, Trackables.OfficialRecord, Volumes.ImageTableName AS ImageTableName, 
+ Attachments.ScanDirectoriesId, Attachments.[FileName], Attachments.Poin [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetAllOrphansCount">
+<summary>
+  Looks up a localized string similar to SELECT count(*) As TotalRecord
+FROM 
+(SELECT DISTINCT Trackables.Id AS TrackablesId, Trackables.RecordVersion, Attachments.PageNumber AS PageNumber, Trackables.RecordTypesId AS RecordType, Trackables.Orphan, 
+ &apos;Orphans&apos; AS TableUserName, &apos;Orphans&apos; AS IndexTable, &apos;&apos; AS IndexTableId, 1 AS AttachmentNumber, Trackables.OfficialRecord, Volumes.ImageTableName AS ImageTableName, 
+ Attachments.ScanDirectoriesId, Attachments.[FileName], Attachments.PointerId, Attachments.OrgFullPath, Attachments.OrgFileName, Att [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetAllOrphansWCF">
+<summary>
+  Looks up a localized string similar to SELECT Trackables.Id AS TrackablesId, Trackables.RecordVersion, Attachments.PageNumber AS PageNumber, 
+    Trackables.RecordTypesId AS RecordType, Trackables.Orphan, Trackables.CheckedOut, Trackables.CheckedOutDate, 
+    Trackables.CheckedOutUser, Trackables.CheckedOutUserId, Trackables.CheckedOutFolder, Trackables.CheckedOutIP, Trackables.CheckedOutMAC, 
+    Trackables.OfficialRecord, Volumes.ImageTableName AS ImageTableName, [System].RenameOnScan AS RenameOnScan, 
+    Attachments.ScanDirectoriesId, At [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetAllVersions">
+<summary>
+  Looks up a localized string similar to SELECT Tables.TableName AS IndexTable, UserLinks.IndexTableId, UserLinks.AttachmentNumber AS AttachmentNumber, 
+    Trackables.Id AS TrackablesId, Trackables.RecordVersion, Trackables.RecordTypesId AS RecordType, Attachments.PageNumber AS PageNumber, 
+    Trackables.Orphan, Trackables.CheckedOut, Trackables.CheckedOutDate, Trackables.CheckedOutUser, 
+    Trackables.CheckedOutUserId, Trackables.CheckedOutFolder, Trackables.CheckedOutIP, Trackables.CheckedOutMAC, 
+    Trackables.OfficialRecord, Volumes.Im [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetAllVersionsWithCheckedOut">
+<summary>
+  Looks up a localized string similar to SELECT Tables.TableName AS IndexTable, UserLinks.IndexTableId, UserLinks.AttachmentNumber AS AttachmentNumber, 
+    Trackables.Id AS TrackablesId, ABS(Trackables.RecordVersion) AS RecordVersion, Trackables.RecordTypesId AS RecordType, Attachments.PageNumber AS PageNumber, 
+    Trackables.Orphan, Trackables.CheckedOut, Trackables.CheckedOutDate, Trackables.CheckedOutUser, 
+    Trackables.CheckedOutUserId, Trackables.CheckedOutFolder, Trackables.CheckedOutIP, Trackables.CheckedOutMAC, 
+    Trackables.Offi [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetAllViewsForTable">
+<summary>
+  Looks up a localized string similar to SELECT [ViewName],[SQLStatement] FROM [Views] 
+WHERE [Views].[TableName] = @tableName
+AND [Views].[Printable] &lt;&gt; 1 
+ORDER BY ViewOrder
+.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetAnnotations">
+<summary>
+  Looks up a localized string similar to SELECT [Annotation] FROM Annotations WHERE [TableId] = @tableId AND [Table] = &apos;REDLINE&apos;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetAttachment">
+<summary>
+  Looks up a localized string similar to SELECT Tables.TableName AS IndexTable, UserLinks.IndexTableId, UserLinks.AttachmentNumber AS AttachmentNumber, 
+    Trackables.Id AS TrackablesId, Trackables.RecordVersion, Attachments.PageNumber AS PageNumber, 
+    Trackables.RecordTypesId AS RecordType, Trackables.Orphan, Trackables.CheckedOut, Trackables.CheckedOutDate, 
+    Trackables.CheckedOutUser, Trackables.CheckedOutUserId, Trackables.CheckedOutFolder, Trackables.CheckedOutIP, Trackables.CheckedOutMAC, 
+    Trackables.OfficialRecord, Volumes.Im [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetAttachmentByPointerId">
+<summary>
+  Looks up a localized string similar to SELECT Tables.TableName AS IndexTable, UserLinks.IndexTableId, UserLinks.AttachmentNumber AS AttachmentNumber, 
+    Trackables.Id AS TrackablesId, Trackables.RecordVersion, Attachments.PageNumber AS PageNumber, 
+    Trackables.RecordTypesId AS RecordType, Trackables.Orphan, Trackables.CheckedOut, Trackables.CheckedOutDate, 
+    Trackables.CheckedOutUser, Trackables.CheckedOutUserId,Trackables.CheckedOutFolder, Trackables.CheckedOutIP, Trackables.CheckedOutMAC, 
+    Trackables.OfficialRecord, Volumes.Ima [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetBatchesForScannedPointers">
+<summary>
+  Looks up a localized string similar to SELECT s.Id, MAX(s.BatchStartDateTime) AS BatchDate, MAX(s.DocumentCount) AS DocumentCount, MAX(UserName) AS UserName, 
+    MAX(ScanRulesIdUsed) AS ScanRule, MAX(CASE WHEN s.RecordType = 5 THEN &apos;PDF Scans&apos; ELSE &apos;Image Scans&apos; END) AS RecordType, 
+    (SELECT COUNT(*) FROM ImagePointers p
+     INNER JOIN Trackables t ON p.TrackablesRecordVersion = t.RecordVersion 
+                           AND p.TrackablesId = t.Id 
+                           AND (t.Orphan &lt;&gt; 0 AND t.Orphan IS NOT NULL)
+     WHERE p.Sc [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetBatchForPCFilesPointers">
+<summary>
+  Looks up a localized string similar to SELECT -1 AS Id, NULL AS BatchDate, NULL AS DocumentCount, &apos;PC Files&apos; AS UserName, NULL AS ScanRule, &apos;PC Files&apos; AS RecordType, COUNT(*) AS OrphanCount 
+FROM PCFilesPointers p
+LEFT OUTER JOIN ScanBatches s ON s.Id = p.ScanBatchesId
+INNER JOIN Trackables t ON p.TrackablesRecordVersion = t.RecordVersion 
+                       AND p.TrackablesId = t.Id 
+                       AND (t.Orphan &lt;&gt; 0 AND t.Orphan IS NOT NULL) 
+WHERE s.Id IS NULL
+.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetCheckedOutToAnyoneVersion">
+<summary>
+  Looks up a localized string similar to SELECT Tables.TableName AS IndexTable, UserLinks.IndexTableId, UserLinks.AttachmentNumber AS AttachmentNumber, 
+    Trackables.Id AS TrackablesId, ABS(Trackables.RecordVersion) AS RecordVersion, Attachments.PageNumber AS PageNumber, 
+    Trackables.RecordTypesId AS RecordType, Trackables.Orphan, Trackables.CheckedOut, Trackables.CheckedOutDate, 
+    Trackables.CheckedOutUser, Trackables.CheckedOutUserId, Trackables.CheckedOutFolder, Trackables.CheckedOutIP, Trackables.CheckedOutMAC, 
+    Trackables.Offi [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetCheckedOutVersion">
+<summary>
+  Looks up a localized string similar to SELECT Tables.TableName AS IndexTable, UserLinks.IndexTableId, UserLinks.AttachmentNumber AS AttachmentNumber, 
+    Trackables.Id AS TrackablesId, ABS(Trackables.RecordVersion) AS RecordVersion, Attachments.PageNumber AS PageNumber, 
+    Trackables.RecordTypesId AS RecordType, Trackables.Orphan, Trackables.CheckedOut, Trackables.CheckedOutDate, 
+    Trackables.CheckedOutUser, Trackables.CheckedOutUserId, Trackables.CheckedOutFolder, Trackables.CheckedOutIP, Trackables.CheckedOutMAC, 
+    Trackables.Offi [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetCollection">
+<summary>
+  Looks up a localized string similar to SELECT [Id] FROM SLCollections WHERE Operator = @userId.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetCollectionItems">
+<summary>
+  Looks up a localized string similar to SELECT [Ticket], [Table], [TableId], [Index] AS AttachmentNumber, [AttachmentType] AS VersionNumber, [DisplayText], [TableUserName], [Extension], [UseOverlay] FROM [SLCollectionItems] 
+INNER JOIN SLCollections ON SLCollections.Id = SLCollectionItems.CollectionId
+WHERE SLCollections.Operator = @userId.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetDatabaseImage">
+<summary>
+  Looks up a localized string similar to SELECT * FROM [{0}] WHERE Id = @recordId.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetDefaultOutputSettingDirectoryID">
+<summary>
+  Looks up a localized string similar to SELECT TOP 1 [DirectoriesID] FROM [OutputSettings] WHERE [ID] = (SELECT TOP 1 DefaultOutputSettingsId FROM [System]).
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetDefaultOutputSettingName">
+<summary>
+  Looks up a localized string similar to SELECT TOP 1 DefaultOutputSettingsId FROM [System].
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetFirstAttachment">
+<summary>
+  Looks up a localized string similar to SELECT Tables.TableName AS IndexTable, UserLinks.IndexTableId, ISNULL(UserLinks.AttachmentNumber, 1) AS AttachmentNumber, 
+    Trackables.Id AS TrackablesId, Trackables.RecordVersion, Attachments.PageNumber AS PageNumber, 
+    Trackables.RecordTypesId AS RecordType, Trackables.Orphan, Trackables.CheckedOut, Trackables.CheckedOutDate, 
+    Trackables.CheckedOutUser, Trackables.CheckedOutUserId, Trackables.CheckedOutFolder, Trackables.CheckedOutIP, Trackables.CheckedOutMAC, 
+    Trackables.OfficialRecord, [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetFullPathByPointerId">
+<summary>
+  Looks up a localized string similar to SELECT Trackables.RecordTypesId, Volumes.ImageTableName AS ImageTableName, Attachments.[FileName], Attachments.OrgFullPath, Attachments.OrgFileName, 
+    SystemAddresses.PhysicalDriveLetter + CAST(Volumes.PathName AS VARCHAR(260)) + ISNULL(Directories.Path,&apos;&apos;) + &apos;\&apos; + Attachments.[FileName] AS FullPath 
+    FROM 
+   (SELECT CAST(OrgFullPath AS VARCHAR(260)) AS OrgFullPath, OrgFileName, ImagePointers.Id AS PointerId, TrackablesId, TrackablesRecordVersion, ScanDirectoriesId, PageNumber, [PageCount], [FileN [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetIdFieldFromTable">
+<summary>
+  Looks up a localized string similar to SELECT IDFieldName FROM Tables WHERE TableName = @tableName.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetIdFieldIsString">
+<summary>
+  Looks up a localized string similar to SELECT [{0}] FROM [{1}] .
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetImagePointerFilename">
+<summary>
+  Looks up a localized string similar to SELECT [FileName] FROM ImagePointers 
+    WHERE Id = @pointerID.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetImagePointerId">
+<summary>
+  Looks up a localized string similar to SELECT Id FROM ImagePointers 
+    WHERE TrackablesId = @trackablesId 
+    AND ABS(TrackablesRecordVersion) = @recordVersion 
+    AND PageNumber = @pageNumber
+    AND [FileName] = @fileName.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetImagePointerIdByAttachment">
+<summary>
+  Looks up a localized string similar to SELECT p.Id FROM ImagePointers p
+INNER JOIN  Userlinks ON p.TrackablesId = Userlinks.TrackablesId
+WHERE (UserLinks.IndexTable = @tableName) 
+  AND (UserLinks.IndexTableId = @tableId) 
+  AND (UserLinks.AttachmentNumber = @attachmentNumber)
+  AND (p.TrackablesRecordVersion &lt; 0)
+  AND (p.PageNumber = @pageNumber).
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetImagePointerIdForOrphan">
+<summary>
+  Looks up a localized string similar to SELECT Id FROM ImagePointers WHERE TrackablesId = @trackablesId 
+    .
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetLastAttachment">
+<summary>
+  Looks up a localized string similar to SELECT Tables.TableName AS IndexTable, UserLinks.IndexTableId, ISNULL(UserLinks.AttachmentNumber, 1) AS AttachmentNumber, 
+    Trackables.Id AS TrackablesId, Trackables.RecordVersion, Attachments.PageNumber AS PageNumber, 
+    Trackables.RecordTypesId AS RecordType, Trackables.Orphan, Trackables.CheckedOut, Trackables.CheckedOutDate, 
+    Trackables.CheckedOutUser, Trackables.CheckedOutUserId, Trackables.CheckedOutFolder, Trackables.CheckedOutIP, Trackables.CheckedOutMAC, 
+    Trackables.OfficialRecord, [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetLastVersionNumberForTrackable">
+<summary>
+  Looks up a localized string similar to SELECT TOP 1 [RecordVersion] FROM [Trackables] WHERE [ID] = @trackablesID ORDER BY [RecordVersion] DESC.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetMailItemChanges">
+<summary>
+  Looks up a localized string similar to SELECT Item, ItemValue FROM Settings WHERE Section = &apos;OutlookProperty&apos;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetNextDocumentNumber">
+<summary>
+  Looks up a localized string similar to UPDATE OutputSettings SET NextDocNum = @nextDocNum WHERE Id = @Id AND NextDocNum = @currentDocNum.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetNextTrackableNumber">
+<summary>
+  Looks up a localized string similar to BEGIN TRANSACTION
+SELECT TOP 1 NextTrackablesId FROM SysNextTrackable WITH (TABLOCKX)
+UPDATE SysNextTrackable SET NextTrackablesId = NextTrackablesId + 1 
+COMMIT TRANSACTION.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetNoteCount">
+<summary>
+  Looks up a localized string similar to SELECT COUNT(Id) 
+  FROM Annotations
+ WHERE TableId = @pointerId
+   AND [Table] = @noteTable.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetNotes">
+<summary>
+  Looks up a localized string similar to SELECT a.Id, a.[Table], a.TableId, a.NoteDateTime, a.Annotation, s.UserId AS UserId, 
+	CASE WHEN s.DisplayName IS NOT NULL AND s.DisplayName &gt; &apos;&apos; THEN s.DisplayName 
+         WHEN a.DeskOf IS NOT NULL AND a.DeskOf &gt; &apos;&apos; THEN a.DeskOf 
+		 ELSE a.UserName
+	END AS UserName
+FROM Annotations a LEFT JOIN SecureUser s ON s.UserName = a.UserName
+ WHERE a.TableId = @pointerId
+   AND a.[Table] = @noteTable.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetOfficialRecordSettingForTable">
+<summary>
+  Looks up a localized string similar to SELECT [OfficialRecordHandling] 
+FROM [Tables]
+WHERE [TableName] = @tableName.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetOrphan">
+<summary>
+  Looks up a localized string similar to SELECT @orphanId = (ISNULL(
+(SELECT TOP 1 Id FROM Trackables 
+ WHERE (Id {0} @orphanId)
+  AND (Trackables.Orphan &lt;&gt; 0) AND (Trackables.Orphan IS NOT NULL)
+ ORDER BY Trackables.Id {1}),0))
+
+SELECT Trackables.Id AS TrackablesId, Trackables.RecordVersion, Attachments.PageNumber AS PageNumber, 
+    Trackables.RecordTypesId AS RecordType, Trackables.Orphan, Trackables.CheckedOut, Trackables.CheckedOutDate, 
+    Trackables.CheckedOutUser, Trackables.CheckedOutUserId, Trackables.CheckedOutFolder, Trackable [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetOrphanByPointerId">
+<summary>
+  Looks up a localized string similar to SELECT Trackables.Id AS TrackablesId, Trackables.RecordVersion, Attachments.PageNumber AS PageNumber, 
+    Trackables.RecordTypesId AS RecordType, Trackables.Orphan, Trackables.CheckedOut, Trackables.CheckedOutDate, 
+    Trackables.CheckedOutUser, Trackables.CheckedOutUserId, Trackables.CheckedOutFolder, Trackables.CheckedOutIP, Trackables.CheckedOutMAC, 
+    Trackables.OfficialRecord, Volumes.ImageTableName AS ImageTableName, [System].RenameOnScan AS RenameOnScan, 
+    Attachments.ScanDirectoriesId, At [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetOrphansByScanBatchesId">
+<summary>
+  Looks up a localized string similar to SELECT Trackables.Id AS TrackablesId, Trackables.RecordVersion, Attachments.PageNumber AS PageNumber, 
+    Trackables.RecordTypesId AS RecordType, Trackables.Orphan, Trackables.CheckedOut, Trackables.CheckedOutDate, 
+    Trackables.CheckedOutUser, Trackables.CheckedOutUserId, Trackables.CheckedOutFolder, Trackables.CheckedOutIP, Trackables.CheckedOutMAC, 
+    Trackables.OfficialRecord, Volumes.ImageTableName AS ImageTableName, Attachments.ScanDirectoriesId, Attachments.PointerId AS PointerId, 
+    [Syst [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetOrphansForPCFilesPointers">
+<summary>
+  Looks up a localized string similar to SELECT Trackables.Id AS TrackablesId, Trackables.RecordVersion, PageNumber, Pages AS PageCount, 
+    Trackables.RecordTypesId AS RecordType, Trackables.Orphan, Trackables.CheckedOut, Trackables.CheckedOutDate, 
+    Trackables.CheckedOutUser, Trackables.CheckedOutUserId, Trackables.CheckedOutFolder, Trackables.CheckedOutIP, Trackables.CheckedOutMAC, 
+    Trackables.OfficialRecord, Volumes.ImageTableName AS ImageTableName, PCFilesPointers.ScanDirectoriesId, PCFilesPointers.Id AS PointerId, 
+    [System].P [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetOutputSetting">
+<summary>
+  Looks up a localized string similar to SELECT o.Id, o.DefaultOutputSettingsId, o.DirectoriesId, o.FileExtension, o.NextDocNum, o.VolumesId, ISNULL(o.InActive, 0) AS InActive, 
+     ISNULL(v.Active, 0) AS VolumeActive, v.[Name] AS VolumeName, v.ImageTableName AS ImageTableName, v.DirDiskMBLimitation, v.DirCountLimitation, d.DirFullFlag,
+    s.PhysicalDriveLetter + CAST(v.PathName AS VARCHAR(260)) + ISNULL(d.Path,&apos;&apos;) + &apos;\&apos; AS FullPath 
+FROM OutputSettings o
+INNER JOIN     Directories d ON d.Id = o.DirectoriesId 
+INNER JOIN         Volumes v O [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetOutputSettingByDirectoriesId">
+<summary>
+  Looks up a localized string similar to SELECT o.Id, o.DefaultOutputSettingsId, o.DirectoriesId, o.FileExtension, o.NextDocNum, o.VolumesId, ISNULL(o.InActive, 0) AS InActive, 
+     ISNULL(v.Active, 0) AS VolumeActive, v.[Name] AS VolumeName, v.ImageTableName AS ImageTableName, v.DirDiskMBLimitation, v.DirCountLimitation, d.DirFullFlag,
+    s.PhysicalDriveLetter + CAST(v.PathName AS VARCHAR(260)) + ISNULL(d.Path,&apos;&apos;) + &apos;\&apos; AS FullPath 
+FROM OutputSettings o
+INNER JOIN     Directories d ON d.Id = o.DirectoriesId 
+INNER JOIN         Volumes v O [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetOutputSettingWithoutDirectory">
+<summary>
+  Looks up a localized string similar to SELECT o.Id, o.DefaultOutputSettingsId, o.DirectoriesId, o.FileExtension, o.NextDocNum, o.VolumesId, ISNULL(o.InActive, 0) AS InActive, 
+     ISNULL(v.Active, 0) AS VolumeActive, v.[Name] AS VolumeName, v.ImageTableName AS ImageTableName, v.DirDiskMBLimitation, v.DirCountLimitation, d.DirFullFlag,
+    s.PhysicalDriveLetter + CAST(v.PathName AS VARCHAR(260)) + ISNULL(d.Path,&apos;&apos;) + &apos;\&apos; AS FullPath 
+FROM OutputSettings o
+LEFT  JOIN     Directories d ON d.Id = o.DirectoriesId 
+INNER JOIN         Volumes v O [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetPermissionChildAttachments">
+<summary>
+  Looks up a localized string similar to SELECT COUNT(*) FROM SecureUserGroup 
+INNER JOIN SecureUser ON SecureUserGroup.UserID = SecureUser.UserID 
+INNER JOIN SecureObject 
+    INNER JOIN SecureObjectPermission ON SecureObject.SecureObjectID = SecureObjectPermission.SecureObjectID 
+    INNER JOIN SecurePermission ON SecureObjectPermission.PermissionID = SecurePermission.PermissionID 
+ON SecureUserGroup.GroupID = SecureObjectPermission.GroupID
+WHERE  SecureObject.Name = @tableName AND SecureObject.BaseID &gt; 0 
+  AND (SecureUserGroup.UserID =  [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetPermissionsAnyVolumeAdd">
+<summary>
+  Looks up a localized string similar to SELECT DISTINCT SecurePermission.Permission
+      FROM SecureObjectPermission 
+INNER JOIN SecureObject ON SecureObjectPermission.SecureObjectID = SecureObject.SecureObjectID 
+INNER JOIN SecurePermission ON SecureObjectPermission.PermissionID = SecurePermission.PermissionID 
+LEFT OUTER JOIN SecureUserGroup ON SecureObjectPermission.GroupID = SecureUserGroup.GroupID
+     WHERE (SecureObjectPermission.PermissionID = 4 AND SecureObject.SecureObjectTypeID = 11 AND SecureObject.BaseID &gt; 0)
+       AND (Secur [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetPermissionsAttachment">
+<summary>
+  Looks up a localized string similar to SELECT DISTINCT SecurePermission.Permission, SecureObject.SecureObjectTypeID
+    FROM SecureUserGroup 
+INNER JOIN SecureUser ON SecureUserGroup.UserID = SecureUser.UserID 
+INNER JOIN SecureObject 
+    INNER JOIN SecureObjectPermission ON SecureObject.SecureObjectID = SecureObjectPermission.SecureObjectID 
+    INNER JOIN SecurePermission ON SecureObjectPermission.PermissionID = SecurePermission.PermissionID 
+ON SecureUserGroup.GroupID = SecureObjectPermission.GroupID
+WHERE  SecureObject.Name = @tableN [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetPermissionsVolume">
+<summary>
+  Looks up a localized string similar to SELECT DISTINCT SecurePermission.Permission
+      FROM SecureObjectPermission 
+INNER JOIN SecureObject ON SecureObjectPermission.SecureObjectID = SecureObject.SecureObjectID 
+INNER JOIN SecurePermission ON SecureObjectPermission.PermissionID = SecurePermission.PermissionID 
+LEFT OUTER JOIN SecureUserGroup ON SecureObjectPermission.GroupID = SecureUserGroup.GroupID
+     WHERE ((SecureObjectPermission.PermissionID = 1 OR SecureObjectPermission.PermissionID = 3 OR SecureObjectPermission.PermissionID = 4 
+ [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetRelatedChildRecords">
+<summary>
+  Looks up a localized string similar to SELECT [{0}] FROM [{1}] WHERE [{2}] = @upperTableFieldValue
+.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetRetentionPermissionsForUser">
+<summary>
+  Looks up a localized string similar to   SELECT  SecurePermission.Permission, SecureObject.SecureObjectTypeID, SecureObject.Name
+    FROM  SecureUserGroup INNER JOIN
+          SecureUser ON SecureUserGroup.UserID = SecureUser.UserID INNER JOIN
+          SecureObject INNER JOIN
+          SecureObjectPermission ON SecureObject.SecureObjectID = SecureObjectPermission.SecureObjectID INNER JOIN
+          SecurePermission ON SecureObjectPermission.PermissionID = SecurePermission.PermissionID ON 
+          SecureUserGroup.GroupID = SecureObjectPe [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetSettings">
+<summary>
+  Looks up a localized string similar to SELECT [ItemValue] FROM SETTINGS WHERE [Section]=@section AND [Item]=@item.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetTableHasImaging">
+<summary>
+  Looks up a localized string similar to DECLARE @value as int
+
+SELECT @value = (SELECT [Attachments] FROM [Tables] WHERE [TableName] = @tableName)
+SELECT @value = AVG(ISNULL(@value , 0))
+SELECT @value .
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetTableRelationships">
+<summary>
+  Looks up a localized string similar to SELECT [LowerTableName], [LowerTableFieldName], Tables.IDFieldName
+FROM [Relationships] 
+INNER JOIN Tables ON Tables.TableName = Relationships.LowerTableName
+WHERE [Relationships].[UpperTableName] = @tableName.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetUserlinkSize">
+<summary>
+  Looks up a localized string similar to SELECT IndexTableId FROM Userlinks WHERE 0=1.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetUserName">
+<summary>
+  Looks up a localized string similar to SELECT UserName, FullName, DisplayName FROM SecureUser WHERE UserId = @userId.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetVersion">
+<summary>
+  Looks up a localized string similar to SELECT Tables.TableName AS IndexTable, UserLinks.IndexTableId, UserLinks.AttachmentNumber AS AttachmentNumber, 
+    Trackables.Id AS TrackablesId, ABS(Trackables.RecordVersion) AS RecordVersion, Attachments.PageNumber AS PageNumber, 
+    Trackables.RecordTypesId AS RecordType, Trackables.Orphan, Trackables.CheckedOut, Trackables.CheckedOutDate, 
+    Trackables.CheckedOutUser, Trackables.CheckedOutUserId, Trackables.CheckedOutFolder, Trackables.CheckedOutIP, Trackables.CheckedOutMAC, 
+    Trackables.Offi [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetViewPermissionsForUser">
+<summary>
+  Looks up a localized string similar to SELECT  SecurePermission.Permission
+    FROM  SecureUserGroup INNER JOIN
+          SecureUser ON SecureUserGroup.UserID = SecureUser.UserID INNER JOIN
+          SecureObject INNER JOIN
+          SecureObjectPermission ON SecureObject.SecureObjectID = SecureObjectPermission.SecureObjectID INNER JOIN
+          SecurePermission ON SecureObjectPermission.PermissionID = SecurePermission.PermissionID ON 
+          SecureUserGroup.GroupID = SecureObjectPermission.GroupID
+   WHERE (SecureUser.UserID = @userI [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetVolumeByID">
+<summary>
+  Looks up a localized string similar to SELECT Volumes.*, SystemAddresses.PhysicalDriveLetter, 
+    SystemAddresses.PhysicalDriveLetter + CAST(Volumes.PathName AS VARCHAR(260)) AS FullPath 
+FROM [Volumes] 
+INNER JOIN SystemAddresses ON Volumes.SystemAddressesId = SystemAddresses.Id 
+WHERE Volumes.Id = @Id.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetVolumeIdFromDirectories">
+<summary>
+  Looks up a localized string similar to   SELECT VolumesId FROM Directories WHERE Id = @Id
+.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.GetVolumeIDFromOutputSetting">
+<summary>
+  Looks up a localized string similar to SELECT TOP 1 [VolumesID] FROM [OutputSettings] WHERE [Id] = @Id.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.InsertAnnotation">
+<summary>
+  Looks up a localized string similar to INSERT INTO Annotations ([TableId], [Table], [Annotation], [DeskOf], [NoteDateTime], [UserName])
+VALUES (@tableId, &apos;REDLINE&apos;, @annotation, @userName, getdate(), @userName)
+.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.InsertAuditConfData">
+<summary>
+  Looks up a localized string similar to INSERT INTO [SLAuditConfData] ([TableName], [TableId], [OperatorsId], [NetworkLoginName], [Domain], [ComputerName], [MacAddress], [IP], [AccessDateTime], [ModuleName]) 
+SELECT TableName, @tableId, @userName, @networkUserName, @domain, @computerName, @macAddress, @ipAddress, getdate(), @action
+FROM   Tables
+WHERE  TableName = @tableName   
+  AND (AuditAttachments &lt;&gt; 0) AND (AuditAttachments IS NOT NULL) .
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.InsertAuditUpdateChildren">
+<summary>
+  Looks up a localized string similar to INSERT INTO [SLAuditUpdChildren] 
+      ([SLAuditUpdatesId], [TableName], [TableId]) 
+SELECT @auditUpdateId, TableName, @tableId  
+FROM   Tables
+WHERE  TableName = @tableName   
+.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.InsertAuditUpdates">
+<summary>
+  Looks up a localized string similar to INSERT INTO [SLAuditUpdates] 
+      ([TableName], [TableId], [OperatorsId], [NetworkLoginName], [Domain], [ComputerName], 
+       [MacAddress], [IP], [Module], [Action], [DataBefore], [DataAfter], [ActionType], [UpdateDateTime]) 
+SELECT TableName, @tableId, @userName, @networkUserName, @domain, @computerName, 
+       @macAddress, @ipAddress, @module, @action, @dataBefore, @dataAfter, @actionType, getdate() 
+FROM   Tables
+WHERE  TableName = @tableName   
+  AND (AuditAttachments &lt;&gt; 0) AND (AuditAttachm [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.InsertCollection">
+<summary>
+  Looks up a localized string similar to INSERT INTO [SLCollections] ([Name], [Operator], [CreateDate]) VALUES (@userId, @userId, getdate())
+SELECT SCOPE_IDENTITY()
+
+.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.InsertCollectionItem">
+<summary>
+  Looks up a localized string similar to INSERT INTO [SLCollectionItems] ([CollectionId], [Ticket], [Table], [TableId], [Index], [AttachmentType], [DisplayText], [Extension], [UseOverlay], [TableUserName]) 
+SELECT @collectionId, @ticket, TableName, @tableId, @attachmentNumber, @versionNumber, @displayText, @extension, @useOverlay, UserName FROM Tables WHERE TableName = @tableName
+.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.InsertImagePointer">
+<summary>
+  Looks up a localized string similar to INSERT INTO ImagePointers (TrackablesId, TrackablesRecordVersion, ScanDirectoriesId, ScanSequence, ScanDateTime, 
+                           FileName, PageNumber, ImageHeight, ImageWidth, ImageSize, PageCount, OrgFullPath, OrgFileName)
+VAlUES                    (@trackableId, @versionNumber, @directoriesId, 1, getdate(), 
+                           @fileName, @pageNumber, @imageHeight, @imageWidth, @imageSize, @pageCount, @orgFullPath, @orgFileName)
+SELECT SCOPE_IDENTITY()                          .
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.InsertImageTableRecords">
+<summary>
+  Looks up a localized string similar to INSERT INTO [{0}] (FileExtension, TrackableType) VALUES (@fileExtension, @trackableType)
+SELECT SCOPE_IDENTITY()
+.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.InsertNewDirectory">
+<summary>
+  Looks up a localized string similar to INSERT INTO [Directories]([Description], [DirFullFlag], [Path], [VolumesID])
+VALUES (@description, @dirFullFlag, @path, @volumesID)
+SELECT SCOPE_IDENTITY()
+.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.InsertNote">
+<summary>
+  Looks up a localized string similar to INSERT INTO Annotations ([Table], TableId, NoteDateTime, Annotation, UserName, DeskOf)
+VALUES                  (@noteTable, @pointerId, getdate(), @Memo, @userName, @displayName)
+SELECT SCOPE_IDENTITY().
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.InsertPCFilePointer">
+<summary>
+  Looks up a localized string similar to INSERT INTO PCFilesPointers (TrackablesId, TrackablesRecordVersion, Pages, FileName, ScanDirectoriesId, OrgFullPath, OrgFileName, ScanDateTime)
+VAlUES                      (@trackableId, @versionNumber, 1, @fileName, @directoriesId, @orgFullPath, @orgFileName, getdate()).
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.InsertScanBatch">
+<summary>
+  Looks up a localized string similar to INSERT INTO ScanBatches (BatchStartDateTime, PageCount, DocumentCount, AutoIndexedCount, LastScanSequence, UserName)
+VALUES                  (getdate(), @pageCount, 1, 1, 1, @userName)
+SELECT SCOPE_IDENTITY().
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.InsertTrackablesUserlinks">
+<summary>
+  Looks up a localized string similar to IF EXISTS(SELECT 1 FROM Userlinks WHERE IndexTable = @tableName AND IndexTableId = @tableId AND AttachmentNumber = @attachmentNumber) BEGIN
+	IF EXISTS(SELECT 1 FROM Trackables WHERE Id = (SELECT TrackablesId FROM Userlinks WHERE IndexTable = @tableName AND IndexTableId = @tableId AND AttachmentNumber = @attachmentNumber)) BEGIN
+		SET @attachmentNumber = (SELECT TOP 1 AttachmentNumber + 1 FROM Userlinks WHERE IndexTable = @tableName AND IndexTableId = @tableId ORDER BY AttachmentNumber DESC)
+
+		IF (SELEC [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.InsertUserlinkForOrphan">
+<summary>
+  Looks up a localized string similar to DECLARE @attachmentNumber INT
+
+SELECT @attachmentNumber = 
+    (SELECT TOP 1 UserLinks.AttachmentNumber FROM UserLinks 
+       WHERE (UserLinks.IndexTable = @tableName) 
+        AND (UserLinks.IndexTableId = @tableId) 
+       ORDER BY UserLinks.AttachmentNumber DESC) + 1
+
+SELECT @attachmentNumber = AVG(ISNULL(@attachmentNumber, 1))
+
+INSERT INTO Userlinks (TrackablesId, RecordVersion, IndexTableId, IndexTable, AttachmentNumber, VersionUpdated)
+	VALUES (@trackableId, 1, @tableId, @tableName, @attac [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.InsertUserlinks">
+<summary>
+  Looks up a localized string similar to INSERT INTO Userlinks (TrackablesId, RecordVersion, IndexTableId, IndexTable, AttachmentNumber, VersionUpdated)
+VALUES (@trackableId, @versionNumber, @tableId, @tableName, @attachmentNumber, 1)
+.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.InvalidThumb">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.IsCheckedOut">
+<summary>
+  Looks up a localized string similar to SELECT ISNULL((SELECT TOP 1 ABS(Trackables.RecordVersion) AS RecordVersion
+FROM Trackables
+INNER JOIN Userlinks ON Trackables.Id = Userlinks.TrackablesId 
+WHERE (UserLinks.IndexTable = @tableName) 
+  AND (UserLinks.IndexTableId = @tableId)
+  AND (UserLinks.AttachmentNumber = @attachmentNumber)   
+  AND (Trackables.RecordVersion &lt; 0)
+ORDER BY UserLinks.AttachmentNumber DESC, RecordVersion DESC), 0).
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.IsCheckedOutToMe">
+<summary>
+  Looks up a localized string similar to SELECT ISNULL((SELECT TOP 1 ABS(Trackables.RecordVersion) AS RecordVersion
+FROM Trackables
+INNER JOIN Userlinks ON Trackables.Id = Userlinks.TrackablesId 
+WHERE (UserLinks.IndexTable = @tableName) 
+  AND (UserLinks.IndexTableId = @tableId)
+  AND (Trackables.CheckedOutUserId = @userId)
+  AND (UserLinks.AttachmentNumber = @attachmentNumber)   
+  AND (Trackables.RecordVersion &lt; 0)
+ORDER BY UserLinks.AttachmentNumber DESC, RecordVersion DESC), 0).
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.IsInactivityOnForTable">
+<summary>
+  Looks up a localized string similar to SELECT [RetentionInactivityActive] FROM [Tables] WHERE [TableName] = @TableName.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.IsRetentionOnForTable">
+<summary>
+  Looks up a localized string similar to SELECT [RetentionPeriodActive] FROM [Tables] WHERE [TableName] = @TableName.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.IsUserInAdministratorGroup">
+<summary>
+  Looks up a localized string similar to  SELECT COUNT(*) FROM SecureObjectPermission 
+LEFT OUTER JOIN SecureUserGroup ON SecureObjectPermission.GroupID = SecureUserGroup.GroupID 
+  WHERE SecureObjectPermission.SecureObjectID = 1 AND SecureObjectPermission.PermissionID = 1 
+    AND (SecureUserGroup.UserID = @userId OR SecureObjectPermission.GroupID = -1)
+.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.LeadToolsKey">
+<summary>
+  Looks up a localized string similar to jcwLXo5T0paqbVvDbtFCk5KRcsASLmsI5d3u3oZp7DM=.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.LEADTOOLSLICENSE">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.MarkOfficialRecord">
+<summary>
+  Looks up a localized string similar to UPDATE Trackables 
+SET OfficialRecord = 0,
+    OfficialRecordReconciliation = 0
+FROM   Trackables               
+INNER JOIN Userlinks ON Trackables.Id = Userlinks.TrackablesId 
+WHERE (UserLinks.IndexTable = @tableName) 
+  AND (UserLinks.IndexTableId = @tableId) 
+  AND (UserLinks.AttachmentNumber = @attachmentNumber)
+
+UPDATE Trackables 
+SET OfficialRecord = 1,
+    OfficialRecordReconciliation = 1
+FROM   Trackables               
+INNER JOIN Userlinks ON Trackables.Id = Userlinks.TrackablesId 
+WH [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.RenamePointerOrgFileNameById">
+<summary>
+  Looks up a localized string similar to IF (@attachmentType = 5)
+BEGIN
+    UPDATE PCFilesPointers SET OrgFileName = @orgFileName WHERE Id = @pointerId
+END
+ELSE
+BEGIN
+    UPDATE ImagePointers SET OrgFileName = @orgFileName WHERE Id = @pointerId
+END
+.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.ReorderImagePointerPageNumbers">
+<summary>
+  Looks up a localized string similar to IF (@toPageNumber &lt; @fromPageNumber)
+BEGIN
+UPDATE ImagePointers SET PageNumber = PageNumber + 1
+    FROM ImagePointers p
+    INNER JOIN  Userlinks ON p.TrackablesId = Userlinks.TrackablesId
+    WHERE (UserLinks.IndexTable = @tableName) 
+      AND (UserLinks.IndexTableId = @tableId) 
+      AND (UserLinks.AttachmentNumber = @attachmentNumber)
+      AND (p.TrackablesRecordVersion &lt; 0)
+      AND (p.PageNumber &gt;= @toPageNumber AND p.PageNumber &lt; @fromPageNumber)
+END
+ELSE
+BEGIN
+    UPDATE ImagePointe [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.UpdateAnnotation">
+<summary>
+  Looks up a localized string similar to UPDATE Annotations SET [Annotation] = @annotation, [NoteDateTime] = getdate(), 
+                       [DeskOf] = @userName, [UserName] = @userName 
+ WHERE [TableId] = @tableId AND [Table] = &apos;REDLINE&apos;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.UpdateDirectoryDirFullFlag">
+<summary>
+  Looks up a localized string similar to UPDATE [Directories] SET [DirFullFlag] = @flag WHERE [ID] = @Id.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.UpdateImagePointerFileName">
+<summary>
+  Looks up a localized string similar to IF (@imageTableName &lt;&gt; &apos;&apos;)
+BEGIN
+    IF (@imageTableName = &apos;NULL&apos;)
+    BEGIN
+        IF (@pageNumber = 0)
+        BEGIN
+            UPDATE ImagePointers SET FileName = @fileName, OrgFullPath = NULL, ScanDirectoriesID = @directoryId, PageCount = @pageCount WHERE Id = @Id
+        END
+        ELSE
+        BEGIN
+            UPDATE ImagePointers SET FileName = @fileName, OrgFullPath = NULL, ScanDirectoriesID = @directoryId, PageCount = @pageCount, PageNumber = @pageNumber WHERE Id = @Id
+        END
+  [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.UpdateImagePointerImageTableName">
+<summary>
+  Looks up a localized string similar to UPDATE ImagePointers SET OrgFullPath = @imageTableName WHERE (Id = @Id) 
+   .
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.UpdateImagePointers">
+<summary>
+  Looks up a localized string similar to UPDATE ImagePointers SET TrackablesRecordVersion = @newVersionNumber
+FROM ImagePointers p
+INNER JOIN  Userlinks ON p.TrackablesId = Userlinks.TrackablesId
+WHERE (UserLinks.IndexTable = @tableName) 
+  AND (UserLinks.IndexTableId = @tableId) 
+  AND (UserLinks.AttachmentNumber = @attachmentNumber)
+  AND (p.TrackablesRecordVersion &lt; 0)
+.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.UpdateImageTableRecords">
+<summary>
+  Looks up a localized string similar to UPDATE {0} SET ImageField = @imageField WHERE Id = @recordId.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.UpdateOrphanTrackableRecord">
+<summary>
+  Looks up a localized string similar to UPDATE [Trackables] 
+SET [Orphan] = 0, [RecordVersion] = @newVersion, [ID] = @newTrackableID 
+WHERE [ID] = @oldTrackableID AND [RecordVersion] = 1
+.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.UpdateOrphanUserLinkAndTrackableRecord">
+<summary>
+  Looks up a localized string similar to BEGIN TRY  
+	Begin Tran
+	 
+	UPDATE [Trackables] SET [Orphan] = 0, [RecordVersion] = 1, [ID] = @trackableId 
+	WHERE [ID] = @trackableId AND [RecordVersion] = 1
+
+
+	INSERT INTO Userlinks (TrackablesId, RecordVersion, IndexTableId, IndexTable, AttachmentNumber, VersionUpdated)
+			                                VALUES (@trackableId, 1, @recordId, @tableName, @attachmentNumber, 1)
+
+	commit tran
+
+END TRY  
+BEGIN CATCH  
+     Rollback Tran
+END CATCH.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.UpdateOrphanUserLinkRecord">
+<summary>
+  Looks up a localized string similar to INSERT INTO Userlinks (TrackablesId, RecordVersion, IndexTableId, IndexTable, AttachmentNumber, VersionUpdated)
+			                                VALUES (@trackableId, 1, @recordId, @tableName, @attachmentNumber, 1).
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.UpdateOutputSettingWithDirectoryID">
+<summary>
+  Looks up a localized string similar to UPDATE [OutputSettings] SET [DirectoriesID] = @DirectoriesID  WHERE [ID] = @Name AND [DirectoriesID] &lt;&gt; @DirectoriesID 
+
+SELECT OutputSettings.*, 
+    Volumes.ImageTableName AS ImageTableName, ISNULL(Volumes.Active, 0) AS VolumeActive, 
+    SystemAddresses.PhysicalDriveLetter + CAST(Volumes.PathName AS VARCHAR(260)) + ISNULL(Directories.Path,&apos;&apos;) + &apos;\&apos; AS FullPath 
+FROM OutputSettings 
+INNER JOIN     Directories ON OutputSettings.DirectoriesId = Directories.Id 
+INNER JOIN         Volumes ON Directorie [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.UpdatePCFilesPointerFileName">
+<summary>
+  Looks up a localized string similar to UPDATE PCFilesPointers SET FileName = @fileName, ScanDirectoriesID = @directoryId WHERE Id = @Id.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.UpdatePCFilesPointers">
+<summary>
+  Looks up a localized string similar to UPDATE PCFilesPointers SET TrackablesRecordVersion = @newVersionNumber
+FROM PCFilesPointers p
+INNER JOIN  Userlinks ON p.TrackablesId = Userlinks.TrackablesId
+WHERE (UserLinks.IndexTable = @tableName) 
+  AND (UserLinks.IndexTableId = @tableId) 
+  AND (UserLinks.AttachmentNumber = @attachmentNumber)
+  AND (p.TrackablesRecordVersion &lt; 0)
+.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.UpdatePointerRecordsWithNewTrackable">
+<summary>
+  Looks up a localized string similar to UPDATE ImagePointers set ImagePointers.TrackablesID = @newTrackableID, ImagePointers.TrackablesRecordVersion = @newVersion 
+WHERE ImagePointers.TrackablesID = @oldTrackableID AND ImagePointers.TrackablesRecordVersion = 1
+
+UPDATE PCFilesPointers set PCFilesPointers.TrackablesID = @newTrackableID, PCFilesPointers.TrackablesRecordVersion = @newVersion 
+WHERE PCFilesPointers.TrackablesID = @oldTrackableID AND PCFilesPointers.TrackablesRecordVersion = 1.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.UpdateTrackablePageCount">
+<summary>
+  Looks up a localized string similar to UPDATE Trackables SET PageCount = PageCount + @pageCount 
+WHERE (Id = @trackableId)
+  AND ((RecordVersion = @versionNumber) OR ((RecordVersion &lt; 0) AND (CheckedOutUserId = @userId)))
+
+.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.UpdateUserlinkAttachmentNumber">
+<summary>
+  Looks up a localized string similar to UPDATE Userlinks SET AttachmentNumber = 1
+WHERE (UserLinks.IndexTable = @tableName) 
+  AND (UserLinks.IndexTableId = @tableId)
+  AND ((AttachmentNumber = 0) OR (AttachmentNumber IS NULL))
+
+.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.My.Resources.Resources.WalkUpRelationshipsForAuditUpdates">
+<summary>
+  Looks up a localized string similar to SELECT Relationships.*, [lower].IdFieldName FROM Relationships 
+INNER JOIN Tables [upper] ON Relationships.UpperTableName = [upper].TableName
+INNER JOIN Tables [lower] ON Relationships.LowerTableName = [lower].TableName
+WHERE LowerTableName = @tableName
+  AND ([upper].AuditUpdate &lt;&gt; 0      AND [upper].AuditUpdate IS NOT NULL) 
+  AND ([lower].AuditAttachments &lt;&gt; 0 AND [lower].AuditAttachments IS NOT NULL) .
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.Imaging.Attachment">
+ <summary>
+ The base class for all types of Attachments.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.AttachmentPart.GroupingNumber">
+ <summary>
+ AttachmentNumber or VersionNumber
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="T:Smead.RecordsManagement.Imaging.Pages">
+ <summary>
+ A typed list of <see cref="T:Smead.RecordsManagement.Imaging.Page"/>.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="T:Smead.RecordsManagement.Imaging.Thumb">
+ <summary>
+ A thumbnail image of a single page.
+ </summary>
+ <remarks>Thumbs are generated when an attachment is saved  </remarks>
+</member>
+<member name="P:Smead.RecordsManagement.Imaging.Thumb.Redacted">
+ <summary>
+ Gets whether this thumb is redacted or not.
+ </summary>
+ <remarks>??? There may need to be a third state for n/a to be used with PCFiles.</remarks>
+</member>
+<member name="T:Smead.RecordsManagement.Imaging.Thumbs">
+ <summary>
+ A typed list of <see cref="T:Smead.RecordsManagement.Imaging.Thumb"/>.
+ </summary>
+ <remarks></remarks>
+</member>
+</members>
+</doc>

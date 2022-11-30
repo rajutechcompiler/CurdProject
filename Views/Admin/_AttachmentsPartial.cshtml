@@ -1,0 +1,227 @@
+﻿@using TabFusionRMS.Models
+@using TabFusionRMS.Resource
+@model OutputSetting
+
+<section class="content">
+    <form asp-action="SetAttachmentSettings" asp-controller="Admin" method="post" class="form-horizontal" id="frmAttachmentSettings" role="form" ReturnUrl='@ViewData["ReturasdfnUrl"]'>
+        <div id="parent">
+            <div class="form-group">
+                <label class="col-lg-3 col-md-4 col-sm-12 semibld" for="DefaultOutputSetting">@Languages.get_Translation("lblAttachmentDefaultOutputSetting")</label>
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="form-group">
+                        <div class="col-md-4 col-sm-12 bottom_space">
+                            <select id="lstOutputSettingList" class="form-control"></select>
+                        </div>
+                        <div class="col-md-8 col-sm-12">
+                            <div class="btn-toolbar">
+                                <button id="btnAddOutputSettings" type="button" class="btn btn-primary">@Languages.get_Translation("lblAttachmentAddSettings")</button>
+                                <button id="btnEditOutputSettings" type="button" class="btn btn-primary">@Languages.get_Translation("lblAttachmentEditSettings")</button>
+                                <button id="btnRemoveOutputSettings" type="button" class="btn btn-primary">@Languages.get_Translation("lblAttachmentRemoveSettings")</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    @*<div class="form-group row">
+                    <div class="col-md-3">
+                    <div class="checkbox-cus">
+                    <input type="checkbox" id="PrintimgFooter" name="PrintimgFooter" />
+                    <label class="checkbox-inline" for="PrintimgFooter">@Languages.Translation("lblAttachmentPrintImageFooter")</label>
+                    </div>
+                    </div>
+                    <div class="col-md-3">
+                    <div class="checkbox-cus">
+                    <input type="checkbox" id="RenameOnScan" name="RenameOnScan" />
+                    <label class="checkbox-inline" for="RenameOnScan">@Languages.Translation("lblAttachmentNameOnScan")</label>
+                    </div>
+                    </div>
+                    </div>*@
+
+                    <fieldset class="admin_fieldset">
+                        <legend>@Languages.get_Translation("lblAttachmentISL")</legend>
+                        <div class="form-group row">
+                            <div class="col-lg-2 col-md-3"></div>
+                            <div class="col-lg-9 col-md-9">
+                                <span class="radio-cus">
+                                    <input type="radio" id="ImgSlimLocation" name="ImgServiceLocation" value="1" checked="checked" />
+                                    <label class="radio-inline" for="ImgSlimLocation">@Languages.get_Translation("lblAttachmentUseSLIMLocation")</label>
+                                </span>
+                                <span class="radio-cus">
+                                    <input type="radio" id="ImgCustomeLocation" name="ImgServiceLocation" value="2" />
+                                    <label class="radio-inline" for="ImgCustomeLocation">@Languages.get_Translation("lblAttachmentUseCustomLocation")</label>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-horizontal">
+                                <div class="col-lg-12 form-group">
+                                    <label class="col-lg-2 col-md-3 control-label" for="CustomeLocation">@Languages.get_Translation("lblAttachmentCustomLocation")</label>
+                                    <div class="col-lg-6 col-md-7 col-sm-12 controls">
+                                        <input type="text" id="CustomeLocation" name="CustomeLocation" class="form-control" placeholder="@Languages.get_Translation("phAttachmentLocationURL")" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-horizontal">
+                                <div class="col-lg-12 form-group">
+                                    <label class="col-lg-2 col-md-3 control-label" for="ImgSlimLocationAddress">@Languages.get_Translation("lblAttachmentSLIMLocation")</label>
+                                    <div class="col-lg-6 col-md-7 col-sm-12 controls">
+                                        <input type="text" id="ImgSlimLocationAddress" name="ImgSlimLocationAddress" class="form-control" placeholder="@Languages.get_Translation("phAttachmentLocationURL")" required="" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-lg-2 col-md-3"></div>
+                            <div class="col-md-12 text-right">
+                                <button id="btnApplyAttachment" type="button" class="btn btn-primary">@Languages.get_Translation("Apply")</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+
+
+        </div>
+    </form>
+</section>
+@*@Using Html.BeginForm("SetOutputSettings", "Admin", FormMethod.Post, New With {.id = "frmOutputSettings", .class = "form-horizontal", .role = "form", .ReturnUrl = ViewData("ReturnUrl")})*@
+<form asp-action="SetOutputSettings" asp-controller="Admin" method="post" class="form-horizontal" id="frmOutputSettings" role="form" ReturnUrl='@ViewData["ReturnUrl"]'>
+
+    <div class="modal fade" id="mdlOutputSetting" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel">@Languages.get_Translation("lblScannerOutputSetting")</h4>
+                </div>
+                <div class="modal-body">
+                    @Html.HiddenFor((m)=> m.Id, new {value = ""})
+
+                    @Html.HiddenFor((m)=> m.DefaultOutputSettingsId,new{value = "0"})
+
+                    @Html.HiddenFor((m)=> m.DirectoriesId,new{value = "0"})
+
+                    @Html.HiddenFor((m)=> m.ViewGroup,new{value = 0})
+
+                    @*<div class="row">
+                    <div class="form-group">
+                    <label class="col-sm-3 col-md-3 control-label" for="Name">Name</label>
+                    <div class="col-sm-7 col-md-7">
+
+                    </div>
+                    </div>
+                    </div>*@
+
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12">
+                            <div class="form-group ">
+                                <label class="col-sm-3 col-md-3 control-label" for="DirName">@Languages.get_Translation("lblAttachmentName")</label>
+                                <div class="col-sm-9 col-md-9">
+                                    <input type="text" id="DirName" name="DirName" class="form-control" maxlength="20">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label class="col-sm-3 col-md-3 control-label" for="FileNamePrefix">@Languages.get_Translation("lblAttachmentFilePrefix") :</label>
+                                <div class="col-sm-3 col-md-3">
+                                    @Html.TextBoxFor((m)=> m.FileNamePrefix, new{@class = "form-control", placeholder = Languages.get_Translation("lblAttachmentFilePrefix"), autofocus = "",maxlength = 2})
+
+                                </div>
+                                <label class="col-sm-3 col-md-3 control-label" for="FileExtension">@Languages.get_Translation("lblAttachmentFileExtension") :</label>
+                                <div class="col-sm-3 col-md-3">
+                                    @Html.TextBoxFor((m)=> m.FileExtension, new{@class = "form-control", placeholder = Languages.get_Translation("lblAttachmentFileExtension"), autofocus = "", maxlength = 3})
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label class="col-sm-3 col-md-3 control-label" for="NextDocNum">@Languages.get_Translation("lblAttachmentNextDocNum") :</label>
+                                <div class="col-sm-3 col-md-3">
+                                    @Html.TextBoxFor((m)=> m.NextDocNum,new{@class = "form-control", placeholder = Languages.get_Translation("lblAttachmentNextDocNum"), required = "", autofocus = "", maxlength = 10})
+
+                                </div>
+
+                                <label class="col-sm-3 col-md-3 control-label" for="NextFileExtension">@Languages.get_Translation("lblAttachmentNextFileName") :</label>
+                                <label class="col-sm-3 col-md-3 control-label" id="NextFileExtension"></label>
+                            </div>
+                        </div>
+                    </div>
+                    @*<div class="row">
+                    <div class="col-sm-12 col-md-12">
+                    <div class="form-group">
+                    <label class="col-sm-3 col-md-3 control-label" for="Active">@Languages.Translation("lblAttachmentActive") :</label>
+                    <div class="col-sm-1 col-md-1">
+                    <input id="InActive" name="InActive" class="form-control" value="false" type="checkbox" />
+                    </div>*@
+
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label class="col-sm-3 col-md-3 control-label" for="Active">@Languages.get_Translation("lblAttachmentActive") :</label>
+                                <div class="col-sm-9">
+                                    <div class="checkbox-cus">
+                                        @*@Html.CheckBoxFor(Function(m) m.InActive, New With {.autofocus = "", .value = True})*@
+                                        <input id="InActive" name="InActive" value="false" type="checkbox" />
+                                        <label class="checkbox-inline" for="InActive">&nbsp;</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label class="col-sm-3 col-md-3 control-label" for="VolumesId">@Languages.get_Translation("lblAttachmentOutputVolume") :</label>
+                                <div class="col-sm-9 col-md-9">
+                                    @*check item.model*@
+                                    @*@Html.DropDownListFor((m)=> m.VolumesId, DirectCast(ViewBag.OutputSettingList, SelectList), "",new{@class = "form-control", placeholder = Languages.get_Translation("lblAttachmentOutputVolume"), required = "", autofocus = ""})*@
+                                <select class="form-control" id="VolumesId" name="VolumesId"  placeholder = '@Languages.get_Translation("lblAttachmentOutputVolume")' required = "" autofocus = "" >
+                                       <option value=""></option>  
+                                    @if (ViewBag.OutputSettingList != null)
+                                        {
+                                            foreach (var item in ViewBag.OutputSettingList)
+                                            {
+                                              <option value="@item.Value">@item.Text</option>  
+                                            } 
+                                        }
+                                </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12">
+                            <div class="form-group">
+                                <label class="col-sm-3 col-md-3 control-label"></label>
+                                <div class="col-sm-8 col-md-8">
+                                    <span class="span-info">
+                                        @Languages.get_Translation("msgAttachmentSecurityMessage")
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button id="btnSaveOutputSettings" type="button" class="btn btn-primary">@Languages.get_Translation("Save")</button>
+                    <button id="btnCancel" type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">@Languages.get_Translation("Cancel")</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    '
+</form>
+
+<script src="@Url.Content("~/Scripts/AppJs/Attachments.js")"></script>

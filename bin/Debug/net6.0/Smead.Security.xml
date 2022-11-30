@@ -1,0 +1,330 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Smead.Security
+</name>
+</assembly>
+<members>
+<member name="T:Smead.Security.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:Smead.Security.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:Smead.Security.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="T:Smead.Security.Groups">
+ <summary>
+ 
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="T:Smead.Security.PermissionItem">
+ <summary>
+ Permissions must match the permissions in the securePermissions table in database
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="T:Smead.Security.SecureObject">
+ <summary>
+ A signed in passport with security permissions must be passed to the class in order to use.
+ This class is used for registering and unregistering objects that need to be secured.  
+ The permissions for the object can be added, checked, updated, removed and listed by the class
+ Each object must be of a type defined by the SecureObjectTypeEnum
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="T:Smead.Security.SecurityDataSet">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSet.GroupDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSet.UserDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSet.UserGroupDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSet.SecureObjectPermissionDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSet.SecureObjectDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSet.SLAuditFailedLoginsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSet.SLAuditLoginsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSet.SLTop10LoginLogsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSet.SecurePermissionDescriptionDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSet.SLAuditConfDataDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSet.SLAuditUpdatesDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSet.GroupRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSet.UserRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSet.UserGroupRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSet.SecureObjectPermissionRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSet.SecureObjectRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSet.SLAuditFailedLoginsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSet.SLAuditLoginsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSet.SLTop10LoginLogsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSet.SecurePermissionDescriptionRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSet.SLAuditConfDataRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSet.SLAuditUpdatesRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSet.GroupRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSet.UserRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSet.UserGroupRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSet.SecureObjectPermissionRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSet.SecureObjectRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSet.SLAuditFailedLoginsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSet.SLAuditLoginsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSet.SLTop10LoginLogsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSet.SecurePermissionDescriptionRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSet.SLAuditConfDataRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSet.SLAuditUpdatesRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSetTableAdapters.GroupTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSetTableAdapters.UserTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSetTableAdapters.UserGroupTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSetTableAdapters.SecureObjectPermissionTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSetTableAdapters.SecureObjectTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSetTableAdapters.SLAuditFailedLoginsTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSetTableAdapters.SLAuditLoginsTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSetTableAdapters.SLTop10LoginLogsTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSetTableAdapters.SecurePermissionDescriptionTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSetTableAdapters.SLAuditConfDataTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSetTableAdapters.SLAuditUpdatesTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSetTableAdapters.ActiveDirectoryTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSetTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:Smead.Security.SecurityDataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(Smead.Security.SecurityDataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:Smead.Security.SecurityDataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(Smead.Security.SecurityDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:Smead.Security.SecurityDataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(Smead.Security.SecurityDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:Smead.Security.SecurityDataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:Smead.Security.SecurityDataSetTableAdapters.TableAdapterManager.UpdateAll(Smead.Security.SecurityDataSet)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:Smead.Security.SecurityDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:Smead.Security.User">
+ <summary>
+ Class for managing users. Signed in Passport with security permissions required to use the class.
+  
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="T:Smead.Security.Users">
+ <summary>
+ This class is for adding, deleteing and listing users
+ </summary>
+ <remarks></remarks>
+</member>
+</members>
+</doc>

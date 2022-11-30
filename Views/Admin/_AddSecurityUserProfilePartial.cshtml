@@ -1,0 +1,80 @@
+﻿@using TabFusionRMS.Models
+@using TabFusionRMS.Resource
+@model SecureUser
+
+@*@Using Html.BeginForm(Nothing, Nothing, FormMethod.Post, New With {.id = "frmUserAddEditScreen", .class = "form-horizontal", .role = "form", .ReturnUrl = ViewData("ReturnUrl")})*@
+<form class="form-horizontal" id="frmUserAddEditScreen" role="form" ReturnUrl = '@ViewData["ReturnUrl"]' method="post" >
+
+    <div class="modal fade" id="mdlSecurityUsersAddEdit" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button id="btnClose" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="hdSecurityUsersHeader"></h4>
+                </div>
+                <div class="modal-body">
+                    @Html.HiddenFor((m)=> m.UserID,new{value = "0"})
+                    <fieldset class="admin_fieldset">
+                        <legend>@Languages.get_Translation("tiASUPPartialUserProfile")</legend>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="UserName">@Languages.get_Translation("Username"):</label>
+                                <div class="col-sm-8">
+                                    @Html.TextBoxFor((m)=> m.UserName,new{@class = "form-control", placeholder = Languages.get_Translation("Username"), required = "", autofocus = ""})
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label" for="FullName">@Languages.get_Translation("lblASUPPartialFullName"):</label>
+                                <div class="col-sm-8">
+                                    @Html.TextBoxFor((m)=> m.FullName,new{@class = "form-control", placeholder = Languages.get_Translation("lblASUPPartialFullName"), required = "", autofocus = "", maxlength = "50"})
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">
+                                    @Languages.get_Translation("lblASUPPartialEmailAddress"):
+                                </label>
+                                <div class="col-sm-8">
+                                    @Html.TextBoxFor((m)=> m.Email, new{@class = "form-control", placeholder = Languages.get_Translation("lblASUPPartialEmailAddress"), required = "", autofocus = ""})
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">
+                                    @Languages.get_Translation("lblASUPPartialMiscellaneous"):
+                                </label>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor((m)=> m.Misc1,new{@class = "form-control", required = "", autofocus = "", maxlength = "30"})
+
+                                </div>
+                                <div class="col-sm-4">
+                                    @Html.TextBoxFor((m)=> m.Misc2,new{@class = "form-control", required = "", autofocus = "", maxlength = "30"})
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label">
+                                    @Languages.get_Translation("lblASUPPartialAccountDisabled"):
+                                </label>
+                                <div class="col-sm-8">
+                                    <div class="checkbox-cus">
+                                        @Html.CheckBoxFor((m)=> m.AccountDisabled, new{autofocus = ""})
+                                        <label class="checkbox-inline" for="AccountDisabled">
+                                            @Languages.get_Translation("lblASUPPartialDeniesAccessToSystem")
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="modal-footer">
+                    <button id="btnSaveSecurityUser" type="button" class="btn btn-primary">@Languages.get_Translation("Save")</button>
+                    <button id="btnSecurityUserClose" type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">@Languages.get_Translation("Cancel")</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+</form>

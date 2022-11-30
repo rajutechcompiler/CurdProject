@@ -1,0 +1,117 @@
+﻿@using TabFusionRMS.Resource
+@using TabFusionRMS.WebCS
+@model ImportFavoriteModel
+<style>
+    .form-horizontal .form-group {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .listHeight {
+        min-height: 10px;
+        overflow: scroll;
+    }
+
+    .header-block {
+        border: 1px solid #ccc;
+        padding: 7px 5px;
+        text-align: center;
+        font-family: DPBold;
+    }
+
+    .main-block {
+        border: 1px solid #ccc;
+        margin-top: -1px;
+        padding: 10px;
+        height: 225px;
+        overflow: auto;
+        margin-bottom: 5px;
+    }
+
+    .msgSuccess {
+        color: green;
+    }
+
+    .msgError {
+        color: red;
+   
+</style>
+
+<div id="modal-body" class="modal-body clearfix">
+    <div class="form-horizontal">
+        <div class="form-group clearfix">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <label for="ddlFavoriteList" class="control-label text-right col-sm-2 col-form-label"><strong>@Languages.get_Translation("lblFavoriteList")</strong></label>
+                <div class="col-sm-10 no_padding">
+                    <select ID="ddlFavoriteList" Class="form-control">
+                        <option value="0|0">Select Favorite</option>
+                        @foreach(var item in Model.DropDownlist)
+                        {
+                            <option value="@item.value">@item.text</option>
+                        }
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group clearfix">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <label for="InputFileName" class="control-label text-right col-sm-2 col-form-label"><strong>@Languages.get_Translation("lblSourceFile")</strong></label>
+                <div class="input-group col-sm-10">
+                    <input type="text" placeholder="Browse any txt, csv, xls or xlsx file" name="InputFileName" ID="InputFileName" class="form-control" />
+                    <span class="input-group-btn">
+                        <input type="file" id="fileSource" name="fileSource" style="display: none;" />
+                        <input type="button" value="..." id="btnSource" onclick="$('#fileSource').click()" name="btnSource" class="btn btn-secondary" />
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="input-group checkbox">
+                <label>
+                    <input type="checkbox" checked ID="chk1RowFieldNames" /><span style="position:relative;top:-3px; left:17px;">@Languages.get_Translation("chkFirstRowContainsFieldNames")</span>
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="col-sm-6 col-md-6 col-lg-6">
+                <div class="header-block">@Languages.get_Translation("tiSourceColumn")</div>
+                <div class="main-block">
+                    <table>
+                        <tbody id="rblSourceCol1">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-6 col-lg-6">
+                <div class="header-block">@Languages.get_Translation("tiTargetField")</div>
+                <div class="main-block">
+                    <table>
+                        <tbody id="listoffieldsbody">
+                            @*<tr>
+                                    <td><input type="checkbox" RepeatDirection="Vertical" Class="viewFields" /> <span>Name</span></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" RepeatDirection="Vertical" Class="viewFields" /> <span>age</span></td>
+                                </tr>*@
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <asp:Label Style="margin-left: 30px;" ID="lblMessage"></asp:Label>
+    </div>
+</div>
+<div class="modal-footer">
+    <div class="col-xs-12 text-right">
+
+        <div class="text-left pull-left">
+            <a id="ImportFavoritesAReport" style="float: left; display: none" href="" target="_blank" class="btn btn-primary">@Languages.get_Translation("Report")</a>
+        </div>
+        <button onclick="dlgClose.CloseDialog(false)" type="button" class="btn btn-default" style="float: right;" data-dismiss="modal">Cancel</button>
+        <input type="button" value="OK" style="float: right; margin-bottom: 0; margin-right: 5px;" id="btnImportFavRecordOk" class="aspNetDisabled btn btn-primary">
+
+    </div>
+</div>
+

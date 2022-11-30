@@ -1,0 +1,92 @@
+﻿@using TabFusionRMS.Resource;
+@model TabFusionRMS.WebCS.PagingModel;
+ <style>
+    .pagi {
+        justify-content: center;
+    }
+    .pagination input {
+        width: 50px !important;
+    }
+    .hidden-e{
+        display:none;
+    }
+    .span-text {
+        padding: 0px 4px;
+        position: relative;
+        top: 9px;
+    }
+
+    .small-i {
+        padding: 6px 3px !important;
+        text-align: center !important;
+    }
+    .small-input{
+        cursor:pointer;
+    }
+ </style>
+
+ <div style="margin-top: 5px; display: block;" id="paging-div" class="col-sm-12">
+    <nav aria-label="Page navigation example" class="page-navigation">
+        <div class="pagination">
+
+            @if( Model.TotalPage > 0)
+            {
+                <div id = "divPerPageRecord" Class=""> Rows per page: <span>@Model.PerPageRecord</span></div>
+            }
+            else
+            {
+               <div id = "divPerPageRecord" Class=""> Rows per page: <span>0</span></div>  
+            }
+        </div>
+        <ul class="pagination pagi">
+          
+            @if (Model.TotalPage > 0) 
+            {
+                 <li Class="page-item first " onclick="pagingsectionObj.FirstPage()"><a class="page-link">First</a></li>
+                 <li Class="#" onclick="pagingsectionObj.Previous()"><a>&laquo;</a></li>
+
+                <li Class="liIndex hidden-e" index="0" onclick="pagingsectionObj.GetRecord(this)"><a> </a></li>
+                <li Class="liIndex hidden-e" index="0" onclick="pagingsectionObj.GetRecord(this)"><a> </a></li>
+                <li Class="liIndex hidden-e" index="0" onclick="pagingsectionObj.GetRecord(this)"><a> </a></li>
+
+                <li onclick="pagingsectionObj.Next()"><a>&raquo;</a></li>
+                <li Class="page-item last" onclick="pagingsectionObj.LastPage()"><a class="page-link">Last</a></li>
+                <li>Page</li>
+                <div Class="input-group">
+                    <input id="inputGotoPageNum" Class="form-control small-i" style="width: 70px !important; padding: 6px 3px !important; text-align: center !important;" type="number" title="@Languages.get_Translation("gotoTooltip")" value="@Model.PageNumber" autocomplete="off" onkeypress="return pagingsectionObj.GotoPageNoKeypressEvt(this)" onchange="return pagingsectionObj.GotoPageNoChangeEvt(this)">
+                    <span Class="span-text">&nbsp;of <span id="spanTotalPage">@Model.TotalPage</span> </span>
+                    <span Class="input-group-addon  small-input" style="display:none" title="@Languages.get_Translation("gotoTooltip")" onclick="pagingsectionObj.GoToPage()" id="spanGotoPage"><i class="glyphicon glyphicon-arrow-right"></i></span>
+                </div>
+                }
+           else{
+                <li Class="page-item first " onclick="pagingsectionObj.FirstPage()"><a class="page-link">First</a></li>
+                <li Class="#" onclick="pagingsectionObj.Previous()"><a>&laquo;</a></li>
+                <li Class="liIndex" style="display:none;" index="0" onclick="pagingsectionObj.GetRecord(this)"><a> </a></li>
+               <li Class="liIndex" style="display:none;" index="0" onclick="pagingsectionObj.GetRecord(this)"><a> </a></li>
+                <li Class="liIndex" style="display:none;" index="0" onclick="pagingsectionObj.GetRecord(this)"><a> </a></li>
+                <li onclick="pagingsectionObj.Next()"><a>&raquo;</a></li>
+               <li Class="page-item last" onclick="pagingsectionObj.LastPage()"><a class="page-link">Last</a></li>
+               <li>Page</li>
+               <div Class="input-group">
+                    <input id="inputGotoPageNum" Class="form-control small-i "style="width: 70px !important; padding: 6px 3px !important; text-align: center !important;" title="@Languages.get_Translation("gotoTooltip")" type="number" autocomplete="off" onkeypress="return pagingsectionObj.GotoPageNoKeypressEvt(this)" onchange="return pagingsectionObj.GotoPageNoChangeEvt(this)">
+                    <span Class="span-text">&nbsp;of <span id="spanTotalPage">0</span></span>
+                    <span Class="input-group-addon small-input"  title="@Languages.get_Translation("gotoTooltip")" onclick="pagingsectionObj.GoToPage()" id="spanGotoPage" style="display:none"><i class="glyphicon glyphicon-arrow-right"></i></span>
+                </div>
+          }
+
+        </ul>
+ <div Class="pagination">
+    <div id="divTotalRecords" class=""> Total Rows: <i id="spinTotal" class="fa fa-refresh fa-spin" style="display:none"></i><span>@Model.TotalRecord</span></div>
+ </div>
+ </nav>
+
+ </div>
+
+ <script>
+ var pagingsectionObj;
+  $(document).ready(function () {
+    pagingsectionObj = new PagingSection(@Model.PageNumber, @Model.TotalPage, @Model.TotalRecord, @Model.PerPageRecord);
+    pagingsectionObj.VisibleIndexs();
+    pagingsectionObj.AddCommaToTotalRecords();
+ });
+</script>

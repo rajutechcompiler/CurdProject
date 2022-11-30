@@ -1,0 +1,292 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <EnableUnsafeBinaryFormatterSerialization>true</EnableUnsafeBinaryFormatterSerialization>
+        <PlatformTarget>x86</PlatformTarget>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Remove="Tool\**" />
+        <Compile Remove="wwwroot\Content\themes\TAB\js\LeadTools22\**" />
+        <Compile Remove="wwwroot\Licenses\LEADTOOL\**" />
+        <Content Remove="Tool\**" />
+        <Content Remove="wwwroot\Content\themes\TAB\js\LeadTools22\**" />
+        <Content Remove="wwwroot\Licenses\LEADTOOL\**" />
+        <EmbeddedResource Remove="Tool\**" />
+        <EmbeddedResource Remove="wwwroot\Content\themes\TAB\js\LeadTools22\**" />
+        <EmbeddedResource Remove="wwwroot\Licenses\LEADTOOL\**" />
+        <None Remove="Tool\**" />
+        <None Remove="wwwroot\Content\themes\TAB\js\LeadTools22\**" />
+        <None Remove="wwwroot\Licenses\LEADTOOL\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Remove="Controllers\CacheController.cs" />
+        <Compile Remove="Controllers\DocumentController.cs" />
+        <Compile Remove="Controllers\HomeController.cs" />
+        <Compile Remove="Controllers\ImagesController.cs" />
+        <Compile Remove="Controllers\LogoutController .cs" />
+        <Compile Remove="Controllers\OcrController.cs" />
+        <Compile Remove="Controllers\StructureController.cs" />
+        <Compile Remove="Controllers\TestController.cs" />
+        <Compile Remove="CustomMiddleware.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Remove="wwwroot\Styles\dialogs.css" />
+      <Content Remove="wwwroot\Styles\DocumentViewerDemo.css" />
+      <Content Remove="wwwroot\Styles\Icons.css" />
+      <Content Remove="wwwroot\Styles\ImageViewerThumbnailStyles.css" />
+      <Content Remove="wwwroot\Styles\Sidebar.css" />
+      <Content Remove="wwwroot\Styles\Site.css" />
+      <Content Remove="wwwroot\Styles\spectrum\spectrum.css" />
+      <Content Remove="wwwroot\Styles\Toolbar.css" />
+      <Content Remove="wwwroot\Styles\Toolbars.css" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <COMReference Include="PrinterCOM">
+            <WrapperTool>tlbimp</WrapperTool>
+            <VersionMinor>0</VersionMinor>
+            <VersionMajor>2</VersionMajor>
+            <Guid>c1df83e2-fad4-47ed-8ccc-5907f5860976</Guid>
+            <Lcid>0</Lcid>
+            <Isolated>false</Isolated>
+            <EmbedInteropTypes>true</EmbedInteropTypes>
+        </COMReference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="EntityFramework" Version="6.4.4" />
+        <PackageReference Include="Grpc.Net.Client" Version="2.47.0" />
+        <PackageReference Include="Microsoft.AspNetCore" Version="2.2.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
+        <PackageReference Include="Microsoft.Data.SqlClient" Version="4.1.0" />
+        <PackageReference Include="NEST" Version="7.17.4" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+        <PackageReference Include="System.Buffers" Version="4.5.1" />
+        <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.0" />
+        <PackageReference Include="System.Data.Odbc" Version="4.6.0" />
+        <PackageReference Include="System.Data.OleDb" Version="6.0.0" />
+        <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
+        <PackageReference Include="Microsoft.Identity.Client" Version="4.36.0" />
+        <PackageReference Include="Microsoft.IdentityModel.Clients.ActiveDirectory" Version="4.5.1" />
+        <PackageReference Include="System.DirectoryServices.AccountManagement" Version="4.5.0" />
+        <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+        <PackageReference Include="System.IO.Packaging" Version="6.0.0" />
+        <PackageReference Include="System.Management" Version="4.5.0" />
+        <PackageReference Include="System.Net.Http" Version="4.3.4" />
+        <PackageReference Include="System.Text.Encoding" Version="4.3.0" />
+        <PackageReference Include="System.Text.Encoding.CodePages" Version="6.0.0" />
+        <PackageReference Include="System.Text.Json" Version="6.0.5" />
+        <PackageReference Include="Utf8Json" Version="1.3.7" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Smead.RecordsManagement.Imaging.Export\Smead.RecordsManagement.Imaging.Export.vbproj" />
+        <ProjectReference Include="..\Smead.RecordsManagement.Imaging.Ocr\Smead.RecordsManagement.Imaging.Ocr.vbproj" />
+        <ProjectReference Include="..\Smead.RecordsManagement.Imaging\Smead.RecordsManagement.Imaging.vbproj" />
+        <ProjectReference Include="..\Smead.RecordsManagement\Smead.RecordsManagement.vbproj" />
+        <ProjectReference Include="..\Smead.Security\Smead.Security.vbproj" />
+        <ProjectReference Include="..\TabFusionRMS.DataBaseManagerVB\TabFusionRMS.DataBaseManagerVB.vbproj" />
+        <ProjectReference Include="..\TabFusionRMS.Models\TabFusionRMS.Models.csproj" />
+        <ProjectReference Include="..\TabFusionRMS.RepositoryVB\TabFusionRMS.RepositoryVB.vbproj" />
+        <ProjectReference Include="..\TabFusionRMS.Resource\TabFusionRMS.Resource.vbproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Reference Include="Interop.ADODB">
+            <HintPath>..\Bin\Interop.ADODB.dll</HintPath>
+        </Reference>
+        <Reference Include="Interop.KimgpLib">
+            <HintPath>..\Bin\Interop.KimgpLib.dll</HintPath>
+        </Reference>
+        <Reference Include="Interop.KScanLib">
+            <HintPath>..\Bin\Interop.KScanLib.dll</HintPath>
+        </Reference>
+        <Reference Include="Leadtools">
+          <HintPath>..\Bin\LeadTools22\Win32\Leadtools.dll</HintPath>
+        </Reference>
+        <Reference Include="Leadtools.Codecs">
+          <HintPath>..\Bin\LeadTools22\Win32\Leadtools.Codecs.dll</HintPath>
+        </Reference>
+        <Reference Include="Microsoft.SharePoint.Client">
+            <HintPath>..\Bin\Microsoft.SharePoint.Client.dll</HintPath>
+        </Reference>
+        <Reference Include="Microsoft.SharePoint.Client.Runtime">
+            <HintPath>..\Bin\Microsoft.SharePoint.Client.Runtime.dll</HintPath>
+        </Reference>
+        <Reference Include="slimShared">
+            <HintPath>..\Bin\slimShared.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Windows.Forms">
+            <HintPath>C:\Windows\Microsoft.NET\Framework\v4.0.30319\System.Windows.Forms.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+
+
+    <ItemGroup>
+        <Folder Include="LEADTOOLS\" />
+        <Folder Include="Models\" />
+        <Folder Include="Views\Exporter\" />
+        <Folder Include="Views\FusionTester\" />
+        <Folder Include="wwwroot\Downloads\" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="Views\Admin\Index.cshtml" />
+        <None Include="Views\Admin\_AddAboutPartial.cshtml" />
+        <None Include="Views\Admin\_AddColumnViewPartial.cshtml" />
+        <None Include="Views\Admin\_AddDirectoriesPartial.cshtml" />
+        <None Include="Views\Admin\_AddNewDatabasePartial.cshtml" />
+        <None Include="Views\Admin\_AddReportStylePartial.cshtml" />
+        <None Include="Views\Admin\_AddSecurityAzureADPartial.cshtml" />
+        <None Include="Views\Admin\_AddSecurityGroupProfilePartial.cshtml" />
+        <None Include="Views\Admin\_AddSecurityUserProfilePartial.cshtml" />
+        <None Include="Views\Admin\_AddTABQUIKKey.cshtml" />
+        <None Include="Views\Admin\_ApplicationAppearancePartial.cshtml" />
+        <None Include="Views\Admin\_AttachmentsPartial.cshtml" />
+        <None Include="Views\Admin\_AuditingPartial.cshtml" />
+        <None Include="Views\Admin\_BackgroundProcessPartial.cshtml" />
+        <None Include="Views\Admin\_BarCodeSearchPartial.cshtml" />
+        <None Include="Views\Admin\_DataPartial.cshtml" />
+        <None Include="Views\Admin\_DirectoriesPartial.cshtml" />
+        <None Include="Views\Admin\_EmailNotificationPartial.cshtml" />
+        <None Include="Views\Admin\_EmailSettingPartial.cshtml" />
+        <None Include="Views\Admin\_ExternalDBPartial.cshtml" />
+        <None Include="Views\Admin\_LocalizePartial.cshtml" />
+        <None Include="Views\Admin\_LoginWarningMsgPartial.cshtml" />
+        <None Include="Views\Admin\_MapPartial.cshtml" />
+        <None Include="Views\Admin\_ReportDefinitionsPartial.cshtml" />
+        <None Include="Views\Admin\_ReportListPartial.cshtml" />
+        <None Include="Views\Admin\_ReportsTreePartial.cshtml" />
+        <None Include="Views\Admin\_ReportStylesPartial.cshtml" />
+        <None Include="Views\Admin\_RequestorPartial.cshtml" />
+        <None Include="Views\Admin\_RetentionPartial.cshtml" />
+        <None Include="Views\Admin\_RetentionPropertiesPartial.cshtml" />
+        <None Include="Views\Admin\_SecurityGroupsPartial.cshtml" />
+        <None Include="Views\Admin\_SecurityPermissionsPartial.cshtml" />
+        <None Include="Views\Admin\_SecuritySecurablesPartial.cshtml" />
+        <None Include="Views\Admin\_SecurityTabPartial.cshtml" />
+        <None Include="Views\Admin\_SecurityUsersPartial.cshtml" />
+        <None Include="Views\Admin\_TableAdvancedPartial.cshtml" />
+        <None Include="Views\Admin\_TableFields.cshtml" />
+        <None Include="Views\Admin\_TableFileRoomOrder.cshtml" />
+        <None Include="Views\Admin\_TableGeneralPartial.cshtml" />
+        <None Include="Views\Admin\_TableRegisterPartial.cshtml" />
+        <None Include="Views\Admin\_TablesRetentionPartial.cshtml" />
+        <None Include="Views\Admin\_TableTabPartial.cshtml" />
+        <None Include="Views\Admin\_TableTrackingPartial.cshtml" />
+        <None Include="Views\Admin\_TABQUIKFieldMapping.cshtml" />
+        <None Include="Views\Admin\_TABQUIKLabelList.cshtml" />
+        <None Include="Views\Admin\_TrackingFieldPartial.cshtml" />
+        <None Include="Views\Admin\_TrackingPartial.cshtml" />
+        <None Include="Views\Admin\_ViewsListPartial.cshtml" />
+        <None Include="Views\Admin\_ViewsSettingsPartial.cshtml" />
+        <None Include="Views\Admin\_ViewTreePartial.cshtml" />
+        <None Include="Views\Admin\_VolumesPartial.cshtml" />
+        <None Include="Views\BackgroundStatus\Index.cshtml" />
+        <None Include="Views\BarcodeTracker\Index.cshtml" />
+        <None Include="Views\Dashboard\Index.cshtml" />
+        <None Include="Views\Dashboard\_AddEditChart.cshtml" />
+        <None Include="Views\Dashboard\_AddEditDashboard.cshtml" />
+        <None Include="Views\Dashboard\_AddEditOperation.cshtml" />
+        <None Include="Views\Dashboard\_AddEditSeries.cshtml" />
+        <None Include="Views\Dashboard\_AddEditTaskList.cshtml" />
+        <None Include="Views\Dashboard\_AddEditTracked.cshtml" />
+        <None Include="Views\DataToolsLayout\_batchRequest.cshtml" />
+        <None Include="Views\DataToolsLayout\_localization.cshtml" />
+        <None Include="Views\DataToolsLayout\_password.cshtml" />
+        <None Include="Views\DataToolsLayout\_tools.cshtml" />
+        <None Include="Views\Data\TabQuik.cshtml" />
+        <None Include="Views\Data\_AddtoFavorite.cshtml" />
+        <None Include="Views\Data\_AuditReport.cshtml" />
+        <None Include="Views\Data\_DataGrid.cshtml" />
+        <None Include="Views\Data\_DialogMsgConfirmDelete.cshtml" />
+        <None Include="Views\Data\_linkscriptDialog.cshtml" />
+        <None Include="Views\Data\_LoadNewRecordForm.cshtml" />
+        <None Include="Views\Data\_NewFavorite.cshtml" />
+        <None Include="Views\Data\_OrphanContent.cshtml" />
+        <None Include="Views\Data\_Query.cshtml" />
+        <None Include="Views\Data\_Reporting.cshtml" />
+        <None Include="Views\Data\_RetentionInfo.cshtml" />
+        <None Include="Views\Data\_RetentionInfoHolde.cshtml" />
+        <None Include="Views\Home\Index.cshtml" />
+        <None Include="Views\Home\Privacy.cshtml" />
+        <None Include="Views\ImportFavorite\_importfavorites.cshtml" />
+        <None Include="Views\Import\_ImportMainForm.cshtml" />
+        <None Include="Views\LabelManager\Index.cshtml" />
+        <None Include="Views\LabelManager\_AddBarCodePartial.cshtml" />
+        <None Include="Views\Login\Index.cshtml" />
+        <None Include="Views\Logout\Index.cshtml" />
+        <None Include="Views\MoveRows\_moverows.cshtml" />
+        <None Include="Views\PrintBarcode\_getbarcode.cshtml" />
+        <None Include="Views\Reports\Index.cshtml" />
+        <None Include="Views\Reports\_AuditReport.cshtml" />
+        <None Include="Views\Reports\_Inactivepulllist.cshtml" />
+        <None Include="Views\Reports\_PagingFooter.cshtml" />
+        <None Include="Views\Reports\_ReportQuery.cshtml" />
+        <None Include="Views\Reports\_submitform.cshtml" />
+        <None Include="Views\Requester\_getrequest.cshtml" />
+        <None Include="Views\Requester\_requestdetails.cshtml" />
+        <None Include="Views\Retention\AddCitationCode.cshtml" />
+        <None Include="Views\Retention\AddRetentionCode.cshtml" />
+        <None Include="Views\Retention\AssignCitationCode.cshtml" />
+        <None Include="Views\Retention\CitationMaintenance.cshtml" />
+        <None Include="Views\Retention\DetailedCitationCode.cshtml" />
+        <None Include="Views\Retention\Index.cshtml" />
+        <None Include="Views\Retention\RetentionCodeMaintenance.cshtml" />
+        <None Include="Views\Retention\_ReassignRetentionCodePartial.cshtml" />
+        <None Include="Views\Shared\Error.cshtml" />
+        <None Include="Views\Shared\_Layout.cshtml" />
+        <None Include="Views\Shared\_LayoutAdmin.cshtml" />
+        <None Include="Views\Shared\_LayoutBarcodeTracker.cshtml" />
+        <None Include="Views\Shared\_LayoutDashboard.cshtml" />
+        <None Include="Views\Shared\_LayoutData.cshtml" />
+        <None Include="Views\Shared\_LayoutNoMenu.cshtml" />
+        <None Include="Views\Shared\_LayoutReports.cshtml" />
+        <None Include="Views\Shared\_LayoutRetention.cshtml" />
+        <None Include="Views\Shared\_LayoutVault.cshtml" />
+        <None Include="Views\Shared\_SignInLayout.cshtml" />
+        <None Include="Views\Shared\_ValidationScriptsPartial.cshtml" />
+        <None Include="Views\Transfer\_transfer.cshtml" />
+        <None Include="Views\Vault\Index.cshtml" />
+        <None Include="Views\Vault\_OrphanContent.cshtml" />
+        <None Include="Views\_ViewImports.cshtml" />
+        <None Include="Views\_ViewStart.cshtml" />
+        <None Include="wwwroot\Content\themes\TAB\js\LeadTools22\Leadtools.Annotations.Automation.js" />
+        <None Include="wwwroot\Content\themes\TAB\js\LeadTools22\Leadtools.Annotations.Designers.js" />
+        <None Include="wwwroot\Content\themes\TAB\js\LeadTools22\Leadtools.Annotations.Engine.js" />
+        <None Include="wwwroot\Content\themes\TAB\js\LeadTools22\Leadtools.Annotations.Rendering.JavaScript.js" />
+        <None Include="wwwroot\Content\themes\TAB\js\LeadTools22\Leadtools.ContentManager.js" />
+        <None Include="wwwroot\Content\themes\TAB\js\LeadTools22\Leadtools.Controls.js" />
+        <None Include="wwwroot\Content\themes\TAB\js\LeadTools22\Leadtools.Document.Editor.js" />
+        <None Include="wwwroot\Content\themes\TAB\js\LeadTools22\Leadtools.Document.js" />
+        <None Include="wwwroot\Content\themes\TAB\js\LeadTools22\Leadtools.Document.Viewer.js" />
+        <None Include="wwwroot\Content\themes\TAB\js\LeadTools22\Leadtools.js" />
+        <None Include="wwwroot\Content\themes\TAB\js\LeadTools22\Leadtools.Multimedia.js" />
+        <None Include="wwwroot\Styles\dialogs.css" />
+        <None Include="wwwroot\Styles\DocumentViewerDemo.css" />
+        <None Include="wwwroot\Styles\Icons.css" />
+        <None Include="wwwroot\Styles\ImageViewerThumbnailStyles.css" />
+        <None Include="wwwroot\Styles\Sidebar.css" />
+        <None Include="wwwroot\Styles\Site.css" />
+        <None Include="wwwroot\Styles\spectrum\spectrum.css" />
+        <None Include="wwwroot\Styles\Toolbar.css" />
+        <None Include="wwwroot\Styles\Toolbars.css" />
+    </ItemGroup>
+
+    <PropertyGroup>
+        <Company>TAB Products Co LLC</Company>
+        <Copyright>Copyright © 1998-2022 TAB Products Co LLC</Copyright>
+        <Description>Shared library for all SLIM-related services.</Description>
+        <Product>TAB FusionRMS</Product>
+        <AssemblyTitle>SLIM Shared</AssemblyTitle>
+        <Version>11.0.3128.0</Version>
+        <OutputType>Exe</OutputType>
+    </PropertyGroup>
+
+</Project>

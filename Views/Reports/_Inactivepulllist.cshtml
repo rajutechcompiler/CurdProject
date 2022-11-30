@@ -1,0 +1,51 @@
+﻿
+@using TabFusionRMS.Resource;
+
+<div class="modal-body">
+    <div class="form-horizontal">
+        <div class="form-group">      
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label class="control-label col-sm-3">
+                        <span>@Languages.get_Translation("lblFinalDispositionControlInactiveDate")</span>
+                    </label>
+                    <div class="col-sm-9">
+                        <input type="date" value="@Model.TodayDate" id="Inactivedate" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label class="control-label col-sm-3">
+                        <span>@Languages.get_Translation("lblFinalDispositionControlAuthorizingUser")</span>
+                    </label>
+                    <div class="col-sm-9">
+                        <input type="text" id="InactiveUserName" value="@Model.username" disabled="disabled" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <label class="control-label col-sm-3">
+                        <span>@Languages.get_Translation("lblImportMainFormDest")</span>
+                    </label>
+                    <div class="col-sm-9">
+                        <select id="inactivepullDDL" class="form-control">
+                            for(var item in Model.ddlSelection)
+                            {  
+                               <option selected value="item.value">item.text</option>
+                            }
+                           
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <div class="col-xs-12 text-right">
+        <input type="button" value="@Languages.get_Translation("btnHTMLReportsSetInactive")" id="btnsetinactive" class="btn btn-success">
+        <input type="button" value="@Languages.get_Translation("Cancel")" onclick="$(prop.Dialogbox.Dialogboxid).hide()" class="btn btn-default">
+    </div>
+</div>

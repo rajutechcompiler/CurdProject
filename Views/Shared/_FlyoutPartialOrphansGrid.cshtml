@@ -1,0 +1,227 @@
+﻿@using TabFusionRMS.Resource
+@model TabFusionRMS.WebCS.FlyoutModel
+
+<style>
+    .no-row-margin {
+        margin-right: 0px !important;
+    }
+    .table-border {
+        border: 1px solid #ccc;
+    }
+
+    .thead-dark {
+        background-color: #dcdcdc;
+    }
+    .table1 > tbody > tr > td, .table1 > tbody > tr > th, .table1 > tfoot > tr > td, .table1 > tfoot > tr > th, .table1 > thead > tr > td, .table1 > thead > tr > th {
+        padding: 8px;
+        line-height: 1.42857143;
+        vertical-align: top;
+        border-top: 1px solid #ddd;
+        border-left: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+    }
+    .chk {
+        margin: -16px -9px 0px !important;
+    }
+
+    .headover {
+        height: 17px !important;
+        overflow: hidden;
+        margin-right: 12%;
+    }
+
+    .chkfloat {
+        float: right;
+        right: 7px;
+        position: relative;
+    }
+    .Thmbnail-body {
+        position: relative;
+        height: 260px !important;
+        width: 100%;
+        overflow: hidden;
+        cursor: pointer;
+        z-index: 1;
+        font-size: 12px;
+        font-weight: 200;
+        border-right: 1px solid #002949;
+        border-bottom: 1px solid #002949;
+    }
+
+        .Thmbnail-body img {
+            margin: 0 auto;
+            height: auto;
+            width: 226px;
+            max-width: 100%;
+        }
+
+    .containorphan {
+        border: 1px solid #666666;
+        padding: 22px 0px 0px 0;
+        height: 67vh;
+        overflow-y: scroll;
+    }
+
+    .mt {
+        margin-top: 6px !important;
+    }
+
+    .mt-30 {
+        margin-top: 30px
+    }
+
+    .no-row-marginl {
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+        margin-bottom: 0px !important;
+        padding-bottom: 0px !important;
+    }
+
+    @@media (min-width: 1200px) {
+
+        .gridcol {
+            width: 228px;
+            float: left;
+            margin-left: 2%;
+            margin-right: -4px;
+        }
+    }
+
+    @@media (min-width:768px) and (max-width:1200px) {
+
+        .gridcol {
+            width: 228px;
+            float: left;
+            margin-left: 22px;
+            margin-right: -4px;
+        }
+    }
+
+    @@media (min-width:360px) and (max-width:767px) {
+
+        .gridcol {
+            width: 210px;
+            float: left;
+            margin-left: 2%;
+            margin-right: -4px;
+        }
+    }
+   
+    .sidebar-wrapper {
+        background: #fff;
+    }
+</style>
+
+
+<div class="no-row-marginl containorphan" id="ThumbnailDetails">
+    @{ int i = 0; }
+
+    @if(Model.FlyOutDetails.Count > 0)
+    {
+        foreach(var item in Model.FlyOutDetails)
+        {
+            i = i + 1;
+            string img64 = String.Empty;
+            var dockey = item.downloadEncryptAttachment;
+             if(item.sFlyoutImages != null) 
+             {
+                 img64 = Convert.ToBase64String(item.sFlyoutImages);
+             }
+
+             <div Class="gridcol">
+                <div Class="Thmbnail-main" style="margin-left:20px;">
+                    <div Class="Thmbnail-header" onclick="obJvaultfunction.SelectCheckBoxDiv(this)">
+                        <a><div class="headover threedots">@item.sAttachmentName</div></a> 
+                        <div><input type="checkbox" class="chk chkfloat " trackableId="@item.sAttachId" onclick="obJvaultfunction.SelectCheckBoxDiv(this)" /></div>
+                        @*<div><input type="checkbox" class="chk chkfloat " trackableId="@item.sAttachId" /></div>*@
+                    </div>
+
+                    @if(item.sViewerLink !="0")
+                    {
+                        <a onclick="obJvaultfunction.CheckOrphanAvailabel(this)" link="@item.sViewerLink" AttachId="@item.sAttachId">
+                            <div Class="Thmbnail-body">
+                                <div Class="caption">
+                                    <div Class="caption-content">
+                                        <i Class="fa fa-eye fa-3x"></i>
+                                    </div>
+                                </div>
+                                <img src="@String.Format("data:image/jpg;base64,{0}", img64)" id="@i" Class="img-responsive" onclick="Demo()">
+                            </div>
+                        </a>
+                    }
+                    else
+                    {
+                        <a disabled="disabled" onclick="InvalidMessage()">
+                            <div Class="Thmbnail-body">
+                                <div Class="caption">
+                                    <div Class="caption-content">
+                                        <i Class="fa fa-eye fa-3x"></i>
+                                    </div>
+                                </div>
+                                <img src="@String.Format("data:image/jpg;base64,{0}", img64)" id="@i" Class="img-responsive" onclick="Demo()">
+                            </div>
+                        </a>
+                    }
+                    
+                    <div Class="Thmbnail-footer" style="display:none">
+                        <div Class="col-md-12 col-sm-12 col-xs-12">
+                            <span Class="fa-stack">
+
+                                @if(Model.downloadPermission &&  item.sOrgFilePath != "disabled")
+                                {
+                                    <a href="@Url.Action("DownloadAttachmentOrphan", "Common", new { filePath = item.sOrgFilePath, fileName = item.sAttachmentName})" Class="a-color " data-toggle="tooltip" title="Download" id="Download_@item.sAttachId" fileName="@item.sAttachmentName">
+                                        <span class="fa-stack">
+                                            <i class="fa fa-arrow-down fa-stack-1x" style="top:7px"></i>
+                                            <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                        </span>
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a href="#" Class="a-disable" data-toggle="tooltip" title="Download" style="color:gray !important">
+                                        <span class="fa-stack">
+                                             <i class="fa fa-arrow-down fa-stack-1x" style="top:7px"></i>
+                                            <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                        </span>
+                                    </a>
+                                }
+
+                            </span>
+                        </div>
+                        <div Class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        @if(Model.filter == null)
+        {
+            Model.filter = "";
+        }
+        if(Model.filter.Length > 0)
+        {
+            <div class="col-sm-12" style="margin-bottom: 19px;">
+                <div id="emptywarning" Class="empty-warning">
+                    <span>"Record Not Found"</span>
+                </div>
+            </div>
+        }
+        else
+        {
+           <div class="col-sm-12" style="margin-bottom: 19px;">
+                <div id="emptydrop" Class="empty-drop-here">
+                    <span>@Languages.get_Translation("lblDragandDropFiles")</span>
+                </div>
+            </div> 
+        }
+    }
+</div>
+
+<script>
+    function InvalidMessage(isvalid) {
+        var msg = "Attachment cannot be rendered or displayed. The attachment can still be downloaded.!"
+        $('#toast-container').fnAlertMessage({ title: '', msgTypeClass: 'toast-warning', message: msg, timeout: 2000 });
+    }
+</script>

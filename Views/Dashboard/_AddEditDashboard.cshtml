@@ -1,0 +1,41 @@
+﻿@using TabFusionRMS.Resource
+
+@*Html.BeginForm(null, null, FormMethod.Post,new {id = "frmAddEditDashboard", class = "form-horizontal", role = "form", ReturnUrl = ViewData("ReturnUrl")}))*@
+<form id="frmAddEditDashboard" class="form-horizontal" role="form" ReturnUrl='@ViewData["ReturnUrl"]'>
+    <div Class="modal" id="modalAddNewDashboard" tabindex="-1" role="dialog" aria-labelledby="myModalmodalAddNewDashboard">
+        <div Class="modal-dialog ">
+            <div Class="modal-content">
+                <div Class="modal-header">
+                    <Button id="btnClose" type="button" Class="close" data-dismiss="modal" aria-hidden="true">×</Button>
+                    <h4 Class="modal-title" id="myModalmodalAddNewDashboard">@Languages.get_Translation("addNewDashboard")</h4>
+                </div>
+                <div Class="modal-body">
+
+                    <div Class="form-group row">
+                        <Label Class="col-sm-3 control-label" for="txtNewDashboardName">@Languages.get_Translation("Name")</Label>
+                        <div Class="col-sm-8">
+                            <input id="txtNewDashboardName" name="Name" type="text" Class="form-control"  />
+                        </div>
+                        <div class="col-sm-1">
+
+                        </div>
+                    </div>
+                </div>
+                <div Class="modal-footer">
+                    <Button type="button" Class="btn btn-default" data-dismiss="modal" aria-hidden="true" style="float:right;">@Languages.get_Translation("Cancel")</Button>
+                    <Button id="btnSaveDashboardName" type="button" Class="btn btn-primary" style="float:right; margin-right:5px;">@Languages.get_Translation("Save")</Button>
+
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+</form>
+
+
+<script>
+    dashboardfunc.PreventEnter();
+</script>
+

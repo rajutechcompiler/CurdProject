@@ -1,0 +1,312 @@
+﻿@using TabFusionRMS.WebCS
+@using TabFusionRMS.Models
+@using TabFusionRMS.Resource
+@model Table
+<style>
+    .sticker.stick {
+        right: 63px;
+    }
+
+    .sticker {
+        right: 0px;
+        margin-bottom: 15px;
+    }
+</style>
+<section class="content">
+    @*@Using Html.BeginForm("GeneralForm", "Admin", FormMethod.Post, New With {.id = "frmTableGeneral", .class = "form-horizontal", .ReturnUrl = ViewData("ReturnURL")})*@
+    <form asp-action="GeneralForm" asp-controller="Admin" method="post" id="frmTableGeneral"  class="form-horizontal" ReturnUrl = '@ViewData["ReturnURL"]'>
+    <div id="parent">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label class="col-lg-4 col-md-3 control-label" for="TableName" title="@Languages.get_Translation(" lblTableGeneralPartialIntName")">@Languages.get_Translation("lblTableGeneralPartialIntName")</label>
+                    <div class="col-lg-8 col-md-7  controls">
+                            @Html.TextBoxFor((m)=> m.TableName, new{@readonly = "readonly", @class = "form-control", placeholder = Languages.get_Translation("phTableFieldsInternalName")})
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label class="col-lg-4 col-md-3 control-label" for="DBName" title="@Languages.get_Translation(" lblTableGeneralPartialIntDB")">@Languages.get_Translation("lblTableGeneralPartialIntDB")</label>
+                    <div class="col-lg-8 col-md-7  controls">
+                            @Html.TextBoxFor((m)=> m.DBName, new{@readonly = "readonly", @class = "form-control", placeholder = Languages.get_Translation("phTableGeneralPartialIntDB")})
+                    </div>
+                </div>
+            </div>
+        </div>
+        <fieldset Class="admin_fieldset">
+            <legend>@Languages.get_Translation("tiTableGeneralPartialJuml2Info") </legend>
+            <div Class="col-lg-4">
+                <div Class="form-group">
+                    <Label Class="col-lg-5 col-md-3 control-label" for="BarCodePrefix" title="@Languages.get_Translation(" lblTableGeneralPartialBarCodePrefix")">@Languages.get_Translation("lblTableGeneralPartialBarCodePrefix")</Label>
+                    <div Class="col-md-7 controls">
+                            @Html.TextBoxFor((m)=> m.BarCodePrefix,new{@class = "form-control", MaxLength = "10", placeholder = Languages.get_Translation("phTableGeneralPartialBarCodePrefix")})
+
+                    </div>
+                </div>
+            </div>
+            <div Class="col-lg-4">
+                <div Class="form-group">
+                    <Label Class="col-lg-5 col-md-3 control-label" for="IdStripChars" title="@Languages.get_Translation(" lblTableGeneralPartialBarStripChars")">@Languages.get_Translation("lblTableGeneralPartialBarStripChars")</Label>
+                    <div Class="col-md-7 controls">
+                            @Html.TextBoxFor((m)=> m.IdStripChars,new{@class = "form-control", MaxLength = "10", placeholder = Languages.get_Translation("phTableGeneralPartialBarStripChars")})
+
+                    </div>
+                </div>
+            </div>
+            <div Class="col-lg-4">
+                <div Class="form-group">
+                    <Label Class="col-lg-5 col-md-3 control-label" for="IdStripChars" title="@Languages.get_Translation(" lblTableGeneralPartialMask")">@Languages.get_Translation("lblTableGeneralPartialMask")</Label>
+                    <div Class="col-md-7 controls">
+                            @Html.TextBoxFor((m)=> m.IdMask, new{@class = "form-control", MaxLength = "20", placeholder = Languages.get_Translation("phTableGeneralPartialMask")})
+
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset Class="admin_fieldset">
+            <legend>@Languages.get_Translation("tiTableGeneralPartialDisplay")</legend>
+            <div Class="col-lg-4">
+                <div Class="form-group">
+                    <Label Class="col-lg-5 col-md-3 control-label" for="DescFieldPrefixOne" title="@Languages.get_Translation(" lblTableGeneralPartialHeading1")">@Languages.get_Translation("lblTableGeneralPartialHeading1")</Label>
+                    <div Class="col-md-7 controls">
+                        @Html.TextBoxFor((m)=> m.DescFieldPrefixOne, new{@class = "form-control", MaxLength = "20", placeholder = Languages.get_Translation("lblTableGeneralPartialHeading1")})
+                    </div>
+                </div>
+            </div>
+            <div Class="col-lg-4">
+                <div Class="form-group">
+                    <Label Class="col-lg-5 col-md-3 control-label" for="DescFieldNameOne" title="@Languages.get_Translation(" lblTableGeneralPartialField1")">@Languages.get_Translation("lblTableGeneralPartialField1")</Label>
+                    <div Class="col-md-7 controls">
+                        <select id="DescFieldNameOne" name="DescFieldNameOne" Class="form-control"></select>
+                    </div>
+                </div>
+            </div>
+            <div Class="col-lg-4">
+                <div Class="form-group">
+                    <Label Class="col-lg-5 col-md-3 control-label" for="DescFieldPrefixOneWidth" title="@Languages.get_Translation(" lblTableGeneralPartialWidth1")">@Languages.get_Translation("lblTableGeneralPartialWidth1")</Label>
+                    <div Class="col-md-7 controls">
+                        @Html.TextBoxFor((m)=> m.DescFieldPrefixOneWidth,new{@class = "form-control", MaxLength = "20", min = "0", placeholder = Languages.get_Translation("lblTableGeneralPartialWidth1")})
+                    </div>
+                </div>
+            </div>
+            <div Class="col-lg-4">
+                <div Class="form-group">
+                    <Label Class="col-lg-5 col-md-3 control-label" for="DescFieldPrefixTwo" title="@Languages.get_Translation(" lblTableGeneralPartialHeading2")">@Languages.get_Translation("lblTableGeneralPartialHeading2")</Label>
+                    <div Class="col-md-7 controls">
+                            @Html.TextBoxFor((m)=> m.DescFieldPrefixTwo,new{@class = "form-control", MaxLength = "20", placeholder = Languages.get_Translation("lblTableGeneralPartialHeading2")})
+
+                    </div>
+                </div>
+            </div>
+            <div Class="col-lg-4">
+                <div Class="form-group">
+                    <Label Class="col-lg-5 col-md-3 control-label" for="DescFieldNameTwo" title="@Languages.get_Translation(" lblTableGeneralPartialField2")">@Languages.get_Translation("lblTableGeneralPartialField2")</Label>
+                    <div Class="col-md-7 controls">
+                        <select id="DescFieldNameTwo" name="DescFieldNameTwo" Class="form-control"></select>
+                    </div>
+                </div>
+            </div>
+            <div Class="col-lg-4">
+                <div Class="form-group">
+                    <Label Class="col-lg-5 col-md-3 control-label" for="DescFieldPrefixTwoWidth" title="@Languages.get_Translation(" lblTableGeneralPartialWidth2")">@Languages.get_Translation("lblTableGeneralPartialWidth2")</Label>
+                    <div Class="col-md-7 controls">
+                            @Html.TextBoxFor((m)=> m.DescFieldPrefixTwoWidth,new{@class = "form-control", MaxLength = "20", min = "0", placeholder = Languages.get_Translation("lblTableGeneralPartialWidth2")})
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <div Class="form-group">
+            <div Class="col-lg-9">
+                <fieldset Class="admin_fieldset">
+                    <legend>@Languages.get_Translation("Attachment")</legend>
+                    <div Class="col-sm-12">
+                        <div Class="form-group">
+                            <div Class="col-lg-3">
+                                <div Class="checkbox-cus">
+                                        @Html.CheckBox("AttachmentCheck")
+                                    <Label Class="checkbox-inline" for="AttachmentCheck" title="@Languages.get_Translation(" chkTableGeneralPartialAllowAttach")">@Languages.get_Translation("chkTableGeneralPartialAllowAttach")</Label>
+                                </div>
+                            </div>
+                            <div Class="col-lg-5">
+                                <div Class="checkbox-cus">
+                                    @Html.CheckBox("OfficialRecordHandling", new{disabled = "disabled"})
+                                    <Label Class="checkbox-inline" for="OfficialRecordHandling" title="@Languages.get_Translation(" chkTableGeneralPartialSupportOfficialRec")">@Languages.get_Translation("chkTableGeneralPartialSupportOfficialRec")</Label>
+                                 </div>
+                            </div>
+                            <div Class="col-lg-4">
+                                <div Class="checkbox-cus">
+                                        @Html.CheckBox("CanAttachToNewRow", new{disabled = "disabled"})
+                                    <Label Class="checkbox-inline" for="CanAttachToNewRow" title="@Languages.get_Translation(" chkTableGeneralPartialCanAddNewRow")">@Languages.get_Translation("chkTableGeneralPartialCanAddNewRow")</Label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+            <div Class="col-lg-3">
+                <fieldset Class="admin_fieldset">
+                    <legend>@Languages.get_Translation("tiTableGeneralPartialIcon")</legend>
+                    @*<div class="col-sm-2 col-md-2"></div>*@
+                     @Html.HiddenFor((m)=> m.Picture)
+                    <div Class="col-sm-7 text-right">
+                        @*<input type="button" id="btnChange" value="@Languages.get_Translation(" btnTableGeneralPartialChange")" Class="btn btn-primary btn-sm" title="@Languages.get_Translation(" btnTableGeneralPartialChange")" />*@
+                        <input type="button" id="btnChange" value="@Languages.get_Translation("btnTableGeneralPartialChange")" Class="btn btn-primary btn-sm" title="@Languages.get_Translation("btnTableGeneralPartialChange")"/>
+                    </div>
+                    <div Class="col-sm-5">
+                        <img Class="pull-left" src="@Url.Content("~/Images/icons/FOLDERS.ICO")" id="iconDefault" width="32" height="32" />
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <fieldset Class="admin_fieldset">
+            <legend>@Languages.get_Translation("tiTableGeneralPartialDBTuning")</legend>
+            <div Class="col-lg-9">
+                <div Class="row">
+                    <div Class="col-lg-6">
+                        <div Class="form-group">
+                            <Label Class="control-label col-md-3 col-lg-6" for="ADOQueryTimeout" title="@Languages.get_Translation(" lblTableGeneralPartialQryTimeOut")">@Languages.get_Translation("lblTableGeneralPartialQryTimeOut")</Label>
+                            <div Class="col-lg-6 col-md-7 controls">
+                                    @Html.TextBoxFor((m)=> m.ADOQueryTimeout,new{@class = "form-control", MaxLength = "9"})
+                                 
+                            </div>
+                        </div>
+                        <div Class="form-group">
+                            <Label Class="control-label col-md-3 col-lg-6" for="ADOCacheSize" title="@Languages.get_Translation(" lblTableGeneralPartialCacheSize")">@Languages.get_Translation("lblTableGeneralPartialCacheSize")</Label>
+                            <div Class="col-lg-6 col-md-7 controls">
+                                    @Html.TextBoxFor((m)=> m.ADOCacheSize, new{@class = "form-control", MaxLength = "9"})
+
+                            </div>
+                        </div>
+                    </div>
+                    <div Class="col-lg-6">
+                        <div Class="form-group">
+                            <Label Class="control-label col-md-3 col-lg-6" title="@Languages.get_Translation(" lblTableGeneralPartialMaxDropDwnRec")">@Languages.get_Translation("lblTableGeneralPartialMaxDropDwnRec")</Label>
+                            <div Class="col-lg-6 col-md-7 controls">
+                                    @Html.TextBoxFor((m)=> m.MaxRecsOnDropDown, new{@class = "form-control", MaxLength = "9"})
+                        <input  type="text" id="MaxRecsOnDropDown" name="MaxRecsOnDropDown" maxlength="9" class="form-control" />
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="cursor_location" Class="col-lg-3">
+                <fieldset Class="admin_fieldset">
+                    <legend>@Languages.get_Translation("tiTableGeneralPartialCursorLocation")</legend>
+                    <div Class="col-sm-12">
+                        <span Class="radio-cus">
+                            <input type="radio" name="ADOServerCursor" id="client" value="client">
+                            <Label Class="radio-inline" for="client" title="@Languages.get_Translation(" lblTableGeneralPartialClientSide")">@Languages.get_Translation("lblTableGeneralPartialClientSide")</Label>
+                        </span>
+                        <span Class="radio-cus">
+                            <input type="radio" name="ADOServerCursor" id="server" value="server">
+                            <Label Class="radio-inline" for="server" title="@Languages.get_Translation(" lblTableGeneralPartialServerSide")">@Languages.get_Translation("lblTableGeneralPartialServerSide")</Label>
+                        </span>
+                    </div>
+                </fieldset>
+            </div>
+        </fieldset>
+        <fieldset Class="admin_fieldset">
+            <legend>@Languages.get_Translation("tiTableGeneralPartialAuditing")</legend>
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <div Class="col-lg-3">
+                        <div Class="checkbox-cus">
+                              @Html.CheckBox("AuditConfidentialData")
+                            <Label for="AuditConfidentialData" class="checkbox-inline" title="@Languages.get_Translation(" chkTableGeneralPartialAuditConfidnlDataAcce")">@Languages.get_Translation("chkTableGeneralPartialAuditConfidnlDataAcce")</Label>
+                        </div>
+                    </div>
+                    <div Class="col-lg-4">
+                        <div Class="checkbox-cus">
+                            @Html.CheckBox("AuditUpdate")
+                            <Label for="AuditUpdate" Class="checkbox-inline" title="@Languages.get_Translation(" chkTableGeneralPartialAuditUpdate")">@Languages.get_Translation("chkTableGeneralPartialAuditUpdate")</Label>
+                        </div>
+                    </div>
+                    <div Class="col-lg-4">
+                        <div Class="checkbox-cus">
+                            @Html.CheckBox("AuditAttachments")
+                            <Label for="AuditAttachments" class="checkbox-inline" title="@Languages.get_Translation(" chkTableGeneralPartialAuditAttach")">@Languages.get_Translation("chkTableGeneralPartialAuditAttach")</Label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset Class="admin_fieldset">
+            <legend>@Languages.get_Translation("tiTableGeneralPartialFullTxtSearch")</legend>
+            <Label Class="col-lg-2 col-md-3 control-label" for="SearchOrder" title="@Languages.get_Translation(" lblTableGeneralPartialSortOrdr")">@Languages.get_Translation("lblTableGeneralPartialSortOrdr")</Label>
+            <div Class="col-lg-6 col-md-7 controls">
+                <select id="SearchOrder" name="SearchOrder" Class="form-control"></select>
+            </div>
+        </fieldset>
+        <div Class="sticker stick">
+            <input type="button" id="btnApply" value="@Languages.get_Translation("Apply")" Class="btn btn-primary pull-right" />
+        </div>
+        <div class="clearfix"></div>
+    </div>
+   </form>
+    <style>
+        .highlightClass {
+            background: #faffd2;
+        }
+
+            .highlightClass a {
+                color: #7e0036;
+            }
+
+        .dd-option {
+            color: #232323;
+        }
+    </style>
+    @*@Using Html.BeginForm("GeneralIconChange", "Admin", FormMethod.Post, New With {.id = "frmIconChange", .class = "form-horizontal", .role = "form", .ReturnUrl = ViewData("ReturnUrl")})*@
+    <form asp-action="GeneralIconChange" asp-controller="Admin" method="post" class="form-horizontal" id="frmIconChange" role="form" ReturnUrl = '@ViewData["ReturnUrl"]' >
+    <div class="modal fade" id="mdlIconSetting" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel">@Languages.get_Translation("tiTableGeneralPartialIconSel")</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div id="scrollDiv" style="overflow:auto;height:400px;">
+                            <ul id="selectable" style="list-style:none;cursor:pointer;"></ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="btnSave" type="button" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">@Languages.get_Translation("Ok").ToUpper()</button>
+                    <button id="btnCancel" type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">@Languages.get_Translation("Cancel")</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+    <div class="modal fade" id="mdlOfficialRecord" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" style="height:200px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="myModalLabel">@Languages.get_Translation("tiTableGeneralPartialIconSel")</h4>
+                </div>
+                <div class="modal-body">
+                    <label id="warningLabel" class="control-label"></label>
+                </div>
+                <div class="modal-footer">
+                    <div id="fourTrueBtn">
+                        <button id="btnFirst" type="button" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">@Languages.get_Translation("btnTableGeneralPartial1stVersion")</button>
+                        <button id="btnLast" type="button" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">@Languages.get_Translation("btnTableGeneralPartialLastVersion")</button>
+                        <button id="btnNotSet" type="button" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">@Languages.get_Translation("btnTableGeneralPartialDontSet")</button>
+                        <button id="btnCancel" type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">@Languages.get_Translation("Cancel")</button>
+                    </div>
+                    <div id="threeFalseBtn">
+                        <button id="btnRemove" type="button" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">@Languages.get_Translation("Remove")</button>
+                        <button id="btnRetain" type="button" class="btn btn-primary" data-dismiss="modal" aria-hidden="true">@Languages.get_Translation("btnTableGeneralPartialRetain")</button>
+                        <button id="btnCancel" type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">@Languages.get_Translation("Cancel")</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="@Url.Content("~/Scripts/AppJs/TableGeneral.js?v=" + Convert.ToString(DateTime.Now.Millisecond))"></script>

@@ -1,0 +1,693 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+Smead.RecordsManagement
+</name>
+</assembly>
+<members>
+<member name="T:Smead.RecordsManagement.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.My.Resources.Resources.CreateDestructionCertificateItem">
+<summary>
+  Looks up a localized string similar to INSERT INTO [SLDestructCertItems]
+	(TableId, TableName, HoldReason, RetentionHold, LegalHold, 
+	 RetentionCode, SnoozeUntil, DispositionFlag, 
+	 ScheduledInactivity, ScheduledDestruction, SLDestructionCertsID)
+VALUES                              
+	(@tableId, @tableName, @holdReason, @retentionHold, @legalHold, 
+	 @retentionCode, @snoozeUntil, @dispositionFlag, 
+	 @scheduledInactivity, @scheduledDestruction, @destructionCertsID)
+SELECT SCOPE_IDENTITY()
+
+
+        .
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.My.Resources.Resources.DeleteDestructionCertificate">
+<summary>
+  Looks up a localized string similar to DELETE [SLDestructionCerts] WHERE [ID] = @destructionCertID.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.My.Resources.Resources.DeleteDestructionCertificateItem">
+<summary>
+  Looks up a localized string similar to DELETE [SLDestructCertItems] WHERE [ID] = @destructionCertID.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.My.Resources.Resources.FullTextShowAllClause">
+<summary>
+  Looks up a localized string similar to IN (SELECT IndexTableId FROM SLIndexer a WHERE IndexTableName = &apos;{0}&apos; 
+AND {1}
+{2}
+{3}
+AND CONTAINS(IndexData, &apos;{4}&apos;))
+.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.My.Resources.Resources.FullTextTemplate">
+<summary>
+  Looks up a localized string similar to SELECT DISTINCT IndexTableName, IndexTableId, IndexType, PageNumber, RecordVersion, AttachmentNumber  
+FROM SLIndexer a 
+WHERE {0}(IndexData, @SearchWord) 
+  AND (IndexTableName=@TableName) 
+  {1}  
+  AND {2} 
+  {3}
+ORDER BY RecordVersion DESC 
+OPTION (RECOMPILE).
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.My.Resources.Resources.FullTextWithoutPreviousVersions">
+<summary>
+  Looks up a localized string similar to 
+  AND ((RecordVersion = (SELECT TOP 1 RecordVersion FROM SLIndexer 
+                         WHERE IndexTableName=a.IndexTableName and IndexTableId=a.IndexTableId 
+                         ORDER BY RecordVersion Desc)  
+   OR (RecordVersion=0) OR (RecordVersion IS NULL))) 
+.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.My.Resources.Resources.GetDestructionCertChildrenCount">
+<summary>
+  Looks up a localized string similar to SELECT Count(*) AS ItemCount FROM [SLDestructCertitems] 
+WHERE [SLDestructionCertsId] = @DestructionCertID.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.My.Resources.Resources.GetDestructionCertID">
+<summary>
+  Looks up a localized string similar to SELECT [SLDestructionCertsId] FROM [SLDestructCertItems] 
+WHERE [ID] = @DestructionCertItemID.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.My.Resources.Resources.GetRetentionPermissionsForUser">
+<summary>
+  Looks up a localized string similar to   SELECT  SecurePermission.Permission, SecureObject.SecureObjectTypeID, SecureObject.Name
+    FROM  SecureUserGroup INNER JOIN
+          SecureUser ON SecureUserGroup.UserID = SecureUser.UserID INNER JOIN
+          SecureObject INNER JOIN
+          SecureObjectPermission ON SecureObject.SecureObjectID = SecureObjectPermission.SecureObjectID INNER JOIN
+          SecurePermission ON SecureObjectPermission.PermissionID = SecurePermission.PermissionID ON 
+          SecureUserGroup.GroupID = SecureObjectPe [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.My.Resources.Resources.isRequestable">
+<summary>
+  Looks up a localized string similar to ISNULL((SELECT CAST(ISNULL(Locations.RequestFieldNameToken,0) AS int) + CAST(ISNULL(TrackingStatus.EmployeesId, 0) AS BIT) AS Requestable
+FROM         Locations RIGHT OUTER JOIN
+                      TrackingStatus ON Locations.Id = CAST(TrackingStatus.LocationsId AS INT) 
+WHERE     (TrackingStatus.TrackedTableId = [@ViewName].[@pKey]) AND (TrackingStatus.TrackedTable = &apos;@TableName&apos;)),0) as Requestable.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.My.Resources.Resources.SearchTree">
+<summary>
+  Looks up a localized string similar to With LowerRelationships 
+AS (SELECT p.LowerTableName AS ChildTable, t.IdFieldName AS ChildKey, p.LowerTableFieldName AS ChildForKey, 0 AS [Level]
+	FROM RelationShips p INNER JOIN Tables t ON t.TableName = p.LowerTableName WHERE p.UpperTableName = @ParentTable
+	UNION ALL
+	SELECT c.LowerTableName AS ChildTable, t.IdFieldName AS ChildKey, c.LowerTableFieldName AS ChildForKey, l.[Level] + 1
+	FROM RelationShips c INNER JOIN LowerRelationships l ON l.ChildTable = c.UpperTableName INNER JOIN Tables t ON t.Tab [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.My.Resources.Resources.UpdateDestructionCertificateItem">
+<summary>
+  Looks up a localized string similar to UPDATE [SLDestructCertItems]
+	SET HoldReason = @holdReason, RetentionHold = @retentionHold, LegalHold = @legalHold,
+        RetentionCode = @retentionCode, SnoozeUntil = @snoozeUntil, DispositionFlag = @dispositionFlag,
+		ScheduledInactivity = @scheduledInactivity, ScheduledDestruction = @scheduledDestruction,
+		SLDestructionCertsID = @destructionCertsID 
+	WHERE [ID] = @destructionCertItemID                       
+.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.My.Resources.Resources.UpdateRetentionCodeInTable">
+<summary>
+  Looks up a localized string similar to UPDATE [{0}] 
+SET [{1}] = @retentionCode 
+WHERE [{2}] = @tableID
+.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.My.Resources.Resources.UpdateSLIndexer">
+<summary>
+  Looks up a localized string similar to IF EXISTS(SELECT 1 FROM SLIndexer 
+          INNER JOIN SLTextSearchItems ON SLTextSearchItems.IndexType = SLIndexer.IndexType 
+                                      AND SLTextSearchItems.IndexTableName = SLIndexer.IndexTableName 
+                                      AND SLTextSearchItems.IndexFieldName = SLIndexer.IndexFieldName
+          WHERE (SLIndexer.IndexType = @IndexType) 
+            AND (SLIndexer.IndexTableName = @IndexTableName) 
+            AND (SLIndexer.IndexFieldName = @IndexFieldName [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="P:Smead.RecordsManagement.My.Resources.Resources.UpdateSLIndexerAdd">
+<summary>
+  Looks up a localized string similar to INSERT INTO SLIndexer (IndexType, IndexTableName, IndexFieldName, IndexTableID, IndexData, OrphanType, RecordVersion, PageNumber, AttachmentNumber) 
+     SELECT IndexType, IndexTableName, IndexFieldName, @IndexTableID, @IndexData, @OrphanType, @RecordVersion, @PageNumber, @AttachmentNumber 
+       FROM SLTextSearchItems
+      WHERE (SLTextSearchItems.IndexType = @IndexType) 
+        AND (SLTextSearchItems.IndexTableName = @IndexTableName) 
+        AND (SLTextSearchItems.IndexFieldName = @IndexFieldName [rest of string was truncated]&quot;;.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.TabsetsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.TabletabsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.ViewsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.PrimaryKeyDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.ChildViewsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.ViewColumnsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.ScanListDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.TablesDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.TrackingDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.SLRequestorDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.StatusHistoryDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.FolderStatusDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.SLTextSearchItemsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.SystemDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.EmployeesDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.RelationShipsDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.TrackingHistoryDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.LinkScriptDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.SLTableFileRoomOrderDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.LinkScriptHeaderDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.TabsetsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.TabletabsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.ViewsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.PrimaryKeyRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.ChildViewsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.ViewColumnsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.ScanListRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.TablesRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.TrackingRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.SLRequestorRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.StatusHistoryRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.FolderStatusRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.SLTextSearchItemsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.SystemRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.EmployeesRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.RelationShipsRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.TrackingHistoryRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.LinkScriptRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.SLTableFileRoomOrderRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.LinkScriptHeaderRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.TabsetsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.TabletabsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.ViewsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.PrimaryKeyRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.ChildViewsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.ViewColumnsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.ScanListRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.TablesRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.TrackingRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.SLRequestorRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.StatusHistoryRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.FolderStatusRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.SLTextSearchItemsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.SystemRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.EmployeesRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.RelationShipsRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.TrackingHistoryRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.LinkScriptRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.SLTableFileRoomOrderRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManage.LinkScriptHeaderRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManageTableAdapters.TabsetsTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManageTableAdapters.TabletabsTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManageTableAdapters.ViewsTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManageTableAdapters.PrimaryKeyTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManageTableAdapters.ChildViewsTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManageTableAdapters.ViewColumnsTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManageTableAdapters.ScanListTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManageTableAdapters.TablesTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManageTableAdapters.TrackingTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManageTableAdapters.SLRequestorTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManageTableAdapters.StatusHistoryTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManageTableAdapters.FolderStatusTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManageTableAdapters.SLTextSearchItemsTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManageTableAdapters.SystemTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManageTableAdapters.EmployeesTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManageTableAdapters.RelationShipsTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManageTableAdapters.TrackingHistoryTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManageTableAdapters.LinkScriptTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManageTableAdapters.SLTableFileRoomOrderTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManageTableAdapters.LinkScriptHeaderTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManageTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:Smead.RecordsManagement.RecordsManageTableAdapters.TableAdapterManager.UpdateUpdatedRows(Smead.RecordsManagement.RecordsManage,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:Smead.RecordsManagement.RecordsManageTableAdapters.TableAdapterManager.UpdateInsertedRows(Smead.RecordsManagement.RecordsManage,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:Smead.RecordsManagement.RecordsManageTableAdapters.TableAdapterManager.UpdateDeletedRows(Smead.RecordsManagement.RecordsManage,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:Smead.RecordsManagement.RecordsManageTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:Smead.RecordsManagement.RecordsManageTableAdapters.TableAdapterManager.UpdateAll(Smead.RecordsManagement.RecordsManage)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManageTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.RecordsManageTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:Smead.RecordsManagement.LinkScriptVariable">
+ <summary>
+ Stores information regarding a variabled defined in a linkscript.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="T:Smead.RecordsManagement.LinkScriptVariable.VariableTypes">
+ <summary>
+ Supported Variable Types for parsing linkscripts.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="T:Smead.RecordsManagement.LinkScriptVariable.VarScope">
+ <summary>
+ Variables Scope for parsing linkscripts.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="T:Smead.RecordsManagement.LinkScriptVariable.MathTypes">
+ <summary>
+ Math Types for parsing linkscripts.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="T:Smead.RecordsManagement.LinkScriptVariable.TrimTypes">
+ <summary>
+ String Trim Types for parsing linkscripts.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="T:Smead.RecordsManagement.LinkScriptVariable.CharTypes">
+ <summary>
+ Char Types for parsing linkscripts.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="F:Smead.RecordsManagement.Navigation.Enums.meFinalDispositionStatusType.fdstActive">
+ <summary>
+ Indicates the current disposition status.
+    Active: Has not reached the retention point.
+  Archived: Item has been archived or transferred to an "Archive" location.
+ Destroyed: Item has been destoryed.
+ Purged is not needed because the record is deleted from the system and never flagged as purged.
+ </summary>
+</member>
+<member name="F:Smead.RecordsManagement.Retention.FinalDisposition.None">
+ <summary>
+ Indicates what happens to the record when it reaches the end of its retention period.
+        None: Retention is not active. Nothing happens.
+     Archive: Records (including child records) are marked as archived, but no data or attachments are removed from the
+              system. Items are transferred to a ArchiveLocation. Can only be viewed by a user with security permissions
+              to review "archived" items.
+ Destruction: Records (including child records) are marked as destroyed. All attachments are permanently deleted. The data
+              is preserved, but can only be viewed by a user with security permissions to review "destroyed" items.
+      Purged: Records (including child records) and attachments are permanently deleted. The information is unrecoverable
+              once purged.
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:Smead.RecordsManagement.Tracking.UpdateRequestsQuery(System.Collections.Generic.List{Smead.RecordsManagement.TrackingTablesModel},System.String,System.String,System.Data.SqlClient.SqlConnection,Smead.Security.Passport,System.String)">
+ <summary>
+ Prepared query for update request status for second container level
+ </summary>
+ <param name="oTrackableTables"></param>
+ <param name="oTrackedTable"></param>
+ <param name="oTrackedTableId"></param>
+ <param name="conn"></param>
+ <param name="passport"></param>
+ <returns></returns>
+</member>
+<member name="M:Smead.RecordsManagement.Tracking.DeleteTrackingHistoryQuery(System.Data.SqlClient.SqlConnection)">
+ <summary>
+ Prepared query for Delete Tracking history based on admin configuration
+ </summary>
+ <param name="conn"></param>
+ <returns></returns>
+</member>
+<member name="F:Smead.RecordsManagement.Tracking.UserLinkIndexTableIdSize">
+ <summary>
+ Added for find field size for UserLinks table
+ </summary>
+</member>
+</members>
+</doc>

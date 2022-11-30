@@ -1,0 +1,311 @@
+﻿@using TabFusionRMS.Resource
+@using TabFusionRMS.Models
+@model ViewColumn
+
+@*@Using Html.BeginForm(Nothing, Nothing, FormMethod.Post, New With {.id = "frmViewColumnDetails", .class = "form-horizontal", .ReturnUrl = ViewData("ReturnUrl")})*@
+<form class=" form-horizontal" id="frmViewColumnDetails" method="post" ReturnUrl = '@ViewData["ReturnUrl"]'>
+    <section class="content">
+
+        <div class="modal fade" id="mdlViewColumn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" onclick="mdlViewColumnModelHide()">×</button>
+                        <h4 class="modal-title" id="myModalLabel">@Languages.get_Translation("tiAddCoulmnViewPartialColPrintProp")</h4>
+                    </div>
+                    <div class="modal-body">
+                        @Html.HiddenFor((m)=> m.ViewsId)
+                        @*<input type="hidden" id="ViewsId" name="ViewsId"/>*@
+                        <input id="ViewColumnId" name="Id" type="text" hidden="hidden" />
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label id="lblType" for="LookupType" class="col-md-4 control-label">@Languages.get_Translation("lblAddCoulmnViewPartialColType")</label>
+                                    <div class="col-md-8">
+                                        <select id="LookupTypeId" name="LookupType" class="form-control"></select>
+                                        <input type="text" id="LookupChildType" name="LookupChildType" class="form-control" hidden="hidden" disabled="disabled" />
+                                        <input type="number" id="LookupNumber" name="LookupNumber" hidden="hidden">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label id="lblField" for="FieldName" class="col-md-4 control-label">@Languages.get_Translation("lblAddCoulmnViewPartialInternalFieldName")</label>
+                                    <div class="col-md-8">
+                                        <select id="FieldName" name="FieldName" class="form-control"></select>
+                                        <input type="text" id="FieldNameTB" name="FieldNameTB" class="form-control" hidden="hidden" disabled="disabled" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label id="lblType" class="col-md-4 control-label">@Languages.get_Translation("lblAddColumnViewPartialIntenalFieldType")</label>
+                                    <div class="col-md-8">
+                                        <div class="input-group col-sm-12">
+                                            <input type="text" name="FieldType" id="FieldType" style="width:75%;" class="form-control" disabled="disabled" />
+
+                                            <input type="text" name="FieldSize" id="FieldSize" style="width:25%;" class="form-control" disabled="disabled" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label" id="lblField" for="FileNamePrefix">@Languages.get_Translation("lblAddCoulmnViewPartialHeading")</label>
+                                    <div class="col-md-8">
+                                     @Html.TextBoxFor((m)=> m.Heading, new {@class = "form-control", placeholder = Languages.get_Translation("lblAddCoulmnViewPartialHeading"), autofocus = "", maxlength = 30})
+                                    @*<input type="text" class="form-control" id="Heading" name="Heading" placeholder = '@Languages.get_Translation("lblAddCoulmnViewPartialHeading")' autofocus = "" maxlength="30" />*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label id="lblDisplay" for="EditMask" class="col-md-4 control-label">@Languages.get_Translation("lblAddColumnViewPartialDisplayMask")</label>
+                                    <div class="col-md-8">
+                                      @Html.TextBoxFor((m)=> m.EditMask, new{@class = "form-control", placeholder = Languages.get_Translation("lblAddColumnViewPartialDisplayMask")})
+                                      @*<input type="text" class="form-control" id="EditMask" name="EditMask" placeholder = '@Languages.get_Translation("lblAddColumnViewPartialDisplayMask")'/>*@
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label id="lblInput" for="InputMask" class="col-md-4 control-label">@Languages.get_Translation("lblAddColumnViewPartialInputMask")</label>
+
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor((m)=> m.InputMask, new{@class = "form-control", placeholder = Languages.get_Translation("lblAddColumnViewPartialInputMask")})
+                                        @*<input type="text" class="form-control" id="InputMask" name="InputMask" placeholder = '@Languages.get_Translation("lblAddColumnViewPartialInputMask")' />*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label id="lblMaskPrompt" for="MaskPromptChar" class="col-md-4 control-label">@Languages.get_Translation("lblAddColumnViewPartialMaskPrompt")</label>
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor((m)=> m.MaskPromptChar,new{@class = "form-control", placeholder = Languages.get_Translation("lblAddColumnViewPartialMaskPrompt"), maxlength = "1"})
+                                        @*<input type="text" class="form-control" id="MaskPromptChar" name="MaskPromptChar" placeholder = '@Languages.get_Translation("lblAddColumnViewPartialMaskPrompt")' maxlength="1" />*@
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label id="lblFieldName" for="AlternateFieldName" class="col-md-4 control-label">@Languages.get_Translation("lblAddColumnViewPartialAlternateFieldName")</label>
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor((m)=> m.AlternateFieldName, new{@class = "form-control", placeholder = Languages.get_Translation("lblAddColumnViewPartialAlternateFieldName")})
+                                        @*<input type="text" class="form-control" id="AlternateFieldName" name="AlternateFieldName" placeholder = '@Languages.get_Translation("lblAddColumnViewPartialAlternateFieldName")'/>*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label id="lblVisible" for="ColumnOrder" class="col-md-4 control-label">@Languages.get_Translation("lblAddColumnViewPartialVisualAttributes")</label>
+                                    <div class="col-md-8">
+                                        <select id="ColumnOrder" name="ColumnOrder" class="form-control"></select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label id="lblStyle" for="ColumnStyle" class="col-md-4 control-label">@Languages.get_Translation("lblAddColumnViewPartialAlignment")</label>
+                                    <div class="col-md-8">
+                                        @*@Html.DropDownList("ColumnStyle", DirectCast(ViewBag.ColumnStyleList, SelectList), New With {.class = "form-control", .placeholder = "Select Allignment"})*@
+                                        <select id="ColumnStyle" name="ColumnStyle" class="form-control" placeholder = "Select Allignment"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <fieldset class="admin_fieldset">
+                                    <legend class="admin_leg" title="@Languages.get_Translation("tiAddColumnViewPartialChildLookdownDataDisplay")">@Languages.get_Translation("tiAddColumnViewPartialChildLookdownDataDisplay")</legend>
+                                    <div class="row" id="divDisplayStyle">
+                                        <div class="col-sm-6">
+                                            <span class="radio-cus">
+                                                <input type="radio" name="DisplayStyle" id="CommaRadio" value="0" checked="checked" />
+                                                <label id="comma_label" class="radio-inline" for="CommaRadio">@Languages.get_Translation("lblAddColumnViewPartialCommaSeparated")</label>
+                                            </span>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <span class="radio-cus">
+                                                <input type="radio" name="DisplayStyle" id="SeparateRadio" value="1" />
+                                                <label id="separate_label" class="radio-inline" for="SeparateRadio">@Languages.get_Translation("lblAddColumnViewPartialSeparateLines")</label>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-6">
+                                            <label id="lblVisible" For="ColumnOrder" class="control-label">@Languages.get_Translation("lblAddColumnViewPartialEx")</label>
+                                            <textarea rows="3" cols="15" disabled="disabled" class="form-control" dir="ltr">
+                                                @Languages.get_Translation("txtAddColumnViewPartialItem1234")
+                                            </textarea>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label id="lblVisible" For="ColumnOrder" class="control-label">@Languages.get_Translation("lblAddColumnViewPartialEx")</label>
+                                            <textarea rows="3" cols="15" disabled="disabled" class="form-control" dir="rtl">
+                                                @Languages.get_Translation("txtAddColumnViewPartialItem1")
+                                            </textarea>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset class="admin_fieldset">
+                                    <legend class="admin_leg" title="@Languages.get_Translation("tiAddColumnViewPartialChildLookdownDupDataHandling")">@Languages.get_Translation("tiAddColumnViewPartialChildLookdownDupDataHandling")</legend>
+                                    <div class="col-sm-12">
+                                        <div class="form-group" id="divDuplicateData">
+                                            <span class="radio-cus">
+                                                <input type="radio" name="DuplicateData" id="DisplayRadio" value="0" checked="checked">
+                                                <label id="display_label" class="radio-inline" for="DisplayRadio">@Languages.get_Translation("lblAddColumnViewPartialDisplayed")</label>
+                                            </span>
+                                            <span class="radio-cus">
+                                                <input type="radio" name="DuplicateData" id="SuppresseRadio" value="1" />
+                                                <label id="suppress_label" class="radio-inline" for="SuppresseRadio">@Languages.get_Translation("lblAddColumnViewPartialSuppressed")</label>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                            <div id="printReportDiv" class="col-md-6" hidden="hidden">
+                                <fieldset class="admin_fieldset">
+                                    <legend class="admin_leg" title="@Languages.get_Translation("tiAddColumnViewPartialPrintSetting")">@Languages.get_Translation("tiAddColumnViewPartialPrintSetting") </legend>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <div class="checkbox-cus">
+                                                @*@Html.CheckBoxFor(Function(m) m.PageBreakField)*@
+                                                <input id="PageBreakField" name="PageBreakField" value="false" type="checkbox" />
+                                                <label id="page_label" class="checkbox-inline" for="PageBreakField">@Languages.get_Translation("lblAddColumnViewPartialPageBreak")</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="checkbox-cus">
+                                                @*@Html.CheckBoxFor(Function(m) m.SuppressDuplicates)*@
+                                                <input id="SuppressDuplicates" name="SuppressDuplicates" value="false" type="checkbox" />
+                                                <label id="suppress_label" class="checkbox-inline" for="SuppressDuplicates">@Languages.get_Translation("lblAddColumnViewPartialDoNotPrintDuplicates")</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label id="print_label" class="col-md-7 control-label" for="MaxPrintLines">@Languages.get_Translation("lblAddColumnViewPartialMaxLinesPerRow")</label>
+                                        <div class="col-md-4">
+                                            @Html.TextBoxFor((m)=> m.MaxPrintLines,new{maxlength = "3", @class = "form-control input-sm"})
+                                            @*<input type="text" class="form-control input-sm" id="MaxPrintLines" name="MaxPrintLines" maxlength="3"/>*@
+                                        </div>
+                                    </div>
+                                    <fieldset class="admin_fieldset">
+                                        <legend>@Languages.get_Translation("tiAddColumnViewPartialAppliesToFormattedReportOnly")</legend>
+                                        <div class="form-group">
+                                            <div class="col-sm-12">
+                                                <div class="checkbox-cus">
+                                                    @*@Html.CheckBoxFor(Function(m) m.CountColumn)*@
+                                                    <input id="CountColumn" name="CountColumn" value="false" type="checkbox" />
+                                                    <label id="count_label" class="checkbox-inline" for="CountColumn">@Languages.get_Translation("lblAddColumnViewPartialCount")</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="checkbox-cus">
+                                                    @*@Html.CheckBoxFor(Function(m) m.SubtotalColumn)*@
+                                                    <input id="SubtotalColumn" name="SubtotalColumn" value="false" type="checkbox" />
+                                                    <label id="subtotal_label" class="checkbox-inline" for="SubtotalColumn">@Languages.get_Translation("lblAddColumnViewPartialSubtotals")</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="checkbox-cus">
+                                                    @*@Html.CheckBoxFor(Function(m) m.RestartPageNumber)*@
+                                                    <input id="RestartPageNumber" name="RestartPageNumber" value="false" type="checkbox" />
+                                                    <label id="page_label" class="checkbox-inline" for="RestartPageNumber">@Languages.get_Translation("lblAddColumnViewPartialRestartPageNumberOnPageBreak")</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12">
+                                                <div class="checkbox-cus">
+                                                    @*@Html.CheckBoxFor(Function(m) m.UseAsPrintId)*@
+                                                    <input id="UseAsPrintId" name="UseAsPrintId" value="false" type="checkbox" />
+                                                    <label id="id_label" class="checkbox-inline" for="UseAsPrintId">@Languages.get_Translation("lblAddColumnViewPartialUseAsIdInHeaderFooter")</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </fieldset>
+                            </div>
+                            <div id="viewColumnDiv" class="col-md-6" hidden="hidden">
+                                <input type="checkbox" hidden="hidden" name="viewColumnCheck" id="viewColumnCheck" />
+                                <fieldset class="admin_fieldset">
+                                    <legend class="admin_leg" title="@Languages.get_Translation("tiAddColumnViewPartialEditSettings")">@Languages.get_Translation("tiAddColumnViewPartialEditSettings")</legend>
+                                    <div class="form-group">
+                                        <div class="col-sm-6">
+                                            <div class="checkbox-cus">
+                                                @*@Html.CheckBoxFor(Function(m) m.SortableField)*@
+                                                <input id="SortableField" name="SortableField" value="false" type="checkbox" />
+                                                <label id="sortable_label" class="checkbox-inline" for="SortableField">@Languages.get_Translation("lblAddColumnViewPartialSortable")</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="checkbox-cus">
+                                                @*@Html.CheckBoxFor(Function(m) m.FilterField)*@
+                                                <input id="FilterField" name="FilterField" value="false" type="checkbox" />
+                                                <label id="filter_label" class="checkbox-inline" for="FilterField">@Languages.get_Translation("lblAddColumnViewPartialFilterable")</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-6">
+                                            <div class="checkbox-cus">
+                                                @*@Html.CheckBoxFor(Function(m) m.EditAllowed)*@
+                                                <input id="EditAllowed" name="EditAllowed" value="false" type="checkbox" />
+                                                <label id="edit_label" class="checkbox-inline" for="EditAllowed">@Languages.get_Translation("lblAddColumnViewPartialEditable")</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="checkbox-cus">
+                                                @*@Html.CheckBoxFor(Function(m) m.ColumnVisible)*@
+                                                <input id="ColumnVisible" name="ColumnVisible" value="false" type="checkbox" />                                               
+                                                <label id="visible_label" class="checkbox-inline" for="ColumnVisible">@Languages.get_Translation("lblAddColumnViewPartialCapslock")</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-6">
+                                            <div class="checkbox-cus">
+                                                <input type="checkbox" id="DropDownFlag" name="DropDownFlag">
+                                                <label id="dropdown_label" class="checkbox-inline" for="DropDownFlag">@Languages.get_Translation("lblAddColumnViewPartialDropDown")</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="checkbox-cus">
+                                                @*@Html.CheckBoxFor(Function(m) m.DropDownSuggestionOnly)*@
+                                                <input id="DropDownSuggestionOnly" name="DropDownSuggestionOnly" value="false" type="checkbox" />
+                                                <label id="suggestion_label" class="checkbox-inline" for="DropDownSuggestionOnly">@Languages.get_Translation("lblAddColumnViewPartialSuggestionOnly")</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-12">
+                                            <div class="checkbox-cus">
+                                                @*@Html.CheckBoxFor(Function(m) m.MaskInclude)*@   
+                                                <input id="MaskInclude" name="MaskInclude" value="false" type="checkbox" />
+                                                <label id="maskData_label" class="checkbox-inline" for="MaskInclude">@Languages.get_Translation("lblAddColumnViewPartialIncludeMaskInData")</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input id="btnColumnOk" type="button" class="btn btn-primary" value=@Languages.get_Translation("Ok").ToUpper() />
+                        <input id="btnCancel" type="button" class="btn btn-default" onclick="mdlViewColumnModelHide()" value=@Languages.get_Translation("Cancel") />
+                    </div>
+                </div>
+            </div>
+            <div id="mdlViewColumnClone" class="fixed-footer affixed" style="display:none"></div>
+        </div>
+    </section>
+</form>
+
+

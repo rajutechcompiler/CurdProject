@@ -1,0 +1,11 @@
+﻿@using TabFusionRMS.Resource
+@{
+    ViewData["Title"] = @Languages.get_Translation("tiAdminManager");
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<section class="content-header">
+    <h1 class="main_title">
+        <span id="title"> @Languages.get_Translation("mnuAdminHome")</span>
+    </h1>
+</section>
+<div id="LoadUserControl" style="overflow-y:auto; overflow-x:hidden; "></div>

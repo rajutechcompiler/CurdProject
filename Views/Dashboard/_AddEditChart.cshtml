@@ -1,0 +1,139 @@
+﻿@using TabFusionRMS.WebCS.Controllers;
+@using TabFusionRMS.Resource;
+<form  class="form-horizontal" id="frmAddEditChart" role="form" ReturnUrl = ViewData("ReturnUrl")>
+
+  <div class="modal fade in form-horizontal" id="modal13" tabindex="-1" role="dialog" aria-labelledby="myModal13">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title" id="titleAddEditChart">@Languages.get_Translation("addWidget") </h4>
+                    <input type="hidden" value="0" id="hiddenChartWidgetId" />
+                </div>
+                <div Class="modal-body row-44">
+                    <fieldset Class="admin_fieldset">
+                        <legend>@Languages.get_Translation("widgetInformation")</legend>
+                        <div Class="row">
+                            <div Class="col-sm-12">
+                                <div Class="form-group">
+                                    <Label Class="col-sm-4 control-label" for="chartWidgetName">@Languages.get_Translation("widgetName")</Label>
+                                    <div Class="col-sm-8">
+                                        <input autofocus="" Class="form-control" id="chartWidgetName" name="chartWidgetName" placeholder="@Languages.get_Translation("widgetName")" type="text" value="" />
+                                        <span for="chartWidgetName" class="help-block"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div Class="row hidden-e">
+                            <div Class="col-sm-12">
+                                <div Class="form-group">
+                                    <Label Class="col-sm-4 control-label" for="lstView">@Languages.get_Translation("type")</Label>
+                                    <div Class="col-sm-8">
+                                        <select id="lstTypeChart" name="lstTypeChart" Class="form-control">
+                                            <option value="PIE"> Pie Chart</option>
+                                            <option value="DATA"> Grid View</option>
+                                            <option value="BAR"> Bar Chart</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div Class="row">
+                            <div Class="col-sm-12">
+                                <div Class="form-group">
+                                    <Label Class="col-sm-4 control-label" for="lstWork">@Languages.get_Translation("workGroup")</Label>
+                                    <input type="hidden" value="" id="hiddenchartlstWorkGroup" />
+                                    <div Class="col-sm-8">
+                                        <select id="chartlstWorkGroup" name="chartlstWorkGroup"  Class="form-control searchable-drop">
+                                            <option value="" selected></option>
+                                         @foreach(var item in Model.WorkGroup)
+                                        {
+                                                <option value="@item.ID">@item.WorkGroupName</option>
+                                        }
+                                            </select>
+                                        <span for="chartlstWorkGroup" class="help-block"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div Class="row">
+                            <div Class="col-sm-12">
+                                <div Class="form-group">
+                                    <Label Class="col-sm-4 control-label" for="lstView">@Languages.get_Translation("objectTable")</Label>
+                                    <input type="hidden" value="" id="hiddenchartListTable" />
+                                    <div Class="col-sm-8">
+                                        <select id="chartListTable" name="chartListTable" Class="form-control searchable-drop">
+                                            <option value="" selected></option>
+                                        </select>
+                                        <span for="chartListTable" class="help-block"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label" for="chartlstView">@Languages.get_Translation("parentView")</label>
+                                    <input type="hidden" value="" id="hiddenchartlstView" />
+                                    <div class="col-sm-8">
+                                        <select id="chartlstView" name="chartlstView" class="form-control">
+                                            <option value="" selected></option>
+                                        </select>
+                                        <span for="chartlstView" class="help-block"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row" id="divChartlistCol">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label" for="chartlstCol">@Languages.get_Translation("Column")</label>
+                                    <input type="hidden" value="" id="hiddenchartlstCol" />
+                                    <div class="col-sm-8">
+                                        <select id="chartlstCol" name="chartlstCol" class="form-control searchable-drop">
+                                            <option value="" selected></option>
+                                        </select>
+                                        <span for="chartlstCol" class="help-block"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label" for="lstView">@Languages.get_Translation("refresh")</label>
+                                    <div class="col-sm-8">
+                                        <select id="chartRefreshTime" name="chartRefreshTime" class="form-control searchable-drop">
+                                            <option value="0">Manual Refresh</option>
+                                            <option value="5">5 minutes</option>
+                                            <option value="10">10 minutes</option>
+                                            <option value="15">15 minutes</option>
+                                            <option value="20">20 minutes</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true" style="float:right;">@Languages.get_Translation("Cancel")</button>
+                    <button id="btnAddChart" type="button" class="btn btn-primary" style="float:right; margin-right:5px;">@Languages.get_Translation("Add")</button>
+
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+</form>
+
+<script>
+    dashboardfunc.PreventEnter();
+</script>

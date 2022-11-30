@@ -1,0 +1,57 @@
+﻿@using TabFusionRMS.Resource;
+@model ViewQueryWindow;
+<style type="text/css">
+    .tblFilter tbody td, .tblFilter tbody th {
+        padding-left: 5px;
+    }
+
+    .tblFilter td:first-child, .tblFilter th:first-child {
+        padding-left: 0px;
+    }
+
+    input, textarea, text, label {
+        word-break: keep-all;
+    }
+
+    #Dialog_Query_DialogQuery_tblQuery tbody td {
+        word-break: keep-all;
+    }
+</style>
+
+<div class="modal-body" id="modelBody">
+    <div class="table-responsive">
+        <label Id="lblError" style="color:red;display:none"></label>
+        <div style="max-height:400px;">
+            <Table id="querytableid" class="table table-noborder table-form">
+
+                @foreach (var row in Model.ListOfRows)
+                {
+                    @Html.Raw(@row);
+                }
+            </Table><!--get saved queries-->
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <div class="row">
+        <div Class="col-xs-12" style="display: inline-flex;">
+            @*<input type="checkbox" id="chekBasicQuery" Class="pull-left" /><span style="margin-top:-3px">@Languages.Translation("cbQueryControlAlwaysShowQueryInView")</span>*@
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 modal-action p-t-5 sticker">
+            <button onclick="obJquerywindow.ClearInputs()" class="btn btn-default pull-left">@Languages.get_Translation("Clear")</button>
+            <div class="text-right">
+                <button Id="OkQuery" class="btn btn-success" onclick="obJquerywindow.QueryOkButton();">@Languages.get_Translation("Ok")</button>
+                <button Id="btnCancel" class="btn btn-default mdlCancel" onclick="$(prop.Dialogbox.Dialogboxid).hide()">@Languages.get_Translation("Cancel")</button>
+                <button Id="btnQueryApply" class="btn btn-success" onclick="obJquerywindow.QueryApplybutton()">@Languages.get_Translation("Apply")</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+

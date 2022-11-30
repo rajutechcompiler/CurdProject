@@ -1,0 +1,379 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\TabFusionRMS.WebCS\\TabFusionRMS.WebCS.csproj": {}
+  },
+  "projects": {
+    "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\SlimShared\\slimShared.vbproj": {
+      "restore": {
+        "projectUniqueName": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\SlimShared\\slimShared.vbproj",
+        "projectName": "slimShared",
+        "projectPath": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\SlimShared\\slimShared.vbproj",
+        "frameworks": {
+          "net461": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net461": {}
+      }
+    },
+    "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\Smead.RecordsManagement.Imaging.Export\\Smead.RecordsManagement.Imaging.Export.vbproj": {
+      "restore": {
+        "projectUniqueName": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\Smead.RecordsManagement.Imaging.Export\\Smead.RecordsManagement.Imaging.Export.vbproj",
+        "projectName": "Smead.RecordsManagement.Imaging.Export",
+        "projectPath": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\Smead.RecordsManagement.Imaging.Export\\Smead.RecordsManagement.Imaging.Export.vbproj",
+        "frameworks": {
+          "net461": {
+            "projectReferences": {
+              "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\SlimShared\\slimShared.vbproj": {
+                "projectPath": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\SlimShared\\slimShared.vbproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net461": {}
+      }
+    },
+    "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\Smead.RecordsManagement.Imaging.Ocr\\Smead.RecordsManagement.Imaging.Ocr.vbproj": {
+      "restore": {
+        "projectUniqueName": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\Smead.RecordsManagement.Imaging.Ocr\\Smead.RecordsManagement.Imaging.Ocr.vbproj",
+        "projectName": "Smead.RecordsManagement.Imaging.Ocr",
+        "projectPath": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\Smead.RecordsManagement.Imaging.Ocr\\Smead.RecordsManagement.Imaging.Ocr.vbproj",
+        "frameworks": {
+          "net461": {
+            "projectReferences": {
+              "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\SlimShared\\slimShared.vbproj": {
+                "projectPath": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\SlimShared\\slimShared.vbproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net461": {}
+      }
+    },
+    "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\Smead.RecordsManagement.Imaging\\Smead.RecordsManagement.Imaging.vbproj": {
+      "restore": {
+        "projectUniqueName": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\Smead.RecordsManagement.Imaging\\Smead.RecordsManagement.Imaging.vbproj",
+        "projectName": "Smead.RecordsManagement.Imaging",
+        "projectPath": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\Smead.RecordsManagement.Imaging\\Smead.RecordsManagement.Imaging.vbproj",
+        "frameworks": {
+          "net461": {
+            "projectReferences": {
+              "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\SlimShared\\slimShared.vbproj": {
+                "projectPath": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\SlimShared\\slimShared.vbproj"
+              },
+              "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\Smead.RecordsManagement.Imaging.Export\\Smead.RecordsManagement.Imaging.Export.vbproj": {
+                "projectPath": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\Smead.RecordsManagement.Imaging.Export\\Smead.RecordsManagement.Imaging.Export.vbproj"
+              },
+              "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\Smead.RecordsManagement.Imaging.Ocr\\Smead.RecordsManagement.Imaging.Ocr.vbproj": {
+                "projectPath": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\Smead.RecordsManagement.Imaging.Ocr\\Smead.RecordsManagement.Imaging.Ocr.vbproj"
+              },
+              "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\Smead.Security\\Smead.Security.vbproj": {
+                "projectPath": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\Smead.Security\\Smead.Security.vbproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net461": {}
+      }
+    },
+    "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\Smead.RecordsManagement\\Smead.RecordsManagement.vbproj": {
+      "restore": {
+        "projectUniqueName": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\Smead.RecordsManagement\\Smead.RecordsManagement.vbproj",
+        "projectName": "Smead.RecordsManagement",
+        "projectPath": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\Smead.RecordsManagement\\Smead.RecordsManagement.vbproj",
+        "frameworks": {
+          "net461": {
+            "projectReferences": {
+              "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\Smead.RecordsManagement.Imaging\\Smead.RecordsManagement.Imaging.vbproj": {
+                "projectPath": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\Smead.RecordsManagement.Imaging\\Smead.RecordsManagement.Imaging.vbproj"
+              },
+              "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\Smead.Security\\Smead.Security.vbproj": {
+                "projectPath": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\Smead.Security\\Smead.Security.vbproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net461": {}
+      }
+    },
+    "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\Smead.Security\\Smead.Security.vbproj": {
+      "restore": {
+        "projectUniqueName": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\Smead.Security\\Smead.Security.vbproj",
+        "projectName": "Smead.Security",
+        "projectPath": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\Smead.Security\\Smead.Security.vbproj",
+        "frameworks": {
+          "net461": {
+            "projectReferences": {
+              "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\SlimShared\\slimShared.vbproj": {
+                "projectPath": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\SlimShared\\slimShared.vbproj"
+              },
+              "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\TabFusionRMS.Resource\\TabFusionRMS.Resource.vbproj": {
+                "projectPath": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\TabFusionRMS.Resource\\TabFusionRMS.Resource.vbproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net461": {}
+      }
+    },
+    "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\TabFusionRMS.DataBaseManagerVB\\TabFusionRMS.DataBaseManagerVB.vbproj": {
+      "restore": {
+        "projectUniqueName": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\TabFusionRMS.DataBaseManagerVB\\TabFusionRMS.DataBaseManagerVB.vbproj",
+        "projectName": "TabFusionRMS.DataBaseManagerVB",
+        "projectPath": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\TabFusionRMS.DataBaseManagerVB\\TabFusionRMS.DataBaseManagerVB.vbproj",
+        "frameworks": {
+          "net461": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net461": {}
+      }
+    },
+    "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\TabFusionRMS.Models\\TabFusionRMS.Models.csproj": {
+      "restore": {
+        "projectUniqueName": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\TabFusionRMS.Models\\TabFusionRMS.Models.csproj",
+        "projectName": "TabFusionRMS.Models",
+        "projectPath": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\TabFusionRMS.Models\\TabFusionRMS.Models.csproj",
+        "frameworks": {
+          "net461": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net461": {}
+      }
+    },
+    "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\TabFusionRMS.RepositoryVB\\TabFusionRMS.RepositoryVB.vbproj": {
+      "restore": {
+        "projectUniqueName": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\TabFusionRMS.RepositoryVB\\TabFusionRMS.RepositoryVB.vbproj",
+        "projectName": "TabFusionRMS.RepositoryVB",
+        "projectPath": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\TabFusionRMS.RepositoryVB\\TabFusionRMS.RepositoryVB.vbproj",
+        "frameworks": {
+          "net461": {
+            "projectReferences": {
+              "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\Smead.Security\\Smead.Security.vbproj": {
+                "projectPath": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\Smead.Security\\Smead.Security.vbproj"
+              },
+              "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\TabFusionRMS.Models\\TabFusionRMS.Models.csproj": {
+                "projectPath": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\TabFusionRMS.Models\\TabFusionRMS.Models.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net461": {}
+      }
+    },
+    "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\TabFusionRMS.Resource\\TabFusionRMS.Resource.vbproj": {
+      "restore": {
+        "projectUniqueName": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\TabFusionRMS.Resource\\TabFusionRMS.Resource.vbproj",
+        "projectName": "TabFusionRMS.Resource",
+        "projectPath": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\TabFusionRMS.Resource\\TabFusionRMS.Resource.vbproj",
+        "frameworks": {
+          "net461": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net461": {}
+      }
+    },
+    "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\TabFusionRMS.WebCS\\TabFusionRMS.WebCS.csproj": {
+      "version": "11.0.3128",
+      "restore": {
+        "projectUniqueName": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\TabFusionRMS.WebCS\\TabFusionRMS.WebCS.csproj",
+        "projectName": "TabFusionRMS.WebCS",
+        "projectPath": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\TabFusionRMS.WebCS\\TabFusionRMS.WebCS.csproj",
+        "packagesPath": "C:\\Users\\Raju\\.nuget\\packages\\",
+        "outputPath": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\TabFusionRMS.WebCS\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Raju\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\Smead.RecordsManagement.Imaging.Export\\Smead.RecordsManagement.Imaging.Export.vbproj": {
+                "projectPath": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\Smead.RecordsManagement.Imaging.Export\\Smead.RecordsManagement.Imaging.Export.vbproj"
+              },
+              "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\Smead.RecordsManagement.Imaging.Ocr\\Smead.RecordsManagement.Imaging.Ocr.vbproj": {
+                "projectPath": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\Smead.RecordsManagement.Imaging.Ocr\\Smead.RecordsManagement.Imaging.Ocr.vbproj"
+              },
+              "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\Smead.RecordsManagement.Imaging\\Smead.RecordsManagement.Imaging.vbproj": {
+                "projectPath": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\Smead.RecordsManagement.Imaging\\Smead.RecordsManagement.Imaging.vbproj"
+              },
+              "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\Smead.RecordsManagement\\Smead.RecordsManagement.vbproj": {
+                "projectPath": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\Smead.RecordsManagement\\Smead.RecordsManagement.vbproj"
+              },
+              "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\Smead.Security\\Smead.Security.vbproj": {
+                "projectPath": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\Smead.Security\\Smead.Security.vbproj"
+              },
+              "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\TabFusionRMS.DataBaseManagerVB\\TabFusionRMS.DataBaseManagerVB.vbproj": {
+                "projectPath": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\TabFusionRMS.DataBaseManagerVB\\TabFusionRMS.DataBaseManagerVB.vbproj"
+              },
+              "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\TabFusionRMS.Models\\TabFusionRMS.Models.csproj": {
+                "projectPath": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\TabFusionRMS.Models\\TabFusionRMS.Models.csproj"
+              },
+              "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\TabFusionRMS.RepositoryVB\\TabFusionRMS.RepositoryVB.vbproj": {
+                "projectPath": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\TabFusionRMS.RepositoryVB\\TabFusionRMS.RepositoryVB.vbproj"
+              },
+              "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\TabFusionRMS.Resource\\TabFusionRMS.Resource.vbproj": {
+                "projectPath": "E:\\TabFusion Project\\TabFusionRMS 11.1.0 Git\\TabFusionRMS.Resource\\TabFusionRMS.Resource.vbproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.4.4, )"
+            },
+            "Grpc.Net.Client": {
+              "target": "Package",
+              "version": "[2.47.0, )"
+            },
+            "Microsoft.AspNetCore": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Hosting": {
+              "target": "Package",
+              "version": "[2.2.7, )"
+            },
+            "Microsoft.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.1.0, )"
+            },
+            "Microsoft.Identity.Client": {
+              "target": "Package",
+              "version": "[4.36.0, )"
+            },
+            "Microsoft.IdentityModel.Clients.ActiveDirectory": {
+              "target": "Package",
+              "version": "[4.5.1, )"
+            },
+            "NEST": {
+              "target": "Package",
+              "version": "[7.17.4, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "System.Buffers": {
+              "target": "Package",
+              "version": "[4.5.1, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "System.Data.Odbc": {
+              "target": "Package",
+              "version": "[4.6.0, )"
+            },
+            "System.Data.OleDb": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.3, )"
+            },
+            "System.DirectoryServices.AccountManagement": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+            },
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "System.IO.Packaging": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "System.Management": {
+              "target": "Package",
+              "version": "[4.5.0, )"
+            },
+            "System.Net.Http": {
+              "target": "Package",
+              "version": "[4.3.4, )"
+            },
+            "System.Text.Encoding": {
+              "target": "Package",
+              "version": "[4.3.0, )"
+            },
+            "System.Text.Encoding.CodePages": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "System.Text.Json": {
+              "target": "Package",
+              "version": "[6.0.5, )"
+            },
+            "Utf8Json": {
+              "target": "Package",
+              "version": "[1.3.7, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\PROGRAM FILES\\DOTNET\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

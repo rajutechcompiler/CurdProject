@@ -1,0 +1,56 @@
+﻿@using TabFusionRMS.Resource
+@{
+    ViewData["Title"] = Languages.get_Translation("tiUploadAttachFile");
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<section class="content">
+    <div id="LoadUserControl">
+        <div class="form-group row">
+            <label class="col-sm-3 col-md-3 control-label" for="ddlOutputSettings">@Languages.get_Translation("lblScannerOutputSetting")</label>
+            <div class="col-sm-5 col-md-5">
+                @*@Html.DropDownList("ddlOutputSettings", DirectCast(ViewBag.OutputSettingsList, IEnumerable(Of SelectListItem)), New With {.class = "form-control"})*@
+                <select class="form-control" id="ddlOutputSettings" name="ddlOutputSettings" >
+                    @if (ViewBag.OutputSettingsList != null)
+                    {
+                        foreach (var item in ViewBag.OutputSettingsList)
+                        {
+                            <option value="@item.Id">@item.Name</option>
+                        } 
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 col-md-3 control-label" for="ddlTables">@Languages.get_Translation("lblUploadTables")</label>
+            <div class="col-sm-5 col-md-5">
+                @*@Html.DropDownList("ddlTables", DirectCast(ViewBag.TablesList, IEnumerable(Of SelectListItem)), New With {.class = "form-control"})*@
+                <select id="ddlTables" name="ddlTables" class=" form-control" >
+                    @if (ViewBag.TablesList != null)
+                    {
+                        foreach (var item in ViewBag.TablesList)
+                        {
+                            <option value="@item.Id">@item.Name</option>
+                        }
+                    }
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-sm-3 col-md-3 control-label" for="TableId">@Languages.get_Translation("lblUploadTableId")</label>
+            <div class="col-sm-5 col-md-5">
+                <input type="text" class="form-control" placeholder=@Languages.get_Translation("phUploadTableId") maxlength="5" id="TableId" name="TableId" />
+            </div>
+        </div>
+        <div class="form-group row pull-left">
+            <button id="btnAttachFile" type="button" class="btn btn-primary">@Languages.get_Translation("btnUploadAttachFile")</button>
+            <button id="btnCancel" type="button" class="btn btn-primary" aria-hidden="true">@Languages.get_Translation("Cancel")</button>
+        </div>
+    </div>
+</section>
+<script src="@Url.Content("~/Scripts/AppJs/UploadDocument.js")"></script>
+
+
+
+
+
